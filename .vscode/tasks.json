@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-std=c++2b",  // Tên chuẩn thay thế cho C++23 (trong GCC 13 vẫn dùng c++2b)
+          "main.cpp",
+          "-o",
+          "main"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      }
+    ]
+  }
+  

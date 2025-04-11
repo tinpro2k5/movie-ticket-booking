@@ -1,0 +1,14 @@
+{
+  "name": "C++23 Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "C_Cpp.default.cppStandard": "c++23"
+  },
+  "extensions": [
+    "ms-vscode.cpptools"
+  ],
+  "postCreateCommand": "g++ --version"
+}
