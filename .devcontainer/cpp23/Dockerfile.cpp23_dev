@@ -1,14 +1,15 @@
-{
-  "name": "C++23 Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "settings": {
-    "C_Cpp.default.compilerPath": "/usr/bin/g++",
-    "C_Cpp.default.cppStandard": "c++23"
-  },
-  "extensions": [
-    "ms-vscode.cpptools"
-  ],
-  "postCreateCommand": "g++ --version"
-}
+# Sử dụng Ubuntu base
+FROM ubuntu:22.04
+
+# Cập nhật và cài g++-13
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+    apt-get update && \
+    apt-get install -y g++-13 gdb cmake make git curl
+
+# Thiết lập g++-13 làm mặc định
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 100
+
+# Thiết lập thư mục làm việc
+WORKDIR /workspace

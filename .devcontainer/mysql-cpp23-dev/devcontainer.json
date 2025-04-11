@@ -1,7 +1,7 @@
 {
     "name": "C++23 MySQL Dev",
     "build": {
-      "dockerfile": "Dockerfile"
+      "dockerfile": "Dockerfile.mysql_cpp23_dev",
     },
     "settings": {
       "terminal.integrated.defaultProfile.linux": "bash"
