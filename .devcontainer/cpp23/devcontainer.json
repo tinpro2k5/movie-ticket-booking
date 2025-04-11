@@ -1,7 +1,7 @@
 {
     "name": "C++23 Dev Container",
     "build": {
-      "dockerfile": "Dockerfile"
+      "dockerfile": "Dockerfile.cpp23_dev"
     },
     "settings": {
       "C_Cpp.default.compilerPath": "/usr/bin/g++",

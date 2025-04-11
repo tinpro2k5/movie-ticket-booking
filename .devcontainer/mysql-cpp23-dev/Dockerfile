@@ -1,0 +1,41 @@
+FROM ubuntu:22.04
+
+# Cập nhật và cài đặt các gói cần thiết
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    software-properties-common \
+    build-essential \
+    curl \
+    git \
+    vim \
+    sudo \
+    npm \
+    mysql-server \
+    libmysqlclient-dev \
+    gdb \
+    lsb-release && \
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+    apt-get update && \
+    apt-get install -y g++-13 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Thiết lập g++-13 làm mặc định
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 100
+
+# Tạo user không chạy bằng root
+RUN useradd -m devuser && echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Sửa quyền thư mục socket của MySQL
+RUN mkdir -p /var/run/mysqld && \
+    chmod 755 /var/run/mysqld && \
+    chown mysql:mysql /var/run/mysqld
+
+# Cấu hình MySQL
+RUN echo "[client]\nport=3306\nsocket=/var/run/mysqld/mysqld.sock\n\n[mysqld]\nuser=mysql\nport=3306\ndatadir=/var/lib/mysql\nsocket=/var/run/mysqld/mysqld.sock" > /etc/my.cnf
+
+USER devuser
+WORKDIR /home/devuser
+
+EXPOSE 3306
+
+CMD ["bash", "-c", "sudo service mysql start && bash"]
