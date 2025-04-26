@@ -3,10 +3,13 @@
         {
             "name": "Linux",
             "includePath": [
-                "/usr/lib/gcc/x86_64-linux-gnu/13/include/**",
+                //"/usr/lib/gcc/x86_64-linux-gnu/13/include/**",
+                "/usr/include/c++/**",  // Đường dẫn mặc định GCC
                 "/usr/local/include/**",
                 "/usr/include/x86_64-linux-gnu/**",
                 "/usr/include/**",
+                "/usr/include/mysql/**", 
+
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/**"

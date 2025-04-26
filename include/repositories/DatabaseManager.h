@@ -1,7 +1,7 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
-#include <mysql.h>
+#include <mysql/mysql.h>
 #include <string>
 #include <iostream>
 
