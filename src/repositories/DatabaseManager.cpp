@@ -1,17 +1,17 @@
 #include "repositories/DatabaseManager.h"
 
 
-DatabaseManager* DatabaseManager::instance = nullptr;
-
+std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 // Constructor
 DatabaseManager::DatabaseManager() {
-    conn = mysql_init(nullptr);
+    conn = mysql_init(0);
 
     if (conn == nullptr) {
         std::cerr << "MySQL initialization failed!\n";
         exit(1); // Lỗi nặng, thoát luôn
     }
 
+    // to do
     conn = mysql_real_connect(conn, "localhost", "root", "", "cpp_movieticketbookingsystem", 0, NULL, 0);
 
     if (conn == nullptr) {
@@ -33,9 +33,9 @@ DatabaseManager::~DatabaseManager() {
 // Singleton Instance
 DatabaseManager* DatabaseManager::getInstance() {
     if (instance == nullptr) {
-        instance = new DatabaseManager();
+        instance = std::unique_ptr<DatabaseManager>(new DatabaseManager());
     }
-    return instance;
+    return instance.get();
 }
 
 // Getter Connection

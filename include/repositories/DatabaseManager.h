@@ -4,12 +4,16 @@
 #include <mysql/mysql.h>
 #include <string>
 #include <iostream>
+#include <memory>
 
+
+const char * DATABASE_HOST = "localhost";
 
 class DatabaseManager {
 private:
-    static DatabaseManager* instance;
-    MYSQL* conn;
+
+    static std::unique_ptr<DatabaseManager> instance; 
+    MYSQL *conn; // Kết nối MySQL
 
     // Private constructor: chỉ được khởi tạo từ bên trong class
     DatabaseManager();
