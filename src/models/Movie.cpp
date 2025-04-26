@@ -38,6 +38,36 @@ string Movie::getTicketPrice() const{
 string Movie::getSeat() const{
     return _seat;
 }
+void Movie::setIdMovie(const string& id_movie) {
+    _id_movie = id_movie;
+}
+void Movie::setName(const string& name) {
+    _name = name;
+}
+
+void Movie::setGenre(const string& genre) {
+    _genre = genre;
+}
+
+void Movie::setFormat(const string& format) {
+    _format = format;
+}
+
+void Movie::setShowDate(const string& show_date) {
+    _show_date = show_date;
+}
+
+void Movie::setShowTime(const string& show_time) {
+    _show_time = show_time;
+}
+
+void Movie::setTicketPrice(const string& ticket_price) {
+    _ticket_price = ticket_price;
+}
+
+void Movie::setSeat(const string& seat) {
+    _seat = seat;
+}
 ostream& operator<<(ostream& os, const Movie& movie){
     cout << "| " << setw(15) << left << movie._id_movie
          << "| " << setw(15) << left << movie._name
