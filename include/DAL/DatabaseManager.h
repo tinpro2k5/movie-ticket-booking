@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
-
+#include <fstream>
 
 class ServerInfo{
 private:
@@ -42,9 +42,9 @@ private:
     // Private constructor: chỉ được khởi tạo từ bên trong class
     DatabaseManager(){conn = nullptr;}   
 public:
-    bool setupDatabase();
-    bool connect(const ServerInfo& server_info);
-    bool disconnect();
+    void setupDatabase();
+    void connect(const ServerInfo& server_info);
+    void disconnect();
     ~DatabaseManager();
 
     // Không cho copy
@@ -58,7 +58,16 @@ public:
     MYSQL* getConnection();
 
 
+    bool isConnected() const {
+        return conn != nullptr;
+    }
+
+    // TODO ngày mai 🐹🐴🐵
+    int excuteQuery(const std::string& query);
+    int excuteScript(const std::string& script);
+
 };
+
 
 
 #endif // DATABASEMANAGER_H

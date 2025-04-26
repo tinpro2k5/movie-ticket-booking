@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 #include <memory>
-#include "repositories/DatabaseManager.h"
+#include "DAL/DatabaseManager.h"
 
 // Simple test harness class
 class Test {

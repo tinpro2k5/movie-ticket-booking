@@ -1,4 +1,4 @@
-#include "repositories/DatabaseManager.h"
+#include "DAL/DatabaseManager.h"
 
 
 // @tinpro2k5 TODO: check hợp lệ đối số các hàm của ServerInfo
@@ -56,28 +56,23 @@ unsigned int ServerInfo::getPort() const {
 
 std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 // Constructor
-bool DatabaseManager::connect(const ServerInfo& server_info) {
-    conn = mysql_init(0);
-
-    if (conn == nullptr) {
-        std::cerr << "MySQL initialization failed!\n";
-        return false;
+void DatabaseManager::connect(const ServerInfo& server_info) {
+    try{
+        conn = mysql_init(0);
+        conn = mysql_real_connect(conn, server_info.getHost().c_str(),
+                                    server_info.getUser().c_str(), 
+                                    server_info.getPassword().c_str(),
+                                    server_info.DEFAULT_SYS_DB_NAME.c_str(),
+                                    server_info.getPort(),
+                                    NULL,0 
+                                );
     }
 
-    conn = mysql_real_connect(conn, server_info.getHost().c_str(),
-                                server_info.getUser().c_str(), 
-                                server_info.getPassword().c_str(),
-                                server_info.DEFAULT_SYS_DB_NAME.c_str(),
-                                server_info.getPort(),
-                                NULL,0 
-                            );
-
-    if (conn == nullptr) {
-        std::cout << "MySQL connection failed: " << mysql_error(conn) << "\n";
-        return false;
+    catch (const std::exception& e) {
+        std::cerr << "Error connecting to database: " << e.what() << "\n";
+        throw std::runtime_error("Error connecting to database. " + std::string(e.what()));
     }
     std::cout << "Database connected successfully!\n";
-    return true;
 }
 
 // Destructor
@@ -102,37 +97,34 @@ MYSQL* DatabaseManager::getConnection() {
     return conn;
 }
 
-bool DatabaseManager::disconnect() {
+void DatabaseManager::disconnect() {
     if (conn != nullptr) {
         mysql_close(conn);
         conn = nullptr;
         std::cout << "Database disconnected successfully!\n";
-        return true;
     }
-    return false;
 }
-bool DatabaseManager::setupDatabase() {
-    if (conn == nullptr) {
-        std::cerr << "No active connection to the database.\n";
-        return false;
+void DatabaseManager::setupDatabase() {
+    try {
+        if (conn == nullptr) {
+            std::cerr << "No active connection to the database.\n";
+            throw std::runtime_error("No active connection to the database.");
+        }
+        // tạo ra và sử dụng nếu không tồn tại database: MOVIE_BOOKING
+        std::string create_db_query = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
+        mysql_query(conn, create_db_query.c_str());
+        std::cout << "Database MOVIE_BOOKING created successfully!\n";
+        // sử dụng database MOVIE_BOOKING
+        std::string use_db_query = "USE MOVIE_BOOKING";
+        mysql_query(conn, use_db_query.c_str());
+        std::cout << "Using database MOVIE_BOOKING!\n";
     }
-    // tạo ra và sử dụng nếu không tồn tại database: MOVIE_BOOKING
-    std::string create_db_query = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
-    if (mysql_query(conn, create_db_query.c_str())) {
-        std::cerr << "Failed to create database: " << mysql_error(conn) << "\n";
-        return false;
+    catch (const std::exception& e) {
+        std::cerr << "Error setting up database: " << e.what() << "\n";
+        throw std::runtime_error("Error setting up database. " + std::string(e.what()));
     }
-    std::cout << "Database MOVIE_BOOKING created successfully!\n";
-    // sử dụng database MOVIE_BOOKING
-    std::string use_db_query = "USE MOVIE_BOOKING";
-    if (mysql_query(conn, use_db_query.c_str())) {
-        std::cerr << "Failed to use database: " << mysql_error(conn) << "\n";
-        return false;
-    }
-    std::cout << "Using database MOVIE_BOOKING!\n";
  
     //TODO: Tạo ra các bảng trong database MOVIE_BOOKING
     // tạo ra bảng movie nếu không tồn tại
-
-    return true;
 }
+
