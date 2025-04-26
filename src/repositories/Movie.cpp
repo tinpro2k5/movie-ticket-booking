@@ -2,6 +2,7 @@
 
 Movie::Movie(string id_movie, string name, string genre, string format, string show_date, string show_time, string ticket_price, string seat)
 {
+    _id_movie = id_movie;
     _name = name;
     _genre = genre;
     _format = format;
