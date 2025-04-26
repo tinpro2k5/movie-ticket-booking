@@ -28,6 +28,7 @@ class Movie{
     public:
     Movie(string id_movie, string name, string genre, string format, string show_date, string show_time, string ticket_price, string seat);
     ~Movie();
+    //getters
     string getIdMovie() const;
     string getName() const;
     string getGenre() const;
@@ -36,6 +37,16 @@ class Movie{
     string getShowTime() const;
     string getTicketPrice() const;
     string getSeat() const;
+    //setters
+    void setIdMovie(const string& id_movie);
+    void setName(const string& name);
+    void setGenre(const string& genre);
+    void setFormat(const string& format);
+    void setShowDate(const string& show_date);
+    void setShowTime(const string& show_time);
+    void setTicketPrice(const string& ticket_price);
+    void setSeat(const string& seat);
+    //print method
     friend ostream& operator<<(ostream& os, const Movie& movie);
 };
 #endif
