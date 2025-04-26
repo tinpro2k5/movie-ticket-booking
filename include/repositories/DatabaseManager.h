@@ -7,7 +7,31 @@
 #include <memory>
 
 
-const char * DATABASE_HOST = "localhost";
+class ServerInfo{
+private:
+std::string host;
+std::string user;
+std::string password;
+unsigned int port;
+public:
+    std::string DEFAULT_SYS_DB_NAME = "mysql";
+    ServerInfo();
+    ServerInfo(const std::string& host, const std::string& user, const std::string& password, const std::string& dbname, unsigned int port);
+
+    
+
+    void setHost(const std::string& host);
+    void setUser(const std::string& user);
+    void setPassword(const std::string& password);
+    void setPort(unsigned int port);
+    
+
+    std::string getHost() const;
+    std::string getUser() const;
+    std::string getPassword() const;
+    unsigned int getPort() const;
+
+};
 
 class DatabaseManager {
 private:
@@ -16,9 +40,11 @@ private:
     MYSQL *conn; // Kết nối MySQL
 
     // Private constructor: chỉ được khởi tạo từ bên trong class
-    DatabaseManager();
-
+    DatabaseManager(){conn = nullptr;}   
 public:
+    bool setupDatabase();
+    bool connect(const ServerInfo& server_info);
+    bool disconnect();
     ~DatabaseManager();
 
     // Không cho copy
@@ -30,6 +56,9 @@ public:
 
     // Lấy kết nối MySQL
     MYSQL* getConnection();
+
+
 };
+
 
 #endif // DATABASEMANAGER_H
