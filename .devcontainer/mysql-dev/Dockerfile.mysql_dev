@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-# Cập nhật và cài đặt các gói cơ bản
+# Cài các gói cơ bản
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
@@ -13,32 +13,19 @@ RUN apt-get update && \
     libmysqlclient-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Tạo user để không chạy bằng root
+# Tạo user devuser
 RUN useradd -m devuser && echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-
-USER devuser
-WORKDIR /home/devuser
-
-
-# Cấu hình MySQL
-USER root
-RUN echo "[client]\\nport=3306\\nsocket=/var/run/mysqld/mysqld.sock\\n\\n[mysqld]\\nuser=mysql\\nport=3306\\ndatadir=/var/lib/mysql\\nsocket=/var/run/mysqld/mysqld.sock" > /etc/my.cnf
-
-
-
-# Sửa quyền thư mục socket
+# Sửa quyền socket cho mysql
 RUN mkdir -p /var/run/mysqld && \
-chmod 755 /var/run/mysqld && \
-chown mysql:mysql /var/run/mysqld
+    chown mysql:mysql /var/run/mysqld
 
-RUN service mysql start && \
-    mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpassword'; FLUSH PRIVILEGES;" && \
-    service mysql stop
+# Copy script start MySQL
+COPY start-mysql.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/start-mysql.sh
 
-USER devuser
-# Expose cổng mysql
+# Expose port
 EXPOSE 3306
 
-# Khởi động MySQL khi container start
-CMD ["bash", "-c", "service mysql start && bash"]
+# Start MySQL and keep container alive
+CMD ["bash", "/usr/local/bin/start-mysql.sh"]
