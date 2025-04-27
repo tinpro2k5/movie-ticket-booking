@@ -1,10 +1,22 @@
-Client -> gọi DatabaseManager::executeSelect()
-              ↓
-DatabaseManager:
-    - thực thi mysql_query
-    - gọi mysql_store_result
-    - trả về MYSQL_RES* (vùng nhớ riêng, đã malloc)
-              ↓
-Client:
-    - xài MYSQL_RES*
-    - phải tự mysql_free_result khi xong
+[Start Program]
+→ Show Login Screen
+    → User nhập username/password
+    → Kiểm tra trong database
+        - Nếu đúng: lưu `currentUser`
+        - Nếu sai: báo lỗi, cho nhập lại
+
+→ Main Menu (tuỳ theo vai trò):
+    - Nếu isAdmin:
+        + Quản lý Phim
+        + Quản lý Phòng/Rạp
+        + Quản lý Suất chiếu
+    - Nếu là User:
+        + Xem phim
+        + Lọc phim
+        + Đặt vé
+        + Xem vé đã đặt
+
+→ Người dùng thao tác liên tục
+→ Nếu chọn Logout
+    → Xoá `currentUser`
+    → Về màn hình login (hoặc thoát chương trình)

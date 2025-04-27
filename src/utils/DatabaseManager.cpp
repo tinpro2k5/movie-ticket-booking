@@ -1,9 +1,9 @@
-#include "DAL/DatabaseManager.h"
+#include "DatabaseManager.h"
 
 
 std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
 std::string USE_DB_QUERY = "USE MOVIE_BOOKING";
-std::string INIT_DB_SCRIPT = "../scripts/init_db.sql";
+std::string INIT_DB_SCRIPT = "../../sql_scripts/init_db.sql";
 
 
 
@@ -31,35 +31,15 @@ ServerInfo::ServerInfo(const std::string& host,
 }
 
 
+void ServerInfo::setHost(const std::string& host){  this->host = host;  }
+void ServerInfo::setUser(const std::string& user) { this->user = user;  }
+void ServerInfo::setPassword(const std::string& password) { this->password = password;  }
+void ServerInfo::setPort(unsigned int port) {   this->port = port;  }
 
-void ServerInfo::setHost(const std::string& host){
-    this->host = host;
-}
-void ServerInfo::setUser(const std::string& user) {
-    this->user = user;
-}
-void ServerInfo::setPassword(const std::string& password) {
-    this->password = password;
-}
-
-void ServerInfo::setPort(unsigned int port) {
-    this->port = port;
-}
-
-
-std::string ServerInfo::getHost() const {
-    return host;
-}
-std::string ServerInfo::getUser() const {
-    return user;
-}
-std::string ServerInfo::getPassword() const {
-    return password;
-}
-
-unsigned int ServerInfo::getPort() const {
-    return port;
-}
+std::string ServerInfo::getHost() const {   return host;    }
+std::string ServerInfo::getUser() const {   return user;    }
+std::string ServerInfo::getPassword() const {   return password; }
+unsigned int ServerInfo::getPort() const {  return port;    }
 
 std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 // Constructor

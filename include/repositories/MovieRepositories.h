@@ -2,7 +2,7 @@
 #define MovieRepositories_h
 
 #include "include/models/Movie.h"
-#include "include/DAL/DatabaseManager.h"
+#include "DatabaseManager.h"
 
 class MovieRepositories {
 public:
@@ -12,14 +12,5 @@ public:
     static void addNewMovie();
 };
 
-class MovieRepositories {
-    public:
-     getMovie();
-     editMovie();
-     deleteMovie();
-     addMovie();
-
-    
-};
 
 #endif
