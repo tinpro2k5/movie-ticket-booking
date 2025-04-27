@@ -5,14 +5,17 @@ std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
 std::string USE_DB_QUERY = "USE MOVIE_BOOKING";
 std::string INIT_DB_SCRIPT = "../scripts/init_db.sql";
 
+
+
+
 // @tinpro2k5 TODO: check hợp lệ đối số các hàm của ServerInfo
 
 
 ServerInfo::ServerInfo() {
-    host = std::getenv("DB_HOST") ? std::getenv("DB_HOST") : "localhost";
-    user = std::getenv("DB_USER") ? std::getenv("DB_USER") : "root";
-    password = std::getenv("DB_PASS") ? std::getenv("DB_PASS") : "";
-    port = std::getenv("DB_PORT") ? std::stoi(std::getenv("DB_PORT")) : 3306;
+    host = std::getenv("DB_HOST") ? std::getenv("DB_HOST") : DEFAULT_LOCAL;
+    user = std::getenv("DB_USER") ? std::getenv("DB_USER") : DEFAULT_USER;
+    password = std::getenv("DB_PASS") ? std::getenv("DB_PASS") : DEFAULT_PASS;
+    port = std::getenv("DB_PORT") ? std::stoi(std::getenv("DB_PORT")) : DEFAULT_PORT;
 }
 ServerInfo::ServerInfo(const std::string& host, 
                         const std::string& user,

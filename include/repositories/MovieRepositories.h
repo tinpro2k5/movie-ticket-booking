@@ -12,4 +12,14 @@ public:
     static void addNewMovie();
 };
 
+class MovieRepositories {
+    public:
+     getMovie();
+     editMovie();
+     deleteMovie();
+     addMovie();
+
+    
+};
+
 #endif
