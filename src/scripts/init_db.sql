@@ -1,65 +1,127 @@
+CREATE TABLE IF NOT EXISTS User (
+    userID INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20),
+    isAdmin BOOLEAN DEFAULT FALSE
+);
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+CREATE TABLE IF NOT EXISTS Movie (
+    movieID INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    genre VARCHAR(50),
+    description TEXT,
+    duration INT,
+    rating FLOAT,
+    posterPath VARCHAR(255)
+);
 
+CREATE TABLE IF NOT EXISTS Theater (
+    theaterID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(255) NOT NULL
+);
 
-CREATE TABLE IF NOT EXISTS `customer_tb` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL DEFAULT '0',
-  `phone` varchar(50) NOT NULL DEFAULT '0',
-  `movie` varchar(50) NOT NULL DEFAULT '0',
-  `format` varchar(50) NOT NULL DEFAULT '0',
-  `seat` int(11) NOT NULL DEFAULT '0',
-  `price` float NOT NULL DEFAULT '0',
-  `showdate` varchar(50) NOT NULL DEFAULT '0',
-  `showtime` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS Room (
+    roomID INT AUTO_INCREMENT PRIMARY KEY,
+    theaterID INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    capacity INT NOT NULL,
+    FOREIGN KEY (theaterID) REFERENCES Theater(theaterID)
+);
 
-
-CREATE TABLE IF NOT EXISTS `movie_tb` (
-  `m_id` int(11) NOT NULL AUTO_INCREMENT,
-  `m_name` varchar(50) NOT NULL DEFAULT '0',
-  `m_genre` varchar(50) NOT NULL DEFAULT '0',
-  `m_format` varchar(50) NOT NULL,
-  `m_showdate` varchar(50) NOT NULL,
-  `m_showtime` varchar(50) NOT NULL,
-  `m_ticketprice` float NOT NULL,
-  `m_seat` int(11) DEFAULT NULL,
-  PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-
-INSERT IGNORE INTO `customer_tb` (`id`, `name`, `phone`, `movie`, `format`, `seat`, `price`, `showdate`, `showtime`) VALUES
-(2, 'Rumi', '0114784878', 'Titanic', '3d', 4, 600, '0000-00-00', '04:20:00'),
-(3, 'Kader', '01154878', 'Titanic', '2d', 3, 1050, '2012-01-01', '4:20');
-
-
-INSERT IGNORE INTO `movie_tb` (`m_id`, `m_name`, `m_genre`, `m_format`, `m_showdate`, `m_showtime`, `m_ticketprice`, `m_seat`) VALUES
-(1, 'Titanic', 'Romantic', '3d', '0000-00-00', '04:20:00', 150, 41),
-(3, 'Titanic', 'Romantic', '2d', '2012-01-01', '4:20', 350, 42),
-(4, 'The Detail', 'Action', '2d', '2017-11-01', '6:30PM', 200, 45),
-(5, 'Tin TIn', 'Adventure', '2d', '2009-12-01', '3:20 PM', 500, 45),
-(7, 'Tower Heist', 'Funny', '2d', '2017-12-12', '5:30 PM', 400, 45);
+CREATE TABLE IF NOT EXISTS Seat (
+    roomID INT NOT NULL,
+    seatNumber VARCHAR(10) NOT NULL,
+    isVip BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (roomID, seatNumber),
+    FOREIGN KEY (roomID) REFERENCES Room(roomID)
+);
 
 
+CREATE TABLE IF NOT EXISTS Showtime (
+    roomID INT NOT NULL,
+    showDateTime DATETIME NOT NULL,
+    movieID INT NOT NULL,
+    PRIMARY KEY (roomID, showDateTime),
+    FOREIGN KEY (roomID) REFERENCES Room(roomID),
+    FOREIGN KEY (movieID) REFERENCES Movie(movieID)
+);
 
 
-ALTER TABLE `customer_tb`
-  ADD PRIMARY KEY (`id`) 
-  IF NOT EXISTS;
+CREATE TABLE IF NOT EXISTS Ticket (
+    ticketID INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    roomID INT NOT NULL,
+    seatNumber VARCHAR(10) NOT NULL,
+    showDateTime DATETIME NOT NULL,
+    basePrice DECIMAL(10,2) NOT NULL,
+    bookedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    isPaid BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (userID) REFERENCES User(userID),
+    FOREIGN KEY (roomID, seatNumber) REFERENCES Seat(roomID, seatNumber),
+    FOREIGN KEY (roomID, showDateTime) REFERENCES Showtime(roomID, showDateTime)
+);
 
 
-ALTER TABLE `movie_tb`
-  ADD PRIMARY KEY (`m_id`)
-  IF NOT EXISTS;
+CREATE TABLE IF NOT EXISTS SeatSchedule (
+    roomID INT NOT NULL,
+    seatNumber VARCHAR(10) NOT NULL,
+    showDateTime DATETIME NOT NULL,
+    ticketID INT NULL,
+    PRIMARY KEY (roomID, seatNumber, showDateTime),
+    FOREIGN KEY (roomID, seatNumber) REFERENCES Seat(roomID, seatNumber),
+    FOREIGN KEY (roomID, showDateTime) REFERENCES Showtime(roomID, showDateTime),
+    FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID)
+);
 
 
 
-ALTER TABLE `customer_tb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
+('admin', 'adminpass', 'admin@example.com', '0123456789', TRUE),
+('john_doe', 'password123', 'john@example.com', '0987654321', FALSE),
+('jane_doe', 'password456', 'jane@example.com', '0111222333', FALSE);
 
-ALTER TABLE `movie_tb`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+-- Thêm Movie
+INSERT IGNORE INTO Movie (title, genre, description, duration, rating, posterPath) VALUES
+('Inception', 'Sci-Fi', 'A mind-bending thriller.', 148, 8.8, '/images/inception.jpg'),
+('The Dark Knight', 'Action', 'The Batman faces Joker.', 152, 9.0, '/images/darkknight.jpg');
+
+-- Thêm Theater
+INSERT IGNORE INTO Theater (name, location) VALUES
+('Cinema Center', '123 Main St'),
+('Galaxy Theater', '456 Broadway Ave');
+
+-- Thêm Room
+INSERT IGNORE INTO Room (theaterID, name, capacity) VALUES
+(1, 'Room A', 100),
+(1, 'Room B', 80),
+(2, 'Room C', 120);
+
+-- Thêm Seat cho Room A
+INSERT IGNORE INTO Seat (roomID, seatNumber, isVip) VALUES
+(1, 'A1', FALSE),
+(1, 'A2', FALSE),
+(1, 'A3', TRUE),
+(1, 'B1', FALSE),
+(1, 'B2', TRUE);
+
+-- Thêm Showtime
+INSERT IGNORE INTO Showtime (roomID, showDateTime, movieID) VALUES
+(1, '2025-05-01 18:00:00', 1),
+(1, '2025-05-01 21:00:00', 2),
+(2, '2025-05-01 19:00:00', 1);
+
+-- Thêm Ticket mẫu
+INSERT IGNORE INTO Ticket (userID, roomID, seatNumber, showDateTime, basePrice, isPaid) VALUES
+(2, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE),
+(3, 1, 'B2', '2025-05-01 21:00:00', 120.00, FALSE);
+
+-- Thêm SeatSchedule
+INSERT IGNORE INTO SeatSchedule (roomID, seatNumber, showDateTime, ticketID) VALUES
+(1, 'A1', '2025-05-01 18:00:00', 1),
+(1, 'B2', '2025-05-01 21:00:00', 2),
+(1, 'A2', '2025-05-01 18:00:00', NULL),
+(1, 'A3', '2025-05-01 18:00:00', NULL),
+(1, 'B1', '2025-05-01 18:00:00', NULL);
