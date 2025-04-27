@@ -9,6 +9,7 @@ public:
     static void showMovieList();
     static void editMovie();
     static void deleteMovie();
+    static void addNewMovie();
 };
 
 #endif
