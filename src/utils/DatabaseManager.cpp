@@ -45,26 +45,29 @@ std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 void DatabaseManager::connect(const ServerInfo& server_info) {
     if (conn) {
         mysql_close(conn);  // Đóng kết nối trước khi tạo mới
+        conn = nullptr;
     }
 
     conn = mysql_init(nullptr);  // Khởi tạo kết nối
-
-    // Thử kết nối
-    conn = mysql_real_connect(conn, 
-                               server_info.getHost().c_str(),
-                               server_info.getUser().c_str(),
-                               server_info.getPassword().c_str(),
-                               ServerInfo::DEFAULT_DB_NAME.c_str(),
-                               server_info.getPort(),
-                               nullptr, 0);
-
-   
-    // Kiểm tra nếu kết nối thất bại
-
-    if (!conn) {
-        std::cerr << "Error connecting to database: " << mysql_error(conn) << "\n";
-        throw std::runtime_error("Error connecting to database: " + std::string(mysql_error(conn)));
+    if (conn == nullptr) {
+        std::cerr << "Error initializing MySQL connection: " << mysql_error(conn) << "\n";
+        throw std::runtime_error("Error initializing MySQL connection: " + std::string(mysql_error(conn)));
     }
+    // Thử kết nối
+    if (!mysql_real_connect(conn, 
+                            server_info.getHost().c_str(),
+                            server_info.getUser().c_str(),
+                            server_info.getPassword().c_str(),
+                            nullptr,
+                            server_info.getPort(),
+                            nullptr, 0)) {
+        std::string err = mysql_error(conn);
+        mysql_close(conn);
+        conn = nullptr;
+        throw std::runtime_error("mysql_real_connect() failed: " + err);
+    }
+
+
     std::cout << "Database connected successfully!\n";
 }
 
@@ -99,7 +102,12 @@ void DatabaseManager::disconnect() {
     }
 }
 void DatabaseManager::setupDatabase() {
-    if (conn == nullptr || mysql_error(conn)) {
+    std::string error = mysql_error(conn);
+    if (!conn 
+        || !error.empty()
+    )
+    {
+        std::cout << mysql_error(conn) << std::endl;
         std::cerr << "No active connection to the database.\n";
         throw std::runtime_error("No active connection to the database.");
     }
@@ -133,6 +141,7 @@ void DatabaseManager::setupDatabase() {
         std::cerr << "Error setting up database: " << e.what() << "\n";
         throw std::runtime_error("Error setting up database. " + std::string(e.what()));
     }
+  
     std::cout << "Database setup completed successfully!🚀✨\n";
 }
 

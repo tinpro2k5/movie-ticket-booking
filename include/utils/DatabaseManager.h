@@ -47,11 +47,9 @@ class ServerInfo{
     std::string password;
     unsigned int port;
 public:
-    inline static std::string DEFAULT_SYS_DB_NAME = "mysql";
     inline static std::string DEFAULT_LOCAL = "localhost";
     inline static std::string DEFAULT_USER = "root";
-    inline static std::string DEFAULT_PASS = "";
-    inline static std::string DEFAULT_DB_NAME = "mysql";
+    inline static std::string DEFAULT_PASS = "rootpassword";
     inline static unsigned int DEFAULT_PORT = 3306;
     ServerInfo();
     ServerInfo(const std::string& host, const std::string& user, const std::string& password, unsigned int port);

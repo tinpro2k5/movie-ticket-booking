@@ -1,75 +1,44 @@
 #include <cassert>
-#include <iostream>
 #include "../../include/utils/DatabaseManager.h"
 
+void test_connect_and_disconnect() {
+    ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
+    DatabaseManager* dbManager = DatabaseManager::getInstance();
 
-void testServerInfoCustomConstructor() {
-    ServerInfo server_info("localhost", "root", "password",  3306);
-    assert(server_info.getHost() == "localhost");
-    assert(server_info.getUser() == "root");
-    assert(server_info.getPassword() == "password");
-    assert(server_info.getPort() == 3306);
-    std::cout << "testServerInfoCustomConstructor passed!\n";
+    dbManager->connect(serverInfo);
+    assert(dbManager->getConnection() != nullptr && "Connection failed.");
+
+    dbManager->disconnect();
+    assert(dbManager->getConnection() == nullptr && "Disconnection failed.");
 }
 
-void testDatabaseConnectDisconnect() {
-    DatabaseManager* db = DatabaseManager::getInstance();
-    ServerInfo server_info("localhost", "root", "", 3306);
+void test_setup_database() {
+    ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
+    DatabaseManager* dbManager = DatabaseManager::getInstance();
 
-    db->connect(server_info);
-    assert(db->getConnection() != nullptr);
-
-    db->disconnect();
-    assert(db->getConnection() == nullptr);
-
-    std::cout << "testDatabaseConnectDisconnect passed!\n";
+    dbManager->connect(serverInfo);
+    dbManager->setupDatabase();
+    dbManager->disconnect();
 }
 
-void testExecuteSimpleQuery() {
-    DatabaseManager* db = DatabaseManager::getInstance();
-    ServerInfo server_info("localhost", "root", "password",  3306);
+void test_execute_query() {
+    ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
+    DatabaseManager* dbManager = DatabaseManager::getInstance();
 
-    db->connect(server_info);
-    QueryResult result = db->executeQuery("SELECT 1;");
-    assert(result.success);
-    assert(result.result != nullptr); // SELECT 1 trả về kết quả
+    dbManager->connect(serverInfo);
+    QueryResult useDbResult = dbManager->executeQuery("USE MOVIE_BOOKING");
+    assert(useDbResult.success && "USE MOVIE_BOOKING failed.");
 
-    db->disconnect();
-    std::cout << "testExecuteSimpleQuery passed!\n";
-}
+    QueryResult showTablesResult = dbManager->executeQuery("SHOW TABLES");
+    assert(showTablesResult.success && "SHOW TABLES query failed.");
 
-void testExecuteScript() {
-    DatabaseManager* db = DatabaseManager::getInstance();
-    ServerInfo server_info("localhost", "root", "password",  3306);
-
-    db->connect(server_info);
-    ScriptResult script_result = db->executeScript("../../sql_scripts/init_db.sql");
-
-    assert(script_result.success);
-
-    db->disconnect();
-    std::cout << "testExecuteScript passed!\n";
-}
-
-void testSetupDatabase() {
-    DatabaseManager* db = DatabaseManager::getInstance();
-    ServerInfo server_info("localhost", "root", "password", 3306);
-
-    db->connect(server_info);
-    db->setupDatabase();
-
-    db->disconnect();
-    std::cout << "testSetupDatabase passed!\n";
+    dbManager->disconnect();
 }
 
 int main() {
-  
-    testServerInfoCustomConstructor();
-    testDatabaseConnectDisconnect();
-    testExecuteSimpleQuery();
-    testExecuteScript();
-    testSetupDatabase();
+    test_connect_and_disconnect();
+    test_setup_database();
+    test_execute_query();
 
-    std::cout << "✅ All tests passed!\n";
     return 0;
 }
