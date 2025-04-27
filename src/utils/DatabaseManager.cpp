@@ -1,4 +1,4 @@
-#include "DatabaseManager.h"
+#include "../../include/utils/DatabaseManager.h"
 
 
 std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
@@ -20,7 +20,6 @@ ServerInfo::ServerInfo() {
 ServerInfo::ServerInfo(const std::string& host, 
                         const std::string& user,
                         const std::string& password,
-                        const std::string& dbname,
                         unsigned int port
                     )
 {
@@ -55,16 +54,17 @@ void DatabaseManager::connect(const ServerInfo& server_info) {
                                server_info.getHost().c_str(),
                                server_info.getUser().c_str(),
                                server_info.getPassword().c_str(),
-                               server_info.DEFAULT_SYS_DB_NAME.c_str(),
+                               ServerInfo::DEFAULT_DB_NAME.c_str(),
                                server_info.getPort(),
                                nullptr, 0);
 
+   
     // Kiểm tra nếu kết nối thất bại
+
     if (!conn) {
         std::cerr << "Error connecting to database: " << mysql_error(conn) << "\n";
         throw std::runtime_error("Error connecting to database: " + std::string(mysql_error(conn)));
     }
-
     std::cout << "Database connected successfully!\n";
 }
 

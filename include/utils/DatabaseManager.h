@@ -54,7 +54,7 @@ public:
     inline static std::string DEFAULT_DB_NAME = "mysql";
     inline static unsigned int DEFAULT_PORT = 3306;
     ServerInfo();
-    ServerInfo(const std::string& host, const std::string& user, const std::string& password, const std::string& dbname, unsigned int port);
+    ServerInfo(const std::string& host, const std::string& user, const std::string& password, unsigned int port);
     
     
     

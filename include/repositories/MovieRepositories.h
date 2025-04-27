@@ -2,7 +2,7 @@
 #define MovieRepositories_h
 
 #include "include/models/Movie.h"
-#include "DatabaseManager.h"
+#include "utils/DatabaseManager.h"
 
 class MovieRepositories {
 public:

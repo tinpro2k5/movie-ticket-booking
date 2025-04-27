@@ -1,4 +1,4 @@
-#include "include/repositories/MovieRepositories.h"
+#include "../../include/repositories/MovieRepositories.h"
 
 void MovieRepositories::showMovieList() {
     std::string query = "SELECT * FROM movie_tb";

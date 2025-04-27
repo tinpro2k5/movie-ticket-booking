@@ -32,6 +32,10 @@ RUN mkdir -p /var/run/mysqld && \
 chmod 755 /var/run/mysqld && \
 chown mysql:mysql /var/run/mysqld
 
+RUN service mysql start && \
+    mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpassword'; FLUSH PRIVILEGES;" && \
+    service mysql stop
+
 USER devuser
 # Expose cổng mysql
 EXPOSE 3306

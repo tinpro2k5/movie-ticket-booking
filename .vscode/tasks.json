@@ -12,7 +12,8 @@
                 "-I/usr/include/mysql",
                 "-I${workspaceFolder}/include",
                 "-I${workspaceFolder}/src",
-                "src/repositories/DatabaseManager.cpp",
+                "src/utils/*.cpp",
+                "-I/usr/include",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-lmysqlclient"
