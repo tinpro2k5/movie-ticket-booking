@@ -6,26 +6,59 @@
 #include <iostream>
 #include <memory>
 #include <fstream>
+#include <vector>
+
+/*
+Khi return, compiler sẽ tự optimize bằng kỹ thuật gọi là Return Value Optimization (RVO):
+Không thực sự copy memory.
+➡️  an toàn.
+
+
+🛡️ Lưu ý thêm 
+Không return con trỏ thô (ScriptResult*) nếu không cần thiết.
+Không return reference (ScriptResult&) từ local variable → sẽ crash (vượt scope).
+Luôn return bằng giá trị (ScriptResult), để C++ tự lo move optimization.
+
+*/
+
+struct QueryResult {
+    bool success;
+    std::unique_ptr<MYSQL_RES, void(*)(MYSQL_RES*)> result; // Nếu SELECT
+    my_ulonglong affected_rows;                             // Nếu INSERT/UPDATE/DELETE
+    std::string error_message;                              // Nếu lỗi
+
+    QueryResult() 
+        : success(false), result(nullptr, mysql_free_result), affected_rows(0) {}
+};
+
+struct ScriptResult {
+    bool success;  // Cả script thành công hay không
+    std::vector<QueryResult> queries; // Kết quả từng câu lệnh
+    std::string error_message; // Lỗi tổng nếu có
+
+    ScriptResult() : success(true) {}
+};
+
 
 class ServerInfo{
-private:
-std::string host;
-std::string user;
-std::string password;
-unsigned int port;
-public:
+    private:
+    std::string host;
+    std::string user;
+    std::string password;
+    unsigned int port;
+    public:
     std::string DEFAULT_SYS_DB_NAME = "mysql";
     ServerInfo();
     ServerInfo(const std::string& host, const std::string& user, const std::string& password, const std::string& dbname, unsigned int port);
-
     
-
+    
+    
     void setHost(const std::string& host);
     void setUser(const std::string& user);
     void setPassword(const std::string& password);
     void setPort(unsigned int port);
     
-
+    
     std::string getHost() const;
     std::string getUser() const;
     std::string getPassword() const;
@@ -62,12 +95,9 @@ public:
         return conn != nullptr;
     }
 
-    // TODO ngày mai 🐹🐴🐵
-    int excuteQuery(const std::string& query);
-    int excuteScript(const std::string& script);
-
+    QueryResult executeQuery(const std::string& query);
+    ScriptResult executeScript(const std::string& script_path);
 };
-
 
 
 #endif // DATABASEMANAGER_H

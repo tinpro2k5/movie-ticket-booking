@@ -1,0 +1,10 @@
+Client -> gọi DatabaseManager::executeSelect()
+              ↓
+DatabaseManager:
+    - thực thi mysql_query
+    - gọi mysql_store_result
+    - trả về MYSQL_RES* (vùng nhớ riêng, đã malloc)
+              ↓
+Client:
+    - xài MYSQL_RES*
+    - phải tự mysql_free_result khi xong

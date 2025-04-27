@@ -1,6 +1,10 @@
 #include "DAL/DatabaseManager.h"
 
 
+std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
+std::string USE_DB_QUERY = "USE MOVIE_BOOKING";
+std::string INIT_DB_SCRIPT = "../scripts/init_db.sql";
+
 // @tinpro2k5 TODO: check hợp lệ đối số các hàm của ServerInfo
 
 
@@ -57,27 +61,34 @@ unsigned int ServerInfo::getPort() const {
 std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 // Constructor
 void DatabaseManager::connect(const ServerInfo& server_info) {
-    try{
-        conn = mysql_init(0);
-        conn = mysql_real_connect(conn, server_info.getHost().c_str(),
-                                    server_info.getUser().c_str(), 
-                                    server_info.getPassword().c_str(),
-                                    server_info.DEFAULT_SYS_DB_NAME.c_str(),
-                                    server_info.getPort(),
-                                    NULL,0 
-                                );
+    if (conn) {
+        mysql_close(conn);  // Đóng kết nối trước khi tạo mới
     }
 
-    catch (const std::exception& e) {
-        std::cerr << "Error connecting to database: " << e.what() << "\n";
-        throw std::runtime_error("Error connecting to database. " + std::string(e.what()));
+    conn = mysql_init(nullptr);  // Khởi tạo kết nối
+
+    // Thử kết nối
+    conn = mysql_real_connect(conn, 
+                               server_info.getHost().c_str(),
+                               server_info.getUser().c_str(),
+                               server_info.getPassword().c_str(),
+                               server_info.DEFAULT_SYS_DB_NAME.c_str(),
+                               server_info.getPort(),
+                               nullptr, 0);
+
+    // Kiểm tra nếu kết nối thất bại
+    if (!conn) {
+        std::cerr << "Error connecting to database: " << mysql_error(conn) << "\n";
+        throw std::runtime_error("Error connecting to database: " + std::string(mysql_error(conn)));
     }
+
     std::cout << "Database connected successfully!\n";
 }
 
+
 // Destructor
 DatabaseManager::~DatabaseManager() {
-    if (conn != nullptr) {
+    if (conn) {
         this->disconnect();
         conn = nullptr;
         std::cout << "Database connection closed.\n"; 
@@ -98,33 +109,134 @@ MYSQL* DatabaseManager::getConnection() {
 }
 
 void DatabaseManager::disconnect() {
-    if (conn != nullptr) {
+    if (conn) {
         mysql_close(conn);
         conn = nullptr;
         std::cout << "Database disconnected successfully!\n";
     }
 }
 void DatabaseManager::setupDatabase() {
+    if (conn == nullptr || mysql_error(conn)) {
+        std::cerr << "No active connection to the database.\n";
+        throw std::runtime_error("No active connection to the database.");
+    }
     try {
-        if (conn == nullptr) {
-            std::cerr << "No active connection to the database.\n";
-            throw std::runtime_error("No active connection to the database.");
-        }
         // tạo ra và sử dụng nếu không tồn tại database: MOVIE_BOOKING
-        std::string create_db_query = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
-        mysql_query(conn, create_db_query.c_str());
-        std::cout << "Database MOVIE_BOOKING created successfully!\n";
-        // sử dụng database MOVIE_BOOKING
-        std::string use_db_query = "USE MOVIE_BOOKING";
-        mysql_query(conn, use_db_query.c_str());
+
+        QueryResult result = executeQuery(CREATE_DB_QUERY);
+        if (!result.success) {
+            result.error_message = "Failed to create database: " + result.error_message;
+            throw std::runtime_error("Error creating database: " + result.error_message);
+        }
+        std::cout << "Database MOVIE_BOOKING has been created!\n";
+
+
+        result = executeQuery(USE_DB_QUERY);
+        if (!result.success) {
+            result.error_message = "Failed to use database: " + result.error_message;
+            throw std::runtime_error("Error using database: " + result.error_message);
+        }
         std::cout << "Using database MOVIE_BOOKING!\n";
+
+        ScriptResult script_res = executeScript(INIT_DB_SCRIPT);
+        if (!script_res.success) {
+            script_res.error_message = "Failed to execute script: " + script_res.error_message;
+            throw std::runtime_error("Error executing script: " + script_res.error_message);
+        }
+        std::cout << "Database MOVIE_BOOKING has been initialized!\n";  
+
     }
     catch (const std::exception& e) {
         std::cerr << "Error setting up database: " << e.what() << "\n";
         throw std::runtime_error("Error setting up database. " + std::string(e.what()));
     }
- 
-    //TODO: Tạo ra các bảng trong database MOVIE_BOOKING
-    // tạo ra bảng movie nếu không tồn tại
+    std::cout << "Database setup completed successfully!🚀✨\n";
 }
 
+
+
+QueryResult DatabaseManager::executeQuery(const std::string& query) {
+    QueryResult result;
+    if (conn == nullptr) {
+        std::cerr << "No active connection to the database.\n";
+        throw std::runtime_error("No active connection to the database.");
+    }
+
+    if (mysql_query(conn, query.c_str())) {
+        result.success = false;
+        result.error_message = mysql_error(conn);
+        std::cerr << "Query execution failed: " << result.error_message << "\n";
+        return result;
+    }
+
+    MYSQL_RES *res = mysql_store_result(conn);
+    if (res) {
+        result.result = std::unique_ptr<MYSQL_RES, decltype(&mysql_free_result)>(res, mysql_free_result);
+        result.success = true;
+    } else {
+        result.affected_rows = mysql_affected_rows(conn);
+        result.success = true;
+    }
+    return result;
+}
+
+
+/// TODO: xử lí các dòng trong file script (các dòng comment trong file script)
+
+ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
+    ScriptResult script_result;
+
+    if (!conn) {
+        script_result.success = false;
+        script_result.error_message = "No active connection.";
+        return script_result;
+    }
+
+    std::ifstream script_file(script_path);
+    if (!script_file.is_open()) {
+        script_result.success = false;
+        script_result.error_message = "Could not open script file: " + script_path;
+        return script_result;
+    }
+
+    std::string script((std::istreambuf_iterator<char>(script_file)), std::istreambuf_iterator<char>());
+    script_file.close();
+
+    size_t start_pos = 0;
+    size_t end_pos;
+
+    while ((end_pos = script.find(';', start_pos)) != std::string::npos) {
+        std::string query = script.substr(start_pos, end_pos - start_pos);
+        start_pos = end_pos + 1;
+
+        if (query.empty()) continue;
+
+        QueryResult qresult;
+
+        if (mysql_query(conn, query.c_str())) {
+            qresult.success = false;
+            qresult.error_message = mysql_error(conn);
+            script_result.success = false; // Nếu 1 câu lỗi, cả script coi như lỗi
+        } else {
+            if (mysql_field_count(conn) > 0) {
+                MYSQL_RES* raw_result = mysql_store_result(conn);
+                if (raw_result) {
+                    qresult.result.reset(raw_result);
+                } else {
+                    qresult.success = false;
+                    qresult.error_message = mysql_error(conn);
+                    script_result.success = false;
+                }
+            } else {
+                qresult.affected_rows = mysql_affected_rows(conn);
+            }
+            if (qresult.error_message.empty()) {
+                qresult.success = true;
+            }
+        }
+
+        script_result.queries.push_back(std::move(qresult));
+    }
+
+    return script_result;
+}
