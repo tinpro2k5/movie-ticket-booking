@@ -54,6 +54,7 @@
         "compare": "cpp",
         "concepts": "cpp",
         "numbers": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "*.tcc": "cpp"
     }
 }
