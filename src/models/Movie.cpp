@@ -1,81 +1,66 @@
 #include "include/models/Movie.h"
 
-Movie::Movie(string id_movie, string name, string genre, string format, string show_date, string show_time, string ticket_price, string seat)
-{
-    _id_movie = id_movie;
-    _name = name;
-    _genre = genre;
-    _format = format;
-    _show_date = show_date;
-    _show_time = show_time;
-    _ticket_price = ticket_price;
-    _seat = seat;
+Movie::Movie(){ //Constructor
+    _id_movie = 0;
+    _title = "";
+    _description = "";
+    _duration = 0;
+    _rating = 0.0;
+    _poster_path = "";
 }
-
 Movie::~Movie(){
+    //Destructor
 }
-string Movie::getIdMovie() const{
+Movie::Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path){ //Constructor with parameters
+    _id_movie = id_movie;
+    _title = title;
+    _genre = genre;
+    _description = description;
+    _duration = duration;
+    _rating = rating;
+    _poster_path = poster_path;
+}
+//getter
+int Movie::getMovieId() const{
     return _id_movie;
 }
-string Movie::getName() const{
-    return _name;
+string Movie::getMovieTitle() const{
+    return _title;
 }
-string Movie::getGenre() const{
+string Movie::getMovieGenre() const{
     return _genre;
 }
-string Movie::getFormat() const{
-    return _format;
+string Movie::getMovieDescription() const{
+    return _description;
 }
-string Movie::getShowDate() const{
-    return _show_date;
+int Movie::getMovieDuration() const{
+    return _duration;
 }
-string Movie::getShowTime() const{
-    return _show_time;
+float Movie::getMovieRating() const{
+    return _rating;
 }
-string Movie::getTicketPrice() const{
-    return _ticket_price;
+string Movie::getMoviePosterPath() const{
+    return _poster_path;
 }
-string Movie::getSeat() const{
-    return _seat;
-}
-void Movie::setIdMovie(const string& id_movie) {
+//setter
+void Movie::setMovieId(int id_movie){
     _id_movie = id_movie;
 }
-void Movie::setName(const string& name) {
-    _name = name;
+void Movie::setMovieTitle(string title){
+    _title = title;
 }
-
-void Movie::setGenre(const string& genre) {
+void Movie::setMovieGenre(string genre){
     _genre = genre;
 }
-
-void Movie::setFormat(const string& format) {
-    _format = format;
+void Movie::setMovieDescription(string description){
+    _description = description;
 }
-
-void Movie::setShowDate(const string& show_date) {
-    _show_date = show_date;
+void Movie::setMovieDuration(int duration){
+    _duration = duration;
 }
-
-void Movie::setShowTime(const string& show_time) {
-    _show_time = show_time;
+void Movie::setMovieRating(float rating){
+    _rating = rating;
 }
-
-void Movie::setTicketPrice(const string& ticket_price) {
-    _ticket_price = ticket_price;
-}
-
-void Movie::setSeat(const string& seat) {
-    _seat = seat;
-}
-ostream& operator<<(ostream& os, const Movie& movie){
-    cout << "| " << setw(15) << left << movie._id_movie
-         << "| " << setw(15) << left << movie._name
-         << "| " << setw(15) << left << movie._genre
-         << "| " << setw(15) << left << movie._format
-         << "| " << setw(15) << left << movie._show_date
-         << "| " << setw(15) << left << movie._show_time
-         << "| " << setw(15) << left << movie._ticket_price
-         << "| " << setw(15) << left << movie._seat
-         << "|" << endl;
+void Movie::setMoviePosterPath(string poster_path){
+    _poster_path = poster_path;
 }
