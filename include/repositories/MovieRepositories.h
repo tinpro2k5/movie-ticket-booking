@@ -3,7 +3,7 @@
 
 #include "include/models/Movie.h"
 #include "include/utils/DatabaseManager.h"
-#include "include/models/Result.h"
+#include "include/repositories/Result.h"
 class MovieRepositories {
     public:
         //Get movie lists

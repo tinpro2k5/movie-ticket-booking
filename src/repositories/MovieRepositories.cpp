@@ -9,7 +9,7 @@ Result<vector<Movie>> MovieRepositories::getAllMovies(){
     Neu khong thanh cong, tra ve ket qua that bai*/
     if (!query_result.success) {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
     /*Neu thanh cong, lay ket qua
@@ -47,7 +47,7 @@ Result<Movie> MovieRepositories::getMovieById(int id_movie){
     Neu khong thanh cong, tra ve ket qua that bai*/
     if (!query_result.success) {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
     MYSQL_RES *res = query_result.result.get();
@@ -55,7 +55,7 @@ Result<Movie> MovieRepositories::getMovieById(int id_movie){
     //Neu khong co ket qua, tra ve ket qua that bai
     if(!row){
         result.success = false;
-        result.errorMessage = "Movie not found";
+        result.error_message = "Movie not found";
         return result;
     }
     //Neu co ket qua, lay thong tin phim
@@ -89,7 +89,7 @@ Result<bool> MovieRepositories::addMovie(const Movie& movie){
     Neu khong thanh cong, tra ve ket qua that bai*/
     if (!query_result.success) {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
     /*Neu thanh cong, kiem tra so dong bi anh huong
@@ -100,7 +100,7 @@ Result<bool> MovieRepositories::addMovie(const Movie& movie){
         result.data = true;
     } else {
         result.success = false;
-        result.errorMessage = "Failed to add movie";
+        result.error_message = "Failed to add movie";
     }
     return result;
 }
@@ -122,7 +122,7 @@ Result<bool> MovieRepositories::updateMovie(const Movie& movie){
     Neu khong thanh cong, tra ve ket qua that bai*/
     if (!query_result.success) {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
     /*Neu thanh cong, kiem tra so dong bi anh huong
@@ -133,7 +133,7 @@ Result<bool> MovieRepositories::updateMovie(const Movie& movie){
         result.data = true;
     } else {
         result.success = false;
-        result.errorMessage = "Failed to update movie";
+        result.error_message = "Failed to update movie";
     }
     return result;
 }
@@ -147,7 +147,7 @@ Result<bool> MovieRepositories::deleteMovie(int id_movie){
     Neu khong thanh cong, tra ve ket qua that bai*/
     if (!query_result.success) {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
     /*Neu thanh cong, kiem tra so dong bi anh huong
@@ -158,7 +158,7 @@ Result<bool> MovieRepositories::deleteMovie(int id_movie){
         result.data = true;
     } else {
         result.success = false;
-        result.errorMessage = "Failed to delete movie";
+        result.error_message = "Failed to delete movie";
     }
     return result;
 }
