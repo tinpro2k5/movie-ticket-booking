@@ -55,6 +55,7 @@
         "concepts": "cpp",
         "numbers": "cpp",
         "iomanip": "cpp",
+        "*.tcc": "cpp",
         "mutex": "cpp",
         "condition_variable": "cpp",
         "semaphore": "cpp",
