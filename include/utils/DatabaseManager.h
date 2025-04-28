@@ -7,7 +7,7 @@
 #include <memory>
 #include <fstream>
 #include <vector>
-
+#include <stdexcept>
 /*
 Khi return, compiler sẽ tự optimize bằng kỹ thuật gọi là Return Value Optimization (RVO):
 Không thực sự copy memory.
@@ -20,6 +20,10 @@ Không return reference (ScriptResult&) từ local variable → sẽ crash (vư�
 Luôn return bằng giá trị (ScriptResult), để C++ tự lo move optimization.
 
 */
+extern std::string CREATE_DB_QUERY;
+extern std::string USE_DB_QUERY;
+extern std::string INIT_DB_SCRIPT;
+
 
 struct QueryResult {
     bool success;

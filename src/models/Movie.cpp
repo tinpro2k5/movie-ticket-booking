@@ -1,4 +1,4 @@
-#include "include/models/Movie.h"
+#include "../../include/models/Movie.h"
 
 Movie::Movie(){ //Constructor
     _id_movie = 0;
