@@ -1,6 +1,6 @@
-#include "include/repositories/RoomRepositories.h"
+#include "include/repositories/RoomRepository.h"
 
-Result<vector<Room>> RoomRepositories::findByTheaterId(int id_theater){
+Result<vector<Room>> RoomRepository::findByTheaterId(int id_theater){
     Result<vector<Room>> result;
     std::string query = "SELECT * FROM Room WHERE theaterID = " + std::to_string(id_theater);
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
@@ -28,7 +28,7 @@ Result<vector<Room>> RoomRepositories::findByTheaterId(int id_theater){
     result.data = rooms;
     return result;
 }
-Result<Room> RoomRepositories::findById(int id_theater, int id_room){
+Result<Room> RoomRepository::findById(int id_theater, int id_room){
     Result<Room> result;
     std::string query = "SELECT * FROM Room WHERE theaterID = " + std::to_string(id_theater) + " AND roomID = " + std::to_string(id_room);
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
