@@ -40,7 +40,7 @@ Result<vector<Movie>> MovieRepositories::getAllMovies(){
 //Get movie by id
 Result<Movie> MovieRepositories::getMovieById(int id_movie){
     //Thuc hien truy van
-    string query = "SELECT * FROM Movie WHERE id_movie = " + std::to_string(id_movie);
+    string query = "SELECT * FROM Movie WHERE movieID = " + std::to_string(id_movie);
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     Result<Movie> result;
     /*Kiem tra ket qua truy van
@@ -77,7 +77,7 @@ Result<Movie> MovieRepositories::getMovieById(int id_movie){
 Result<bool> MovieRepositories::addMovie(const Movie& movie){
     //Thuc hien truy van
     Result<bool> result;
-    string query = "INSERT INTO Movie (title, genre, description, duration, rating, poster_path) VALUES ('" +
+    string query = "INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('" +
         movie.getMovieTitle() + "', '" +
         movie.getMovieGenre() + "', '" +
         movie.getMovieDescription() + "', " +
@@ -108,14 +108,14 @@ Result<bool> MovieRepositories::addMovie(const Movie& movie){
 Result<bool> MovieRepositories::updateMovie(const Movie& movie){
     //Thuc hien truy van
     Result<bool> result;
-    string query = "UPDATE movie_tb SET "
+    string query = "UPDATE Movie SET "
                    "title = '" + movie.getMovieTitle() + "', "
                    "genre = '" + movie.getMovieGenre() + "', "
                    "description = '" + movie.getMovieDescription() + "', "
                    "duration = " + std::to_string(movie.getMovieDuration()) + ", "
                    "rating = " + std::to_string(movie.getMovieRating()) + ", "
-                   "poster_path = '" + movie.getMoviePosterPath() + "' "
-                   "WHERE id_movie = " + std::to_string(movie.getMovieId());
+                   "posterPath = '" + movie.getMoviePosterPath() + "' "
+                   "WHERE MovieID = " + std::to_string(movie.getMovieId());
 
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     /*Kiem tra ket qua truy van
@@ -141,7 +141,7 @@ Result<bool> MovieRepositories::updateMovie(const Movie& movie){
 Result<bool> MovieRepositories::deleteMovie(int id_movie){
     //Thuc hien truy van
     Result<bool> result;
-    string query = "DELETE FROM Movie WHERE id_movie = " + std::to_string(id_movie);
+    string query = "DELETE FROM Movie WHERE movieID = " + std::to_string(id_movie);
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     /*Kiem tra ket qua truy van
     Neu khong thanh cong, tra ve ket qua that bai*/
