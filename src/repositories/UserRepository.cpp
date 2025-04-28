@@ -31,12 +31,12 @@ Result<std::vector<User>> UserRepository::findUserById(int userId) {
     }
     catch (const std::exception& e) {
         result.success = false;
-        result.errorMessage = e.what();
+        result.error_message = e.what();
         return result;
     }
     catch (...) {
         result.success = false;
-        result.errorMessage = "Unknown error occurred";
+        result.error_message = "Unknown error occurred";
         return result;
 
     }
@@ -82,7 +82,7 @@ Result<User> UserRepository::save (const User& user) {
         return result;
     } else {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
 
