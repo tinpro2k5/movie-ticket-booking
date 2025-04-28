@@ -24,28 +24,31 @@ CREATE TABLE IF NOT EXISTS Theater (
 );
 
 CREATE TABLE IF NOT EXISTS Room (
-    roomID INT AUTO_INCREMENT PRIMARY KEY,
+    roomID INT NOT NULL,
     theaterID INT NOT NULL,
     name VARCHAR(50) NOT NULL,
     capacity INT NOT NULL,
+    PRIMARY KEY (roomID, theaterID),
     FOREIGN KEY (theaterID) REFERENCES Theater(theaterID)
 );
 
 CREATE TABLE IF NOT EXISTS Seat (
     roomID INT NOT NULL,
+    theaterID INT NOT NULL,
     seatNumber VARCHAR(10) NOT NULL,
     isVip BOOLEAN DEFAULT FALSE,
-    PRIMARY KEY (roomID, seatNumber),
-    FOREIGN KEY (roomID) REFERENCES Room(roomID)
+    PRIMARY KEY (roomID, theaterID, seatNumber),
+    FOREIGN KEY (roomID, theaterID) REFERENCES Room(roomID, theaterID)
 );
 
 
 CREATE TABLE IF NOT EXISTS Showtime (
     roomID INT NOT NULL,
+    theaterID INT NOT NULL,
     showDateTime DATETIME NOT NULL,
     movieID INT NOT NULL,
-    PRIMARY KEY (roomID, showDateTime),
-    FOREIGN KEY (roomID) REFERENCES Room(roomID),
+    PRIMARY KEY (roomID, theaterID, showDateTime),
+    FOREIGN KEY (roomID, theaterID) REFERENCES Room(roomID, theaterID),
     FOREIGN KEY (movieID) REFERENCES Movie(movieID)
 );
 
@@ -54,26 +57,28 @@ CREATE TABLE IF NOT EXISTS Ticket (
     ticketID INT AUTO_INCREMENT PRIMARY KEY,
     userID INT NOT NULL,
     roomID INT NOT NULL,
+    theaterID INT NOT NULL, 
     seatNumber VARCHAR(10) NOT NULL,
     showDateTime DATETIME NOT NULL,
     basePrice DECIMAL(10,2) NOT NULL,
     bookedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     isPaid BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (roomID, seatNumber) REFERENCES Seat(roomID, seatNumber),
-    FOREIGN KEY (roomID, showDateTime) REFERENCES Showtime(roomID, showDateTime)
+    FOREIGN KEY (roomID, theaterID, showDateTime) REFERENCES Showtime(roomID, theaterID, showDateTime)
 );
+
 
 
 CREATE TABLE IF NOT EXISTS SeatSchedule (
     roomID INT NOT NULL,
+    theaterID INT NOT NULL,
     seatNumber VARCHAR(10) NOT NULL,
     showDateTime DATETIME NOT NULL,
     ticketID INT NULL,
-    PRIMARY KEY (roomID, seatNumber, showDateTime),
-    FOREIGN KEY (roomID, seatNumber) REFERENCES Seat(roomID, seatNumber),
-    FOREIGN KEY (roomID, showDateTime) REFERENCES Showtime(roomID, showDateTime),
-    FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID)
+    PRIMARY KEY (roomID, theaterID, seatNumber, showDateTime),
+    FOREIGN KEY (roomID, theaterID, seatNumber) REFERENCES Seat(roomID, theaterID, seatNumber),
+    FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID),
+    FOREIGN KEY (roomID, theaterID, showDateTime) REFERENCES Showtime(roomID, theaterID, showDateTime)
 );
 
 
@@ -93,35 +98,38 @@ INSERT IGNORE INTO Theater (name, location) VALUES
 ('Cinema Center', '123 Main St'),
 ('Galaxy Theater', '456 Broadway Ave');
 
--- Thêm Room
-INSERT IGNORE INTO Room (theaterID, name, capacity) VALUES
-(1, 'Room A', 100),
-(1, 'Room B', 80),
-(2, 'Room C', 120);
 
--- Thêm Seat cho Room A
-INSERT IGNORE INTO Seat (roomID, seatNumber, isVip) VALUES
-(1, 'A1', FALSE),
-(1, 'A2', FALSE),
-(1, 'A3', TRUE),
-(1, 'B1', FALSE),
-(1, 'B2', TRUE);
+INSERT IGNORE INTO Room (roomID, theaterID, name, capacity) VALUES
+(1, 1, 'Room A', 100),
+(2, 1, 'Room B', 80),
+(3, 2, 'Room C', 120);
 
--- Thêm Showtime
-INSERT IGNORE INTO Showtime (roomID, showDateTime, movieID) VALUES
-(1, '2025-05-01 18:00:00', 1),
-(1, '2025-05-01 21:00:00', 2),
-(2, '2025-05-01 19:00:00', 1);
 
--- Thêm Ticket mẫu
-INSERT IGNORE INTO Ticket (userID, roomID, seatNumber, showDateTime, basePrice, isPaid) VALUES
-(2, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE),
-(3, 1, 'B2', '2025-05-01 21:00:00', 120.00, FALSE);
+INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
+(1, 1, 'A1', FALSE),
+(1, 1, 'A2', FALSE),
+(1, 1, 'A3', TRUE),
+(1, 1, 'B1', FALSE),
+(1, 1, 'B2', TRUE);
 
--- Thêm SeatSchedule
-INSERT IGNORE INTO SeatSchedule (roomID, seatNumber, showDateTime, ticketID) VALUES
-(1, 'A1', '2025-05-01 18:00:00', 1),
-(1, 'B2', '2025-05-01 21:00:00', 2),
-(1, 'A2', '2025-05-01 18:00:00', NULL),
-(1, 'A3', '2025-05-01 18:00:00', NULL),
-(1, 'B1', '2025-05-01 18:00:00', NULL);
+
+
+INSERT IGNORE INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES
+(1, 1, '2025-05-01 18:00:00', 1),
+(1, 1, '2025-05-01 21:00:00', 2),
+(2, 2, '2025-05-01 19:00:00', 1);
+
+
+INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES
+(2, 1, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE),
+(3, 1, 1, 'B2', '2025-05-01 21:00:00', 120.00, FALSE);
+
+
+
+INSERT IGNORE INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES
+(1, 1, 'A1', '2025-05-01 18:00:00', 1),
+(1, 1, 'B2', '2025-05-01 21:00:00', 2),
+(1, 1, 'A2', '2025-05-01 18:00:00', NULL),
+(1, 1, 'A3', '2025-05-01 18:00:00', NULL),
+(1, 1, 'B1', '2025-05-01 18:00:00', NULL);
+
