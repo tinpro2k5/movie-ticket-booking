@@ -1,6 +1,5 @@
-#ifndef Movie_h
-#define Movie_h
-
+#ifndef MOVIE_H
+#define MOVIE_H
 
 #include <iostream>
 #include <cstdio>
@@ -14,39 +13,35 @@
 #include <vector>
 #include <algorithm>
 #include <iomanip>
-using std::string, std::ostream,std::cout, std::endl, std::setw, std::left;
+using std::string, std::ostream,std::cout, std::endl, std::setw, std::left, std::vector;
 class Movie{
     private:
-    string _id_movie;
-    string _name;
+    int _id_movie;
+    string _title;
     string _genre;
-    string _format;
-    string _show_date;
-    string _show_time;
-    string _ticket_price;
-    string _seat;
+    string _description;
+    int _duration;
+    float _rating;
+    string _poster_path;
     public:
-    Movie(string id_movie, string name, string genre, string format, string show_date, string show_time, string ticket_price, string seat);
+    Movie();
     ~Movie();
-    //getters
-    string getIdMovie() const;
-    string getName() const;
-    string getGenre() const;
-    string getFormat() const;
-    string getShowDate() const;
-    string getShowTime() const;
-    string getTicketPrice() const;
-    string getSeat() const;
-    //setters
-    void setIdMovie(const string& id_movie);
-    void setName(const string& name);
-    void setGenre(const string& genre);
-    void setFormat(const string& format);
-    void setShowDate(const string& show_date);
-    void setShowTime(const string& show_time);
-    void setTicketPrice(const string& ticket_price);
-    void setSeat(const string& seat);
-    //print method
-    friend ostream& operator<<(ostream& os, const Movie& movie);
+    Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path);
+    //getter
+    int getMovieId() const;
+    string getMovieTitle() const;
+    string getMovieGenre() const;
+    string getMovieDescription() const;
+    int getMovieDuration() const;
+    float getMovieRating() const;
+    string getMoviePosterPath() const;
+    //setter
+    void setMovieId(int id_movie);
+    void setMovieTitle(string title);
+    void setMovieGenre(string genre);
+    void setMovieDescription(string description);
+    void setMovieDuration(int duration);
+    void setMovieRating(float rating);
+    void setMoviePosterPath(string poster_path);
 };
 #endif
