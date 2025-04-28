@@ -15,7 +15,12 @@ class User {
     bool _is_admin;
 public:
     User() : _user_id(0), _username(""), _is_admin(false) {} 
-    User
+    User (int userId, const std::string& username,
+            const std::string& password,
+            const std::string& email,
+            const std::string& phone,
+            bool isAdmin
+        ); 
 
     int getUserId() const;
     std::string getUsername() const;

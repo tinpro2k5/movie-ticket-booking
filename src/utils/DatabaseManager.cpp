@@ -1,15 +1,11 @@
 #include "../../include/utils/DatabaseManager.h"
 
 
+// @tinpro2k5 TODO: check hợp lệ đối số các hàm của ServerInfo
+
 std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
 std::string USE_DB_QUERY = "USE MOVIE_BOOKING";
 std::string INIT_DB_SCRIPT = "../../sql_scripts/init_db.sql";
-
-
-
-
-// @tinpro2k5 TODO: check hợp lệ đối số các hàm của ServerInfo
-
 
 ServerInfo::ServerInfo() {
     host = std::getenv("DB_HOST") ? std::getenv("DB_HOST") : DEFAULT_LOCAL;
@@ -196,15 +192,16 @@ ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
 
     size_t start_pos = 0;
     size_t end_pos;
+    try{
 
-    while ((end_pos = script.find(';', start_pos)) != std::string::npos) {
-        std::string query = script.substr(start_pos, end_pos - start_pos);
+        while ((end_pos = script.find(';', start_pos)) != std::string::npos) {
+            std::string query = script.substr(start_pos, end_pos - start_pos);
         start_pos = end_pos + 1;
 
         if (query.empty()) continue;
 
         QueryResult qresult;
-
+        
         if (mysql_query(conn, query.c_str())) {
             qresult.success = false;
             qresult.error_message = mysql_error(conn);
@@ -226,8 +223,17 @@ ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
                 qresult.success = true;
             }
         }
-
+        
         script_result.queries.push_back(std::move(qresult));
+        }
+    }
+    catch (const std::exception& e) {
+        script_result.success = false;
+        script_result.error_message = "Error executing script: " + std::string(e.what());
+    }
+    catch (...) {
+        script_result.success = false;
+        script_result.error_message = "Unknown error occurred while executing script.";
     }
 
     return script_result;
