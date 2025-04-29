@@ -106,7 +106,7 @@ Result<bool> UserRepository::checkExistAccount(const std::string& username, cons
         }
     } else {
         result.success = false;
-        result.errorMessage = query_result.error_message;
+        result.error_message = query_result.error_message;
         return result;
     }
 }

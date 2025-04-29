@@ -8,24 +8,24 @@ template<typename T>
 struct Result {
     bool success;
     T data;
-    std::string errorMessage;
+    std::string error_message;
 
     Result() {}
-    Result(bool success, T data, const std::string& errorMessage = "")
-        : success(success), data(data), errorMessage(errorMessage) {}
-    Result(bool success, const std::string& errorMessage = "")
-        : success(success), errorMessage(errorMessage) {}
+    Result(bool success, T data, const std::string& error_message = "")
+        : success(success), data(data), error_message(error_message) {}
+    Result(bool success, const std::string& error_message = "")
+        : success(success), error_message(error_message) {}
 
 };
 
 template<>
 struct Result<void> {
     bool success;
-    std::string errorMessage;
+    std::string error_message;
 
     Result() {}
-    Result(bool success, const std::string& errorMessage = "")
-        : success(success), errorMessage(errorMessage) {}
+    Result(bool success, const std::string& error_message = "")
+        : success(success), error_message(error_message) {}
 };
 
 #endif
