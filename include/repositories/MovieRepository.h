@@ -1,9 +1,9 @@
 #ifndef MOVIEREPOSITORY_H
 #define MOVIEREPOSITORY_H
 
-#include "include/models/Movie.h"
-#include "include/utils/DatabaseManager.h"
-#include "include/repositories/Result.h"
+#include "../../include/models/Movie.h"
+#include "../../include/utils/DatabaseManager.h"
+#include "../../include/repositories/Result.h"
 class MovieRepository {
     public:
         //Get movie lists
