@@ -1,7 +1,10 @@
 #include <cassert>
 #include <string>
 #include "../../include/repositories/MovieRepository.h"  // Include header file
-
+/*
+Dong lenh sau de compile
+g++ src/models/Movie.cpp src/repositories/MovieRepository.cpp src/utils/DatabaseManager.cpp test/user_repos/test_movie_repos.cpp -o test/user_repos/test_movie -lmysqlclient 
+*/
 // Giả lập đối tượng DatabaseManager
 void testFindAll() {
     // Tạo MovieRepository

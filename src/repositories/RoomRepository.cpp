@@ -1,4 +1,4 @@
-#include "include/repositories/RoomRepository.h"
+#include "../../include/repositories/RoomRepository.h"
 
 Result<vector<Room>> RoomRepository::findByTheaterId(int id_theater){
     Result<vector<Room>> result;
