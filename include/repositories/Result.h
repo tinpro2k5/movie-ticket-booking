@@ -12,9 +12,9 @@ struct Result {
 
     Result() {}
     Result(bool success, T data, const std::string& error_message = "")
-        : success(success), data(data), errorMessage(error_message) {}
+        : success(success), data(data), error_message(error_message) {}
     Result(bool success, const std::string& error_message = "")
-        : success(success), errorMessage(error_message) {}
+        : success(success), error_message(error_message) {}
 
 };
 
