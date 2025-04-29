@@ -1,6 +1,6 @@
 #ifndef ROOM_H
 #define ROOM_H
-#include "include/models/Movie.h"
+#include "../../include/models/Movie.h"
 
 class Room {
     private:

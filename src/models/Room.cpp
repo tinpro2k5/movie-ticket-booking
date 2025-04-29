@@ -1,4 +1,4 @@
-#include "include/models/Room.h"
+#include "../../include/models/Room.h"
 
 Room::Room(){ //Constructor
     _id_room = 0;

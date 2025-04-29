@@ -1,9 +1,9 @@
 #ifndef ROOMREPOSITORY_H
 #define ROOMREPOSITORY_H
 
-#include "include/models/Room.h"
-#include "include/utils/DatabaseManager.h"
-#include "include/repositories/Result.h"
+#include "../../include/models/Room.h"
+#include "../../include/utils/DatabaseManager.h"
+#include "../../include/repositories/Result.h"
 
 class RoomRepository{
     public:
