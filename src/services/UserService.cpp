@@ -57,15 +57,19 @@ ServiceResult<User> UserService::getUserByUsername(const std::string& username) 
 }
 
 
-void UserService::setAndSendOTP() {
+ServiceResult<int> UserService::setAndSendOTP() {
     std::string otp = OtpGenerator::getInstance()->generateOtp();
     SessionManager::setCurrentOTP(otp);
-    // Send OTP to user's email or phone
-    // For demonstration, we will just print it
-    std::cout << "OTP sent to user: " << otp << std::endl;
-    // In a real application, you would send this OTP to the user's email or phone number
-    // For example, using an email service or SMS gateway
 
+    std::string userEmail = SessionManager::getCurrentUser().getEmail();
+    bool sendSuccess = EmailService::sendOtp(userEmail, otp);
+    
+    if (sendSuccess) {
+        std::cout << "OTP has been sent successfully to " << userEmail << std::endl;
+    } else {
+        std::cerr << "Failed to send OTP to " << userEmail << std::endl;
+        
+    }
 }
 
 ServiceResult<bool> UserService::verifyOTP(const std::string& otp) {

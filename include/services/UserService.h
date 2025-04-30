@@ -10,7 +10,8 @@
 #include "../repositories/UserRepository.h"
 #include "../utils/SessionManager.h"
 #include "../utils/OtpGenerator.h"
-
+#include "../services/EmailService.h"
+// TODO refator using better result struct
 enum class StatusCode {
     SUCCESS = 200,
     FAIL = 500,
@@ -32,7 +33,7 @@ class UserService {
 
 private:
     UserRepository user_repos;
-    void setAndSendOTP();
+    ServiceResult<int> setAndSendOTP();
 public:
     ~UserService();
     UserService();

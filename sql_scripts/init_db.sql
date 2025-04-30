@@ -117,7 +117,6 @@ INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
 INSERT IGNORE INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES
 (1, 1, '2025-05-01 18:00:00', 1),
 (1, 1, '2025-05-01 21:00:00', 2),
-(2, 2, '2025-05-01 19:00:00', 1);
 
 
 INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES
