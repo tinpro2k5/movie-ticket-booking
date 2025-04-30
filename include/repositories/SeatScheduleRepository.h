@@ -1,0 +1,11 @@
+#ifndef SEATSCHEDULEREPOSITORY_H
+#define SEATSCHEDULEREPOSITORY_H
+
+#include "../../include/models/SeatSchedule.h"
+
+class SeatScheduleRepository {
+    public:
+    Result<vector<SeatSchedule>> findAvailableSeats(int id_room, int id_theater, string show_time);
+    Result<bool> findSeatById(int id_room, int id_theater, string seat_number, string show_time);
+};
+#endif
