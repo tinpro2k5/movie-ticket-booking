@@ -1,0 +1,9 @@
+#ifndef SEATREPOSITORY_H
+#define SEATREPOSITORY_H
+#include "../../include/models/Seat.h"
+
+class SeatRepository {   
+    public:
+    Result<vector<Seat>> findByRoomId(int id_room, int id_theater);
+};
+#endif
