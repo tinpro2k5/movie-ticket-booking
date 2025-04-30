@@ -18,5 +18,14 @@ struct Result {
 
 };
 
+template<>
+struct Result<void> {
+    bool success;
+    std::string errorMessage;
+
+    Result() {}
+    Result(bool success, const std::string& errorMessage = "")
+        : success(success), errorMessage(errorMessage) {}
+};
 
 #endif

@@ -2,13 +2,13 @@
 #define SESSION_MANAGER_H
 
 #include <string>
-#include "include/models/User.h"
+#include "../../include/models/User.h"
 #include "../services/UserService.h"
 class SessionManager {
 private:
-    static User currentUser;
+    inline static User currentUser = User();
     inline static bool loggedIn = false;
-    static std::string current_otp;
+    inline static std::string current_otp = "";
     SessionManager(){};  // Không cho khởi tạo đối tượng
     
 public:

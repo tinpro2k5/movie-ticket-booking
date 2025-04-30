@@ -54,8 +54,8 @@ Result<std::vector<User>> UserRepository::findUserByUsername(const std::string& 
 
             int userId = std::stoi(row[0]);
             std::string username = row[1];
-            std::string email = row[2];
-            std::string password = row[3];
+            std::string password = row[2];
+            std::string email = row[3];
             std::string phone = row[4];
             bool isAdmin = std::stoi(row[5]);
 

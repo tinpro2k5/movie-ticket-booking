@@ -11,6 +11,7 @@
                 "/usr/include/mysql/**", 
 
                 "${workspaceFolder}/include",
+                "${workspaceFolder}/include/services",
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/**"
             ],

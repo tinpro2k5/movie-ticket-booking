@@ -11,7 +11,6 @@
 #include "../utils/SessionManager.h"
 #include "../utils/OtpGenerator.h"
 #include "../services/EmailService.h"
-// TODO refator using better result struct
 enum class StatusCode {
     SUCCESS = 200,
     FAIL = 500,
@@ -29,15 +28,22 @@ struct ServiceResult {
     std::string message;
 };
 
+
+template<>
+struct ServiceResult<void> {
+    StatusCode status_code;
+    std::string message;
+};
+
 class UserService {
 
 private:
     UserRepository user_repos;
-    ServiceResult<int> setAndSendOTP();
+    ServiceResult<void> setAndSendOTP();
 public:
     ~UserService();
     UserService();
-    ServiceResult<int> createUser(User user);
+    ServiceResult<void> createUser(User user);
     ServiceResult<bool> authenticateUser(const std::string& username, const std::string& password);
     ServiceResult<bool> verifyOTP(const std::string& otp);
     ServiceResult<User> getUserByUsername(const std::string& username); 
