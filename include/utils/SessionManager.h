@@ -1,20 +1,25 @@
 #ifndef SESSION_MANAGER_H
 #define SESSION_MANAGER_H
 
+#include <string>
 #include "include/models/User.h"
-
+#include "../services/UserService.h"
 class SessionManager {
-    private:
-        static User currentUser;
-        static bool loggedIn;
-        SessionManager() {}  // Không cho khởi tạo đối tượng
+private:
+    static User currentUser;
+    inline static bool loggedIn = false;
+    static std::string current_otp;
+    SessionManager(){};  // Không cho khởi tạo đối tượng
     
-    public:
-        static void login(const std::string& username, const std::string& password);
-        static void logout();
-        static const User& getCurrentUser();
-        static bool isLoggedIn();
-        static bool isAdminUser();
+public:
+    static void clear();  // logout
+    static User getCurrentUser();
+    static bool isLoggedIn();
+    static bool isAdminUser();
+    static void setCurrentUser(const User& user);
+    static void setLoggedIn(bool status);
+    static void setCurrentOTP(const std::string& otp);
+    static std::string getCurrentOTP();
 };  
 
 
