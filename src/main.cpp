@@ -1,4 +1,6 @@
-//#include "services/UserService.h"
+#include "../../include/services/UserService.h"
+#include "../../include/utils/DatabaseManager.h"
+#include "../../include/utils/SessionManager.h"
 //#include "services/MovieService.h"
 //#include "services/BookingService.h"
 
@@ -33,4 +35,4 @@ int main() {
 //         }
 //     }
     return 0;
- }
+}

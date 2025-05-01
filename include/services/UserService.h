@@ -11,6 +11,7 @@
 #include "../utils/SessionManager.h"
 #include "../utils/OtpGenerator.h"
 #include "../services/EmailService.h"
+#include "../app/RepositoryRegistry.h"
 enum class StatusCode {
     SUCCESS = 200,
     FAIL = 500,
@@ -38,11 +39,14 @@ struct ServiceResult<void> {
 class UserService {
 
 private:
-    UserRepository user_repos;
+    // TODO thêm con trỏ đa hình đến repository
+    std::shared_ptr<UserRepository> user_repos;
     ServiceResult<void> setAndSendOTP();
 public:
     ~UserService();
     UserService();
+    UserService(const RepositoryRegistry& repoRegistry);
+
     ServiceResult<void> createUser(User user);
     ServiceResult<bool> authenticateUser(const std::string& username, const std::string& password);
     ServiceResult<bool> verifyOTP(const std::string& otp);

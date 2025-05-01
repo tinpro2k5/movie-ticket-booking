@@ -9,14 +9,14 @@ UserService::~UserService() {
 
 ServiceResult<void> UserService::createUser(User user) {
     ServiceResult<void> result;
-    auto existingUser = user_repos.checkExistAccount(user.getUsername(), user.getEmail());
+    auto existingUser = user_repos->checkExistAccount(user.getUsername(), user.getEmail());
     if (existingUser.success && existingUser.data) {
         result.status_code = StatusCode::USER_ALREADY_EXISTS;
         result.message = "User already exists";
         return result;
     }
     user.setPassword(PasswordHasher::hashPassword(user.getPassword()));
-    auto saveResult = user_repos.save(user);
+    auto saveResult = user_repos->save(user);
     if (saveResult.success) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "User created successfully";
@@ -29,7 +29,7 @@ ServiceResult<void> UserService::createUser(User user) {
 
 ServiceResult<bool> UserService::authenticateUser(const std::string& username, const std::string& password) {
     ServiceResult<bool> result;
-    auto userResult = user_repos.findUserByUsername(username);
+    auto userResult = user_repos->findUserByUsername(username);
     if (userResult.success && !userResult.data.empty()) {
         User user = userResult.data[0];
         if (PasswordHasher::verifyPassword(password, user.getPassword())) {
@@ -51,7 +51,7 @@ ServiceResult<bool> UserService::authenticateUser(const std::string& username, c
 
 ServiceResult<User> UserService::getUserByUsername(const std::string& username) {
     ServiceResult<User> result;
-    auto userResult = user_repos.findUserByUsername(username);
+    auto userResult = user_repos->findUserByUsername(username);
     if (userResult.success && !userResult.data.empty()) {
         result.status_code = StatusCode::SUCCESS;
         result.data = userResult.data[0];
@@ -97,4 +97,11 @@ ServiceResult<bool> UserService::verifyOTP(const std::string& otp) {
         result.message = "OTP verification failed";
     }
     return result;
+}
+
+UserService::UserService(const RepositoryRegistry& repoRegistry) {
+    user_repos = std::dynamic_pointer_cast<UserRepository>(repoRegistry.user_repos);
+    if (!user_repos) {
+        std::cerr << "Failed to cast to UserRepository" << std::endl;
+    }
 }

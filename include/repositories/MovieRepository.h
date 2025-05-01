@@ -4,7 +4,8 @@
 #include "../../include/models/Movie.h"
 #include "../../include/utils/DatabaseManager.h"
 #include "../../include/repositories/Result.h"
-class MovieRepository {
+#include "../../include/repositories/BaseRepository.h"
+class MovieRepository: public BaseRepository {
     public:
         //Get movie lists
         Result<vector<Movie>> findAll();
