@@ -108,7 +108,9 @@ void testVerifyOTPFailure() {
     user.setEmail("zzh60193@toaik.com");
 
     service.createUser(user);
-    service.authenticateUser("frank", "abcdef");
+    auto  res = service.authenticateUser("frank", "abcdef");
+    std::cout << "DEBUG: " << res.message << std::endl;
+
 
     auto result = service.verifyOTP("wrongotp");
     assert(result.status_code == StatusCode::OTP_VERIFICATION_FAILED);

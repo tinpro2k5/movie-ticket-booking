@@ -87,3 +87,24 @@ Result<User> UserRepository::save (const User& user) {
     }
 
 }
+
+Result<bool> UserRepository::checkExistAccount(const std::string& username, const std::string& email) {
+    Result<bool> result;
+    std::string query = "SELECT * FROM User WHERE username ='" + username + "' OR email ='" + email + "';";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (query_result.success && query_result.result) {
+        MYSQL_ROW row;
+        MYSQL_RES* mysqlResult = query_result.result.get();
+        if ((row = mysql_fetch_row(mysqlResult)) != nullptr) {
+            result.success = true;
+            return result;
+        } else {
+            result.success = false;
+            return result;
+        }
+    } else {
+        result.success = false;
+        result.errorMessage = query_result.error_message;
+        return result;
+    }
+}

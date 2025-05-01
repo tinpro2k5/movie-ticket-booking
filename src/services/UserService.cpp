@@ -9,13 +9,12 @@ UserService::~UserService() {
 
 ServiceResult<void> UserService::createUser(User user) {
     ServiceResult<void> result;
-    auto existingUser = user_repos.findUserByUsername(user.getUsername());
-    if (existingUser.success && !existingUser.data.empty()) {
+    auto existingUser = user_repos.checkExistAccount(user.getUsername(), user.getEmail());
+    if (existingUser.success && existingUser.data) {
         result.status_code = StatusCode::USER_ALREADY_EXISTS;
         result.message = "User already exists";
         return result;
     }
-    // TODO : check if email is already exists
     user.setPassword(PasswordHasher::hashPassword(user.getPassword()));
     auto saveResult = user_repos.save(user);
     if (saveResult.success) {
@@ -33,12 +32,6 @@ ServiceResult<bool> UserService::authenticateUser(const std::string& username, c
     auto userResult = user_repos.findUserByUsername(username);
     if (userResult.success && !userResult.data.empty()) {
         User user = userResult.data[0];
-        std::cout << "DEBUG fecth data: " << user.getUsername() << std::endl;
-        std::cout << "DEBUG fecth data: " << user.getPassword() << std::endl;
-        std::cout << "DEBUG fecth data: " << user.getEmail() << std::endl;
-        std::cout << "DEBUG fecth data: " << user.getPhone() << std::endl;
-        std::cout << "DEBUG fecth data: " << user.getIsAdmin() << std::endl;
-        std::cout << "DEBUG fecth data: " << user.getUserId() << std::endl;
         if (PasswordHasher::verifyPassword(password, user.getPassword())) {
             result.status_code = StatusCode::SUCCESS;
             result.message = "Authentication successful";
