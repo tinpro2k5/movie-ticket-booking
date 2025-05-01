@@ -88,12 +88,12 @@ INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
 ('john_doe', 'password123', 'john@example.com', '0987654321', FALSE),
 ('jane_doe', 'password456', 'jane@example.com', '0111222333', FALSE);
 
--- Thêm Movie
+
 INSERT IGNORE INTO Movie (title, genre, description, duration, rating, posterPath) VALUES
 ('Inception', 'Sci-Fi', 'A mind-bending thriller.', 148, 8.8, '/images/inception.jpg'),
 ('The Dark Knight', 'Action', 'The Batman faces Joker.', 152, 9.0, '/images/darkknight.jpg');
 
--- Thêm Theater
+
 INSERT IGNORE INTO Theater (name, location) VALUES
 ('Cinema Center', '123 Main St'),
 ('Galaxy Theater', '456 Broadway Ave');

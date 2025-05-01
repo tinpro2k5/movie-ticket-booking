@@ -1,6 +1,6 @@
 #ifndef MOVIE_THEATER_H
 #define MOVIE_THEATER_H
-#include "Movie.h"
+#include "./Movie.h"
 
 class MovieTheater {
     private:

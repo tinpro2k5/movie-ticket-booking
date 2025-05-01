@@ -1,4 +1,4 @@
-#include "include/models/MovieTheater.h"
+#include "../../include/models/MovieTheater.h"
 
 MovieTheater::MovieTheater(){ //Constructor
     _id_theater = 0;

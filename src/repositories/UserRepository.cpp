@@ -54,8 +54,8 @@ Result<std::vector<User>> UserRepository::findUserByUsername(const std::string& 
 
             int userId = std::stoi(row[0]);
             std::string username = row[1];
-            std::string email = row[2];
-            std::string password = row[3];
+            std::string password = row[2];
+            std::string email = row[3];
             std::string phone = row[4];
             bool isAdmin = std::stoi(row[5]);
 
@@ -86,4 +86,27 @@ Result<User> UserRepository::save (const User& user) {
         return result;
     }
 
+}
+
+Result<bool> UserRepository::checkExistAccount(const std::string& username, const std::string& email) {
+    Result<bool> result;
+    std::string query = "SELECT * FROM User WHERE username ='" + username + "' OR email ='" + email + "';";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (query_result.success && query_result.result) {
+        MYSQL_ROW row;
+        MYSQL_RES* mysqlResult = query_result.result.get();
+        if ((row = mysql_fetch_row(mysqlResult)) != nullptr) {
+            result.success = true;
+            result.data = true; // Account exists
+            return result;
+        } else {
+            result.success = true;
+            result.data = false; // Account does not exist
+            return result;
+        }
+    } else {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
 }

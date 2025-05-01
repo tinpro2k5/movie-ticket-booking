@@ -2,7 +2,7 @@
 //#include "services/MovieService.h"
 //#include "services/BookingService.h"
 
-// int main() {
+int main() {
 //     int choice;
 //     UserService userService;
 //     MovieService movieService;
@@ -32,4 +32,5 @@
 //                 std::cout << "Lựa chọn không hợp lệ!\n";
 //         }
 //     }
-// }
+    return 0;
+ }
