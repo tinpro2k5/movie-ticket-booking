@@ -97,9 +97,11 @@ Result<bool> UserRepository::checkExistAccount(const std::string& username, cons
         MYSQL_RES* mysqlResult = query_result.result.get();
         if ((row = mysql_fetch_row(mysqlResult)) != nullptr) {
             result.success = true;
+            result.data = true; // Account exists
             return result;
         } else {
-            result.success = false;
+            result.success = true;
+            result.data = false; // Account does not exist
             return result;
         }
     } else {
