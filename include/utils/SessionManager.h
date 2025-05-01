@@ -3,7 +3,6 @@
 
 #include <string>
 #include "../../include/models/User.h"
-#include "../services/UserService.h"
 class SessionManager {
 private:
     inline static User currentUser = User();
