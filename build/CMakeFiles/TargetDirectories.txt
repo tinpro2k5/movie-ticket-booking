@@ -1,4 +1,0 @@
-/workspaces/movie-ticket-booking/build/CMakeFiles/movie_ticket_booking.dir
-/workspaces/movie-ticket-booking/build/CMakeFiles/test_user_service.dir
-/workspaces/movie-ticket-booking/build/CMakeFiles/edit_cache.dir
-/workspaces/movie-ticket-booking/build/CMakeFiles/rebuild_cache.dir
