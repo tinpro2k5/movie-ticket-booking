@@ -54,6 +54,10 @@
         "compare": "cpp",
         "concepts": "cpp",
         "numbers": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "mutex": "cpp",
+        "condition_variable": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp"
     }
 }
