@@ -11,6 +11,10 @@ class MovieRepository: public BaseRepository {
         Result<vector<Movie>> findAll();
         //Get movie by id
         Result<Movie> findById(int id_movie);
+        //Get movie by genre
+        Result<vector<Movie>> findByGenre(string genre);
+        //Get movie by name
+        Result<vector<Movie>> findByName(string name);
         //Add movie
         Result<bool> add(const Movie& movie);
         //Update movie

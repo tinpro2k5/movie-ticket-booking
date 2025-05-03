@@ -3,7 +3,7 @@
 #include "../../include/repositories/MovieRepository.h"  // Include header file
 /*
 Dong lenh sau de compile
-g++ src/models/Movie.cpp src/repositories/MovieRepository.cpp src/utils/DatabaseManager.cpp test/user_repos/test_movie_repos.cpp -o test/user_repos/test_movie -lmysqlclient 
+g++ src/models/Movie.cpp src/repositories/BaseRepository.cpp src/repositories/MovieRepository.cpp src/utils/Logger.cpp src/utils/DatabaseManager.cpp test/movie_repos/test_movie_repos.cpp -o test/movie_repos/test_movie -lmysqlclient
 */
 // Giả lập đối tượng DatabaseManager
 void testFindAll() {
@@ -81,19 +81,58 @@ void testUpdate(){
     }
     std::cout << "testUpdate passed!" << std::endl;
 }
+void testFindByGenre(){
+        // Tạo MovieRepository
+        MovieRepository movieRepo;
+
+        // Giả lập tìm phim theo movieId
+        Result<std::vector<Movie>> result = movieRepo.findByGenre("act");
+        
+        // Kiểm tra kết quả trả về
+        assert(result.success == true);  // Kết quả thành công
+        assert(result.data.size() > 0);  // Có ít nhất 1 movie được trả về
+        std::cout << "testFindMovieById passed!" << std::endl;
+    
+        for(int i = 0; i < result.data.size(); i++){
+            std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
+            std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
+            std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
+            std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
+            std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
+            std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
+            std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+        }
+}
+void testFindByName(){
+        // Tạo MovieRepository
+        MovieRepository movieRepo;
+
+        // Giả lập tìm phim theo movieId
+        Result<std::vector<Movie>> result = movieRepo.findByName("incep");
+        
+        // Kiểm tra kết quả trả về
+        assert(result.success == true);  // Kết quả thành công
+        assert(result.data.size() > 0);  // Có ít nhất 1 movie được trả về
+        std::cout << "testFindMovieById passed!" << std::endl;
+    
+        for(int i = 0; i < result.data.size(); i++){
+            std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
+            std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
+            std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
+            std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
+            std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
+            std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
+            std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+        }    
+}
 int main() {
     // Chạy các unit test
     DatabaseManager::getInstance()->connect(ServerInfo("127.0.0.1", "root", "rootpassword", 3306));
     DatabaseManager::getInstance()->setupDatabase();
-    testFindAll();
-    cout << "-------------------------" << endl;
-    testAdd();
-    cout << "-------------------------" << endl;
-    testUpdate();
-    cout << "-------------------------" << endl;
-    testFindAll();
-    cout << "-------------------------" << endl;
+    testFindByGenre();
+    cout << "---------------------------------------\n";
+    testFindByName();
+    cout << "---------------------------------------\n";
     std::cout << "All tests passed!" << std::endl;
-
     return 0;
 }

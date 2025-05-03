@@ -73,6 +73,81 @@ Result<Movie> MovieRepository::findById(int id_movie){
     result.data = movie;
     return result;
 }
+Result<vector<Movie>> MovieRepository::findByGenre(string genre){
+    Result<vector<Movie>> result;
+    //Thuc hien truy van
+    std::string query = "SELECT * FROM Movie WHERE genre LIKE '" + genre + "%' COLLATE utf8mb4_general_ci";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    /*Kiem tra ket qua truy van
+    Neu khong thanh cong, tra ve ket qua that bai*/
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    /*Neu thanh cong, lay ket qua
+    Tao mot vector de chua danh sach phim*/
+    vector<Movie> movies;
+    MYSQL_RES *res = query_result.result.get();
+    MYSQL_ROW row;
+    /*Duyet qua tung dong ket qua
+    Lay thong tin phim tu tung dong
+    Tao mot doi tuong Movie va dua vao vector movies*/
+    while ((row = mysql_fetch_row(res))) {
+        int id_movie = row[0] ? atoi(row[0]) : 0;
+        string title = row[1] ? row[1] : "";
+        string genre = row[2] ? row[2] : "";
+        string description = row[3] ? row[3] : "";
+        int duration = row[4] ? atoi(row[4]) : 0;
+        float rating = row[5] ? atof(row[5]) : 0.0f;
+        string poster_path = row[6] ? row[6] : "";
+
+        Movie movie(id_movie, title, genre, description, duration, rating, poster_path);
+        movies.push_back(movie);
+    }
+
+    result.success = true;
+    result.data = movies;
+    return result;
+}
+//Get movie by name
+Result<vector<Movie>> MovieRepository::findByName(string name){
+    Result<vector<Movie>> result;
+    //Thuc hien truy van
+    std::string query = "SELECT * FROM Movie WHERE title LIKE '" + name + "%' COLLATE utf8mb4_general_ci";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    /*Kiem tra ket qua truy van
+    Neu khong thanh cong, tra ve ket qua that bai*/
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    /*Neu thanh cong, lay ket qua
+    Tao mot vector de chua danh sach phim*/
+    vector<Movie> movies;
+    MYSQL_RES *res = query_result.result.get();
+    MYSQL_ROW row;
+    /*Duyet qua tung dong ket qua
+    Lay thong tin phim tu tung dong
+    Tao mot doi tuong Movie va dua vao vector movies*/
+    while ((row = mysql_fetch_row(res))) {
+        int id_movie = row[0] ? atoi(row[0]) : 0;
+        string title = row[1] ? row[1] : "";
+        string genre = row[2] ? row[2] : "";
+        string description = row[3] ? row[3] : "";
+        int duration = row[4] ? atoi(row[4]) : 0;
+        float rating = row[5] ? atof(row[5]) : 0.0f;
+        string poster_path = row[6] ? row[6] : "";
+
+        Movie movie(id_movie, title, genre, description, duration, rating, poster_path);
+        movies.push_back(movie);
+    }
+
+    result.success = true;
+    result.data = movies;
+    return result;
+}
 //Add movie
 Result<bool> MovieRepository::add(const Movie& movie){
     //Thuc hien truy van
