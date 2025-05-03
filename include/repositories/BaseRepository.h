@@ -13,7 +13,7 @@ protected:
 public:
     // có thể thêm constructor với tham số
     BaseRepository(); 
-    virtual ~BaseRepository() = default;
+    virtual ~BaseRepository();
     // Define common methods for all repositories here
 
 };

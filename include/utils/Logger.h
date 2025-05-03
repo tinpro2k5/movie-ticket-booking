@@ -16,13 +16,13 @@ public:
 
     static Logger* getInstance(); // Lấy instance của Logger (Singleton)
     
+    Logger() = default;                                  // Constructor private
+    ~Logger();
 private:
     
     inline static std::unique_ptr<Logger> instance  = nullptr; // Singleton instance
     
     inline static const std::string DEFAULT_LOG_FILE = "./log.txt"; // Tên file log mặc định
-    Logger() = default;                                  // Constructor private
-    ~Logger();
 
     std::ofstream file;
     bool toFile = false;

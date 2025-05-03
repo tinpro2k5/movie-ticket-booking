@@ -4,6 +4,10 @@ App::App():
         repos_res(),
         user_service(repos_res)
 {}
+App::~App() {
+    // Destructor
+    // Clean up resources if needed
+}
 int App::run() {
     ServerInfo serverInfo;
     DatabaseManager::getInstance()->connect(serverInfo);
@@ -40,9 +44,37 @@ int App::run() {
                 break;
 
             }
-            case 2:
-
+            case 2: {
+                User user;
+                std::string temp;
+                std::cout << "Nhập tên đăng nhập: ";
+                std::cin >> temp;
+                user.setUsername(temp);
+                std::cout << "Nhập mật khẩu: ";
+                std::cin >> temp;
+                user.setPassword(temp);
+                auto res = user_service.authenticateUser(user.getUsername(), user.getPassword());
+                if (res.status_code == StatusCode::SUCCESS) {
+                    std::cout <<"Nhap OTP: ";
+                    std::string otp;
+                    std::cin >> otp;
+                    auto otp_res = user_service.verifyOTP(otp);
+                    if (otp_res.status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
+                        std::cout << "Đăng nhập thành công!\n";
+                        user_service.getUserByUsername(user.getUsername());
+                    } else {
+                        std::cout << "Xác thực OTP thất bại: " << otp_res.message << "\n";
+                    }
+                }
+                else if (res.status_code == StatusCode::USER_NOT_FOUND) {
+                    std::cout << "Người dùng không tồn tại!\n";
+                } else if (res.status_code == StatusCode::INVALID_PASSWORD) {
+                    std::cout << "Mật khẩu không đúng!\n";
+                } else {
+                    std::cout << "Đăng nhập thất bại: " << res.message << "\n";
+                }
                 break;
+            }
             case 0:
                 return 0;
             default:

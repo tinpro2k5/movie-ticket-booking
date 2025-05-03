@@ -49,7 +49,10 @@ void DatabaseManager::connect(const ServerInfo& server_info) {
         std::cerr << "Error initializing MySQL connection: " << mysql_error(conn) << "\n";
         throw std::runtime_error("Error initializing MySQL connection: " + std::string(mysql_error(conn)));
     }
-    // Thử kết nối
+    std::cout << server_info.getHost() << " "
+              << server_info.getUser() << " "
+              << server_info.getPassword() << " "
+              << server_info.getPort() << "\n";
     if (!mysql_real_connect(conn, 
                             server_info.getHost().c_str(),
                             server_info.getUser().c_str(),

@@ -1,4 +1,4 @@
-#include "include/repositories/MovieTheaterRepository.h"
+#include "../../include/repositories/MovieTheaterRepository.h"
 
 Result<vector<MovieTheater>> MovieTheaterRepository::findAll(){
     Result<vector<MovieTheater>> result;

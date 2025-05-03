@@ -1,10 +1,10 @@
 #ifndef MOVIETHEATERREPOSITORIES_H
 #define MOVIETHEATERREPOSITORIES_H
 
-#include "include/models/MovieTheater.h"
-#include "include/utils/DatabaseManager.h"
-#include "include/repositories/Result.h"   
-#include "include/repositories/BaseRepository.h"
+#include "../../include/models/MovieTheater.h"
+#include "../../include/utils/DatabaseManager.h"
+#include "../../include/repositories/Result.h"   
+#include "../../include/repositories/BaseRepository.h"
 
 class MovieTheaterRepository: public BaseRepository {
     public:

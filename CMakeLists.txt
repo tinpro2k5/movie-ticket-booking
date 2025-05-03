@@ -12,6 +12,7 @@ file(GLOB_RECURSE SRC_FILES
     src/repositories/*.cpp
     src/services/*.cpp
     src/utils/*.cpp
+    src/app/*.cpp
 )
 
 # Main executable

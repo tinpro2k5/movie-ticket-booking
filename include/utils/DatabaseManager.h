@@ -51,7 +51,7 @@ class ServerInfo{
     std::string password;
     unsigned int port;
 public:
-    inline static std::string DEFAULT_LOCAL = "localhost";
+    inline static std::string DEFAULT_LOCAL = "127.0.0.1";
     inline static std::string DEFAULT_USER = "root";
     inline static std::string DEFAULT_PASS = "rootpassword";
     inline static unsigned int DEFAULT_PORT = 3306;
