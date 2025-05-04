@@ -51,7 +51,33 @@ Result<vector<ShowTime>> ShowTimeRepository::findShowTimeByTheaterId(int id) {
     result.data = showtimes;
     return result;
 }
+Result<ShowTime> ShowTimeRepository::findExactlyShowTime(int id, string showtime){
+    Result<ShowTime> result;
+    string query = "SELECT * FROM Showtime WHERE movieID = " + std::to_string(id) + " AND showDateTime = '" + showtime + "' ";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    MYSQL_RES *res = query_result.result.get();
+    MYSQL_ROW row;
+    if ((row = mysql_fetch_row(res))) {
+        int id_room = std::stoi(row[0]);
+        int id_theater = std::stoi(row[1]);
+        string show_time = row[2];
+        int id_movie = std::stoi(row[3]);
 
+        ShowTime showtimes(id_room, id_theater, show_time, id_movie); // giả sử bạn có constructor như này
+        result.success = true;
+        result.data = showtimes;
+    } else {
+        result.success = false;
+        result.error_message = "Khong tim thay showtime.";
+    }
+
+    return result;
+}
 Result<bool> ShowTimeRepository::add(const ShowTime& showtime) {
     Result<bool> result;
     string query = "INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (" +

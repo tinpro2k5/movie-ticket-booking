@@ -8,6 +8,7 @@ class ShowTimeRepository: public BaseRepository {
     public:
     Result<vector<ShowTime>> findShowTimeByMovieId(int id);
     Result<vector<ShowTime>> findShowTimeByTheaterId(int id);
+    Result<ShowTime> findExactlyShowTime(int id, string showtime);
     Result<bool> add(const ShowTime& showtime);
     Result<bool> update(const ShowTime& showtime);
 };

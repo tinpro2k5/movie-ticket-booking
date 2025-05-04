@@ -46,3 +46,33 @@ Result<bool> SeatScheduleRepository::findSeatById(int id_room, int id_theater, s
     }
     return result;
 }
+Result<bool> SeatScheduleRepository::update(const SeatSchedule& ss){
+    //Thuc hien truy van
+    Result<bool> result;
+    string query = "UPDATE SeatSchedule SET "
+                "ticketID = " + std::to_string(ss.getTicketId()) + " "
+                "WHERE roomID = " + std::to_string(ss.getRoomId()) + " "
+                "AND theaterID = " + std::to_string(ss.getTheaterId()) + " "
+                "AND seatNumber = '" + ss.getSeatNumber() + "' "
+                "AND showDateTime = '" + ss.getShowTime() + "' ";
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    /*Kiem tra ket qua truy van
+    Neu khong thanh cong, tra ve ket qua that bai*/
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    /*Neu thanh cong, kiem tra so dong bi anh huong
+    Neu so dong bi anh huong > 0, tra ve ket qua thanh cong
+    Neu so dong bi anh huong = 0, tra ve ket qua that bai*/
+    if (query_result.affected_rows > 0) {
+        result.success = true;
+        result.data = true;
+    } else {
+        result.success = false;
+        result.error_message = "Failed to update seatschedule";
+    }
+    return result;
+}

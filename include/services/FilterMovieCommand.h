@@ -9,7 +9,7 @@ public:
 
     FilterMovieCommand(MovieService* service) : service(service) {}
 
-    void execute() override {
+    void execute(User user) override {
         service->filterMovies();
     }
 };

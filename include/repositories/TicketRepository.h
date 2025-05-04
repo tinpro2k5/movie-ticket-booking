@@ -7,5 +7,6 @@ class TicketRepository: public BaseRepository {
     public:
     Result<Ticket> findById(int ticket_id);
     Result<vector<Ticket>> findByUserId(int user_id);
+    Result<int> add(const Ticket& ticket);
 };
 #endif

@@ -61,3 +61,48 @@ Result<vector<Ticket>> TicketRepository::findByUserId(int user_id){
     result.data = tickets;
     return result;
 }
+Result<int> TicketRepository::add(const Ticket& ticket){
+        //Thuc hien truy van
+        Result<int> result;
+        string paid = (ticket.isPaid()) ? "TRUE" : "FALSE";
+        std::string query = "INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('" +
+        std::to_string(ticket.getUserId()) + "', '" +
+        std::to_string(ticket.getRoomId()) + "', '" +
+        std::to_string(ticket.getTheaterId()) + "', '" +
+        ticket.getSeatNumber() + "', '" +
+        ticket.getShowTime() + "', '" +
+        std::to_string(ticket.getPrice()) + "', " +
+        paid + ")";
+
+        QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+        /*Kiem tra ket qua truy van
+        Neu khong thanh cong, tra ve ket qua that bai*/
+        if (!query_result.success) {
+            result.success = false;
+            result.error_message = query_result.error_message;
+            return result;
+        }
+        /*Neu thanh cong, kiem tra so dong bi anh huong
+        Neu so dong bi anh huong > 0, tra ve ket qua thanh cong
+        Neu so dong bi anh huong = 0, tra ve ket qua that bai*/
+        if (query_result.affected_rows > 0) {
+            result.success = true;
+            QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+            if (id_result.success && id_result.result) {
+                MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+                if (row && row[0]) {
+                    result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+                } else {
+                    result.success = false;
+                    result.error_message = "Không đọc được ticketID.";
+                }
+            } else {
+                result.success = false;
+                result.error_message = "Không thể thực hiện truy vấn lấy ticketID.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Failed to ticket";
+        }
+        return result;
+}

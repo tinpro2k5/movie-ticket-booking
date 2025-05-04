@@ -8,7 +8,7 @@ class ViewMovieCommand : public ICommand {
 public:
     ViewMovieCommand(MovieService* service) : service(service) {}
 
-    void execute() override {
+    void execute(User user) override {
         service->getListMovie();
     }
 };
