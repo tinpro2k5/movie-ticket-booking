@@ -11,6 +11,7 @@ class TicketService{
     void bookTicket(User user) {
         ShowTimeRepository showtime_repos;
         int id;
+        //Nhap phim muon dat
         cout << "Nhap ID phim muon dat: ";
         std::cin >> id;
         Result<vector<ShowTime>> result = showtime_repos.findShowTimeByMovieId(id);
@@ -26,19 +27,19 @@ class TicketService{
             std::cout << "Theater ID: " << result.data[i].getTheaterId() << std::endl;
             std::cout << "Show Time: " << result.data[i].getShowTime() << std::endl;
         }
-        cout << 1;
+        //Nhap gio dat
         std::cin.ignore();
         string showtime;
         cout << "Nhap gio can dat theo list tren: ";
         getline(std::cin, showtime);
         if (showtime.empty()) return;
-    
+        //Tim xuat chieu
         Result<ShowTime> showtime_result = showtime_repos.findExactlyShowTime(id, showtime);
         if (!showtime_result.success) {
             cout << "Khong tim thay xuat chieu.\n";
             return;
         }
-        cout << 1;
+        //Tim ghe 
         SeatScheduleRepository ss_repos;
         Result<vector<SeatSchedule>> ss_result = ss_repos.findAvailableSeats(
             showtime_result.data.getRoomId(),
@@ -49,13 +50,12 @@ class TicketService{
             cout << "Khong con ghe trong.\n";
             return;
         }
-        cout << 1;
         cout << "Cac ghe con trong: ";
         for (const auto& ss : ss_result.data) {
             cout << ss.getSeatNumber() << " ";
         }
         cout << "\n";
-    
+        //Chon ghe
         string seat_number;
         cout << "Chon so ghe theo list tren: ";
         getline(std::cin, seat_number);
@@ -69,7 +69,6 @@ class TicketService{
             100.0,
             "", true
         );
-        cout << 1;
         // Lưu ticket và lấy ticket ID vừa tạo
         Result<int> insert_result = ticket_repos.add(cur_ticket);
         if (!insert_result.success) {
@@ -85,7 +84,6 @@ class TicketService{
             showtime_result.data.getShowTime(),
             ticket_id
         );
-        cout << 1;
         Result<bool> update_result = ss_repos.update(seat_to_update);
         if (!update_result.success) {
             cout << "Cap nhat SeatSchedule that bai: " << update_result.error_message << "\n";
@@ -120,4 +118,3 @@ class TicketService{
     }
 };
 #endif
-// g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp test/test_service/trash.cpp -o test/test_service/trash -lmysqlclient

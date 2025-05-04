@@ -7,7 +7,7 @@
 #include "../../include/services/BookTicketCommand.h"
 #include "../../include/services/ShowTicketCommand.h"
 /* Compile
-g++ src/models/Movie.cpp src/repositories/BaseRepository.cpp src/repositories/MovieRepository.cpp src/utils/Logger.cpp src/utils/DatabaseManager.cpp test/test_service/trash.cpp -o test/test_service/trash -lmysqlclient
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp test/test_service/main.cpp -o test/test_service/main -lmysqlclient
  */
 int main() {
     DatabaseManager::getInstance()->connect(ServerInfo("127.0.0.1", "root", "rootpassword", 3306));
@@ -16,10 +16,12 @@ int main() {
     int choice;
     MovieService movieService;
     TicketService ticketService;
+    //
     ViewMovieCommand viewMovies(&movieService);
     FilterMovieCommand filterMovies(&movieService);
     BookTicketCommand bookTicket(&ticketService);
     ShowTicketCommand viewTickets(&ticketService);
+    //
     MenuInvoker menu;
     menu.setCommand(1, &viewMovies);
     menu.setCommand(2, &filterMovies);
