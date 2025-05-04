@@ -38,4 +38,4 @@ USER devuser
 EXPOSE 3306
 
 # Chạy MySQL khi container khởi động
-CMD ["bash", "/usr/local/bin/start-mysql.sh"]
+ENTRYPOINT ["/usr/local/bin/start-mysql.sh"]

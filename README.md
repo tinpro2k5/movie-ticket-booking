@@ -60,19 +60,21 @@
 # Deployment
 - **Hướng dẫn**: 
   - File hướng dẫn cài đặt Database, cấu hình, compile và chạy chương trình (Linux)
-- **GitHub Codespaces**: 
-  - Tạo codespace trên Repository chứa cấu hình sẵn môi trường bằng `.devcontainer`
 - **Docker (optional)**: 
-  - Có thể container hóa MySQL và chương trình chính nếu cần
+  - Có thể container hóa các dependencies
 
 # CÁCH ĐẢM BẢO CHẤT LƯỢNG
   
 ## Unit Testing (Kiểm thử đơn vị)
-- Sử dụng Google Test để viết unit test cho các module xử lý logic quan trọng:
+- Các class của DAL, Các repositories 
+
+- Services
 
 - Đặt vé, kiểm tra ghế trống
 
-- Tính giá vé (kết hợp với Strategy Pattern)
+- Thêm, xóa ,sửu các bảng của database
+
+- Tính giá vé
 
 -  Tìm kiếm phim, xác thực thông tin người dùng
 
