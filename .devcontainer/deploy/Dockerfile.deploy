@@ -1,0 +1,41 @@
+FROM ubuntu:22.04
+
+# Cài đặt các gói cơ bản
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    build-essential \
+    curl \
+    vim \
+    sudo \
+    npm \
+    mysql-server \
+    libmysqlclient-dev \
+    msmtp msmtp-mta && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Tạo user devuser
+RUN useradd -m devuser && echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Sửa quyền cho thư mục mysql socket
+RUN mkdir -p /var/run/mysqld && chown mysql:mysql /var/run/mysqld
+
+# Copy script khởi động MySQL
+# Copy file smtp.txt từ .devcontainer/deploy vào container
+COPY .msmtprc /home/devuser/.msmtprc
+
+RUN chown devuser:devuser /home/devuser/.msmtprc && chmod 600 /home/devuser/.msmtprc
+
+# Thực thi MySQL initialization trước khi vào container
+USER root
+RUN service mysql start && \
+    mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpassword'; FLUSH PRIVILEGES;" && \
+    service mysql stop
+
+# Trở lại user devuser
+USER devuser
+
+# Expose cổng 3306
+EXPOSE 3306
+
+# Chạy MySQL khi container khởi động
+CMD ["bash", "/usr/local/bin/start-mysql.sh"]

@@ -1,0 +1,15 @@
+{
+  "name": "Deployment",
+  "build": {
+    "dockerfile": "Dockerfile.deploy"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-vscode.cpptools"
+  ],
+  "forwardPorts": [3306],
+  "postCreateCommand": "sudo service mysql restart"
+}
+
