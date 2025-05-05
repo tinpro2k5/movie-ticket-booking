@@ -2,7 +2,7 @@
 #define APP_SERVICEREGISTRY_H
 
 #include <memory>
-#include "../repositories/BaseRepository.h"
+#include "../repositories/IRepository.h"
 #include "../repositories/MovieRepository.h"
 #include "../repositories/MovieTheaterRepository.h"
 #include "../repositories/RoomRepository.h"
@@ -34,42 +34,42 @@ public:
     /**
      * @brief Shared pointer to the user repository.
      */
-    std::shared_ptr<BaseRepository> user_repos;
+    std::shared_ptr<IRepository<User>> user_repos;
 
     /**
      * @brief Shared pointer to the movie repository.
      */
-    std::shared_ptr<BaseRepository> movie_repos;
+    std::shared_ptr<IRepository<Movie>> movie_repos;
 
     /**
      * @brief Shared pointer to the movie theater repository.
      */
-    std::shared_ptr<BaseRepository> movie_theater_repos;
+    std::shared_ptr<IRepository<MovieTheater>> movie_theater_repos;
 
     /**
      * @brief Shared pointer to the room repository.
      */
-    std::shared_ptr<BaseRepository> room_repos;
+    std::shared_ptr<IRepository<Room>> room_repos;
 
     /**
      * @brief Shared pointer to the seat repository.
      */
-    std::shared_ptr<BaseRepository> seat_repos;
+    std::shared_ptr<IRepository<Seat>> seat_repos;
 
     /**
      * @brief Shared pointer to the seat schedule repository.
      */
-    std::shared_ptr<BaseRepository> seat_schedule_repos;
+    std::shared_ptr<IRepository<SeatSchedule>> seat_schedule_repos;
 
     /**
      * @brief Shared pointer to the showtime repository.
      */
-    std::shared_ptr<BaseRepository> show_time_repos;
+    std::shared_ptr<IRepository<ShowTime>> show_time_repos;
 
     /**
      * @brief Shared pointer to the ticket repository.
      */
-    std::shared_ptr<BaseRepository> ticket_repos;
+    std::shared_ptr<IRepository<Ticket>> ticket_repos;
 
     /**
      * @brief Constructor for the RepositoryRegistry struct.

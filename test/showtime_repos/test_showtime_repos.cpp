@@ -54,7 +54,7 @@ void testAdd() {
     ShowTime newShowTime(1, 1, "2023-10-01 10:00:00", 1);
 
     // Giả lập thêm một showtime mới
-    Result<bool> result = showtimeRepo.add(newShowTime);
+    Result<int> result = showtimeRepo.create(newShowTime);
     
     // Kiểm tra kết quả trả về
     assert(result.success == true);  // Kết quả thành công

@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
     basePrice DECIMAL(10,2) NOT NULL,
     bookedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     isPaid BOOLEAN DEFAULT FALSE,
+    UNIQUE (roomID, theaterID, seatNumber, showDateTime),
     FOREIGN KEY (userID) REFERENCES User(userID),
     FOREIGN KEY (roomID, theaterID, showDateTime) REFERENCES Showtime(roomID, theaterID, showDateTime)
 );

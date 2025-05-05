@@ -57,7 +57,7 @@ void testAdd(){
     Movie movie(3, "New Movie", "Action", "Description of new movie", 120, 8.5, "poster.jpg");
 
     // Giả lập thêm phim
-    Result<bool> result = movieRepo.add(movie);
+    Result<int> result = movieRepo.create(movie);
     
     // Kiểm tra kết quả trả về
     assert(result.success == true);  // Kết quả thành công

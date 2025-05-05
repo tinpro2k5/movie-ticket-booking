@@ -6,7 +6,7 @@
 #include "../../include/models/User.h"
 #include "../../include/utils/DatabaseManager.h"
 #include "../../include/repositories/Result.h"
-#include "../../include/repositories/BaseRepository.h"
+#include "../../include/repositories/IRepository.h"
 
 /**
  * @file UserRepository.h
@@ -23,7 +23,7 @@
  * The `UserRepository` class provides methods to perform CRUD operations on user data,
  * such as finding users by ID or username, saving new users, and checking account existence.
  */
-class UserRepository: public BaseRepository {
+class UserRepository: public IRepository<User> {
 public:
     /**
      * @brief Find a user by their ID.
@@ -61,10 +61,10 @@ public:
      * 
      * This method inserts a new user record into the database.
      * 
-     * @param user The `User` object containing the details of the user to save.
+     * @param user The `User` object containing the details of the user to create.
      * @return A `Result` object containing the saved `User` object if successful, or an error message if not.
      */
-    Result<User> save(const User& user);
+    Result<int> create (const User& user);
 };
 
 #endif

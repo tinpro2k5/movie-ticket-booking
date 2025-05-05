@@ -70,7 +70,7 @@ class TicketService{
             "", true
         );
         // Lưu ticket và lấy ticket ID vừa tạo
-        Result<int> insert_result = ticket_repos.add(cur_ticket);
+        Result<int> insert_result = ticket_repos.create(cur_ticket);
         if (!insert_result.success) {
             cout << "Dat ve that bai: " << insert_result.error_message << "\n";
             return;

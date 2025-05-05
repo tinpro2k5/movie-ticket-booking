@@ -4,8 +4,8 @@
 #include "../../include/models/Movie.h"
 #include "../../include/utils/DatabaseManager.h"
 #include "../../include/repositories/Result.h"
-#include "../../include/repositories/BaseRepository.h"
-class MovieRepository: public BaseRepository {
+#include "../../include/repositories/IRepository.h"
+class MovieRepository: public IRepository<Movie> {
     public:
         //Get movie lists
         Result<vector<Movie>> findAll();
@@ -16,7 +16,7 @@ class MovieRepository: public BaseRepository {
         //Get movie by name
         Result<vector<Movie>> findByName(string name);
         //Add movie
-        Result<bool> add(const Movie& movie);
+        Result<int> create(const Movie& movie);
         //Update movie
         Result<bool> update(const Movie& movie);
         //Delete movie

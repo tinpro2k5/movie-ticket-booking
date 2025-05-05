@@ -78,8 +78,8 @@ Result<ShowTime> ShowTimeRepository::findExactlyShowTime(int id, string showtime
 
     return result;
 }
-Result<bool> ShowTimeRepository::add(const ShowTime& showtime) {
-    Result<bool> result;
+Result<int> ShowTimeRepository::create(const ShowTime& showtime) {
+    Result<int> result;
     string query = "INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (" +
                    std::to_string(showtime.getRoomId()) + ", " +
                    std::to_string(showtime.getTheaterId()) + ", '" +
@@ -96,7 +96,7 @@ Result<bool> ShowTimeRepository::add(const ShowTime& showtime) {
         result.data = true;
     } else {
         result.success = false;
-        result.error_message = "Failed to add showtime";
+        result.error_message = "Failed to create showtime";
         result.data = false;
     }
     return result;

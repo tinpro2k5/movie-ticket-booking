@@ -1,0 +1,23 @@
+#ifndef _BASE_REPOSITORY_H_
+#define _BASE_REPOSITORY_H_
+
+#include "../repositories/Result.h"
+#include "../utils/DatabaseManager.h"
+#include "../utils/Logger.h"
+
+
+template <typename T>
+class IRepository {
+public:
+    // có thể thêm constructor với tham số
+    IRepository(); 
+    virtual ~IRepository();
+    virtual Result<int> create(const T& item) = 0;
+    virtual Result<bool> update(const T& item) ;  // một số repos không cần update;
+    virtual Result<bool> remove(int id); // một số repos không cần ;
+    // Define common methods for all repositories here
+
+};
+
+
+#endif

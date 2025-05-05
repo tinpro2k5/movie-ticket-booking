@@ -67,8 +67,8 @@ Result<std::vector<User>> UserRepository::findUserByUsername(const std::string& 
         return Result<std::vector<User>>(false, {}, query_result.error_message);
     }
 }
-Result<User> UserRepository::save (const User& user) {
-    Result<User> result;
+Result<int> UserRepository::create (const User& user) {
+    Result<int> result;
     std::string query = "INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('" +
                         user.getUsername() + "', '" +
                         user.getPassword() + "', '" +
@@ -78,7 +78,7 @@ Result<User> UserRepository::save (const User& user) {
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     if (query_result.success) {
         result.success = true;
-        result.data = user;
+        result.data = true; // Account created successfully
         return result;
     } else {
         result.success = false;

@@ -61,7 +61,7 @@ Result<vector<Ticket>> TicketRepository::findByUserId(int user_id){
     result.data = tickets;
     return result;
 }
-Result<int> TicketRepository::add(const Ticket& ticket){
+Result<int> TicketRepository::create(const Ticket& ticket){
         //Thuc hien truy van
         Result<int> result;
         string paid = (ticket.isPaid()) ? "TRUE" : "FALSE";

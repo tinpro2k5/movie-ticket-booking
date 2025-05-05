@@ -67,8 +67,8 @@ Result<MovieTheater> MovieTheaterRepository::findById(int id_theater){
 
     return result;
 }
-Result<bool> MovieTheaterRepository::insert(const MovieTheater& movie_theater){
-    Result<bool> result;
+Result<int> MovieTheaterRepository::create(const MovieTheater& movie_theater){
+    Result<int> result;
     //Thuc hien truy van
     string query = "INSERT INTO Theater (theaterID, name, location) VALUES (" + std::to_string(movie_theater.getTheaterId()) + ", '" 
     + movie_theater.getTheaterName() + "', '" 
@@ -86,7 +86,7 @@ Result<bool> MovieTheaterRepository::insert(const MovieTheater& movie_theater){
         result.data = true;
     } else {
         result.success = false;
-        result.error_message = "Failed to add movie";
+        result.error_message = "Failed to create movie";
     }
     return result;
 }

@@ -2,14 +2,14 @@
 #define SHOWTIMEREPOSITORY_H
 
 #include "../../include/models/ShowTime.h"
-#include "../../include/repositories/BaseRepository.h"
+#include "../../include/repositories/IRepository.h"
 
-class ShowTimeRepository: public BaseRepository {
+class ShowTimeRepository: public IRepository<ShowTime> {
     public:
     Result<vector<ShowTime>> findShowTimeByMovieId(int id);
     Result<vector<ShowTime>> findShowTimeByTheaterId(int id);
     Result<ShowTime> findExactlyShowTime(int id, string showtime);
-    Result<bool> add(const ShowTime& showtime);
+    Result<int> create(const ShowTime& showtime);
     Result<bool> update(const ShowTime& showtime);
 };
 #endif

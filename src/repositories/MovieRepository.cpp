@@ -149,9 +149,9 @@ Result<vector<Movie>> MovieRepository::findByName(string name){
     return result;
 }
 //Add movie
-Result<bool> MovieRepository::add(const Movie& movie){
+Result<int> MovieRepository::create(const Movie& movie){
     //Thuc hien truy van
-    Result<bool> result;
+    Result<int> result;
     string query = "INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('" +
         movie.getMovieTitle() + "', '" +
         movie.getMovieGenre() + "', '" +
@@ -175,7 +175,7 @@ Result<bool> MovieRepository::add(const Movie& movie){
         result.data = true;
     } else {
         result.success = false;
-        result.error_message = "Failed to add movie";
+        result.error_message = "Failed to create movie";
     }
     return result;
 }

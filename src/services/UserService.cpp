@@ -16,7 +16,7 @@ ServiceResult<void> UserService::createUser(User user) {
         return result;
     }
     user.setPassword(PasswordHasher::hashPassword(user.getPassword()));
-    auto saveResult = user_repos->save(user);
+    auto saveResult = user_repos->create(user);
     if (saveResult.success) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "User created successfully";

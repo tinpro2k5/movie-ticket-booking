@@ -41,12 +41,12 @@ void testSave() {
     User user(0, "john_doe", "password123", "john@example1.com", "1234567890", false);
 
     // Giả lập lưu người dùng
-    Result<User> result = userRepo.save(user);
+    Result<int> result = userRepo.create(user);
     
     // Kiểm tra kết quả trả về
     assert(result.success == true);  // Kết quả thành công
-    assert(result.data.getUsername() == "john_doe");  // Kiểm tra username đã lưu đúng
-    assert(result.data.getPassword() == "password123");  // Kiểm tra mật khẩu đã lưu đúng
+    assert(result.data > 0);  // ID của user mới được tạo phải lớn hơn 0
+    
     std::cout << "testSave passed!" << std::endl;
 }
 
