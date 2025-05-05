@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS Movie (
     description TEXT,
     duration INT,
     rating FLOAT,
-    posterPath VARCHAR(255)
-    basePrice INT,
+    posterPath VARCHAR(255),
+    basePrice INT
 );
 
 CREATE TABLE IF NOT EXISTS Theater (
