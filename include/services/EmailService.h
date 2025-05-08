@@ -2,6 +2,7 @@
 #define EMAIL_SERVICE_H
 #include <string>
 #include <iostream>
+#include "../utils/Logger.h"
 
 class EmailService {
 public:

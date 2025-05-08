@@ -77,10 +77,10 @@ public:
      */
     ~Logger();
 
+    inline static const std::string DEFAULT_LOG_FILE = "./log.txt"; // Tên file log mặc định
 private:
     inline static std::unique_ptr<Logger> instance  = nullptr; // Singleton instance
     
-    inline static const std::string DEFAULT_LOG_FILE = "./log.txt"; // Tên file log mặc định
 
     std::ofstream file;
     bool toFile = false;

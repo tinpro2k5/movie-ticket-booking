@@ -11,7 +11,7 @@ class IRepository {
 public:
     // có thể thêm constructor với tham số
     IRepository(); 
-    virtual ~IRepository();
+    virtual ~IRepository() = default;
     virtual Result<int> create(const T& item) = 0;
     virtual Result<bool> update(const T& item) ;  // một số repos không cần update;
     virtual Result<bool> remove(int id); // một số repos không cần ;

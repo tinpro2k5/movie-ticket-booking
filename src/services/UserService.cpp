@@ -15,7 +15,9 @@ ServiceResult<void> UserService::createUser(User user) {
         result.message = "User already exists";
         return result;
     }
+
     user.setPassword(PasswordHasher::hashPassword(user.getPassword()));
+    Logger::getInstance()->log("Creating user: " + user.getUsername(), Logger::Level::INFO);
     auto saveResult = user_repos->create(user);
     if (saveResult.success) {
         result.status_code = StatusCode::SUCCESS;
@@ -68,11 +70,15 @@ ServiceResult<void> UserService::setAndSendOTP() {
     ServiceResult<void> result;
     std::string otp = OtpGenerator::getInstance()->generateOtp();
     SessionManager::setCurrentOTP(otp);
-
+    
+    Logger::getInstance()->log("Generated OTP: " + otp, Logger::Level::INFO);
+    
     std::string userEmail = SessionManager::getCurrentUser().getEmail();
     std::cout << "Sending OTP to: " << userEmail << std::endl;
+    Logger::getInstance()->log("Sending OTP to: " + userEmail, Logger::Level::INFO);
     bool sendSuccess = EmailService::sendOtp(userEmail, otp);
     
+
     if (sendSuccess) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "OTP sent successfully";
@@ -102,6 +108,7 @@ ServiceResult<bool> UserService::verifyOTP(const std::string& otp) {
 UserService::UserService(const RepositoryRegistry& repoRegistry) {
     user_repos = std::dynamic_pointer_cast<UserRepository>(repoRegistry.user_repos);
     if (!user_repos) {
+        Logger::getInstance()->log("Failed to cast to UserRepository", Logger::Level::ERROR);
         std::cerr << "Failed to cast to UserRepository" << std::endl;
     }
 }

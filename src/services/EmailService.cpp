@@ -26,6 +26,7 @@
  */
 bool EmailService::sendOtp(const std::string& recipient, const std::string& otp) {
     std::string command = "echo \"Subject: Your OTP Code\n\nYour OTP is: " + otp + "\" | msmtp " + recipient;
+    Logger::getInstance()->log("Sending OTP to " + recipient, Logger::Level::INFO);
     bool success = (system(command.c_str()) == 0);
     if (success) {
         std::cout << "OTP sent to " << recipient << std::endl;
