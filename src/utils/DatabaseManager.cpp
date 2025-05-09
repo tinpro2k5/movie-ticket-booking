@@ -40,6 +40,7 @@ std::unique_ptr<DatabaseManager> DatabaseManager::instance = nullptr;
 // Constructor
 void DatabaseManager::connect(const ServerInfo& server_info) {
     if (conn) {
+        Logger::getInstance()->log("Closing existing connection before creating a new one.", Logger::Level::INFO);
         mysql_close(conn);  // Đóng kết nối trước khi tạo mới
         conn = nullptr;
     }
@@ -47,20 +48,20 @@ void DatabaseManager::connect(const ServerInfo& server_info) {
     conn = mysql_init(nullptr);  // Khởi tạo kết nối
     if (conn == nullptr) {
         std::cerr << "Error initializing MySQL connection: " << mysql_error(conn) << "\n";
+        Logger::getInstance()->log("Error initializing MySQL connection: " + std::string(mysql_error(conn)), Logger::Level::ERROR);
         throw std::runtime_error("Error initializing MySQL connection: " + std::string(mysql_error(conn)));
     }
-    std::cout << server_info.getHost() << " "
-              << server_info.getUser() << " "
-              << server_info.getPassword() << " "
-              << server_info.getPort() << "\n";
+    Logger::getInstance()->log("Connecting to" + server_info.getHost() + ":" + std::to_string(server_info.getPort()), Logger::Level::INFO);
     if (!mysql_real_connect(conn, 
                             server_info.getHost().c_str(),
                             server_info.getUser().c_str(),
                             server_info.getPassword().c_str(),
                             nullptr,
                             server_info.getPort(),
-                            nullptr, 0)) {
+                            nullptr, 0)) 
+    {
         std::string err = mysql_error(conn);
+        Logger::getInstance()->log("mysql_real_connect() failed: " + err, Logger::Level::ERROR);
         mysql_close(conn);
         conn = nullptr;
         throw std::runtime_error("mysql_real_connect() failed: " + err);
@@ -74,6 +75,7 @@ void DatabaseManager::connect(const ServerInfo& server_info) {
 // Destructor
 DatabaseManager::~DatabaseManager() {
     if (conn) {
+        Logger::getInstance()->log("Closing database connection.", Logger::Level::INFO);
         this->disconnect();
         conn = nullptr;
         std::cout << "Database connection closed.\n"; 
@@ -95,6 +97,7 @@ MYSQL* DatabaseManager::getConnection() {
 
 void DatabaseManager::disconnect() {
     if (conn) {
+        Logger::getInstance()->log("Disconnecting from database.", Logger::Level::INFO);
         mysql_close(conn);
         conn = nullptr;
         std::cout << "Database disconnected successfully!\n";
@@ -108,11 +111,12 @@ void DatabaseManager::setupDatabase() {
     {
         std::cout << mysql_error(conn) << std::endl;
         std::cerr << "No active connection to the database.\n";
+        Logger::getInstance()->log("No active connection to the database.", Logger::Level::ERROR);
         throw std::runtime_error("No active connection to the database.");
     }
     try {
         // tạo ra và sử dụng nếu không tồn tại database: MOVIE_BOOKING
-
+        Logger::getInstance()->log("Setting up database...", Logger::Level::INFO);
         QueryResult result = executeQuery(CREATE_DB_QUERY);
         if (!result.success) {
             result.error_message = "Failed to create database: " + result.error_message;
@@ -152,7 +156,7 @@ QueryResult DatabaseManager::executeQuery(const std::string& query) {
         std::cerr << "No active connection to the database.\n";
         throw std::runtime_error("No active connection to the database.");
     }
-
+    Logger::getInstance()->log("Executing query: " + query, Logger::Level::INFO);
     if (mysql_query(conn, query.c_str())) {
         result.success = false;
         result.error_message = mysql_error(conn);
@@ -175,6 +179,7 @@ QueryResult DatabaseManager::executeQuery(const std::string& query) {
 /// TODO: xử lí các dòng trong file script (các dòng comment trong file script)
 
 ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
+
     ScriptResult script_result;
 
     if (!conn) {
@@ -187,6 +192,7 @@ ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
     if (!script_file.is_open()) {
         script_result.success = false;
         script_result.error_message = "Could not open script file: " + script_path;
+        Logger::getInstance()->log(script_result.error_message, Logger::Level::ERROR);
         return script_result;
     }
 
@@ -196,7 +202,6 @@ ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
     size_t start_pos = 0;
     size_t end_pos;
     try{
-
         while ((end_pos = script.find(';', start_pos)) != std::string::npos) {
             std::string query = script.substr(start_pos, end_pos - start_pos);
         start_pos = end_pos + 1;

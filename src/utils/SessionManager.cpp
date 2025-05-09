@@ -14,6 +14,8 @@
  * This method logs out the current user, clears the user details, and resets the OTP.
  */
 void SessionManager::clear() {
+    Logger::getInstance()->log("Clearing session data.", Logger::Level::INFO);
+    
     currentUser = User();
     loggedIn = false;
     current_otp.clear();

@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <stdexcept>
+#include "../../include/utils/Logger.h"
 
 /**
  * @file DatabaseManager.h

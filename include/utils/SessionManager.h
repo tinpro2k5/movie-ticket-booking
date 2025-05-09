@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../../include/models/User.h"
+#include "../../include/utils/Logger.h"
 
 /**
  * @file SessionManager.h
