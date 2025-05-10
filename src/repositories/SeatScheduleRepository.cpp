@@ -76,3 +76,39 @@ Result<bool> SeatScheduleRepository::update(const SeatSchedule& ss){
     }
     return result;
 }
+
+Result<int> SeatScheduleRepository::create(const SeatSchedule& ss){
+    Result<int> result;
+    std::string query = "INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (" +
+                        std::to_string(ss.getRoomId()) + ", " +
+                        std::to_string(ss.getTheaterId()) + ", '" +
+                        ss.getSeatNumber() + "', '" +
+                        ss.getShowTime() + "', " + "NULL);";
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    if (query_result.affected_rows > 0) {
+        result.success = true;
+        QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+        if (id_result.success && id_result.result) {
+            MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+            if (row && row[0]) {
+                result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+            } else {
+                result.success = false;
+                result.error_message = "Không đọc được ticketID.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Không thể thực hiện truy vấn lấy ticketID.";
+        }
+    } else {
+            result.success = false;
+            result.error_message = "Failed to ticket";
+    }
+    return result;
+}

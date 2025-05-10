@@ -1,0 +1,7 @@
+[2025-05-10 16:24:30][INFO] Connecting to127.0.0.1:3306
+[2025-05-10 16:24:30][INFO] Setting up database...
+[2025-05-10 16:24:30][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-10 16:24:30][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-10 16:24:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-10 16:24:35][INFO] Closing database connection.
+[2025-05-10 16:24:35][INFO] Disconnecting from database.

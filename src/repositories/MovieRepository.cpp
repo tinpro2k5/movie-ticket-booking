@@ -230,7 +230,19 @@ Result<bool> MovieRepository::remove(int id_movie){
     Neu so dong bi anh huong = 0, tra ve ket qua that bai*/
     if (query_result.affected_rows > 0) {
         result.success = true;
-        result.data = true;
+        QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+        if (id_result.success && id_result.result) {
+            MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+            if (row && row[0]) {
+                result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+            } else {
+                result.success = false;
+                result.error_message = "Không đọc được movieID.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Không thể thực hiện truy vấn lấy movieID.";
+        }
     } else {
         result.success = false;
         result.error_message = "Failed to delete movie";

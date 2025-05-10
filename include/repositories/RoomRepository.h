@@ -12,5 +12,6 @@ class RoomRepository: public IRepository<Room> {
     Result<vector<Room>>findByTheaterId(int id_theater);
     Result<Room>findById(int id_theater, int id_room);
     Result<int> create(const Room& room);
+    Result<bool> update(const Room& room) override;
 };
 #endif

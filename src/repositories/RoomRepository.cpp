@@ -59,3 +59,64 @@ Result<Room> RoomRepository::findById(int id_theater, int id_room){
 
     return result;
 }
+
+Result<int> RoomRepository::create(const Room& room){
+    Result<int> result;
+    std::string query = "INSERT INTO Room (theaterID, name, capacity) VALUES (" +
+                        std::to_string(room.getTheaterId()) + ", '" +
+                        room.getRoomName() + "', " +
+                        std::to_string(room.getRoomCapacity()) + ")";
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    if (query_result.affected_rows > 0) {
+            result.success = true;
+            QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+            if (id_result.success && id_result.result) {
+                MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+                if (row && row[0]) {
+                    result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+                } else {
+                    result.success = false;
+                    result.error_message = "Không đọc được roomID.";
+                }
+            } else {
+                result.success = false;
+                result.error_message = "Không thể thực hiện truy vấn lấy roomID.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Failed to room";
+        }
+    return result;
+}
+
+Result<bool> RoomRepository::update(const Room& room) {
+    Result<bool> result;
+    std::string query = "UPDATE Room SET theaterID = " + std::to_string(room.getTheaterId()) +
+                        ", name = '" + room.getRoomName() +
+                        "', capacity = " + std::to_string(room.getRoomCapacity()) +
+                        " WHERE roomID = " + std::to_string(room.getRoomId()) + 
+                        " AND theaterID = " + std::to_string(room.getTheaterId()) + ";";
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    if (query_result.affected_rows > 0) {
+        result.success = true;
+        result.data = true;
+    } else {
+        result.success = false;
+        result.error_message = "Failed to update room";
+    }
+    return result;
+}

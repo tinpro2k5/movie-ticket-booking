@@ -70,7 +70,7 @@ Result<MovieTheater> MovieTheaterRepository::findById(int id_theater){
 Result<int> MovieTheaterRepository::create(const MovieTheater& movie_theater){
     Result<int> result;
     //Thuc hien truy van
-    string query = "INSERT INTO Theater (theaterID, name, location) VALUES (" + std::to_string(movie_theater.getTheaterId()) + ", '" 
+    string query = "INSERT INTO Theater (name, location) VALUES ('"
     + movie_theater.getTheaterName() + "', '" 
     + movie_theater.getTheaterLocation() + "')";
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
@@ -83,7 +83,19 @@ Result<int> MovieTheaterRepository::create(const MovieTheater& movie_theater){
     }
     if (query_result.affected_rows > 0) {
         result.success = true;
-        result.data = true;
+        QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+        if (id_result.success && id_result.result) {
+            MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+            if (row && row[0]) {
+                result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+            } else {
+                result.success = false;
+                result.error_message = "Không đọc được theaterID.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Không thể thực hiện truy vấn lấy theaterID.";
+        }
     } else {
         result.success = false;
         result.error_message = "Failed to create movie";

@@ -16,10 +16,10 @@ class MovieRepository: public IRepository<Movie> {
         //Get movie by name
         Result<vector<Movie>> findByName(string name);
         //Add movie
-        Result<int> create(const Movie& movie);
+        Result<int> create(const Movie& movie) override;
         //Update movie
-        Result<bool> update(const Movie& movie);
+        Result<bool> update(const Movie& movie) override;
         //Delete movie
-        Result<bool> remove(int id_movie);
+        Result<bool> remove(int id_movie) override;
 };
 #endif

@@ -24,3 +24,43 @@ Result<vector<Seat>> SeatRepository::findByRoomId(int id_room, int id_theater) {
     result.data = seats;
     return result;
 }
+
+Result<int> create(const Seat& seat){
+    Result<int> result;
+    string query = "INSERT INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES (" +
+                   std::to_string(seat.getRoomId()) + ", " +
+                   std::to_string(seat.getTheaterId()) + ", '" +
+                   seat.getSeatNumber() + "', " +
+                   (seat.isVip() ? "TRUE" : "FALSE") + ")";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    /*Kiem tra ket qua truy van
+    Neu khong thanh cong, tra ve ket qua that bai*/
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    /*Neu thanh cong, kiem tra so dong bi anh huong
+    Neu so dong bi anh huong > 0, tra ve ket qua thanh cong
+    Neu so dong bi anh huong = 0, tra ve ket qua that bai*/
+    if (query_result.affected_rows > 0) {
+        result.success = true;
+        QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");
+        if (id_result.success && id_result.result) {
+            MYSQL_ROW row = mysql_fetch_row(id_result.result.get());
+            if (row && row[0]) {
+                result.data = std::stoi(row[0]); // ép kiểu chuỗi sang số
+            } else {
+                result.success = false;
+                result.error_message = "Không đọc được ban ghi moi.";
+            }
+        } else {
+            result.success = false;
+            result.error_message = "Không thể thực hiện truy vấn lấy ban ghi moi.";
+        }
+    } else {
+            result.success = false;
+            result.error_message = "Failed to seat create ";
+    }
+    return result;
+}
