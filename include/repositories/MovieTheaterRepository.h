@@ -12,6 +12,6 @@ class MovieTheaterRepository: public IRepository<MovieTheater> {
     Result<MovieTheater> findById(int id_theater);
     Result<int> create(const MovieTheater& movie_theater);
     Result<bool> update(const MovieTheater& movie_theater);
-    Result<bool> remove(int id_theater);
+   // Result<bool> remove(int id_theater);
 };
 #endif

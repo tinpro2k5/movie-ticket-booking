@@ -10,13 +10,16 @@ template <typename T>
 class IRepository {
 public:
     // có thể thêm constructor với tham số
-    IRepository(); 
+    IRepository() = default; 
     virtual ~IRepository() = default;
     virtual Result<int> create(const T& item) = 0;
-    virtual Result<bool> update(const T& item) ;  // một số repos không cần update;
-    virtual Result<bool> remove(int id); // một số repos không cần ;
-    // Define common methods for all repositories here
-
+    virtual Result<bool> update(const T& item) {
+        return Result<bool>(false, "Not implemented");
+    }
+    virtual Result<bool> remove(int id)
+    {
+        return Result<bool>(false, "Not implemented");
+    }
 };
 
 
