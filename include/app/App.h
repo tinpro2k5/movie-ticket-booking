@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
+
 #include "../app/RepositoryRegistry.h"
 #include "../services/UserService.h"
 #include "../utils/DatabaseManager.h"
@@ -24,6 +27,7 @@
 #include "../../include/services/RoomManageCommand.h"
 #include "../../include/services/TheaterService.h"
 #include "../../include/services/TheaterManageCommand.h"
+
 
 
 #include "../utils/RollbackContainer.h"
@@ -52,6 +56,9 @@ public:
     void handleRegister();
     void handleLogin();
     void handleExit();
+    void handleUserMenu();
+    void handleAdminMenu();
+    
 
     int run();
     
