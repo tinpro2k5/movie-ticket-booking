@@ -36,6 +36,7 @@ ServiceResult<void> UserService::createUser(User user) {
     if (saveResult.success) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "User created successfully";
+        setAndSendOTP();
     } else {
         result.status_code = StatusCode::FAIL;
         result.message = "Failed to create user";

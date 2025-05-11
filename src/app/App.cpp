@@ -50,11 +50,41 @@ int App::run() {
                 std::cout << "Nhập email: ";
                 std::cin >> temp;
                 user.setEmail(temp);
-                Logger::getInstance()->log("Creating user: " + user.getUsername(), Logger::Level::INFO);
+                
+                RollbackContainer rollback;
                 auto res = user_service.createUser(user);
+                
+                
                 if (res.status_code == StatusCode::SUCCESS) {
-                    std::cout << "Đăng ký thành công!\n";
-                } else {
+                    rollback.addRollbackAction([&]() {
+                        user_service.removeUser(user);
+                    });
+                    rollback.addRollbackAction([&]() {
+                        SessionManager::clear();
+                    });
+
+                    std::cout << "Nhập OTP: ";
+                    std::string otp;
+                    std::cin >> otp;
+                    
+                    while (user_service.verifyOTP(otp).status_code != StatusCode::OTP_VERIFICATION_SUCCESS) {
+                        int retry;
+                        std::cout << "Xác thực OTP thất bại. Bạn có muốn thử lại không? (1: Có, 0: Không): ";
+                        std::cin >> retry;
+                        if (retry == 0) {
+                            break;
+                        }
+                        std::cout << "Nhập lại OTP: ";
+                        std::cin >> otp;
+                    }
+                    if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
+                        std::cout << "Đăng ký thành công!\n";
+                    } else {
+                        std::cout << "Đăng ký thất bại. Đang thực hiện rollback...\n";
+                        rollback.executeRollback();
+                    }
+                } 
+                else {
                     std::cout << "Đăng ký thất bại: " << res.message << "\n";
                 }
                 break;

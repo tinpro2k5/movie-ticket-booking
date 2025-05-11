@@ -8,6 +8,7 @@
 #include "../utils/DatabaseManager.h"
 #include "../utils/SessionManager.h"
 #include "../utils/Logger.h"
+
 #include "../../include/services/ICommand.h"
 #include "../../include/services/MovieService.h"
 #include "../../include/services/ViewMovieCommand.h"
@@ -16,6 +17,8 @@
 #include "../../include/services/TicketService.h"
 #include "../../include/services/BookTicketCommand.h"
 #include "../../include/services/ShowTicketCommand.h"
+
+#include "../utils/RollbackContainer.h"
 
 class App {
 private:
