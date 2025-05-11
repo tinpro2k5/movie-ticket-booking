@@ -17,7 +17,6 @@
 #include "../../include/services/TicketService.h"
 #include "../../include/services/BookTicketCommand.h"
 #include "../../include/services/ShowTicketCommand.h"
-<<<<<<< HEAD
 #include "../../include/services/ShowTimeService.h"
 #include "../../include/services/MovieManageCommand.h"
 #include "../../include/services/ShowTimeManageCommand.h"
@@ -25,11 +24,9 @@
 #include "../../include/services/RoomManageCommand.h"
 #include "../../include/services/TheaterService.h"
 #include "../../include/services/TheaterManageCommand.h"
-=======
+
 
 #include "../utils/RollbackContainer.h"
-
->>>>>>> 93d285e62b19e0c4574bb60c09d7138d7f580313
 class App {
 private:
     RepositoryRegistry repos_res;
