@@ -5,3 +5,56 @@
 [2025-05-10 16:24:33][INFO] Executing query: SELECT * FROM Movie
 [2025-05-10 16:24:35][INFO] Closing database connection.
 [2025-05-10 16:24:35][INFO] Disconnecting from database.
+[2025-05-11 04:57:18][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 04:57:18][INFO] Setting up database...
+[2025-05-11 04:57:18][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 04:57:18][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 04:57:19][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 04:57:24][INFO] Closing database connection.
+[2025-05-11 04:57:24][INFO] Disconnecting from database.
+[2025-05-11 05:29:03][INFO] App initialized
+[2025-05-11 05:29:03][INFO] Connecting to database: 127.0.0.1
+[2025-05-11 05:29:03][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 05:29:03][INFO] Setting up database...
+[2025-05-11 05:29:03][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 05:29:03][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 05:29:39][INFO] Authenticating user: admin
+[2025-05-11 05:29:39][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-11 05:29:39][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-11 05:29:39][INFO] Parsing query result
+[2025-05-11 05:29:52][INFO] App destroyed
+[2025-05-11 05:29:52][INFO] Closing database connection.
+[2025-05-11 05:29:52][INFO] Disconnecting from database.
+[2025-05-11 05:30:08][INFO] App initialized
+[2025-05-11 05:30:08][INFO] Connecting to database: 127.0.0.1
+[2025-05-11 05:30:08][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 05:30:08][INFO] Setting up database...
+[2025-05-11 05:30:08][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 05:30:08][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 05:30:44][INFO] Authenticating user: admin
+[2025-05-11 05:30:44][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-11 05:30:44][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-11 05:30:44][INFO] Parsing query result
+[2025-05-11 06:00:58][INFO] App destroyed
+[2025-05-11 06:00:58][INFO] Closing database connection.
+[2025-05-11 06:00:58][INFO] Disconnecting from database.
+[2025-05-11 06:01:00][INFO] App initialized
+[2025-05-11 06:01:00][INFO] Connecting to database: 127.0.0.1
+[2025-05-11 06:01:00][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 06:01:00][INFO] Setting up database...
+[2025-05-11 06:01:00][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 06:01:00][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 06:01:18][INFO] Creating user: khacvuong
+[2025-05-11 06:01:18][INFO] Executing query: SELECT * FROM User WHERE username ='khacvuong' OR email ='khacvuong2707@gmail.com';
+[2025-05-11 06:01:18][INFO] Executing query: SELECT * FROM User WHERE username ='khacvuong' OR email ='khacvuong2707@gmail.com';
+[2025-05-11 06:01:18][INFO] Parsing query result
+[2025-05-11 06:01:18][INFO] Creating user: khacvuong
+[2025-05-11 06:01:18][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('khacvuong', '17910197769711007187', 'khacvuong2707@gmail.com', '0974139985', 0);
+[2025-05-11 06:01:18][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('khacvuong', '17910197769711007187', 'khacvuong2707@gmail.com', '0974139985', 0);
+[2025-05-11 06:01:29][INFO] Authenticating user: khacvuong
+[2025-05-11 06:01:29][INFO] Executing query: SELECT * FROM User WHERE username ='khacvuong';
+[2025-05-11 06:01:29][INFO] Executing query: SELECT * FROM User WHERE username ='khacvuong';
+[2025-05-11 06:01:29][INFO] Parsing query result
+[2025-05-11 06:01:29][INFO] Generated OTP: 541830
+[2025-05-11 06:01:29][INFO] Sending OTP to: khacvuong2707@gmail.com
+[2025-05-11 06:01:29][INFO] Sending OTP to khacvuong2707@gmail.com

@@ -104,12 +104,12 @@ Result<int> ShowTimeRepository::create(const ShowTime& showtime) {
 
 Result<bool> ShowTimeRepository::update(const ShowTime& showtime) {
     Result<bool> result;
-    string query = "UPDATE Showtime SET roomID = " + std::to_string(showtime.getRoomId()) +
-                   ", theaterID = " + std::to_string(showtime.getTheaterId()) +
-                   ", showDateTime = '" + showtime.getShowTime() +
-                   "', movieID = " + std::to_string(showtime.getMovieId()) +
-                   " WHERE roomID = " + std::to_string(showtime.getRoomId()) + ";";
+    string query = "UPDATE Showtime SET showDateTime = '" + showtime.getShowTime() +
+                   "' WHERE roomID = " + std::to_string(showtime.getRoomId()) +
+                   " AND theaterID = " + std::to_string(showtime.getTheaterId()) + 
+                   " AND movieID = " + std::to_string(showtime.getMovieId()) + ";";
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    
     if (!query_result.success) {
         result.success = false;
         result.error_message = query_result.error_message;

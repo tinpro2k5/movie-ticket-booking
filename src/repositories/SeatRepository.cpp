@@ -25,7 +25,7 @@ Result<vector<Seat>> SeatRepository::findByRoomId(int id_room, int id_theater) {
     return result;
 }
 
-Result<int> create(const Seat& seat){
+Result<int> SeatRepository::create(const Seat& seat){
     Result<int> result;
     string query = "INSERT INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES (" +
                    std::to_string(seat.getRoomId()) + ", " +

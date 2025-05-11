@@ -6,6 +6,5 @@ class SeatRepository: public IRepository<Seat> {
     public:
     Result<vector<Seat>> findByRoomId(int id_room, int id_theater);
     Result<int> create(const Seat& seat) override;
-    
 };
 #endif

@@ -1,3 +1,5 @@
+SET time_zone = '+07:00';
+
 CREATE TABLE IF NOT EXISTS User (
     userID INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -66,7 +68,10 @@ CREATE TABLE IF NOT EXISTS Ticket (
     isPaid BOOLEAN DEFAULT FALSE,
     UNIQUE (roomID, theaterID, seatNumber, showDateTime),
     FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (roomID, theaterID, showDateTime) REFERENCES Showtime(roomID, theaterID, showDateTime)
+    FOREIGN KEY (roomID, theaterID, showDateTime) 
+    REFERENCES Showtime(roomID, theaterID, showDateTime)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 
@@ -78,11 +83,16 @@ CREATE TABLE IF NOT EXISTS SeatSchedule (
     showDateTime DATETIME NOT NULL,
     ticketID INT NULL,
     PRIMARY KEY (roomID, theaterID, seatNumber, showDateTime),
-    FOREIGN KEY (roomID, theaterID, seatNumber) REFERENCES Seat(roomID, theaterID, seatNumber),
-    FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID),
+    FOREIGN KEY (roomID, theaterID, seatNumber) REFERENCES Seat(roomID, theaterID, seatNumber)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (roomID, theaterID, showDateTime) REFERENCES Showtime(roomID, theaterID, showDateTime)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
-
 
 
 INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
@@ -110,9 +120,19 @@ INSERT IGNORE INTO Room (roomID, theaterID, name, capacity) VALUES
 INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
 (1, 1, 'A1', FALSE),
 (1, 1, 'A2', FALSE),
-(1, 1, 'A3', TRUE),
+(1, 1, 'A3', FALSE),
+(1, 1, 'A4', FALSE),
+(1, 1, 'A5', FALSE),
 (1, 1, 'B1', FALSE),
-(1, 1, 'B2', TRUE);
+(1, 1, 'B2', FALSE),
+(1, 1, 'B3', FALSE),
+(1, 1, 'B4', FALSE),
+(1, 1, 'B5', FALSE),
+(1, 1, 'C1', FALSE),
+(1, 1, 'C2', FALSE),
+(1, 1, 'C3', FALSE),
+(1, 1, 'C4', FALSE),
+(1, 1, 'C5', FALSE);
 
 
 

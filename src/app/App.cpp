@@ -2,7 +2,14 @@
 
 App::App():
         repos_res(),
-        user_service(repos_res)
+        user_service(repos_res),
+        movie_service(repos_res),
+        ticket_service(repos_res),
+        menu_invoker(),
+        view_movie_command(&movie_service),
+        filter_movie_command(&movie_service),
+        book_ticket_command(&ticket_service),
+        show_ticket_command(&ticket_service)
 {
     Logger::getInstance()->setLogFile(Logger::getInstance()->DEFAULT_LOG_FILE);
     Logger::getInstance()->log("App initialized", Logger::Level::INFO);
@@ -13,10 +20,14 @@ App::~App() {
     // Clean up resources if needed
 }
 int App::run() {
-    ServerInfo serverInfo;
+    ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
+    cout << "------------------------------------------\n";
     Logger::getInstance()->log("Connecting to database: " + serverInfo.getHost(), Logger::Level::INFO); 
+    cout << "------------------------------------------\n";
     DatabaseManager::getInstance()->connect(serverInfo);
+    cout << "------------------------------------------\n";
     DatabaseManager::getInstance()->setupDatabase();
+    cout << "------------------------------------------\n";
     std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
     int choice;
     while (true) {
@@ -69,6 +80,19 @@ int App::run() {
                     if (otp_res.status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
                         std::cout << "Đăng nhập thành công!\n";
                         user_service.getUserByUsername(user.getUsername());
+                        int movie_choice;
+                        menu_invoker.setCommand(1, &view_movie_command);
+                        menu_invoker.setCommand(2, &filter_movie_command);
+                        menu_invoker.setCommand(3, &book_ticket_command);
+                        menu_invoker.setCommand(4, &show_ticket_command);
+                        while (true) {
+                            menu_invoker.showMenu();
+                            std::cin >> movie_choice;
+                            if (movie_choice == 0) {
+                                break;
+                            }
+                            menu_invoker.executeCommand(movie_choice, user);
+                        }
                     } else {
                         std::cout << "Xác thực OTP thất bại: " << otp_res.message << "\n";
                     }

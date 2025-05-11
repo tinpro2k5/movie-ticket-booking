@@ -1,0 +1,584 @@
+[2025-05-11 07:07:50][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:07:50][ERROR] mysql_real_connect() failed: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2025-05-11 07:08:20][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:08:20][INFO] Setting up database...
+[2025-05-11 07:08:20][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:08:20][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:08:34][INFO] Closing database connection.
+[2025-05-11 07:08:34][INFO] Disconnecting from database.
+[2025-05-11 07:10:53][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:10:53][INFO] Setting up database...
+[2025-05-11 07:10:53][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:10:53][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:10:55][INFO] Closing database connection.
+[2025-05-11 07:10:55][INFO] Disconnecting from database.
+[2025-05-11 07:12:27][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:12:27][INFO] Setting up database...
+[2025-05-11 07:12:27][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:12:27][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:13:02][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('Địa Đạo', 'Action', 'Mota', 120, 8.500000, 'NULL')
+[2025-05-11 07:13:06][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 07:13:20][INFO] Executing query: DELETE FROM Movie WHERE movieID = 1
+[2025-05-11 07:13:40][INFO] Executing query: DELETE FROM Movie WHERE movieID = 3
+[2025-05-11 07:13:45][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 07:13:59][INFO] Executing query: DELETE FROM Movie WHERE movieID = 14
+[2025-05-11 07:13:59][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:14:09][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-11 07:14:55][INFO] Executing query: UPDATE Movie SET title = 'Địa Đạo', genre = 'Action', description = 'Mota', duration = 120, rating = 8.700000, posterPath = 'null' WHERE MovieID = 1
+[2025-05-11 07:15:00][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 07:15:24][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (0, 1, '2025-05-11', 1);
+[2025-05-11 07:19:26][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:19:26][INFO] Setting up database...
+[2025-05-11 07:19:26][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:19:26][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:19:47][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:22:22][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:22:22][INFO] Setting up database...
+[2025-05-11 07:22:22][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:22:22][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:22:42][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:22:42][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11', NULL);
+[2025-05-11 07:22:42][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:22:42][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11', NULL);
+[2025-05-11 07:22:42][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:22:42][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11', NULL);
+[2025-05-11 07:22:42][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:22:42][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11', NULL);
+[2025-05-11 07:22:42][INFO] Closing database connection.
+[2025-05-11 07:22:42][INFO] Disconnecting from database.
+[2025-05-11 07:25:41][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:25:41][INFO] Setting up database...
+[2025-05-11 07:25:41][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:25:41][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:26:14][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:26:17][INFO] Closing database connection.
+[2025-05-11 07:26:17][INFO] Disconnecting from database.
+[2025-05-11 07:26:20][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:26:20][INFO] Setting up database...
+[2025-05-11 07:26:20][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:26:20][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11', NULL);
+[2025-05-11 07:26:36][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:26:36][INFO] Closing database connection.
+[2025-05-11 07:26:36][INFO] Disconnecting from database.
+[2025-05-11 07:26:58][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:26:58][INFO] Setting up database...
+[2025-05-11 07:26:58][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:26:58][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:27:14][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:28:37][INFO] Closing database connection.
+[2025-05-11 07:28:37][INFO] Disconnecting from database.
+[2025-05-11 07:29:15][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:29:15][INFO] Setting up database...
+[2025-05-11 07:29:15][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:29:15][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11', NULL);
+[2025-05-11 07:29:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:29:30][INFO] Closing database connection.
+[2025-05-11 07:29:30][INFO] Disconnecting from database.
+[2025-05-11 07:30:29][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:30:29][INFO] Setting up database...
+[2025-05-11 07:30:29][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:30:29][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:30:42][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:30:42][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11', NULL);
+[2025-05-11 07:30:42][INFO] Closing database connection.
+[2025-05-11 07:30:42][INFO] Disconnecting from database.
+[2025-05-11 07:31:26][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:31:26][INFO] Setting up database...
+[2025-05-11 07:31:26][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:31:26][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11', 1);
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11', NULL);
+[2025-05-11 07:31:38][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:31:38][INFO] Closing database connection.
+[2025-05-11 07:31:38][INFO] Disconnecting from database.
+[2025-05-11 07:35:04][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:35:04][INFO] Setting up database...
+[2025-05-11 07:35:04][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:35:04][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:14][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:35:14][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:35:44][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:36:00][INFO] Closing database connection.
+[2025-05-11 07:36:00][INFO] Disconnecting from database.
+[2025-05-11 07:37:05][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:37:05][INFO] Setting up database...
+[2025-05-11 07:37:05][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:37:05][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:37:08][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 07:37:36][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('DiaDao', 'Action', 'null', 120, 9.500000, 'null')
+[2025-05-11 07:37:39][INFO] Executing query: SELECT * FROM Movie
+[2025-05-11 07:37:55][INFO] Executing query: DELETE FROM Movie WHERE movieID = 5
+[2025-05-11 07:37:55][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 12:00:00', 1);
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:07][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:38:07][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:38:17][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:39:18][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11' 
+[2025-05-11 07:39:18][INFO] Closing database connection.
+[2025-05-11 07:39:18][INFO] Disconnecting from database.
+[2025-05-11 07:39:28][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:39:28][INFO] Setting up database...
+[2025-05-11 07:39:28][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:39:28][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:39:36][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:40:02][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11' 
+[2025-05-11 07:40:02][INFO] Closing database connection.
+[2025-05-11 07:40:02][INFO] Disconnecting from database.
+[2025-05-11 07:41:43][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:41:43][INFO] Setting up database...
+[2025-05-11 07:41:43][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:41:43][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:41:55][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:42:10][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11' 
+[2025-05-11 07:42:10][INFO] Closing database connection.
+[2025-05-11 07:42:10][INFO] Disconnecting from database.
+[2025-05-11 07:45:12][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:45:12][INFO] Setting up database...
+[2025-05-11 07:45:12][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:45:12][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:45:20][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:45:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 07:45:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 07:46:32][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:46:52][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11' 
+[2025-05-11 07:46:52][INFO] Closing database connection.
+[2025-05-11 07:46:52][INFO] Disconnecting from database.
+[2025-05-11 07:48:38][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:48:38][INFO] Setting up database...
+[2025-05-11 07:48:38][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:48:38][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:48:49][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 07:49:29][INFO] Executing query: UPDATE Showtime SET roomID = 1, theaterID = 1, showDateTime = '2025-05-11 12:00:00', movieID = 1 WHERE roomID = 1;
+[2025-05-11 07:49:29][INFO] Executing query: UPDATE SeatSchedule SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A1' AND showDateTime = '2025-05-11 22:00:00';
+[2025-05-11 07:51:53][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 07:52:07][INFO] Executing query: UPDATE Showtime SET roomID = 1, theaterID = 1, showDateTime = '2025-05-11 12:00:00', movieID = 1 WHERE roomID = 1;
+[2025-05-11 07:52:07][INFO] Executing query: UPDATE SeatSchedule SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A1' AND showDateTime = '2025-05-11 22:00:00';
+[2025-05-11 07:57:19][INFO] Closing database connection.
+[2025-05-11 07:57:19][INFO] Disconnecting from database.
+[2025-05-11 07:57:21][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 07:57:21][INFO] Setting up database...
+[2025-05-11 07:57:21][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 07:57:21][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 07:57:33][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '0' 
+[2025-05-11 07:57:40][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 07:57:53][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 07:58:01][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 07:58:01][INFO] Executing query: UPDATE Showtime SET roomID = 1, theaterID = 1, showDateTime = '2025-05-11 12:00:00', movieID = 1 WHERE roomID = 1;
+[2025-05-11 07:58:01][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 07:59:37][INFO] Closing database connection.
+[2025-05-11 07:59:37][INFO] Disconnecting from database.
+[2025-05-11 08:00:51][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:00:51][INFO] Setting up database...
+[2025-05-11 08:00:51][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:00:51][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:00:57][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:01:08][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:01:15][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:01:15][INFO] Executing query: UPDATE Showtime SET roomID = 1, theaterID = 1, showDateTime = '2025-05-11 12:00:00', movieID = 1 WHERE roomID = 1;
+[2025-05-11 08:03:57][INFO] Closing database connection.
+[2025-05-11 08:03:57][INFO] Disconnecting from database.
+[2025-05-11 08:04:40][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:04:40][INFO] Setting up database...
+[2025-05-11 08:04:40][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:04:40][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:51][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:04:51][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:04:56][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:05:09][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:05:09][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:05:16][INFO] Executing query: UPDATE Showtime SET roomID = 1, theaterID = 1, showDateTime = '2025-05-11 12:00:00', movieID = 1 WHERE roomID = 1;
+[2025-05-11 08:14:12][INFO] Closing database connection.
+[2025-05-11 08:14:12][INFO] Disconnecting from database.
+[2025-05-11 08:14:33][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:14:33][INFO] Setting up database...
+[2025-05-11 08:14:33][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:14:33][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:14:36][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:14:38][INFO] Closing database connection.
+[2025-05-11 08:14:38][INFO] Disconnecting from database.
+[2025-05-11 08:14:40][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:14:40][INFO] Setting up database...
+[2025-05-11 08:14:40][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:14:40][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:14:48][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:14:48][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:14:55][INFO] Executing query: UPDATE Showtime SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND movieID = 1;
+[2025-05-11 08:24:44][INFO] Closing database connection.
+[2025-05-11 08:24:44][INFO] Disconnecting from database.
+[2025-05-11 08:24:45][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:24:45][INFO] Setting up database...
+[2025-05-11 08:24:45][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:24:45][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:24:50][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:02][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:25:02][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:25:13][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:25:13][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:25:22][INFO] Executing query: UPDATE Showtime SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND movieID = 1;
+[2025-05-11 08:27:02][INFO] Closing database connection.
+[2025-05-11 08:27:02][INFO] Disconnecting from database.
+[2025-05-11 08:28:17][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:28:17][INFO] Setting up database...
+[2025-05-11 08:28:17][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:28:17][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:28:21][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:35][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:28:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:28:58][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:28:58][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:29:08][INFO] Executing query: UPDATE Showtime SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND movieID = 1;
+[2025-05-11 08:31:23][INFO] Closing database connection.
+[2025-05-11 08:31:23][INFO] Disconnecting from database.
+[2025-05-11 08:31:24][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:31:24][INFO] Setting up database...
+[2025-05-11 08:31:24][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:31:24][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:31:29][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:31:44][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:31:53][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 12:00:00' 
+[2025-05-11 08:31:53][INFO] Executing query: UPDATE Showtime SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND movieID = 1;
+[2025-05-11 08:37:09][INFO] Closing database connection.
+[2025-05-11 08:37:09][INFO] Disconnecting from database.
+[2025-05-11 08:38:06][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:38:06][INFO] Setting up database...
+[2025-05-11 08:38:06][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:38:06][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 22:00:00', 1);
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:22][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 22:00:00', NULL);
+[2025-05-11 08:38:22][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:38:36][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:38:36][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:38:42][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 12:00:00' 
+[2025-05-11 08:38:42][INFO] Executing query: UPDATE Showtime SET showDateTime = '2025-05-11 12:00:00' WHERE roomID = 1 AND theaterID = 1 AND movieID = 1;
+[2025-05-11 08:43:40][INFO] Closing database connection.
+[2025-05-11 08:43:40][INFO] Disconnecting from database.
+[2025-05-11 08:44:40][INFO] Connecting to127.0.0.1:3306
+[2025-05-11 08:44:40][INFO] Setting up database...
+[2025-05-11 08:44:40][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-11 08:44:40][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-11 08:44:46][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-11 08:44:56][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 22:00:00' 
+[2025-05-11 08:44:56][INFO] Executing query: DELETE FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:44:56][INFO] Executing query: DELETE FROM Showtime WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-11 22:00:00'
+[2025-05-11 08:45:04][INFO] Executing query: SELECT * FROM Showtime WHERE movieID = 1 AND showDateTime = '2025-05-11 12:00:00' 
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (1, 1, '2025-05-11 12:00:00', 1);
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'A5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'B5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C1', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C2', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C3', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C4', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:04][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (1, 1, 'C5', '2025-05-11 12:00:00', NULL);
+[2025-05-11 08:45:04][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-11 08:45:12][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;

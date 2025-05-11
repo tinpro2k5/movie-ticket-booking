@@ -11,11 +11,17 @@ public:
         commands[option] = command;
     }
 
-    void showMenu() {
+    void showMenuUser() {
         std::cout << "1. Xem danh sách phim\n";
         std::cout << "2. Lọc phim\n";
         std::cout << "3. Đặt vé\n";
         std::cout << "4. Xem vé đã đặt\n";
+        std::cout << "0. Thoát\n";
+    }
+
+    void showMenuAdmin() {
+        std::cout << "1. Quản lí phim\n";
+        std::cout << "2. Quản lí suất chiếu\n";
         std::cout << "0. Thoát\n";
     }
 

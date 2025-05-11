@@ -7,15 +7,16 @@
 #include "../../include/services/BookTicketCommand.h"
 #include "../../include/services/ShowTicketCommand.h"
 /* Compile
-g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp test/test_service/main.cpp -o test/test_service/main -lmysqlclient
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/RepositoryRegistry.cpp test/test_service/main.cpp -o test/test_service/main -lmysqlclient
  */
 int main() {
     DatabaseManager::getInstance()->connect(ServerInfo("127.0.0.1", "root", "rootpassword", 3306));
     DatabaseManager::getInstance()->setupDatabase();
     User user(3, "jane_doe", "password456", "jane@example.com", "0111222333", false);
     int choice;
-    MovieService movieService;
-    TicketService ticketService;
+    RepositoryRegistry repos_res;
+    MovieService movieService(repos_res);
+    TicketService ticketService(repos_res);
     //
     ViewMovieCommand viewMovies(&movieService);
     FilterMovieCommand filterMovies(&movieService);
@@ -28,7 +29,7 @@ int main() {
     menu.setCommand(3, &bookTicket);
     menu.setCommand(4, &viewTickets);
     do {
-        menu.showMenu();
+        menu.showMenuUser();
         std::cout << "Chọn chức năng: ";
         std::cin >> choice;
         if (choice != 0)

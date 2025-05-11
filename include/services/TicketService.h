@@ -6,8 +6,15 @@
 #include "../../include/models/User.h"
 #include "../../include/repositories/SeatScheduleRepository.h"
 class TicketService{
-    TicketRepository ticket_repos;
+    std::shared_ptr<TicketRepository> ticket_repos;
     public:
+    TicketService(RepositoryRegistry& repoRegistry){
+        ticket_repos = std::dynamic_pointer_cast<TicketRepository>(repoRegistry.ticket_repos);
+        if (!ticket_repos) {
+            Logger::getInstance()->log("Failed to cast to TicketRepository", Logger::Level::ERROR);
+            std::cerr << "Failed to cast to TicketRepository" << std::endl;
+        }
+    }
     void bookTicket(User user) {
         ShowTimeRepository showtime_repos;
         int id;
@@ -70,7 +77,7 @@ class TicketService{
             "", true
         );
         // Lưu ticket và lấy ticket ID vừa tạo
-        Result<int> insert_result = ticket_repos.create(cur_ticket);
+        Result<int> insert_result = ticket_repos->create(cur_ticket);
         if (!insert_result.success) {
             cout << "Dat ve that bai: " << insert_result.error_message << "\n";
             return;
@@ -93,7 +100,7 @@ class TicketService{
         cout << "Dat ve thanh cong! Ma ve: " << ticket_id << "\n";
     }
         void viewUserTicket(User user){
-        Result<vector<Ticket>> result = ticket_repos.findByUserId(user.getUserId());
+        Result<vector<Ticket>> result = ticket_repos->findByUserId(user.getUserId());
         if(!result.success){
             cout << result.error_message << "\n";
             return;

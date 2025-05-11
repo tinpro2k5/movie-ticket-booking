@@ -2,12 +2,19 @@
 #define MOVIESERVICE_H
 
 #include "../../include/repositories/MovieRepository.h"
-
+#include "../../include/app/RepositoryRegistry.h"
 class MovieService{
-    MovieRepository movie_repos;
+    std::shared_ptr<MovieRepository> movie_repos;
     public:
+    MovieService(RepositoryRegistry& repoRegistry){
+        movie_repos = std::dynamic_pointer_cast<MovieRepository>(repoRegistry.movie_repos);
+        if (!movie_repos) {
+        Logger::getInstance()->log("Failed to cast to UserRepository", Logger::Level::ERROR);
+        std::cerr << "Failed to cast to UserRepository" << std::endl;
+        }
+    }
     void getListMovie(){
-        Result<vector<Movie>> result = movie_repos.findAll();
+        Result<vector<Movie>> result = movie_repos->findAll();
         if(!result.success){
             cout << result.error_message << "\n";
             return;
@@ -48,7 +55,7 @@ class MovieService{
                     cout << "Id khong hop le! Nhap lai id > 1\n";
                     std::cin >> id;
                 }
-                Result<Movie> result = movie_repos.findById(id);
+                Result<Movie> result = movie_repos->findById(id);
                 if(!result.success){
                     cout << result.error_message << "\n";
                     return;
@@ -69,7 +76,7 @@ class MovieService{
                 std::cin.ignore();
                 cout << "Nhap the loai \n";
                 getline(std::cin, input);
-                Result<std::vector<Movie>> result = movie_repos.findByGenre(input);
+                Result<std::vector<Movie>> result = movie_repos->findByGenre(input);
                 if(!result.success){
                     cout << result.error_message << "\n";
                     return;
@@ -90,7 +97,7 @@ class MovieService{
                 std::cin.ignore();
                 cout << "Nhap ten \n";
                 getline(std::cin, input);
-                Result<std::vector<Movie>> result = movie_repos.findByName(input);
+                Result<std::vector<Movie>> result = movie_repos->findByName(input);
                 if(!result.success){
                     cout << result.error_message << "\n";
                     return;
@@ -110,6 +117,126 @@ class MovieService{
                     return;
                 break;
             }
+        }
+    }
+    void manageMovies(User user){
+        std::cout << "===== QUẢN LÝ PHIM =====\n";
+        std::cout << "1. Thêm phim\n";
+        std::cout << "2. Xóa phim\n";
+        std::cout << "3. Cập nhật phim\n";
+        std::cout << "4. Xem danh sách phim\n";
+        std::cout << "0. Thoát\n";
+        std::cout << "=============================\n";
+        int choice;
+        std::cin >> choice;
+            switch (choice){
+                case 1:{
+                    Movie movie;
+                    movie.setMovieId(0);
+                    string input = "";
+                    std::cin.ignore();
+                    cout << "Nhap ten phim: \n";
+                    getline(std::cin, input);
+                    movie.setMovieTitle(input);
+                    cout << "Nhap the loai: \n";
+                    getline(std::cin, input);
+                    movie.setMovieGenre(input);
+                    cout << "Nhap mo ta: \n";
+                    getline(std::cin, input);
+                    movie.setMovieDescription(input);
+                    cout << "Nhap thoi gian: \n";
+                    int duration;
+                    std::cin >> duration;
+                    movie.setMovieDuration(duration);
+                    cout << "Nhap xep hang: \n";
+                    double rating;
+                    std::cin >> rating;
+                    movie.setMovieRating(rating);
+                    string path = "";
+                    std::cin.ignore();
+                    cout << "Nhap duong dan hinh anh: \n";
+                    getline(std::cin, path);
+                    movie.setMoviePosterPath(path);
+                    Result<int> result = movie_repos->create(movie);
+                    if(!result.success){
+                        cout << result.error_message << "\n";
+                        return;
+                    }else{
+                        cout << "Them phim thanh cong \n";
+                    }
+                    break;
+                }
+                case 2:{
+                    cout << "Nhap id phim can xoa: \n";
+                    int id;
+                    std::cin >> id;
+                    while(id < 1){
+                        cout << "Id khong hop le! Nhap lai id > 1\n";
+                        std::cin >> id;
+                    }
+                    Result<bool> result = movie_repos->remove(id);
+                    if(!result.success){
+                        cout << result.error_message << "\n";
+                        return;
+                    }else{
+                        cout << "Xoa phim thanh cong \n";
+                    }
+                    break;
+                }
+                case 3:{
+                    cout << "Nhap id phim can cap nhat: \n";
+                    int id;
+                    std::cin >> id;
+                    while(id < 1){
+                        cout << "Id khong hop le! Nhap lai id > 1\n";
+                        std::cin >> id;
+                    }
+                    Result<Movie> result = movie_repos->findById(id);
+                    if(!result.success){
+                        cout << result.error_message << "\n";
+                        return;
+                    }
+                    Movie movie = result.data;     
+                    string input = "";
+                    std::cin.ignore();
+                    cout << "Nhap ten phim: \n";
+                    getline(std::cin, input);
+                    movie.setMovieTitle(input);
+                    cout << "Nhap the loai: \n";
+                    getline(std::cin, input);
+                    movie.setMovieGenre(input);
+                    cout << "Nhap mo ta: \n";
+                    getline(std::cin, input);
+                    movie.setMovieDescription(input);
+                    cout << "Nhap thoi gian: \n";
+                    int duration;
+                    std::cin >> duration;
+                    movie.setMovieDuration(duration);
+                    cout << "Nhap xep hang: \n";
+                    double rating;
+                    std::cin >> rating;
+                    movie.setMovieRating(rating);
+                    string path = "";
+                    std::cin.ignore();
+                    cout << "Nhap duong dan hinh anh: \n";
+                    getline(std::cin, path);
+                    movie.setMoviePosterPath(path);
+
+                    Result<bool> result1 = movie_repos->update(movie);
+                    if(!result1.success){
+                        cout << result1.error_message << "\n";
+                        return;
+                    }else{
+                        cout << "Cap nhat phim thanh cong \n";
+                    }
+                    break;
+                }
+                case 4:
+                    getListMovie();
+                    break;
+                default:
+                    cout << "Khong co chuc nang nay \n";
+                    break;
             }
         }
 };
