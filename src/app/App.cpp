@@ -50,12 +50,11 @@ int App::run() {
             }
             system("clear");
         }
-        else if (SessionManager::getCurrentUser().getIsAdmin()) {
+        else if (SessionManager::isAdminUser()) {
             handleAdminMenu();
           
-        } else if (!SessionManager::getCurrentUser().getIsAdmin()) {
+        } else if (!SessionManager::isAdminUser()) {
             handleUserMenu();
-            
         }
     }
 }
