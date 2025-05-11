@@ -51,9 +51,9 @@ int App::run() {
             system("clear");
         }
         else if (SessionManager::isAdminUser()) {
-            handleAdminMenu();
-          
-        } else if (!SessionManager::isAdminUser()) {
+            handleAdminMenu();  
+        } 
+        else if (!SessionManager::isAdminUser()) {
             handleUserMenu();
         }
     }
@@ -101,6 +101,7 @@ void App::handleUserMenu() {
         }
         menu_invoker.executeCommand(movie_choice, user);
     }
+    SessionManager::clear();
 }
 
 
