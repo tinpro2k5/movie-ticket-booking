@@ -54,7 +54,7 @@ int main() {
 //     std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
 //     int choice;
 //     while (true) {
-//         startMenu();
+//         displayStartMenu();
 //         std::cin >> choice;
 //         User user;
 //         switch (choice) {

@@ -16,12 +16,27 @@ ServiceResult<void> UserService::createUser(User user) {
         return result;
     }
 
+    if (user.getUsername().empty() || user.getPassword().empty() || user.getEmail().empty()) {
+        result.status_code = StatusCode::FAIL;
+        result.message = "Invalid user data";
+        return result;
+    }
+
+    auto adminExists = user_repos->existAdminUser();
+    if (adminExists.success && -1 == adminExists.data) {
+        user.setIsAdmin(true);
+    } else {
+        user.setIsAdmin(false);
+    }
+
     user.setPassword(PasswordHasher::hashPassword(user.getPassword()));
     Logger::getInstance()->log("Creating user: " + user.getUsername(), Logger::Level::INFO);
     auto saveResult = user_repos->create(user);
+    
     if (saveResult.success) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "User created successfully";
+        setAndSendOTP();
     } else {
         result.status_code = StatusCode::FAIL;
         result.message = "Failed to create user";
@@ -37,7 +52,6 @@ ServiceResult<bool> UserService::authenticateUser(const std::string& username, c
         if (PasswordHasher::verifyPassword(password, user.getPassword())) {
             result.status_code = StatusCode::SUCCESS;
             result.message = "Authentication successful";
-            SessionManager::setCurrentUser(user);
             setAndSendOTP();
         } else {
             result.status_code = StatusCode::INVALID_PASSWORD;
@@ -111,4 +125,19 @@ UserService::UserService(const RepositoryRegistry& repoRegistry) {
         Logger::getInstance()->log("Failed to cast to UserRepository", Logger::Level::ERROR);
         std::cerr << "Failed to cast to UserRepository" << std::endl;
     }
+}
+
+
+ServiceResult<void> UserService::removeUser(const User& user) {
+    ServiceResult<void> result;
+    auto removeResult = user_repos->remove(user.getUserId());
+    if (removeResult.success) {
+        result.status_code = StatusCode::SUCCESS;
+        result.message = "User removed successfully";
+    } else {
+        result.status_code = StatusCode::FAIL;
+        result.message = "Failed to remove user";
+    }
+    return result;
+
 }

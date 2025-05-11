@@ -39,18 +39,32 @@ int App::run() {
     std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
     int choice;
     while (true) {
-        startMenu();
+        displayStartMenu();
+        int choice;
         std::cin >> choice;
-        User user;
         switch (choice) {
-            case 1: {
-                string temp;
-                std::cout << "Nhập tên đăng nhập: ";
-                std::cin >> temp;
-                user.setUsername(temp);
-                std::cout << "Nhập mật khẩu: ";
-                std::cin >> temp;
-                user.setPassword(temp);
+            case 1: handleRegister(); break;
+            case 2: handleLogin(); break;
+            case 0: handleExit(); break;
+            default:
+                std::cout << "Lựa chọn không hợp lệ!\n";
+        }
+    }
+}
+
+
+
+void App::handleRegister() {
+    User user;
+    std::string temp;
+
+    std::cout << "Nhập tên đăng nhập: ";
+    std::cin >> temp;
+    user.setUsername(temp);
+    
+    std::cout << "Nhập mật khẩu: ";
+    std::cin >> temp;
+    user.setPassword(temp);
     
                 std::cout << "Nhập số điện thoại: ";
                 std::cin >> temp;
@@ -58,11 +72,41 @@ int App::run() {
                 std::cout << "Nhập email: ";
                 std::cin >> temp;
                 user.setEmail(temp);
-                Logger::getInstance()->log("Creating user: " + user.getUsername(), Logger::Level::INFO);
+                
+                RollbackContainer rollback;
                 auto res = user_service.createUser(user);
+                
+                
                 if (res.status_code == StatusCode::SUCCESS) {
-                    std::cout << "Đăng ký thành công!\n";
-                } else {
+                    rollback.addRollbackAction([&]() {
+                        user_service.removeUser(user);
+                    });
+                    rollback.addRollbackAction([&]() {
+                        SessionManager::clear();
+                    });
+
+                    std::cout << "Nhập OTP: ";
+                    std::string otp;
+                    std::cin >> otp;
+                    
+                    while (user_service.verifyOTP(otp).status_code != StatusCode::OTP_VERIFICATION_SUCCESS) {
+                        int retry;
+                        std::cout << "Xác thực OTP thất bại. Bạn có muốn thử lại không? (1: Có, 0: Không): ";
+                        std::cin >> retry;
+                        if (retry == 0) {
+                            break;
+                        }
+                        std::cout << "Nhập lại OTP: ";
+                        std::cin >> otp;
+                    }
+                    if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
+                        std::cout << "Đăng ký thành công!\n";
+                    } else {
+                        std::cout << "Đăng ký thất bại. Đang thực hiện rollback...\n";
+                        rollback.executeRollback();
+                    }
+                } 
+                else {
                     std::cout << "Đăng ký thất bại: " << res.message << "\n";
                 }
                 break;
@@ -119,6 +163,8 @@ int App::run() {
                     } else {
                         std::cout << "Xác thực OTP thất bại: " << otp_res.message << "\n";
                     }
+
+                    // thêm chức năng lùi lại để đổi tài khoản (clear sessionmanager)
                 }
                 else if (res.status_code == StatusCode::USER_NOT_FOUND) {
                     std::cout << "Người dùng không tồn tại!\n";
