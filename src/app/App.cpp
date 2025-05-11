@@ -96,6 +96,8 @@ int App::run() {
                     } else {
                         std::cout << "Xác thực OTP thất bại: " << otp_res.message << "\n";
                     }
+
+                    // thêm chức năng lùi lại để đổi tài khoản (clear sessionmanager)
                 }
                 else if (res.status_code == StatusCode::USER_NOT_FOUND) {
                     std::cout << "Người dùng không tồn tại!\n";
