@@ -22,6 +22,8 @@ public:
     void showMenuAdmin() {
         std::cout << "1. Quản lí phim\n";
         std::cout << "2. Quản lí suất chiếu\n";
+        std::cout << "3. Quản lí rạp\n";
+        std::cout << "4. Quản lí phòng vé\n";
         std::cout << "0. Thoát\n";
     }
 

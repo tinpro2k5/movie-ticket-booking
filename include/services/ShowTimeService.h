@@ -19,7 +19,7 @@ public:
             std::cerr << "Failed to cast to ShowTimeRepository" << std::endl;
         }
     }
-    void manageShowTime(User& user) {
+    void manageShowTime(User user) {
         std::cout << "===== QUẢN LÝ LỊCH CHIẾU =====\n";
         std::cout << "1. Thêm lịch chiếu\n";
         std::cout << "2. Cập nhật lịch chiếu\n";

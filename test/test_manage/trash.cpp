@@ -9,6 +9,12 @@
 #include "../../include/services/ShowTimeService.h"
 #include "../../include/services/MovieManageCommand.h"
 #include "../../include/services/ShowTimeManageCommand.h"
+#include "../../include/services/RoomService.h"
+#include "../../include/services/RoomManageCommand.h"
+#include "../../include/services/TheaterService.h"
+#include "../../include/services/TheaterManageCommand.h"
+
+
 
 /*
 g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/RepositoryRegistry.cpp test/test_manage/trash.cpp -o test/test_manage/trash -lmysqlclient
@@ -18,16 +24,24 @@ int main(){
     DatabaseManager::getInstance()->setupDatabase();
     User user(3, "jane_doe", "password456", "jane@example.com", "0111222333", false);
     int choice;
+
     RepositoryRegistry repos_res;
     MovieService movieService(repos_res);
     ShowTimeService showTimeService(repos_res);
+    RoomService roomService(repos_res);
+    TheaterService theaterService(repos_res);
     //
     MovieManageCommand movieManage(&movieService);
     ShowTimeManageCommand showTimeManage(&showTimeService);
+    RoomManageCommand roomManage(&roomService);
+    TheaterManageCommand theaterManage(&theaterService);
     //
     MenuInvoker menu;
     menu.setCommand(1, &movieManage);
     menu.setCommand(2, &showTimeManage);
+    menu.setCommand(3, &theaterManage);
+    menu.setCommand(4, &roomManage);
+
     do {
         menu.showMenuAdmin();
         std::cout << "Chọn chức năng: ";
