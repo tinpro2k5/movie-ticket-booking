@@ -34,13 +34,11 @@ private:
 public:
     App();
     ~App();
-    void startMenu() {
-        std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
-        std::cout << "1. Đăng ký\n";
-        std::cout << "2. Đăng nhập\n";
-        std::cout << "0. Thoát\n";
-        std::cout << "Nhập lựa chọn của bạn: ";
-    }
+    void displayStartMenu();
+    void handleRegister();
+    void handleLogin();
+    void handleExit();
+
     int run();
     
 };

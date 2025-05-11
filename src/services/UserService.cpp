@@ -52,7 +52,6 @@ ServiceResult<bool> UserService::authenticateUser(const std::string& username, c
         if (PasswordHasher::verifyPassword(password, user.getPassword())) {
             result.status_code = StatusCode::SUCCESS;
             result.message = "Authentication successful";
-            SessionManager::setCurrentUser(user);
             setAndSendOTP();
         } else {
             result.status_code = StatusCode::INVALID_PASSWORD;

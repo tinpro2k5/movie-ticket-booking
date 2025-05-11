@@ -31,18 +31,32 @@ int App::run() {
     std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
     int choice;
     while (true) {
-        startMenu();
+        displayStartMenu();
+        int choice;
         std::cin >> choice;
-        User user;
         switch (choice) {
-            case 1: {
-                string temp;
-                std::cout << "Nhập tên đăng nhập: ";
-                std::cin >> temp;
-                user.setUsername(temp);
-                std::cout << "Nhập mật khẩu: ";
-                std::cin >> temp;
-                user.setPassword(temp);
+            case 1: handleRegister(); break;
+            case 2: handleLogin(); break;
+            case 0: handleExit(); break;
+            default:
+                std::cout << "Lựa chọn không hợp lệ!\n";
+        }
+    }
+}
+
+
+
+void App::handleRegister() {
+    User user;
+    std::string temp;
+
+    std::cout << "Nhập tên đăng nhập: ";
+    std::cin >> temp;
+    user.setUsername(temp);
+    
+    std::cout << "Nhập mật khẩu: ";
+    std::cin >> temp;
+    user.setPassword(temp);
     
                 std::cout << "Nhập số điện thoại: ";
                 std::cin >> temp;
