@@ -148,6 +148,9 @@ public:
      * @return A `ServiceResult<User>` containing the user's details if found, or an error message if not.
      */
     ServiceResult<User> getUserByUsername(const std::string& username);
+
+
+    ServiceResult<void> removeUser(const User& user);
 };
 
 #endif

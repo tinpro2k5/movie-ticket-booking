@@ -65,6 +65,10 @@ public:
      * @return A `Result` object containing the saved `User` object if successful, or an error message if not.
      */
     Result<int> create (const User& user);
+
+    Result<int> existAdminUser();
+
+    Result<bool> remove(int id) override;
 };
 
 #endif

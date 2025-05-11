@@ -96,7 +96,6 @@ CREATE TABLE IF NOT EXISTS SeatSchedule (
 
 
 INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
-('admin', 'adminpass', 'admin@example.com', '0123456789', TRUE),
 ('john_doe', 'password123', 'john@example.com', '0987654321', FALSE),
 ('jane_doe', 'password456', 'jane@example.com', '0111222333', FALSE);
 

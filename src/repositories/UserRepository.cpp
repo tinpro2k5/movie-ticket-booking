@@ -119,3 +119,53 @@ Result<bool> UserRepository::checkExistAccount(const std::string& username, cons
         return result;
     }
 }
+
+
+ Result<int> UserRepository::existAdminUser() {
+    Result<int> result;
+    std::string query = "SELECT * FROM User WHERE isAdmin = 1;";
+    Logger::getInstance()->log("Executing query: " + query, Logger::Level::INFO);
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (query_result.success && query_result.result) {
+        MYSQL_ROW row;
+        MYSQL_RES* mysqlResult = query_result.result.get();
+
+        Logger::getInstance()->log("Parsing query result", Logger::Level::INFO);
+        if ((row = mysql_fetch_row(mysqlResult)) != nullptr) {
+            int userId = std::stoi(row[0]);
+            result.success = true;
+            result.data = userId; // Admin user exists
+            return result;
+        } else {
+            result.success = true;
+            result.data = -1; // No admin user found
+            result.error_message = "No admin user found";
+            return result;
+        }
+    } else {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+
+ }
+
+
+ Result<bool> UserRepository::remove(int id) {
+    Result<bool> result;
+    std::string query = "DELETE FROM User WHERE userID = " + std::to_string(id) + ";";
+    Logger::getInstance()->log("Executing query: " + query, Logger::Level::INFO);
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (query_result.success) {
+        result.success = true;
+        result.data = true;
+        return result;
+    } else {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+
+ }
