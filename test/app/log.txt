@@ -1,0 +1,221 @@
+[2025-05-12 16:08:24][INFO] App initialized
+[2025-05-12 16:08:24][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 16:08:24][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 16:08:24][INFO] Setting up database...
+[2025-05-12 16:08:24][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 16:08:24][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 16:09:11][INFO] App initialized
+[2025-05-12 16:09:11][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 16:09:11][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 16:09:11][INFO] Setting up database...
+[2025-05-12 16:09:11][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 16:09:11][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 16:09:38][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:09:38][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:09:38][INFO] Parsing query result
+[2025-05-12 16:09:38][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:09:38][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:09:38][INFO] Parsing query result
+[2025-05-12 16:09:38][INFO] Creating user: tinle
+[2025-05-12 16:09:38][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '15651099383784684535', 'letrungtin12052005@gmail.com', '123456', 1);
+[2025-05-12 16:09:38][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '15651099383784684535', 'letrungtin12052005@gmail.com', '123456', 1);
+[2025-05-12 16:09:38][INFO] Generated OTP: 748767
+[2025-05-12 16:09:38][INFO] Sending OTP to: 
+[2025-05-12 16:09:38][INFO] Sending OTP to 
+[2025-05-12 16:49:24][INFO] App initialized
+[2025-05-12 16:49:24][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 16:49:24][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 16:49:24][INFO] Setting up database...
+[2025-05-12 16:49:24][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 16:49:24][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 16:49:48][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:49:48][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:49:48][INFO] Parsing query result
+[2025-05-12 16:49:48][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:49:48][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:49:48][INFO] Parsing query result
+[2025-05-12 16:49:48][INFO] Creating user: tinle
+[2025-05-12 16:49:48][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '3235454', 1);
+[2025-05-12 16:49:48][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '3235454', 1);
+[2025-05-12 16:49:48][INFO] Generated OTP: 507179
+[2025-05-12 16:49:48][INFO] Sending OTP to: 
+[2025-05-12 16:49:48][INFO] Sending OTP to 
+[2025-05-12 16:50:42][INFO] App initialized
+[2025-05-12 16:50:42][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 16:50:42][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 16:50:42][INFO] Setting up database...
+[2025-05-12 16:50:42][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 16:50:42][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 16:51:04][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:51:04][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:51:04][INFO] Parsing query result
+[2025-05-12 16:51:04][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:51:04][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:51:04][INFO] Parsing query result
+[2025-05-12 16:51:04][INFO] Creating user: tinle
+[2025-05-12 16:51:04][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '154658', 1);
+[2025-05-12 16:51:04][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '154658', 1);
+[2025-05-12 16:51:04][INFO] Generated OTP: 809215
+[2025-05-12 16:51:04][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-12 16:51:04][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-12 16:54:29][INFO] App initialized
+[2025-05-12 16:54:29][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 16:54:29][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 16:54:29][INFO] Setting up database...
+[2025-05-12 16:54:29][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 16:54:29][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 16:54:53][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:54:53][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 16:54:53][INFO] Parsing query result
+[2025-05-12 16:54:53][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:54:53][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 16:54:53][INFO] Parsing query result
+[2025-05-12 16:54:53][INFO] Creating user: tinle
+[2025-05-12 16:54:53][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '1244356', 1);
+[2025-05-12 16:54:53][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '1244356', 1);
+[2025-05-12 16:54:53][INFO] Generated OTP: 152129
+[2025-05-12 16:54:53][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-12 16:54:53][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-12 17:04:17][INFO] App initialized
+[2025-05-12 17:04:17][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 17:04:17][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 17:04:17][INFO] Setting up database...
+[2025-05-12 17:04:17][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 17:04:17][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 17:04:43][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungin12052005@gmail.com';
+[2025-05-12 17:04:43][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungin12052005@gmail.com';
+[2025-05-12 17:04:43][INFO] Parsing query result
+[2025-05-12 17:04:43][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:04:43][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:04:43][INFO] Parsing query result
+[2025-05-12 17:04:43][INFO] Creating user: tinle
+[2025-05-12 17:04:43][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '16255366880316923427', 'letrungin12052005@gmail.com', '49891', 1);
+[2025-05-12 17:04:43][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '16255366880316923427', 'letrungin12052005@gmail.com', '49891', 1);
+[2025-05-12 17:04:43][INFO] Generated OTP: 401883
+[2025-05-12 17:04:43][INFO] Sending OTP to: letrungin12052005@gmail.com
+[2025-05-12 17:04:43][INFO] Sending OTP to letrungin12052005@gmail.com
+[2025-05-12 17:08:40][INFO] App initialized
+[2025-05-12 17:08:40][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 17:08:40][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 17:08:40][INFO] Setting up database...
+[2025-05-12 17:08:40][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 17:08:40][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 17:09:13][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 17:09:13][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-12 17:09:13][INFO] Parsing query result
+[2025-05-12 17:09:13][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:09:13][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:09:13][INFO] Parsing query result
+[2025-05-12 17:09:13][INFO] Creating user: tinle
+[2025-05-12 17:09:13][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '16030370620903852840', 'letrungtin12052005@gmail.com', '123456', 1);
+[2025-05-12 17:09:13][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '16030370620903852840', 'letrungtin12052005@gmail.com', '123456', 1);
+[2025-05-12 17:09:13][INFO] Generated OTP: 047036
+[2025-05-12 17:09:13][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-12 17:09:13][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-12 17:09:54][INFO] Authenticating user: tinle
+[2025-05-12 17:09:54][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:09:54][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:09:54][INFO] Parsing query result
+[2025-05-12 17:09:54][INFO] Generated OTP: 208338
+[2025-05-12 17:09:54][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-12 17:09:54][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-12 17:10:13][INFO] Verifying OTP: 208338
+[2025-05-12 17:10:27][INFO] Clearing session data.
+[2025-05-12 17:11:05][INFO] Authenticating user: tinle
+[2025-05-12 17:11:05][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:11:05][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:11:05][INFO] Parsing query result
+[2025-05-12 17:11:05][INFO] Generated OTP: 741555
+[2025-05-12 17:11:05][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-12 17:11:05][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-12 17:11:49][INFO] Verifying OTP: 741555
+[2025-05-12 17:12:41][INFO] Clearing session data.
+[2025-05-12 17:15:53][INFO] User chose to exit the application
+[2025-05-12 17:15:53][INFO] Closing database connection.
+[2025-05-12 17:15:53][INFO] Disconnecting from database.
+[2025-05-12 17:15:59][INFO] App initialized
+[2025-05-12 17:15:59][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 17:15:59][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 17:15:59][INFO] Setting up database...
+[2025-05-12 17:15:59][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 17:15:59][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 17:16:07][INFO] Authenticating user: 8751074994675968844
+[2025-05-12 17:16:07][INFO] Executing query: SELECT * FROM User WHERE username ='8751074994675968844';
+[2025-05-12 17:16:07][INFO] Executing query: SELECT * FROM User WHERE username ='8751074994675968844';
+[2025-05-12 17:16:07][INFO] Parsing query result
+[2025-05-12 17:17:15][INFO] Authenticating user: john_doe
+[2025-05-12 17:17:15][INFO] Executing query: SELECT * FROM User WHERE username ='john_doe';
+[2025-05-12 17:17:15][INFO] Executing query: SELECT * FROM User WHERE username ='john_doe';
+[2025-05-12 17:17:15][INFO] Parsing query result
+[2025-05-12 17:18:07][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro' OR email ='rjr18017@toaik.com';
+[2025-05-12 17:18:07][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro' OR email ='rjr18017@toaik.com';
+[2025-05-12 17:18:07][INFO] Parsing query result
+[2025-05-12 17:18:07][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:18:07][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:18:07][INFO] Parsing query result
+[2025-05-12 17:18:07][INFO] Creating user: tinpro
+[2025-05-12 17:18:07][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro', '10676640704186402002', 'rjr18017@toaik.com', '246457', 0);
+[2025-05-12 17:18:07][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro', '10676640704186402002', 'rjr18017@toaik.com', '246457', 0);
+[2025-05-12 17:18:07][INFO] Generated OTP: 731211
+[2025-05-12 17:18:07][INFO] Sending OTP to: rjr18017@toaik.com
+[2025-05-12 17:18:07][INFO] Sending OTP to rjr18017@toaik.com
+[2025-05-12 17:19:21][INFO] Clearing session data.
+[2025-05-12 17:19:21][INFO] Executing query: DELETE FROM User WHERE userID = 0;
+[2025-05-12 17:19:21][INFO] Executing query: DELETE FROM User WHERE userID = 0;
+[2025-05-12 17:23:35][INFO] User chose to exit the application
+[2025-05-12 17:23:35][INFO] Closing database connection.
+[2025-05-12 17:23:35][INFO] Disconnecting from database.
+[2025-05-12 17:24:25][INFO] App initialized
+[2025-05-12 17:24:25][INFO] Connecting to database: 127.0.0.1
+[2025-05-12 17:24:25][INFO] Connecting to127.0.0.1:3306
+[2025-05-12 17:24:25][INFO] Setting up database...
+[2025-05-12 17:24:25][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-12 17:24:25][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-12 17:24:46][INFO] Executing query: SELECT * FROM User WHERE username ='efsef' OR email ='rjr18017@toaik.com';
+[2025-05-12 17:24:46][INFO] Executing query: SELECT * FROM User WHERE username ='efsef' OR email ='rjr18017@toaik.com';
+[2025-05-12 17:24:46][INFO] Parsing query result
+[2025-05-12 17:24:46][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:24:46][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:24:46][INFO] Parsing query result
+[2025-05-12 17:24:46][INFO] Creating user: efsef
+[2025-05-12 17:24:46][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('efsef', '14833802732344141305', 'rjr18017@toaik.com', '34e3', 1);
+[2025-05-12 17:24:46][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('efsef', '14833802732344141305', 'rjr18017@toaik.com', '34e3', 1);
+[2025-05-12 17:24:46][INFO] Generated OTP: 628009
+[2025-05-12 17:24:46][INFO] Sending OTP to: rjr18017@toaik.com
+[2025-05-12 17:24:46][INFO] Sending OTP to rjr18017@toaik.com
+[2025-05-12 17:26:59][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='kgt59671@toaik.com';
+[2025-05-12 17:26:59][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='kgt59671@toaik.com';
+[2025-05-12 17:26:59][INFO] Parsing query result
+[2025-05-12 17:26:59][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:26:59][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:26:59][INFO] Parsing query result
+[2025-05-12 17:26:59][INFO] Creating user: tinle
+[2025-05-12 17:26:59][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'kgt59671@toaik.com', '14235', 0);
+[2025-05-12 17:26:59][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'kgt59671@toaik.com', '14235', 0);
+[2025-05-12 17:26:59][INFO] Generated OTP: 183026
+[2025-05-12 17:26:59][INFO] Sending OTP to: kgt59671@toaik.com
+[2025-05-12 17:26:59][INFO] Sending OTP to kgt59671@toaik.com
+[2025-05-12 17:27:06][INFO] Clearing session data.
+[2025-05-12 17:27:06][INFO] Executing query: DELETE FROM User WHERE username ='tinle';
+[2025-05-12 17:27:06][INFO] Executing query: DELETE FROM User WHERE username ='tinle';
+[2025-05-12 17:27:46][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='kgt59671@toaik.com';
+[2025-05-12 17:27:46][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='kgt59671@toaik.com';
+[2025-05-12 17:27:46][INFO] Parsing query result
+[2025-05-12 17:27:46][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:27:46][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-12 17:27:46][INFO] Parsing query result
+[2025-05-12 17:27:46][INFO] Creating user: tinle
+[2025-05-12 17:27:46][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'kgt59671@toaik.com', '243245', 0);
+[2025-05-12 17:27:46][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'kgt59671@toaik.com', '243245', 0);
+[2025-05-12 17:27:46][INFO] Generated OTP: 980067
+[2025-05-12 17:27:46][INFO] Sending OTP to: kgt59671@toaik.com
+[2025-05-12 17:27:46][INFO] Sending OTP to kgt59671@toaik.com
+[2025-05-12 17:28:19][INFO] Authenticating user: tinle
+[2025-05-12 17:28:19][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:28:19][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-12 17:28:19][INFO] Parsing query result
+[2025-05-12 17:28:19][INFO] Generated OTP: 749116
+[2025-05-12 17:28:19][INFO] Sending OTP to: kgt59671@toaik.com
+[2025-05-12 17:28:19][INFO] Sending OTP to kgt59671@toaik.com
+[2025-05-12 17:28:39][INFO] Verifying OTP: 749116
+[2025-05-12 17:29:08][INFO] Clearing session data.

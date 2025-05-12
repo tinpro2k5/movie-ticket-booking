@@ -34,12 +34,18 @@ ServiceResult<void> UserService::createUser(User user) {
     auto saveResult = user_repos->create(user);
     
     if (saveResult.success) {
-        result.status_code = StatusCode::SUCCESS;
-        result.message = "User created successfully";
-        setAndSendOTP();
+        auto sendResult = setAndSendOTP(user);
+        if (sendResult.status_code != StatusCode::SUCCESS) {
+            result.status_code = StatusCode::FAIL;
+            result.message = "Failed to send OTP " + sendResult.message;
+            Logger::getInstance()->log("Failed to send OTP: " + sendResult.message, Logger::Level::ERROR);
+        } else {
+            result.status_code = StatusCode::SUCCESS;
+            result.message += " and OTP sent successfully";
+        }
     } else {
         result.status_code = StatusCode::FAIL;
-        result.message = "Failed to create user";
+        result.message = "Failed to create user " + saveResult.error_message;
     }
     return result;
 }   
@@ -52,7 +58,9 @@ ServiceResult<bool> UserService::authenticateUser(const std::string& username, c
         if (PasswordHasher::verifyPassword(password, user.getPassword())) {
             result.status_code = StatusCode::SUCCESS;
             result.message = "Authentication successful";
+            SessionManager::setCurrentUser(user);
             setAndSendOTP();
+            
         } else {
             result.status_code = StatusCode::INVALID_PASSWORD;
             result.message = "Invalid password";
@@ -88,7 +96,6 @@ ServiceResult<void> UserService::setAndSendOTP() {
     Logger::getInstance()->log("Generated OTP: " + otp, Logger::Level::INFO);
     
     std::string userEmail = SessionManager::getCurrentUser().getEmail();
-    std::cout << "Sending OTP to: " << userEmail << std::endl;
     Logger::getInstance()->log("Sending OTP to: " + userEmail, Logger::Level::INFO);
     bool sendSuccess = EmailService::sendOtp(userEmail, otp);
     
@@ -106,12 +113,39 @@ ServiceResult<void> UserService::setAndSendOTP() {
     return result;
 }
 
+
+ServiceResult<void> UserService::setAndSendOTP(const User& user) {
+     ServiceResult<void> result;
+    std::string otp = OtpGenerator::getInstance()->generateOtp();
+    SessionManager::setCurrentOTP(otp);
+    
+    Logger::getInstance()->log("Generated OTP: " + otp, Logger::Level::INFO);
+    
+    std::string userEmail = user.getEmail();
+    Logger::getInstance()->log("Sending OTP to: " + userEmail, Logger::Level::INFO);
+    bool sendSuccess = EmailService::sendOtp(userEmail, otp);
+    
+
+    if (sendSuccess) {
+        result.status_code = StatusCode::SUCCESS;
+        result.message = "OTP sent successfully";
+        std::cout << "OTP has been sent successfully to " << userEmail << std::endl;
+    } else {
+        result.status_code = StatusCode::FAIL;
+        result.message = "Failed to send OTP";
+        std::cerr << "Failed to send OTP to " << userEmail << std::endl;
+        
+    }
+    return result;
+}
+
+
 ServiceResult<bool> UserService::verifyOTP(const std::string& otp) {
     ServiceResult<bool> result;
     if (SessionManager::getCurrentOTP() == otp) {
         result.status_code = StatusCode::OTP_VERIFICATION_SUCCESS;
         result.message = "OTP verification successful";
-        SessionManager::setLoggedIn(true);
+        
     } else {
         result.status_code = StatusCode::OTP_VERIFICATION_FAILED;
         result.message = "OTP verification failed";
@@ -130,7 +164,7 @@ UserService::UserService(const RepositoryRegistry& repoRegistry) {
 
 ServiceResult<void> UserService::removeUser(const User& user) {
     ServiceResult<void> result;
-    auto removeResult = user_repos->remove(user.getUserId());
+    auto removeResult = user_repos->remove(user.getUsername());
     if (removeResult.success) {
         result.status_code = StatusCode::SUCCESS;
         result.message = "User removed successfully";

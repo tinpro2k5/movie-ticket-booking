@@ -87,6 +87,8 @@ private:
      * @return A `ServiceResult<void>` indicating the success or failure of the operation.
      */
     ServiceResult<void> setAndSendOTP();
+    ServiceResult<void> setAndSendOTP(const User& user);
+  
 
 public:
     /**

@@ -68,7 +68,7 @@ public:
 
     Result<int> existAdminUser();
 
-    Result<bool> remove(int id) override;
+    Result<bool> remove(std::string username);
 };
 
 #endif

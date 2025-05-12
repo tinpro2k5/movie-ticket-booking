@@ -48,7 +48,6 @@ int App::run() {
                 default:
                 std::cout << "Lựa chọn không hợp lệ!\n";
             }
-            system("clear");
         }
         else if (SessionManager::isAdminUser()) {
             handleAdminMenu();  
@@ -56,8 +55,10 @@ int App::run() {
         else if (!SessionManager::isAdminUser()) {
             handleUserMenu();
         }
+        system("pause");
+        system("clear");
     }
-}
+    }
 
 
 void App::handleAdminMenu() {
@@ -193,7 +194,6 @@ void App::handleLogin() {
         if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
             std::cout << "Đăng nhập thành công!\n";
             SessionManager::setLoggedIn(true);
-            SessionManager::setCurrentUser(user);
         } 
         
         else {

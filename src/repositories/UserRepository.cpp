@@ -152,9 +152,9 @@ Result<bool> UserRepository::checkExistAccount(const std::string& username, cons
  }
 
 
- Result<bool> UserRepository::remove(int id) {
+ Result<bool> UserRepository::remove(std::string username) {
     Result<bool> result;
-    std::string query = "DELETE FROM User WHERE userID = " + std::to_string(id) + ";";
+    std::string query = "DELETE FROM User WHERE username ='" + username + "';";
     Logger::getInstance()->log("Executing query: " + query, Logger::Level::INFO);
 
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
