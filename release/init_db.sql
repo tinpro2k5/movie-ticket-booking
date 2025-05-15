@@ -116,22 +116,74 @@ INSERT IGNORE INTO Room (roomID, theaterID, name, capacity) VALUES
 (3, 2, 'Room C', 120);
 
 
-INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
-(1, 1, 'A1', FALSE),
-(1, 1, 'A2', FALSE),
-(1, 1, 'A3', FALSE),
-(1, 1, 'A4', FALSE),
-(1, 1, 'A5', FALSE),
-(1, 1, 'B1', FALSE),
-(1, 1, 'B2', FALSE),
-(1, 1, 'B3', FALSE),
-(1, 1, 'B4', FALSE),
-(1, 1, 'B5', FALSE),
-(1, 1, 'C1', FALSE),
-(1, 1, 'C2', FALSE),
-(1, 1, 'C3', FALSE),
-(1, 1, 'C4', FALSE),
-(1, 1, 'C5', FALSE);
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS CreateRoomAndSeats;
+CREATE PROCEDURE CreateRoomAndSeats(
+    IN roomID INT,
+    IN theaterID INT,
+    IN name VARCHAR(50),
+    IN capacity INT
+)
+BEGIN
+    DECLARE ROW_COUNT CHAR(1) DEFAULT 'A';
+    DECLARE COL_COUNT INT DEFAULT 1;
+    DECLARE IS_VIP BOOLEAN;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+
+
+    START TRANSACTION;
+
+    INSERT IGNORE INTO Room (roomID, theaterID, name, capacity)
+    VALUES (roomID, theaterID, name, capacity);
+
+    WHILE ROW_COUNT <= 'C' DO
+        WHILE COL_COUNT <= 5 DO
+            SET IS_VIP = FALSE;
+            IF ROW_COUNT = 'A' THEN
+                SET IS_VIP = TRUE;
+            END IF;
+
+            INSERT IGNORE INTO Seat (
+                roomID, theaterID, seatNumber, isVip
+            ) VALUES (
+                roomID, theaterID, CONCAT(ROW_COUNT, COL_COUNT), IS_VIP
+            );
+
+            SET COL_COUNT = COL_COUNT + 1;
+        END WHILE;
+
+        SET COL_COUNT = 1;
+        SET ROW_COUNT = CHAR(ASCII(ROW_COUNT) + 1);
+    END WHILE;
+
+    COMMIT;
+END;
+//
+
+DELIMITER ;
+-- Example usage:
+CALL CreateRoomAndSeats(7, 1, 'Room X', 100);
+--SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1;
+-- INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
+-- (1, 1, 'A1', FALSE),
+-- (1, 1, 'A2', FALSE),
+-- (1, 1, 'A3', FALSE),
+-- (1, 1, 'A4', FALSE),
+-- (1, 1, 'A5', FALSE),
+-- (1, 1, 'B1', FALSE),
+-- (1, 1, 'B2', FALSE),
+-- (1, 1, 'B3', FALSE),
+-- (1, 1, 'B4', FALSE),
+-- (1, 1, 'B5', FALSE),
+-- (1, 1, 'C1', FALSE),
+-- (1, 1, 'C2', FALSE),
+-- (1, 1, 'C3', FALSE),
+-- (1, 1, 'C4', FALSE),
+-- (1, 1, 'C5', FALSE);
 
 
 
