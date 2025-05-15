@@ -25,7 +25,11 @@ sudo apt-get install -y build-essential curl vim sudo cmake mysql-server libmysq
 sudo service mysql start
 sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpassword'; FLUSH PRIVILEGES;"
 ```
-
+### 2.3 Cài đặt wxWidgets 
+sudo apt install libwxgtk3.0-gtk3-dev
+```bash
+sudo apt install libwxgtk3.0-gtk3-dev
+```
 ## 3. Cấu hình môi trường
 
 ### 3.1. Cấu hình SMTP (Gửi email)

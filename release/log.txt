@@ -79,3 +79,12 @@
 [2025-05-15 14:18:15][INFO] Executing query: DELETE FROM Movie WHERE movieID = 3
 [2025-05-15 14:18:15][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
 [2025-05-15 14:18:20][INFO] Executing query: SELECT * FROM Movie
+[2025-05-15 15:36:50][INFO] App initialized
+[2025-05-15 15:36:50][INFO] Connecting to database: 127.0.0.1
+[2025-05-15 15:36:50][INFO] Connecting to127.0.0.1:3306
+[2025-05-15 15:36:50][INFO] Setting up database...
+[2025-05-15 15:36:50][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-15 15:36:50][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-15 15:42:26][INFO] User chose to exit the application
+[2025-05-15 15:42:26][INFO] Closing database connection.
+[2025-05-15 15:42:26][INFO] Disconnecting from database.
