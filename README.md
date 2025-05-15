@@ -33,20 +33,22 @@ sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_passwo
 Tạo file `.msmtprc` trong thư mục `~` với nội dung sau:
 
 ```
-account default
+account gmail
 host smtp.gmail.com
 port 587
 auth on
-user your-email@gmail.com
-password your-email-password
 tls on
-tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+user tinpro12052005@gmail.com
+password hnosdncjeqdczunc
+from tinpro12052005@gmail.com
+account default : gmail
 ```
 
 Đặt quyền bảo mật cho file:
 
 ```bash
-chmod 600 /home/devuser/.msmtprc
+chmod 600 ~/.msmtprc
 ```
 
 ## 4. Biên dịch chương trình

@@ -1,0 +1,81 @@
+[2025-05-15 13:19:03][INFO] App initialized
+[2025-05-15 13:19:03][INFO] Connecting to database: 127.0.0.1
+[2025-05-15 13:19:03][INFO] Connecting to127.0.0.1:3306
+[2025-05-15 13:19:03][ERROR] mysql_real_connect() failed: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2025-05-15 13:20:32][INFO] App initialized
+[2025-05-15 13:20:32][INFO] Connecting to database: 127.0.0.1
+[2025-05-15 13:20:32][INFO] Connecting to127.0.0.1:3306
+[2025-05-15 13:20:32][INFO] Setting up database...
+[2025-05-15 13:20:32][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-15 13:20:32][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-15 13:20:43][INFO] Authenticating user: tinle
+[2025-05-15 13:20:43][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-15 13:20:43][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-15 13:20:43][INFO] Parsing query result
+[2025-05-15 13:20:43][INFO] Generated OTP: 792487
+[2025-05-15 13:20:43][INFO] Sending OTP to: kgt59671@toaik.com
+[2025-05-15 13:20:43][INFO] Sending OTP to kgt59671@toaik.com
+[2025-05-15 13:20:52][INFO] Verifying OTP: 9
+[2025-05-15 13:20:54][INFO] Clearing session data.
+[2025-05-15 13:21:45][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro2k5' OR email ='oem55515@toaik.com';
+[2025-05-15 13:21:45][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro2k5' OR email ='oem55515@toaik.com';
+[2025-05-15 13:21:45][INFO] Parsing query result
+[2025-05-15 13:21:45][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-15 13:21:45][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-15 13:21:45][INFO] Parsing query result
+[2025-05-15 13:21:45][INFO] Creating user: tinpro2k5
+[2025-05-15 13:21:45][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro2k5', '10676640704186402002', 'oem55515@toaik.com', '2343458', 0);
+[2025-05-15 13:21:45][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro2k5', '10676640704186402002', 'oem55515@toaik.com', '2343458', 0);
+[2025-05-15 13:21:45][INFO] Generated OTP: 566640
+[2025-05-15 13:21:45][INFO] Sending OTP to: oem55515@toaik.com
+[2025-05-15 13:21:45][INFO] Sending OTP to oem55515@toaik.com
+[2025-05-15 13:23:27][INFO] Authenticating user: tinpro2k5
+[2025-05-15 13:23:27][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro2k5';
+[2025-05-15 13:23:27][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro2k5';
+[2025-05-15 13:23:27][INFO] Parsing query result
+[2025-05-15 13:23:27][INFO] Generated OTP: 912824
+[2025-05-15 13:23:27][INFO] Sending OTP to: oem55515@toaik.com
+[2025-05-15 13:23:27][INFO] Sending OTP to oem55515@toaik.com
+[2025-05-15 13:24:14][INFO] Verifying OTP: 912824
+[2025-05-15 13:24:55][INFO] Executing query: SELECT * FROM Movie
+[2025-05-15 13:31:22][INFO] Clearing session data.
+[2025-05-15 13:33:10][INFO] User chose to exit the application
+[2025-05-15 13:33:10][INFO] Closing database connection.
+[2025-05-15 13:33:10][INFO] Disconnecting from database.
+[2025-05-15 13:33:22][INFO] App initialized
+[2025-05-15 13:33:22][INFO] Connecting to database: 127.0.0.1
+[2025-05-15 13:33:22][INFO] Connecting to127.0.0.1:3306
+[2025-05-15 13:33:22][INFO] Setting up database...
+[2025-05-15 13:33:22][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-15 13:33:22][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-15 13:40:16][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-15 13:40:16][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-15 13:40:16][INFO] Parsing query result
+[2025-05-15 13:40:16][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-15 13:40:16][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-15 13:40:16][INFO] Parsing query result
+[2025-05-15 13:40:16][INFO] Creating user: tinle
+[2025-05-15 13:40:16][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '01231234', 1);
+[2025-05-15 13:40:16][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', '01231234', 1);
+[2025-05-15 13:40:16][INFO] Generated OTP: 747266
+[2025-05-15 13:40:16][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-15 13:40:16][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-15 13:41:28][INFO] Authenticating user: tinle
+[2025-05-15 13:41:28][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-15 13:41:28][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-15 13:41:28][INFO] Parsing query result
+[2025-05-15 13:41:28][INFO] Generated OTP: 046505
+[2025-05-15 13:41:28][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-15 13:41:28][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-15 13:42:03][INFO] Verifying OTP: 046505
+[2025-05-15 13:42:44][INFO] Executing query: SELECT * FROM Movie
+[2025-05-15 14:02:17][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('Spider man 3', 'action', 'peter parker's adventures', 2, 4.900000, 'images/spider_man_3.png')
+[2025-05-15 14:07:01][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('Spider 3', 'action', 'peter parker adventure', 3, 4.900000, 'images/spider.png')
+[2025-05-15 14:07:18][INFO] Executing query: SELECT * FROM Movie
+[2025-05-15 14:10:01][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('the walking dead ', 'horror', 'zombies', 3, 0.400000, 'images/walkingdead.png')
+[2025-05-15 14:10:27][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 3
+[2025-05-15 14:10:55][INFO] Executing query: UPDATE Movie SET title = 'Spider man 3', genre = 'HeroAction', description = 'Peter Parker', duration = 3, rating = 4.500000, posterPath = '' WHERE MovieID = 3
+[2025-05-15 14:11:05][INFO] Executing query: SELECT * FROM Movie
+[2025-05-15 14:18:15][INFO] Executing query: DELETE FROM Movie WHERE movieID = 3
+[2025-05-15 14:18:15][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-15 14:18:20][INFO] Executing query: SELECT * FROM Movie
