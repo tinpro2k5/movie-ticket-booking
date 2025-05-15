@@ -52,7 +52,7 @@ chmod 600 /home/devuser/.msmtprc
 ## 4. Biên dịch chương trình
 
 ```bash
-g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o movie_ticket_booking -lmysqlclient
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking -lmysqlclient
 ```
 
 ## 5. Cấu hình Docker (Tùy chọn)

@@ -34,7 +34,7 @@ int App::run() {
     cout << "------------------------------------------\n";
     DatabaseManager::getInstance()->connect(serverInfo);
     cout << "------------------------------------------\n";
-    DatabaseManager::getInstance()->setupDatabase();
+    DatabaseManager::getInstance()->setupDatabase(INIT_DB_SCRIPT);
     cout << "------------------------------------------\n";
     int choice;
     while (true) {

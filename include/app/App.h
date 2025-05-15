@@ -33,6 +33,7 @@
 #include "../utils/RollbackContainer.h"
 class App {
 private:
+    const std::string INIT_DB_SCRIPT = "init_db.sql";
     RepositoryRegistry repos_res;
     UserService user_service;
     MovieService movie_service;

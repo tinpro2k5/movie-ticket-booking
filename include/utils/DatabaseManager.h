@@ -177,7 +177,7 @@ public:
     /**
      * @brief Set up the database by executing initialization scripts.
      */
-    void setupDatabase();
+    void setupDatabase(const std::string& INIT_DB_SCRIPT);
 
     /**
      * @brief Connect to the database server.

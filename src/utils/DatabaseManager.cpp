@@ -5,7 +5,7 @@
 
 std::string CREATE_DB_QUERY = "CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING";
 std::string USE_DB_QUERY = "USE MOVIE_BOOKING";
-std::string INIT_DB_SCRIPT = "../../sql_scripts/init_db.sql";
+
 
 ServerInfo::ServerInfo() {
     host = std::getenv("DB_HOST") ? std::getenv("DB_HOST") : DEFAULT_LOCAL;
@@ -103,7 +103,7 @@ void DatabaseManager::disconnect() {
         std::cout << "Database disconnected successfully!\n";
     }
 }
-void DatabaseManager::setupDatabase() {
+void DatabaseManager::setupDatabase(const std::string& INIT_DB_SCRIPT= "init_db.sql") {
     std::string error = mysql_error(conn);
     if (!conn 
         || !error.empty()
