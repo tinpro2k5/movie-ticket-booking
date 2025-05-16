@@ -9,11 +9,13 @@
                 "/usr/include/x86_64-linux-gnu/**",
                 "/usr/include/**",
                 "/usr/include/mysql/**", 
-
+                
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/include/services",
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/include/wx-3.0",
+                "/usr/include/wx-3.0/wx"
             ],
             "compilerPath": "/usr/bin/g++",
             "cppStandard": "c++23",
