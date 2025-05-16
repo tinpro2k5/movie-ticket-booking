@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include <wx/wx.h>
 
 #include "../app/RepositoryRegistry.h"
 #include "../services/UserService.h"
@@ -55,7 +55,9 @@ public:
     ~App();
     void displayStartMenu();
     void handleRegister();
+    void handleRegisterUI(const User& user, wxWindow* parent);
     void handleLogin();
+    void handleLoginUI(const std::string& username, const std::string& password, wxWindow* parent);
     void handleExit();
     void handleUserMenu();
     void handleAdminMenu();

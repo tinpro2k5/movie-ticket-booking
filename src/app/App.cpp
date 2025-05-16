@@ -159,7 +159,29 @@ void App::handleRegister() {
         std::cout << "Đăng ký thất bại: " << res.message << "\n";
     }
 }
+void App::handleRegisterUI(const User& user, wxWindow* parent) {
+    RollbackContainer rollback;
+    auto res = user_service.createUser(user);
 
+    if (res.status_code == StatusCode::SUCCESS) {
+        rollback.addRollbackAction([&]() { user_service.removeUser(user); });
+        rollback.addRollbackAction([&]() { SessionManager::clear(); });
+
+        wxTextEntryDialog otpDlg(parent, "Enter OTP:", "OTP Verification");
+        if (otpDlg.ShowModal() == wxID_OK) {
+            std::string otp = otpDlg.GetValue().ToStdString();
+            if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
+                wxMessageBox("Register successfully!", "Notification", wxOK | wxICON_INFORMATION, parent);
+            } else {
+                wxMessageBox("OTP verification failed. Rolling back...", "Error", wxOK | wxICON_ERROR, parent);
+                rollback.executeRollback();
+                wxMessageBox("Rollback completed.", "Notification", wxOK | wxICON_INFORMATION, parent);
+            }
+        }
+    } else {
+        wxMessageBox(wxString::Format("Register failed: %s", res.message), "Error", wxOK | wxICON_ERROR, parent);
+    }
+}
 
 void App::handleLogin() {
     User user;
@@ -210,7 +232,32 @@ void App::handleLogin() {
         std::cout << "Đăng nhập thất bại: " << res.message << "\n";
     }
 }
+void App::handleLoginUI(const std::string& username, const std::string& password, wxWindow* parent) {
+    Logger::getInstance()->log("Authenticating user: " + username, Logger::Level::INFO);
+    auto res = user_service.authenticateUser(username, password);
 
+    if (res.status_code == StatusCode::SUCCESS) {
+        wxTextEntryDialog otpDlg(parent, "Enter OTP:", "OTP Verification");
+        if (otpDlg.ShowModal() == wxID_OK) {
+            std::string otp = otpDlg.GetValue().ToStdString();
+            Logger::getInstance()->log("Verifying OTP: " + otp, Logger::Level::INFO);
+
+            if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
+                wxMessageBox("Login successful!", "Notification", wxOK | wxICON_INFORMATION, parent);
+                SessionManager::setLoggedIn(true);
+            } else {
+                wxMessageBox("OTP verification failed!", "Error", wxOK | wxICON_ERROR, parent);
+                SessionManager::clear();
+            }
+        }
+    } else if (res.status_code == StatusCode::USER_NOT_FOUND) {
+        wxMessageBox("User not found!", "Error", wxOK | wxICON_ERROR, parent);
+    } else if (res.status_code == StatusCode::INVALID_PASSWORD) {
+        wxMessageBox("Invalid password!", "Error", wxOK | wxICON_ERROR, parent);
+    } else {
+        wxMessageBox(wxString::Format("Login failed: %s", res.message), "Error", wxOK | wxICON_ERROR, parent);
+    }
+}
 
 void App::handleExit() {
     Logger::getInstance()->log("User chose to exit the application", Logger::Level::INFO);
