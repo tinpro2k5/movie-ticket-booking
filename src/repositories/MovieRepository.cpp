@@ -28,8 +28,8 @@ Result<vector<Movie>> MovieRepository::findAll(){
         int duration = row[4] ? atoi(row[4]) : 0;
         float rating = row[5] ? atof(row[5]) : 0.0f;
         string poster_path = row[6] ? row[6] : "";
-
-        Movie movie(id_movie, title, genre, description, duration, rating, poster_path);
+        int price = row[7] ? atoi(row[7]) : 0;
+        Movie movie(id_movie, title, genre, description, duration, rating, poster_path, price);
         movies.push_back(movie);
     }
 
@@ -66,7 +66,8 @@ Result<Movie> MovieRepository::findById(int id_movie){
         row[3] ? row[3] : "",
         row[4] ? atoi(row[4]) : 0,
         row[5] ? atof(row[5]) : 0.0f,
-        row[6] ? row[6] : ""
+        row[6] ? row[6] : "",
+        row[7] ? atoi(row[7]) : 0
     );
     //Tao doi tuong Movie va dua vao result
     result.success = true;
@@ -101,8 +102,8 @@ Result<vector<Movie>> MovieRepository::findByGenre(string genre){
         int duration = row[4] ? atoi(row[4]) : 0;
         float rating = row[5] ? atof(row[5]) : 0.0f;
         string poster_path = row[6] ? row[6] : "";
-
-        Movie movie(id_movie, title, genre, description, duration, rating, poster_path);
+        int price = row[7] ? atoi(row[7]) : 0;
+        Movie movie(id_movie, title, genre, description, duration, rating, poster_path, price);
         movies.push_back(movie);
     }
 
@@ -139,8 +140,8 @@ Result<vector<Movie>> MovieRepository::findByName(string name){
         int duration = row[4] ? atoi(row[4]) : 0;
         float rating = row[5] ? atof(row[5]) : 0.0f;
         string poster_path = row[6] ? row[6] : "";
-
-        Movie movie(id_movie, title, genre, description, duration, rating, poster_path);
+        int price = row[7] ? atoi(row[7]) : 0;
+        Movie movie(id_movie, title, genre, description, duration, rating, poster_path, price);
         movies.push_back(movie);
     }
 
@@ -152,13 +153,14 @@ Result<vector<Movie>> MovieRepository::findByName(string name){
 Result<int> MovieRepository::create(const Movie& movie){
     //Thuc hien truy van
     Result<int> result;
-    string query = "INSERT INTO Movie (title, genre, description, duration, rating, posterPath) VALUES ('" +
+    string query = "INSERT INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES ('" +
         movie.getMovieTitle() + "', '" +
         movie.getMovieGenre() + "', '" +
         movie.getMovieDescription() + "', " +
         std::to_string(movie.getMovieDuration()) + ", " +
         std::to_string(movie.getMovieRating()) + ", '" +
-        movie.getMoviePosterPath() + "')";
+        movie.getMoviePosterPath() + "', " +
+        std::to_string(movie.getPrice()) +"')";
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     /*Kiem tra ket qua truy van
     Neu khong thanh cong, tra ve ket qua that bai*/
@@ -190,6 +192,7 @@ Result<bool> MovieRepository::update(const Movie& movie){
                    "duration = " + std::to_string(movie.getMovieDuration()) + ", "
                    "rating = " + std::to_string(movie.getMovieRating()) + ", "
                    "posterPath = '" + movie.getMoviePosterPath() + "' "
+                   "basePrice = " + std::to_string(movie.getPrice()) + " "
                    "WHERE MovieID = " + std::to_string(movie.getMovieId());
 
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);

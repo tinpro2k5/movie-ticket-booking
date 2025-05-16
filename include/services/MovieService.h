@@ -157,6 +157,14 @@ class MovieService{
                     cout << "Nhap duong dan hinh anh: \n";
                     getline(std::cin, path);
                     movie.setMoviePosterPath(path);
+                    cout << "Nhap gia ve: \n";
+                    int price;
+                    std::cin >> price;
+                    if(price <= 0){
+                        cout << "Gia ve khong hop le! Nhap lai gia ve > 0\n";
+                        std::cin >> price;
+                    }
+                    movie.setPrice(price);
                     Result<int> result = movie_repos->create(movie);
                     if(!result.success){
                         cout << result.error_message << "\n";
@@ -201,27 +209,51 @@ class MovieService{
                     std::cin.ignore();
                     cout << "Nhap ten phim: \n";
                     getline(std::cin, input);
+                    if(input.empty()){
+                        input = movie.getMovieTitle();
+                    }
                     movie.setMovieTitle(input);
                     cout << "Nhap the loai: \n";
                     getline(std::cin, input);
+                    if(input.empty()){
+                        input = movie.getMovieGenre();
+                    }
                     movie.setMovieGenre(input);
                     cout << "Nhap mo ta: \n";
                     getline(std::cin, input);
+                    if (input.empty()){
+                        input = movie.getMovieDescription();
+                    }
                     movie.setMovieDescription(input);
                     cout << "Nhap thoi gian: \n";
                     int duration;
                     std::cin >> duration;
+                    if(duration == 0){
+                        duration = movie.getMovieDuration();
+                    }
                     movie.setMovieDuration(duration);
                     cout << "Nhap xep hang: \n";
                     double rating;
                     std::cin >> rating;
+                    if(rating == 0){
+                        rating = movie.getMovieRating();
+                    }
                     movie.setMovieRating(rating);
                     string path = "";
                     std::cin.ignore();
                     cout << "Nhap duong dan hinh anh: \n";
                     getline(std::cin, path);
+                    if(path.empty()){
+                        path = movie.getMoviePosterPath();
+                    }
                     movie.setMoviePosterPath(path);
-
+                    cout << "Nhap gia ve: \n";
+                    int price;
+                    std::cin >> price;
+                    if(price == 0){
+                        price = movie.getPrice();
+                    }
+                    movie.setPrice(price);
                     Result<bool> result1 = movie_repos->update(movie);
                     if(!result1.success){
                         cout << result1.error_message << "\n";

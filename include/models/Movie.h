@@ -23,10 +23,11 @@ class Movie{
     int _duration;
     float _rating;
     string _poster_path;
+    int _price;
     public:
     Movie();
     ~Movie();
-    Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path);
+    Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path, int price);
     //getter
     int getMovieId() const;
     string getMovieTitle() const;
@@ -35,6 +36,7 @@ class Movie{
     int getMovieDuration() const;
     float getMovieRating() const;
     string getMoviePosterPath() const;
+    int getPrice() const;
     //setter
     void setMovieId(int id_movie);
     void setMovieTitle(string title);
@@ -43,5 +45,6 @@ class Movie{
     void setMovieDuration(int duration);
     void setMovieRating(float rating);
     void setMoviePosterPath(string poster_path);
+    void setPrice(int price);
 };
 #endif

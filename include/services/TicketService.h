@@ -17,6 +17,7 @@ class TicketService{
     }
     void bookTicket(User user) {
         ShowTimeRepository showtime_repos;
+        MovieRepository movie_repos;
         int id;
         //Nhap phim muon dat
         cout << "Nhap ID phim muon dat: ";
@@ -27,7 +28,7 @@ class TicketService{
             cout << "Khong tim thay xuat chieu cho phim nay.\n";
             return;
         }
-    
+        Result<Movie> movie_result = movie_repos.findById(id);
         cout << "Cac xuat chieu co cua phim:\n";
         for (int i = 0; i < result.data.size(); i++) {
             std::cout << "Room ID: " << result.data[i].getRoomId() << std::endl;
@@ -57,6 +58,7 @@ class TicketService{
             cout << "Khong con ghe trong.\n";
             return;
         }
+
         cout << "Cac ghe con trong: ";
         for (const auto& ss : ss_result.data) {
             cout << ss.getSeatNumber() << " ";
@@ -66,14 +68,24 @@ class TicketService{
         string seat_number;
         cout << "Chon so ghe theo list tren: ";
         getline(std::cin, seat_number);
-        
+
+        SeatRepository seat_repos;
+        Result<bool> check_vip_seat = seat_repos.checkVipSeat(
+            showtime_result.data.getRoomId(),
+            showtime_result.data.getTheaterId(),
+            seat_number
+        );
+        int price = movie_result.data.getPrice();
+        if (check_vip_seat.success && check_vip_seat.data) {
+            price += 20;
+        }
         Ticket cur_ticket(
             1, user.getUserId(),
             showtime_result.data.getRoomId(),
             showtime_result.data.getTheaterId(),
             seat_number,
             showtime_result.data.getShowTime(),
-            100.0,
+            price,
             "", true
         );
         // Lưu ticket và lấy ticket ID vừa tạo

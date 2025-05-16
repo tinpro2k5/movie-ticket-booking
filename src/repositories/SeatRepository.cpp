@@ -24,6 +24,26 @@ Result<vector<Seat>> SeatRepository::findByRoomId(int id_room, int id_theater) {
     result.data = seats;
     return result;
 }
+Result<bool> SeatRepository::checkVipSeat(int id_room, int id_theater, string seat_number) {
+    Result<bool> result;
+    std::string query = "SELECT isVip FROM Seat WHERE roomID = " + std::to_string(id_room) + " AND theaterID = " + std::to_string(id_theater) + " AND seatNumber = '" + seat_number + "'";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    MYSQL_RES *res = query_result.result.get();
+    MYSQL_ROW row = mysql_fetch_row(res);
+    if (row && row[0]) {
+        result.success = true;
+        result.data = (atoi(row[0]) == 1);
+    } else {
+        result.success = false;
+        result.error_message = "Seat not found";
+    }
+    return result;
+}
 
 Result<int> SeatRepository::create(const Seat& seat){
     Result<int> result;
