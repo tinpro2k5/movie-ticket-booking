@@ -26,8 +26,8 @@ sudo service mysql start
 sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpassword'; FLUSH PRIVILEGES;"
 ```
 ### 2.3 Cài đặt wxWidgets 
-sudo apt install libwxgtk3.0-gtk3-dev
 ```bash
+sudo apt update
 sudo apt install libwxgtk3.0-gtk3-dev
 ```
 ## 3. Cấu hình môi trường
