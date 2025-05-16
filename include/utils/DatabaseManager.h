@@ -4,8 +4,10 @@
 #include <mysql/mysql.h>
 #include <string>
 #include <iostream>
+
 #include <memory>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <stdexcept>
 #include "../../include/utils/Logger.h"

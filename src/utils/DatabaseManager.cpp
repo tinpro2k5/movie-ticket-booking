@@ -177,9 +177,7 @@ QueryResult DatabaseManager::executeQuery(const std::string& query) {
 
 
 /// TODO: xử lí các dòng trong file script (các dòng comment trong file script)
-
 ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
-
     ScriptResult script_result;
 
     if (!conn) {
@@ -196,53 +194,83 @@ ScriptResult DatabaseManager::executeScript(const std::string& script_path) {
         return script_result;
     }
 
-    std::string script((std::istreambuf_iterator<char>(script_file)), std::istreambuf_iterator<char>());
+    std::stringstream buffer;
+    buffer << script_file.rdbuf();
+    std::string script = buffer.str();
     script_file.close();
 
-    size_t start_pos = 0;
-    size_t end_pos;
-    try{
-        while ((end_pos = script.find(';', start_pos)) != std::string::npos) {
-            std::string query = script.substr(start_pos, end_pos - start_pos);
-        start_pos = end_pos + 1;
+    Logger::getInstance()->log("Executing script: " + script_path, Logger::Level::INFO);
 
-        if (query.empty()) continue;
+    std::string current_delimiter = ";";
+    size_t pos = 0;
 
-        QueryResult qresult;
-        
-        if (mysql_query(conn, query.c_str())) {
-            qresult.success = false;
-            qresult.error_message = mysql_error(conn);
-            script_result.success = false; // Nếu 1 câu lỗi, cả script coi như lỗi
-        } else {
-            if (mysql_field_count(conn) > 0) {
-                MYSQL_RES* raw_result = mysql_store_result(conn);
-                if (raw_result) {
-                    qresult.result.reset(raw_result);
-                } else {
-                    qresult.success = false;
-                    qresult.error_message = mysql_error(conn);
-                    script_result.success = false;
-                }
+    try {
+        while (pos < script.size()) {
+            // Check for DELIMITER change
+            size_t delim_pos = script.find("DELIMITER", pos);
+            if (delim_pos != std::string::npos && delim_pos == script.find_first_not_of(" \t\r\n", pos)) {
+                // Move past 'DELIMITER' and get the new delimiter
+                size_t new_delim_start = delim_pos + std::string("DELIMITER").length();
+                size_t new_delim_end = script.find_first_of("\r\n", new_delim_start);
+                current_delimiter = script.substr(new_delim_start, new_delim_end - new_delim_start);
+                current_delimiter.erase(0, current_delimiter.find_first_not_of(" \t")); // trim left
+                current_delimiter.erase(current_delimiter.find_last_not_of(" \t") + 1); // trim right
+
+                pos = new_delim_end + 1;
+                continue;
+            }
+
+            // Find next statement ending with current delimiter
+            size_t end_pos = script.find(current_delimiter, pos);
+            if (end_pos == std::string::npos) break;
+
+            std::string query = script.substr(pos, end_pos - pos);
+            pos = end_pos + current_delimiter.length();
+
+            // Trim leading/trailing whitespace
+            query.erase(0, query.find_first_not_of(" \t\r\n"));
+            query.erase(query.find_last_not_of(" \t\r\n") + 1);
+
+            if (query.empty()) continue;
+
+            QueryResult qresult;
+            if (mysql_query(conn, query.c_str())) {
+                qresult.success = false;
+                qresult.error_message = mysql_error(conn);
+                script_result.success = false;
             } else {
-                qresult.affected_rows = mysql_affected_rows(conn);
+                if (mysql_field_count(conn) > 0) {
+                    MYSQL_RES* raw_result = mysql_store_result(conn);
+                    if (raw_result) {
+                        qresult.result.reset(raw_result);
+                    } else {
+                        qresult.success = false;
+                        qresult.error_message = mysql_error(conn);
+                        script_result.success = false;
+                    }
+                } else {
+                    qresult.affected_rows = mysql_affected_rows(conn);
+                }
+                if (qresult.error_message.empty()) {
+                    qresult.success = true;
+                }
             }
-            if (qresult.error_message.empty()) {
-                qresult.success = true;
-            }
+
+            script_result.queries.push_back(std::move(qresult));
         }
-        
-        script_result.queries.push_back(std::move(qresult));
+
+        if (script_result.success) {
+            script_result.success = true;
         }
-    }
-    catch (const std::exception& e) {
+
+    } catch (const std::exception& e) {
         script_result.success = false;
-        script_result.error_message = "Error executing script: " + std::string(e.what());
-    }
-    catch (...) {
+        script_result.error_message = "Exception: " + std::string(e.what());
+    } catch (...) {
         script_result.success = false;
-        script_result.error_message = "Unknown error occurred while executing script.";
+        script_result.error_message = "Unknown error occurred during script execution.";
     }
 
     return script_result;
 }
+

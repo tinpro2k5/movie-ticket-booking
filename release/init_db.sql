@@ -116,9 +116,10 @@ INSERT IGNORE INTO Room (roomID, theaterID, name, capacity) VALUES
 (3, 2, 'Room C', 120);
 
 
-DELIMITER //
+DELIMITER $$
 
-DROP PROCEDURE IF EXISTS CreateRoomAndSeats;
+DROP PROCEDURE IF EXISTS CreateRoomAndSeats$$
+
 CREATE PROCEDURE CreateRoomAndSeats(
     IN roomID INT,
     IN theaterID INT,
@@ -129,11 +130,11 @@ BEGIN
     DECLARE ROW_COUNT CHAR(1) DEFAULT 'A';
     DECLARE COL_COUNT INT DEFAULT 1;
     DECLARE IS_VIP BOOLEAN;
+
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
     END;
-
 
     START TRANSACTION;
 
@@ -161,29 +162,12 @@ BEGIN
     END WHILE;
 
     COMMIT;
-END;
-//
+END$$
 
 DELIMITER ;
--- Example usage:
+
 CALL CreateRoomAndSeats(7, 1, 'Room X', 100);
---SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1;
--- INSERT IGNORE INTO Seat (roomID, theaterID, seatNumber, isVip) VALUES
--- (1, 1, 'A1', FALSE),
--- (1, 1, 'A2', FALSE),
--- (1, 1, 'A3', FALSE),
--- (1, 1, 'A4', FALSE),
--- (1, 1, 'A5', FALSE),
--- (1, 1, 'B1', FALSE),
--- (1, 1, 'B2', FALSE),
--- (1, 1, 'B3', FALSE),
--- (1, 1, 'B4', FALSE),
--- (1, 1, 'B5', FALSE),
--- (1, 1, 'C1', FALSE),
--- (1, 1, 'C2', FALSE),
--- (1, 1, 'C3', FALSE),
--- (1, 1, 'C4', FALSE),
--- (1, 1, 'C5', FALSE);
+
 
 
 
@@ -193,8 +177,8 @@ INSERT IGNORE INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES
 
 
 INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES
-(2, 1, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE),
-(3, 1, 1, 'B2', '2025-05-01 21:00:00', 120.00, FALSE);
+(2, 1, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE);
+
 
 
 
