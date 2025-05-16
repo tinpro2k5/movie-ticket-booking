@@ -33,6 +33,7 @@ class MovieService{
             std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
             std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
             std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
+            std::cout << "Movie Price: " << movie.getPrice() << std::endl;
         }
     }
     void filterMovies(){
@@ -69,6 +70,7 @@ class MovieService{
                 std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
                 std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
                 std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
+                std::cout << "Movie Price: " << movie.getPrice() << std::endl;
                 break;
             }
                 case 2:{
@@ -89,6 +91,7 @@ class MovieService{
                     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
                     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
                     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+                    std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
                 }
                 break;  
             }
@@ -110,6 +113,7 @@ class MovieService{
                     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
                     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
                     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+                    std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
                 }
                 break;
             }
