@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
-                //"/usr/lib/gcc/x86_64-linux-gnu/13/include/**",
+                "/usr/lib/gcc/x86_64-linux-gnu/13/include/**",
                 "/usr/include/c++/**",  // Đường dẫn mặc định GCC
                 "/usr/local/include/**",
                 "/usr/include/x86_64-linux-gnu/**",
@@ -16,6 +16,10 @@
                 "${workspaceFolder}/**",
                 "/usr/include/wx-3.0",
                 "/usr/include/wx-3.0/wx"
+            ],
+            "defines": [
+                "__WXGTK__",
+                "_FILE_OFFSET_BITS=64"
             ],
             "compilerPath": "/usr/bin/g++",
             "cppStandard": "c++23",

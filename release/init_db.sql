@@ -168,6 +168,36 @@ DELIMITER ;
 
 CALL CreateRoomAndSeats(7, 1, 'Room X', 100);
 
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS DropShowtime$$
+
+CREATE PROCEDURE DropShowtime(
+    IN p_roomID INT,
+    IN p_theaterID INT,
+    IN p_showDateTime DATETIME
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+
+    START TRANSACTION;
+
+    DELETE FROM Ticket
+    WHERE roomID = p_roomID AND theaterID = p_theaterID AND showDateTime = p_showDateTime;
+
+    DELETE FROM SeatSchedule
+    WHERE roomID = p_roomID AND theaterID = p_theaterID AND showDateTime = p_showDateTime;
+
+    DELETE FROM Showtime
+    WHERE roomID = p_roomID AND theaterID = p_theaterID AND showDateTime = p_showDateTime;
+
+    COMMIT;
+END$$
+
+DELIMITER ;
 
 
 

@@ -60,6 +60,8 @@
         "condition_variable": "cpp",
         "semaphore": "cpp",
         "stop_token": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "hash_map": "cpp",
+        "list": "cpp"
     }
 }
