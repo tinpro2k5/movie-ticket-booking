@@ -94,3 +94,15 @@
 [2025-05-16 16:35:34][INFO] Setting up database...
 [2025-05-16 16:35:34][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
 [2025-05-16 16:35:34][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-17 05:42:41][INFO] App initialized
+[2025-05-17 05:42:41][INFO] Connecting to database: 127.0.0.1
+[2025-05-17 05:42:41][INFO] Connecting to127.0.0.1:3306
+[2025-05-17 05:42:41][INFO] Setting up database...
+[2025-05-17 05:42:41][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-17 05:42:41][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-17 05:43:30][INFO] App initialized
+[2025-05-17 05:43:30][INFO] Connecting to database: 127.0.0.1
+[2025-05-17 05:43:30][INFO] Connecting to127.0.0.1:3306
+[2025-05-17 05:43:30][INFO] Setting up database...
+[2025-05-17 05:43:30][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-17 05:43:30][INFO] Executing query: USE MOVIE_BOOKING
