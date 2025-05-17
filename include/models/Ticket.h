@@ -22,7 +22,8 @@ class Ticket{
     public:
     Ticket();
     ~Ticket();
-    Ticket(int id_ticket, int id_user, int id_movie, int id_theater, string seat_number, string show_time, double price, string booking_time, bool is_paid);
+
+    Ticket(int id_ticket, int id_user, int id_room, int id_theater, string seat_number, string show_time, double price, string booking_time, bool is_paid);
     //getter
     int getTicketId() const;
     int getUserId() const;

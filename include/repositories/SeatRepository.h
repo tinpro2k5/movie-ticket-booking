@@ -5,6 +5,7 @@
 class SeatRepository: public IRepository<Seat> {   
     public:
     Result<vector<Seat>> findByRoomId(int id_room, int id_theater);
+    Result<Seat> findById(int id_room, int id_theater, string seat_number);
     Result<bool> checkVipSeat(int id_room, int id_theater, string seat_number);
     Result<int> create(const Seat& seat) override;
 };

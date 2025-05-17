@@ -34,7 +34,7 @@
 class App {
 private:
     const std::string INIT_DB_SCRIPT = "init_db.sql";
-    RepositoryRegistry repos_res;
+    RepositoryRegistry repository_registry;
     UserService user_service;
     MovieService movie_service;
     TicketService ticket_service;

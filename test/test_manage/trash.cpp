@@ -25,11 +25,11 @@ int main(){
     User user(3, "jane_doe", "password456", "jane@example.com", "0111222333", false);
     int choice;
 
-    RepositoryRegistry repos_res;
-    MovieService movieService(repos_res);
-    ShowTimeService showTimeService(repos_res);
-    RoomService roomService(repos_res);
-    TheaterService theaterService(repos_res);
+    RepositoryRegistry repository_registry;
+    MovieService movieService(repository_registry);
+    ShowTimeService showTimeService(repository_registry);
+    RoomService roomService(repository_registry);
+    TheaterService theaterService(repository_registry);
     //
     MovieManageCommand movieManage(&movieService);
     ShowTimeManageCommand showTimeManage(&showTimeService);

@@ -15,17 +15,7 @@ Ticket::Ticket(){
 Ticket::~Ticket(){
     // Destructor
 }
-Ticket::Ticket(int id_ticket, int id_user, int id_room, int id_theater, string seat_number, string show_time, double price, string booking_time, bool is_paid){
-    _id_ticket = id_ticket;
-    _id_user = id_user;
-    _id_room = id_room;
-    _id_theater = id_theater;
-    _seat_number = seat_number;
-    _show_time = show_time;
-    _price = price;
-    _booking_time = booking_time;
-    _is_paid = is_paid;
-}
+
 //getter
 int Ticket::getTicketId() const{
     return _id_ticket;
@@ -80,5 +70,27 @@ void Ticket::setBookingTime(string booking_time){
     _booking_time = booking_time;
 }
 void Ticket::setPaid(bool is_paid){
+    _is_paid = is_paid;
+}
+
+Ticket::Ticket (int id_ticket, 
+                int id_user,
+                int id_room, 
+                int id_theater, 
+                string seat_number,
+                string show_time,
+                double price,
+                string booking_time, 
+                bool is_paid
+                )
+{
+    _id_ticket = id_ticket;
+    _id_user = id_user;
+    _id_room = id_room;
+    _id_theater = id_theater;
+    _seat_number = seat_number;
+    _show_time = show_time;
+    _price = price;
+    _booking_time = booking_time;
     _is_paid = is_paid;
 }

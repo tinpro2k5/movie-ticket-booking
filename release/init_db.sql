@@ -219,3 +219,18 @@ INSERT IGNORE INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ti
 (1, 1, 'A3', '2025-05-01 18:00:00', NULL),
 (1, 1, 'B1', '2025-05-01 18:00:00', NULL);
 
+
+
+CREATE TABLE PricingRule (
+    ruleID INT PRIMARY KEY AUTO_INCREMENT,
+    ruleName VARCHAR(50) NOT NULL UNIQUE,
+    description TEXT,
+    isActive BOOLEAN DEFAULT TRUE
+);
+
+
+INSERT INTO PricingRule (ruleName, description) VALUES
+('VIP_SEAT', 'Tăng giá cho ghế VIP'),
+('EVENING_SHOWTIME', 'Tăng giá cho suất chiếu sau 18:00'),
+('HOLIDAY', 'Tăng giá vào các ngày lễ'),
+('STUDENT_DISCOUNT', 'Giảm giá cho học sinh/sinh viên');

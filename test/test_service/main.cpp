@@ -14,9 +14,9 @@ int main() {
     DatabaseManager::getInstance()->setupDatabase();
     User user(3, "jane_doe", "password456", "jane@example.com", "0111222333", false);
     int choice;
-    RepositoryRegistry repos_res;
-    MovieService movieService(repos_res);
-    TicketService ticketService(repos_res);
+    RepositoryRegistry repository_registry;
+    MovieService movieService(repository_registry);
+    TicketService ticketService(repository_registry);
     //
     ViewMovieCommand viewMovies(&movieService);
     FilterMovieCommand filterMovies(&movieService);
@@ -40,8 +40,8 @@ int main() {
 }
 
 // App::App():
-//         repos_res(),
-//         user_service(repos_res)
+//         repository_registry(),
+//         user_service(repository_registry)
 // {}
 // App::~App() {
 //     // Destructor

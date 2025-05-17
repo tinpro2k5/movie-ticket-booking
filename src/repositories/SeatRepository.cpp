@@ -84,3 +84,30 @@ Result<int> SeatRepository::create(const Seat& seat){
     }
     return result;
 }
+
+
+ Result<Seat> SeatRepository::findById(int id_room, int id_theater, string seat_number) {
+    Result<Seat> result;
+    std::string query = "SELECT * FROM Seat WHERE roomID = " + std::to_string(id_room) + " AND theaterID = " + std::to_string(id_theater) + " AND seatNumber = '" + seat_number + "'";
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+    MYSQL_RES *res = query_result.result.get();
+    MYSQL_ROW row = mysql_fetch_row(res);
+    if (row) {
+        int id_room_in_dtb = row[0] ? atoi(row[0]) : 0;
+        int id_theater_in_dtb = row[1] ? atoi(row[1]) : 0;
+        std::string seat_number_in_dtb = row[2] ? row[2] : "";
+        bool is_vip = row[3] ? (atoi(row[3]) == 1) : false;
+        Seat seat(id_room_in_dtb, id_theater_in_dtb, seat_number_in_dtb, is_vip);
+        result.success = true;
+        result.data = seat;
+    } else {
+        result.success = false;
+        result.error_message = "Seat not found";
+    }
+    return result;
+}

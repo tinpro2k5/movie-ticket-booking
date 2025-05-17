@@ -1,13 +1,13 @@
 #include "../../include/app/App.h"
 
 App::App():
-        repos_res(),
-        user_service(repos_res),
-        movie_service(repos_res),
-        ticket_service(repos_res),
-        show_time_service(repos_res),
-        room_service(repos_res),
-        theater_service(repos_res),
+        repository_registry(),
+        user_service(repository_registry),
+        movie_service(repository_registry),
+        ticket_service(repository_registry),
+        show_time_service(repository_registry),
+        room_service(repository_registry),
+        theater_service(repository_registry),
         menu_invoker(),
         room_manage_commnand(&room_service),
         theater_manage_commnand(&theater_service),
