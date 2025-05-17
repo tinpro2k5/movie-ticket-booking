@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "../../include/models/User.h"
+#include "../../include/models/ShowTime.h"
 #include "../../include/utils/DatabaseManager.h"
 #include "../../include/repositories/Result.h"
 #include "../../include/repositories/IRepository.h"
@@ -69,6 +70,9 @@ public:
     Result<int> existAdminUser();
 
     Result<bool> remove(std::string username);
+
+
+    Result<std::vector<User>> findUserHavingShowTime(const ShowTime& showtime);
 };
 
 #endif

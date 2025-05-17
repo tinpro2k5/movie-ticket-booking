@@ -35,3 +35,15 @@ bool EmailService::sendOtp(const std::string& recipient, const std::string& otp)
     }
     return success; 
 }
+
+bool EmailService::sendShowTimeCancelation(const std::string& recipient, const std::string& showTimeDetails) {
+    std::string command = "echo \"Subject: Show Time Cancellation\n\nYour show time has been cancelled.\nDetail:\n" + showTimeDetails + "\" | msmtp " + recipient;
+    Logger::getInstance()->log("Sending show time cancellation to " + recipient, Logger::Level::INFO);
+    bool success = (system(command.c_str()) == 0);
+    if (success) {
+        std::cout << "Show time cancellation sent to " << recipient << std::endl;
+    } else {
+        std::cerr << "Failed to send show time cancellation to " << recipient << std::endl;
+    }
+    return success;
+}

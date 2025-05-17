@@ -184,11 +184,11 @@ BEGIN
     END;
 
     START TRANSACTION;
-
-    DELETE FROM Ticket
+    
+    DELETE FROM SeatSchedule
     WHERE roomID = p_roomID AND theaterID = p_theaterID AND showDateTime = p_showDateTime;
 
-    DELETE FROM SeatSchedule
+    DELETE FROM Ticket
     WHERE roomID = p_roomID AND theaterID = p_theaterID AND showDateTime = p_showDateTime;
 
     DELETE FROM Showtime

@@ -16,8 +16,8 @@ Result<std::vector<User>> UserRepository::findUserById(int userId) {
     
                 int userId = std::stoi(row[0]);
                 std::string username = row[1];
-                std::string email = row[2];
-                std::string password = row[3];
+                std::string password = row[2];
+                std::string email = row[3];
                 std::string phone = row[4];
                 bool isAdmin = std::stoi(row[5]);
                 
@@ -169,3 +169,34 @@ Result<bool> UserRepository::checkExistAccount(const std::string& username, cons
     }
 
  }
+
+ Result<std::vector<User>> UserRepository::findUserHavingShowTime(const ShowTime& showtime) {
+    Result<std::vector<User>> result;
+    std::string query = "SELECT u.* FROM User u JOIN Ticket t ON u.userID = t.userID where t.roomID = " + std::to_string(showtime.getRoomId()) +
+                        " AND t.theaterID = " + std::to_string(showtime.getTheaterId()) +
+                        " AND t.showDateTime = '" + showtime.getShowTime() + "';";
+
+    Logger::getInstance()->log("Executing query: " + query, Logger::Level::INFO);
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (query_result.success && query_result.result) {
+        MYSQL_ROW row;
+        MYSQL_RES* mysqlResult = query_result.result.get();
+
+        Logger::getInstance()->log("Parsing query result", Logger::Level::INFO);
+        while ((row = mysql_fetch_row(mysqlResult)) != nullptr) {
+            int userId = std::stoi(row[0]);
+            std::string username = row[1];
+            std::string password = row[2];
+            std::string email = row[3];
+            std::string phone = row[4];
+            bool isAdmin = std::stoi(row[5]);
+
+            result.data.push_back(User(userId, username, password, email, phone, isAdmin));
+        }
+
+        return Result<std::vector<User>>(true, result.data);
+    } else {
+        return Result<std::vector<User>>(false, {}, query_result.error_message);
+    }
+}

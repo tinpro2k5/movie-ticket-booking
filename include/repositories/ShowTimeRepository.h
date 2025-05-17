@@ -11,5 +11,6 @@ class ShowTimeRepository: public IRepository<ShowTime> {
     Result<ShowTime> findExactlyShowTime(int id, string showtime);
     Result<int> create(const ShowTime& showtime) override;
     Result<bool> update(const ShowTime& showtime) override;
+    Result<bool> remove(const ShowTime& showtime) ;
 };
 #endif

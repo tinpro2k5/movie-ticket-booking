@@ -106,3 +106,40 @@ Result<int> TicketRepository::create(const Ticket& ticket){
         }
         return result;
 }
+
+Result<std::vector<Ticket>> TicketRepository::findHavingShowTime(const ShowTime& showtime) {
+    Result<std::vector<Ticket>> result;
+
+    std::string query = "SELECT * FROM Ticket WHERE roomID = " + std::to_string(showtime.getRoomId()) +
+                        " AND theaterID = " + std::to_string(showtime.getTheaterId()) +
+                        " AND showDateTime = '" + showtime.getShowTime() + "'";
+
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+
+    MYSQL_ROW row;
+    MYSQL_RES* res = query_result.result.get();
+    std::vector<Ticket> tickets;
+
+    while ((row = mysql_fetch_row(res))) {
+        int ticketId      = row[0] ? std::atoi(row[0]) : 0;
+        int userId        = row[1] ? std::atoi(row[1]) : 0;
+        int roomId        = row[2] ? std::atoi(row[2]) : 0;
+        int theaterId     = row[3] ? std::atoi(row[3]) : 0;
+        std::string seat  = row[4] ? row[4] : "";
+        std::string time  = row[5] ? row[5] : "";
+        double basePrice  = row[6] ? std::atof(row[6]) : 0.0;
+        std::string bookedAt = row[7] ? row[7] : "";
+        bool isPaid       = row[8] ? (std::atoi(row[8]) == 1) : false;
+
+        tickets.emplace_back(ticketId, userId, roomId, theaterId, seat, time, basePrice, bookedAt, isPaid);
+    }
+
+    result.success = true;
+    result.data = tickets;
+    return result;
+}

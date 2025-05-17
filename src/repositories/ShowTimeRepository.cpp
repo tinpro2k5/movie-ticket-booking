@@ -125,3 +125,27 @@ Result<bool> ShowTimeRepository::update(const ShowTime& showtime) {
     }
     return result;
 }
+
+Result<bool> ShowTimeRepository::remove(const ShowTime& showtime)  {
+    Result<bool> result;
+    std::string query = "Call DropShowtime(" + std::to_string(showtime.getRoomId()) + ", " +
+                        std::to_string(showtime.getTheaterId()) + ", '" +
+                        showtime.getShowTime() + "') ;"; 
+                    
+    QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
+
+    if (!query_result.success) {
+        result.success = false;
+        result.error_message = query_result.error_message;
+        return result;
+    }
+
+    else {
+        result.success = true;
+        result.data = true;
+    }
+    
+
+    return result;
+
+}

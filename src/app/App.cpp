@@ -55,10 +55,12 @@ int App::run() {
         else if (!SessionManager::isAdminUser()) {
             handleUserMenu();
         }
-        system("pause");
+        std::cout << "Nhấn phím bất kỳ để tiếp tục...\n";
+        std::cin.ignore();
+        std::cin.get();
         system("clear");
     }
-    }
+}
 
 
 void App::handleAdminMenu() {
