@@ -74,35 +74,38 @@ void Movie::setPrice(int price){
 
 void printMoviesTable(const std::vector<Movie>& movies) {
     cout << "| " << left
-         << setw(10) << "Movie ID" << " | "
-         << setw(20) << "Title" << " | "
-         << setw(10) << "Genre" << " | "
-         << setw(25) << "Description" << " | "
-         << setw(8)  << "Duration" << " | "
-         << setw(20) << "Poster Path" << " | "
-         << setw(8)  << "Price" << " |"
+         << setw(12) << "Movie ID" << " | "
+         << setw(30) << "Title" << " | "
+         << setw(15) << "Genre" << " | "
+         << setw(40) << "Description" << " | "
+         << setw(10) << "Duration" << " | "
+         << setw(10) << "Rating" << " | "
+         << setw(30) << "Poster Path" << " | "
+         << setw(10) << "Price" << " |"
          << endl;
 
     // In dòng kẻ ngăn cách
-    cout << "|" << string(12, '-') << "|"
-         << string(22, '-') << "|"
+    cout << "|" << string(14, '-') << "|"
+         << string(32, '-') << "|"
+         << string(17, '-') << "|"
+         << string(42, '-') << "|"
          << string(12, '-') << "|"
-         << string(27, '-') << "|"
-         << string(10, '-') << "|"
-         << string(22, '-') << "|"
-         << string(10, '-') << "|" << endl;
+         << string(12, '-') << "|"
+         << string(32, '-') << "|"
+         << string(12, '-') << "|" << endl;
 
     // In từng dòng phim
     for (const Movie& movie : movies) {
         cout << "| " << left
-             << setw(10) << movie.getMovieId() << " | "
-             << setw(20) << movie.getMovieTitle() << " | "
-             << setw(10) << movie.getMovieGenre() << " | "
-             << setw(25) << movie.getMovieDescription() << " | "
-             << setw(8)  << movie.getMovieDuration() << " | "
-             << setw(20) << movie.getMoviePosterPath() << " | "
+             << setw(12) << movie.getMovieId() << " | "
+             << setw(30) << movie.getMovieTitle() << " | "
+             << setw(15) << movie.getMovieGenre() << " | "
+             << setw(40) << movie.getMovieDescription() << " | "
+             << setw(10) << movie.getMovieDuration() << " | "
+             << setw(10) << movie.getMovieRating() << " | "
+             << setw(30) << movie.getMoviePosterPath() << " | "
              << std::fixed << std::setprecision(2)
-             << setw(8)  << movie.getPrice() << " |"
+             << setw(10) << movie.getPrice() << " |"
              << endl;
     }
 }

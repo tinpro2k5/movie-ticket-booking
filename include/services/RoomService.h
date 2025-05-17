@@ -21,7 +21,7 @@ class RoomService{
             cout << "0. Thoát\n";
             cout << "=========================\n";
             int choice;
-            cout << "Chọn chức năng: ";
+            cout << "Nhập lựa chọn của bạn: ";
             std::cin >> choice;
             switch (choice) {
                 case 1: {
@@ -77,9 +77,7 @@ class RoomService{
                         std::cout << result.error_message << "\n";
                         return;
                     }
-                    cout << "=============Danh sách phòng=============\n";
                     printRoomsTable(result.data);
-                    cout << "==========================================\n";
                     break;
                 }
                 default:

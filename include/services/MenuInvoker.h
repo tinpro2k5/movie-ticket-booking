@@ -12,19 +12,23 @@ public:
     }
 
     void showMenuUser() {
+        std::cout << "===== MENU =====\n";
         std::cout << "1. Xem danh sách phim\n";
         std::cout << "2. Lọc phim\n";
         std::cout << "3. Đặt vé\n";
         std::cout << "4. Xem vé đã đặt\n";
         std::cout << "0. Thoát\n";
+        std::cout << "=================\n";
     }
 
     void showMenuAdmin() {
+        std::cout << "===== MENU =====\n";
         std::cout << "1. Quản lí phim\n";
         std::cout << "2. Quản lí suất chiếu\n";
         std::cout << "3. Quản lí rạp\n";
         std::cout << "4. Quản lí phòng vé\n";
         std::cout << "0. Thoát\n";
+        std::cout << "=================\n";
     }
 
     void executeCommand(int option, User user) {

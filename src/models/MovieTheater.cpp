@@ -34,19 +34,23 @@ void MovieTheater::setTheaterLocation(string location){
     _location = location;
 }
 
-void printTheaterTable(const vector<MovieTheater>& theaters) {
-    std::cout << std::left
-              << std::setw(10) << "ID"
-              << std::setw(30) << "Tên rạp"
-              << std::setw(40) << "Địa chỉ" << "\n";
+void printTheaterTable(const std::vector<MovieTheater>& theaters) {
+    std::cout << "| " << std::left
+              << std::setw(12) << "ID" << " | "
+              << std::setw(35) << "Tên rạp" << " | "
+              << std::setw(50) << "Địa chỉ" << " |"
+              << "\n";
 
-    std::cout << std::string(10 + 30 + 40, '-') << "\n";
+    // In dòng kẻ ngăn cách
+    std::cout << "|" << std::string(14, '-') << "|"
+              << std::string(37, '-') << "|"
+              << std::string(52, '-') << "|" << "\n";
 
     for (const auto& theater : theaters) {
-        std::cout << std::left
-                  << std::setw(10) << theater.getTheaterId()
-                  << std::setw(30) << theater.getTheaterName()
-                  << std::setw(40) << theater.getTheaterLocation()
+        std::cout << "| " << std::left
+                  << std::setw(12) << theater.getTheaterId() << " | "
+                  << std::setw(35) << theater.getTheaterName() << " | "
+                  << std::setw(50) << theater.getTheaterLocation() << " |"
                   << "\n";
     }
 }

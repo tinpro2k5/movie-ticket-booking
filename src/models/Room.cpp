@@ -43,20 +43,25 @@ void Room::setRoomCapacity(int capacity){
 }
 
 void printRoomsTable(const std::vector<Room>& rooms) {
-    std::cout << std::left
-              << std::setw(10) << "Room ID"
-              << std::setw(12) << "Theater ID"
-              << std::setw(25) << "Room Name"
-              << std::setw(10) << "Capacity" << "\n";
+    std::cout << "| " << std::left
+              << std::setw(12) << "Room ID" << " | "
+              << std::setw(15) << "Theater ID" << " | "
+              << std::setw(30) << "Room Name" << " | "
+              << std::setw(10) << "Capacity" << " |"
+              << "\n";
 
-    std::cout << std::string(10 + 12 + 25 + 10, '-') << "\n";
+    // In dòng kẻ ngăn cách
+    std::cout << "|" << std::string(14, '-') << "|"
+              << std::string(17, '-') << "|"
+              << std::string(32, '-') << "|"
+              << std::string(12, '-') << "|" << "\n";
 
     for (const auto& room : rooms) {
-        std::cout << std::left
-                  << std::setw(10) << room.getRoomId()
-                  << std::setw(12) << room.getTheaterId()
-                  << std::setw(25) << room.getRoomName()
-                  << std::setw(10) << room.getRoomCapacity()
+        std::cout << "| " << std::left
+                  << std::setw(12) << room.getRoomId() << " | "
+                  << std::setw(15) << room.getTheaterId() << " | "
+                  << std::setw(30) << room.getRoomName() << " | "
+                  << std::setw(10) << room.getRoomCapacity() << " |"
                   << "\n";
     }
 }

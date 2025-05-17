@@ -160,7 +160,7 @@ Result<int> MovieRepository::create(const Movie& movie){
         std::to_string(movie.getMovieDuration()) + ", " +
         std::to_string(movie.getMovieRating()) + ", '" +
         movie.getMoviePosterPath() + "', " +
-        std::to_string(movie.getPrice()) +"')";
+        std::to_string(movie.getPrice()) +")";
     QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
     /*Kiem tra ket qua truy van
     Neu khong thanh cong, tra ve ket qua that bai*/
@@ -191,7 +191,7 @@ Result<bool> MovieRepository::update(const Movie& movie){
                    "description = '" + movie.getMovieDescription() + "', "
                    "duration = " + std::to_string(movie.getMovieDuration()) + ", "
                    "rating = " + std::to_string(movie.getMovieRating()) + ", "
-                   "posterPath = '" + movie.getMoviePosterPath() + "' "
+                   "posterPath = '" + movie.getMoviePosterPath() + "', "
                    "basePrice = " + std::to_string(movie.getPrice()) + " "
                    "WHERE MovieID = " + std::to_string(movie.getMovieId());
 

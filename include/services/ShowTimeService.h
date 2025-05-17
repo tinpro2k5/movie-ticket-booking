@@ -11,13 +11,19 @@ class ShowTimeService {
     std::shared_ptr<SeatScheduleRepository> seat_schedule_repos;
     std::shared_ptr<UserRepository> user_repos;
     std::shared_ptr<TicketRepository> ticket_repos;
+    std::shared_ptr<RoomRepository> room_repos;
+    std::shared_ptr<MovieTheaterRepository> movie_theater_repos;
+    std::shared_ptr<MovieRepository> movie_repos;
 public:
     ShowTimeService(RepositoryRegistry& repoRegistry) {
         show_time_repos = std::dynamic_pointer_cast<ShowTimeRepository>(repoRegistry.show_time_repos);
         seat_schedule_repos = std::dynamic_pointer_cast<SeatScheduleRepository>(repoRegistry.seat_schedule_repos);
         user_repos = std::dynamic_pointer_cast<UserRepository>(repoRegistry.user_repos);
         ticket_repos = std::dynamic_pointer_cast<TicketRepository>(repoRegistry.ticket_repos);
-        if (!show_time_repos || !seat_schedule_repos || !user_repos || !ticket_repos) {
+        room_repos = std::dynamic_pointer_cast<RoomRepository>(repoRegistry.room_repos);
+        movie_theater_repos = std::dynamic_pointer_cast<MovieTheaterRepository>(repoRegistry.movie_theater_repos);
+        movie_repos = std::dynamic_pointer_cast<MovieRepository>(repoRegistry.movie_repos);
+        if (!show_time_repos || !seat_schedule_repos || !user_repos || !ticket_repos || !room_repos || !movie_theater_repos || !movie_repos) {
             throw std::runtime_error("Failed to initialize ShowTimeService: Repositories not found");
         }
     }
@@ -29,6 +35,7 @@ public:
         std::cout << "0. Thoát\n";
         std::cout << "=============================\n";
         int choice;
+        cout << "Nhập lựa chọn của bạn: ";
         std::cin >> choice;
         switch (choice) {
             case 1: {
@@ -132,9 +139,16 @@ public:
                 cout << "0. Thoát\n";
                 cout << "=====================\n";
                 int choice;
+                cout << "Nhập lựa chọn của bạn: ";
                 std::cin >> choice;
                 switch (choice) {
                     case 1: {
+                        Result<vector<Movie>> list_movie = movie_repos->findAll();
+                        if (!list_movie.success) {
+                            std::cout << list_movie.error_message << "\n";
+                            return;
+                        }
+                        printMoviesTable(list_movie.data);
                         std::cout << "Nhập ID phim: ";
                         int movie_id;
                         std::cin >> movie_id;
@@ -144,15 +158,15 @@ public:
                             return;
                         }
                         printShowtimeTable(result.data);
-                        // for (const auto& showtime : result.data) {
-                        //     std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
-                        //     std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
-                        //     std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
-                        //     std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
-                        // }
                         break;
                     }
                     case 2: {
+                        Result<vector<MovieTheater>> list_theater = movie_theater_repos->findAll();
+                        if (!list_theater.success) {
+                            std::cout << list_theater.error_message << "\n";
+                            return;
+                        }
+                        printTheaterTable(list_theater.data);
                         std::cout << "Nhập ID rạp: ";
                         int theater_id;
                         std::cin >> theater_id;
@@ -162,12 +176,6 @@ public:
                             return;
                         }
                         printShowtimeTable(result.data);
-                        // for (const auto& showtime : result.data) {
-                        //     std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
-                        //     std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
-                        //     std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
-                        //     std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
-                        // }
                         break;
                     }
                     case 0:

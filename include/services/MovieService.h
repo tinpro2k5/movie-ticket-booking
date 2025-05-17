@@ -23,40 +23,29 @@ class MovieService{
         }
         const vector<Movie>& movies = result.data;
         if(movies.empty()){
-            cout << "Khong co phim trong CSDL \n";
+            cout << "Phim không tồn tại\n";
             return;
         }
-        //cout << "Danh sach phim: \n";
-        // for(const Movie& movie : movies){
-        //     std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
-        //     std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
-        //     std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
-        //     std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
-        //     std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
-        //     std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
-        //     std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
-        //     std::cout << "Movie Price: " << movie.getPrice() << std::endl;
-        // }
         printMoviesTable(movies);
     }
     void filterMovies(){
-        cout << "--------------------------------\n";
-        cout << "Cac phuong thuc loc phim \n";
-        cout << "0. Out khoi loc\n";
+        cout << "==========Lọc Phim==========\n";
         cout << "1. ID \n";
-        cout << "2. The Loai\n";
-        cout << "3. Ten \n"; 
-        cout << "--------------------------------\n";
+        cout << "2. Thể loại\n";
+        cout << "3. Tên \n"; 
+        cout << "0. Thoát\n";
+        cout << "============================\n";
         int choice;
-        cout << "Chon cach loc: \n";
+        cout << "Chọn phương thức lọc: \n";
         std::cin >> choice;
             switch (choice){
                 case 1:{
+                getListMovie();
                 int id;
                 cout << "Nhap id: \n";
                 std::cin >> id;
                 while(id < 1){
-                    cout << "Id khong hop le! Nhap lai id > 1\n";
+                    cout << "ID không hợp lệ. Nhập lại ID > 1\n";
                     std::cin >> id;
                 }
                 Result<Movie> result = movie_repos->findById(id);
@@ -68,21 +57,12 @@ class MovieService{
                 vector<Movie> movies;
                 movies.push_back(movie);
                 printMoviesTable(movies);
-                // cout << "Phim ban can tim la: \n";
-                // std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
-                // std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
-                // std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
-                // std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
-                // std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
-                // std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
-                // std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
-                // std::cout << "Movie Price: " << movie.getPrice() << std::endl;
                 break;
             }
                 case 2:{
                 string input = "";
                 std::cin.ignore();
-                cout << "Nhap the loai \n";
+                cout << "Nhập thể loại: \n";
                 getline(std::cin, input);
                 Result<std::vector<Movie>> result = movie_repos->findByGenre(input);
                 if(!result.success){
@@ -90,22 +70,12 @@ class MovieService{
                     return;
                 }
                 printMoviesTable(result.data);
-                // for(int i = 0; i < result.data.size(); i++){
-                //     std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
-                //     std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
-                //     std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
-                //     std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
-                //     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
-                //     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
-                //     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
-                //     std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
-                // }
                 break;  
             }
                 case 3:{
                 string input = "";
                 std::cin.ignore();
-                cout << "Nhap ten \n";
+                cout << "Nhập tên: \n";
                 getline(std::cin, input);
                 Result<std::vector<Movie>> result = movie_repos->findByName(input);
                 if(!result.success){
@@ -113,16 +83,6 @@ class MovieService{
                     return;
                 }
                 printMoviesTable(result.data);
-                // for(int i = 0; i < result.data.size(); i++){
-                //     std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
-                //     std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
-                //     std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
-                //     std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
-                //     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
-                //     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
-                //     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
-                //     std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
-                // }
                 break;
             }
                 default:{
@@ -140,6 +100,7 @@ class MovieService{
         std::cout << "0. Thoát\n";
         std::cout << "=============================\n";
         int choice;
+        cout << "Nhập lựa chọn của bạn: ";
         std::cin >> choice;
             switch (choice){
                 case 1:{
@@ -147,33 +108,33 @@ class MovieService{
                     movie.setMovieId(0);
                     string input = "";
                     std::cin.ignore();
-                    cout << "Nhap ten phim: \n";
+                    cout << "Nhập tên phim: \n";
                     getline(std::cin, input);
                     movie.setMovieTitle(input);
-                    cout << "Nhap the loai: \n";
+                    cout << "Nhập thể loại: \n";
                     getline(std::cin, input);
                     movie.setMovieGenre(input);
-                    cout << "Nhap mo ta: \n";
+                    cout << "Nhap mô tả: \n";
                     getline(std::cin, input);
                     movie.setMovieDescription(input);
-                    cout << "Nhap thoi gian: \n";
+                    cout << "Nhập thời gian: \n";
                     int duration;
                     std::cin >> duration;
                     movie.setMovieDuration(duration);
-                    cout << "Nhap xep hang: \n";
+                    cout << "Nhập xếp hạng: \n";
                     double rating;
                     std::cin >> rating;
                     movie.setMovieRating(rating);
                     string path = "";
                     std::cin.ignore();
-                    cout << "Nhap duong dan hinh anh: \n";
+                    cout << "Nhập đường dẫn đến hình ảnh: \n";
                     getline(std::cin, path);
                     movie.setMoviePosterPath(path);
-                    cout << "Nhap gia ve: \n";
+                    cout << "Nhập giá vé: \n";
                     int price;
                     std::cin >> price;
                     if(price <= 0){
-                        cout << "Gia ve khong hop le! Nhap lai gia ve > 0\n";
+                        cout << "Giá vé không hợp lệ. Nhập lại giá vé > 0\n";
                         std::cin >> price;
                     }
                     movie.setPrice(price);
@@ -182,18 +143,18 @@ class MovieService{
                         cout << result.error_message << "\n";
                         return;
                     }else{
-                        cout << "Them phim thanh cong \n";
+                        cout << "Thêm phim thành công \n";
                     }
                     break;
                 }
                 case 2:{
                     Result<vector<Movie>> list_movie = movie_repos->findAll();
                     printMoviesTable(list_movie.data);
-                    cout << "Nhap id phim can xoa: \n";
+                    cout << "Nhập ID phim cần xóa: \n";
                     int id;
                     std::cin >> id;
                     while(id < 1){
-                        cout << "Id khong hop le! Nhap lai id > 1\n";
+                        cout << "ID không hợp lệ. Nhập lại ID > 1\n";
                         std::cin >> id;
                     }
                     Result<bool> result = movie_repos->remove(id);
@@ -201,7 +162,7 @@ class MovieService{
                         cout << result.error_message << "\n";
                         return;
                     }else{
-                        cout << "Xoa phim thanh cong \n";
+                        cout << "Xóa phim thành công \n";
                     }
                     break;
                 }
@@ -212,7 +173,7 @@ class MovieService{
                     int id;
                     std::cin >> id;
                     while(id < 1){
-                        cout << "Id khong hop le! Nhap lai id > 1\n";
+                        cout << "ID không hợp lệ. Nhập lại ID > 1\n";
                         std::cin >> id;
                     }
                     Result<Movie> result = movie_repos->findById(id);
@@ -223,25 +184,25 @@ class MovieService{
                     Movie movie = result.data;     
                     string input = "";
                     std::cin.ignore();
-                    cout << "Nhap ten phim: \n";
+                    cout << "Nhập tên phim: \n";
                     getline(std::cin, input);
                     if(input.empty()){
                         input = movie.getMovieTitle();
                     }
                     movie.setMovieTitle(input);
-                    cout << "Nhap the loai: \n";
+                    cout << "Nhập thể loại: \n";
                     getline(std::cin, input);
                     if(input.empty()){
                         input = movie.getMovieGenre();
                     }
                     movie.setMovieGenre(input);
-                    cout << "Nhap mo ta: \n";
+                    cout << "Nhập mô tả: \n";
                     getline(std::cin, input);
                     if (input.empty()){
                         input = movie.getMovieDescription();
                     }
                     movie.setMovieDescription(input);
-                    cout << "Nhap thoi gian: \n";
+                    cout << "Nhập thời gian: \n";
                     int duration;
                     std::cin >> duration;
                     if(duration == 0){
@@ -257,13 +218,13 @@ class MovieService{
                     movie.setMovieRating(rating);
                     string path = "";
                     std::cin.ignore();
-                    cout << "Nhap duong dan hinh anh: \n";
+                    cout << "Nhập đường dẫn hình ảnh: \n";
                     getline(std::cin, path);
                     if(path.empty()){
                         path = movie.getMoviePosterPath();
                     }
                     movie.setMoviePosterPath(path);
-                    cout << "Nhap gia ve: \n";
+                    cout << "Nhập giá vé: \n";
                     int price;
                     std::cin >> price;
                     if(price == 0){
@@ -275,7 +236,7 @@ class MovieService{
                         cout << result1.error_message << "\n";
                         return;
                     }else{
-                        cout << "Cap nhat phim thanh cong \n";
+                        cout << "Cập nhật phim thành công \n";
                     }
                     break;
                 }
@@ -283,7 +244,7 @@ class MovieService{
                     getListMovie();
                     break;
                 default:
-                    cout << "Khong co chuc nang nay \n";
+                    cout << "Không có chức năng này\n";
                     break;
             }
         }

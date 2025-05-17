@@ -42,21 +42,25 @@ void ShowTime::setMovieId(int id_movie) {
 }
 
 void printShowtimeTable(const std::vector<ShowTime>& showtimes) {
-    std::cout << std::left
-              << std::setw(12) << "Room ID"
-              << std::setw(12) << "Theater ID"
-              << std::setw(25) << "Show Time"
-              << std::setw(10) << "Movie ID"
+    std::cout << "| " << std::left
+              << std::setw(15) << "Room ID" << " | "
+              << std::setw(15) << "Theater ID" << " | "
+              << std::setw(30) << "Show Time" << " | "
+              << std::setw(12) << "Movie ID" << " |"
               << "\n";
 
-    std::cout << std::string(12 + 12 + 25 + 10, '-') << "\n";
+    // In dòng kẻ ngăn cách
+    std::cout << "|" << std::string(17, '-') << "|"
+              << std::string(17, '-') << "|"
+              << std::string(32, '-') << "|"
+              << std::string(14, '-') << "|" << "\n";
 
     for (const auto& showtime : showtimes) {
-        std::cout << std::left
-                  << std::setw(12) << showtime.getRoomId()
-                  << std::setw(12) << showtime.getTheaterId()
-                  << std::setw(25) << showtime.getShowTime()
-                  << std::setw(10) << showtime.getMovieId()
+        std::cout << "| " << std::left
+                  << std::setw(15) << showtime.getRoomId() << " | "
+                  << std::setw(15) << showtime.getTheaterId() << " | "
+                  << std::setw(30) << showtime.getShowTime() << " | "
+                  << std::setw(12) << showtime.getMovieId() << " |"
                   << "\n";
     }
 }
