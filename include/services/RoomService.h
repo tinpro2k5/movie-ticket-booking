@@ -25,6 +25,12 @@ class RoomService{
             std::cin >> choice;
             switch (choice) {
                 case 1: {
+                    Result<vector<Room>> list_room = room_repos->findAll();
+                    if (!list_room.success) {
+                        std::cout << list_room.error_message << "\n";
+                        return;
+                    }
+                    printRoomsTable(list_room.data);
                     Room room;
                     int room_id;
                     cout << "Nhập ID phòng: \n";
@@ -72,12 +78,7 @@ class RoomService{
                         return;
                     }
                     cout << "=============Danh sách phòng=============\n";
-                    for (const auto& room : result.data) {
-                        std::cout << "Room ID: " << room.getRoomId() << "\n";
-                        std::cout << "Theater ID: " << room.getTheaterId() << "\n";
-                        std::cout << "Room Name: " << room.getRoomName() << "\n";
-                        std::cout << "Capacity: " << room.getRoomCapacity() << "\n";
-                    }
+                    printRoomsTable(result.data);
                     cout << "==========================================\n";
                     break;
                 }

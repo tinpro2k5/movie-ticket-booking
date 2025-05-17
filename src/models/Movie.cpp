@@ -71,3 +71,38 @@ void Movie::setMoviePosterPath(string poster_path){
 void Movie::setPrice(int price){
     _price = price;
 }
+
+void printMoviesTable(const std::vector<Movie>& movies) {
+    cout << "| " << left
+         << setw(10) << "Movie ID" << " | "
+         << setw(20) << "Title" << " | "
+         << setw(10) << "Genre" << " | "
+         << setw(25) << "Description" << " | "
+         << setw(8)  << "Duration" << " | "
+         << setw(20) << "Poster Path" << " | "
+         << setw(8)  << "Price" << " |"
+         << endl;
+
+    // In dòng kẻ ngăn cách
+    cout << "|" << string(12, '-') << "|"
+         << string(22, '-') << "|"
+         << string(12, '-') << "|"
+         << string(27, '-') << "|"
+         << string(10, '-') << "|"
+         << string(22, '-') << "|"
+         << string(10, '-') << "|" << endl;
+
+    // In từng dòng phim
+    for (const Movie& movie : movies) {
+        cout << "| " << left
+             << setw(10) << movie.getMovieId() << " | "
+             << setw(20) << movie.getMovieTitle() << " | "
+             << setw(10) << movie.getMovieGenre() << " | "
+             << setw(25) << movie.getMovieDescription() << " | "
+             << setw(8)  << movie.getMovieDuration() << " | "
+             << setw(20) << movie.getMoviePosterPath() << " | "
+             << std::fixed << std::setprecision(2)
+             << setw(8)  << movie.getPrice() << " |"
+             << endl;
+    }
+}

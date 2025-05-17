@@ -3,6 +3,8 @@
 
 #include "../../include/repositories/MovieRepository.h"
 #include "../../include/app/RepositoryRegistry.h"
+
+
 class MovieService{
     std::shared_ptr<MovieRepository> movie_repos;
     public:
@@ -24,17 +26,18 @@ class MovieService{
             cout << "Khong co phim trong CSDL \n";
             return;
         }
-        cout << "Danh sach phim: \n";
-        for(const Movie& movie : movies){
-            std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
-            std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
-            std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
-            std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
-            std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
-            std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
-            std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
-            std::cout << "Movie Price: " << movie.getPrice() << std::endl;
-        }
+        //cout << "Danh sach phim: \n";
+        // for(const Movie& movie : movies){
+        //     std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
+        //     std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
+        //     std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
+        //     std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
+        //     std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
+        //     std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
+        //     std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
+        //     std::cout << "Movie Price: " << movie.getPrice() << std::endl;
+        // }
+        printMoviesTable(movies);
     }
     void filterMovies(){
         cout << "--------------------------------\n";
@@ -62,15 +65,18 @@ class MovieService{
                     return;
                 }
                 const Movie& movie = result.data;
-                cout << "Phim ban can tim la: \n";
-                std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
-                std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
-                std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
-                std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
-                std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
-                std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
-                std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
-                std::cout << "Movie Price: " << movie.getPrice() << std::endl;
+                vector<Movie> movies;
+                movies.push_back(movie);
+                printMoviesTable(movies);
+                // cout << "Phim ban can tim la: \n";
+                // std::cout << "Movie ID: " << movie.getMovieId() << std::endl;
+                // std::cout << "Movie Title: " << movie.getMovieTitle() << std::endl;
+                // std::cout << "Movie Genre: " << movie.getMovieGenre() << std::endl;
+                // std::cout << "Movie Description: " << movie.getMovieDescription() << std::endl;
+                // std::cout << "Movie Duration: " << movie.getMovieDuration() << std::endl;
+                // std::cout << "Movie Rating: " << movie.getMovieRating() << std::endl;
+                // std::cout << "Movie Poster Path: " << movie.getMoviePosterPath() << std::endl;
+                // std::cout << "Movie Price: " << movie.getPrice() << std::endl;
                 break;
             }
                 case 2:{
@@ -83,16 +89,17 @@ class MovieService{
                     cout << result.error_message << "\n";
                     return;
                 }
-                for(int i = 0; i < result.data.size(); i++){
-                    std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
-                    std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
-                    std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
-                    std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
-                    std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
-                    std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
-                    std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
-                    std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
-                }
+                printMoviesTable(result.data);
+                // for(int i = 0; i < result.data.size(); i++){
+                //     std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
+                //     std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
+                //     std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
+                //     std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
+                //     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
+                //     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
+                //     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+                //     std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
+                // }
                 break;  
             }
                 case 3:{
@@ -105,16 +112,17 @@ class MovieService{
                     cout << result.error_message << "\n";
                     return;
                 }
-                for(int i = 0; i < result.data.size(); i++){
-                    std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
-                    std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
-                    std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
-                    std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
-                    std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
-                    std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
-                    std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
-                    std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
-                }
+                printMoviesTable(result.data);
+                // for(int i = 0; i < result.data.size(); i++){
+                //     std::cout << "Movie ID: " << result.data[i].getMovieId() << std::endl;
+                //     std::cout << "Movie Title: " << result.data[i].getMovieTitle() << std::endl;
+                //     std::cout << "Movie Genre: " << result.data[i].getMovieGenre() << std::endl;
+                //     std::cout << "Movie Description: " << result.data[i].getMovieDescription() << std::endl;
+                //     std::cout << "Movie Duration: " << result.data[i].getMovieDuration() << std::endl;
+                //     std::cout << "Movie Rating: " << result.data[i].getMovieRating() << std::endl;
+                //     std::cout << "Movie Poster Path: " << result.data[i].getMoviePosterPath() << std::endl;
+                //     std::cout << "Movie Price: " << result.data[i].getPrice() << std::endl;
+                // }
                 break;
             }
                 default:{
@@ -179,6 +187,8 @@ class MovieService{
                     break;
                 }
                 case 2:{
+                    Result<vector<Movie>> list_movie = movie_repos->findAll();
+                    printMoviesTable(list_movie.data);
                     cout << "Nhap id phim can xoa: \n";
                     int id;
                     std::cin >> id;
@@ -196,6 +206,8 @@ class MovieService{
                     break;
                 }
                 case 3:{
+                    Result<vector<Movie>> list_movie = movie_repos->findAll();
+                    printMoviesTable(list_movie.data);
                     cout << "Nhap id phim can cap nhat: \n";
                     int id;
                     std::cin >> id;
@@ -276,6 +288,7 @@ class MovieService{
             }
         }
 };
+
 #endif
 
 

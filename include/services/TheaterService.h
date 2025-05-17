@@ -47,11 +47,12 @@ public:
             case 2: {
                 vector<MovieTheater> theaters = movie_theater_repos->findAll().data;
                 std::cout << "=====Danh sách rạp:=====\n";
-                for (const auto& theater : theaters) {
-                    std::cout << "ID: " << theater.getTheaterId() << "\n";
-                    std::cout << "Tên: " << theater.getTheaterName() << "\n";
-                    std::cout << "Địa chỉ: " << theater.getTheaterLocation() << "\n";
-                }
+                // for (const auto& theater : theaters) {
+                //     std::cout << "ID: " << theater.getTheaterId() << "\n";
+                //     std::cout << "Tên: " << theater.getTheaterName() << "\n";
+                //     std::cout << "Địa chỉ: " << theater.getTheaterLocation() << "\n";
+                // }
+                printTheaterTable(theaters);
                 std::cout << "========================\n";
 
                 break;

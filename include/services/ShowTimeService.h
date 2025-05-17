@@ -143,12 +143,13 @@ public:
                             std::cout << result.error_message << "\n";
                             return;
                         }
-                        for (const auto& showtime : result.data) {
-                            std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
-                            std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
-                            std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
-                            std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
-                        }
+                        printShowtimeTable(result.data);
+                        // for (const auto& showtime : result.data) {
+                        //     std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
+                        //     std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
+                        //     std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
+                        //     std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
+                        // }
                         break;
                     }
                     case 2: {
@@ -160,12 +161,13 @@ public:
                             std::cout << result.error_message << "\n";
                             return;
                         }
-                        for (const auto& showtime : result.data) {
-                            std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
-                            std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
-                            std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
-                            std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
-                        }
+                        printShowtimeTable(result.data);
+                        // for (const auto& showtime : result.data) {
+                        //     std::cout << "Room ID: " << showtime.getRoomId() << std::endl;
+                        //     std::cout << "Theater ID: " << showtime.getTheaterId() << std::endl;
+                        //     std::cout << "Show Time: " << showtime.getShowTime() << std::endl;
+                        //     std::cout << "Movie ID: " << showtime.getMovieId() << std::endl;
+                        // }
                         break;
                     }
                     case 0:

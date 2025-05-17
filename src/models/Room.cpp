@@ -41,3 +41,22 @@ void Room::setRoomName(string room_name){
 void Room::setRoomCapacity(int capacity){ 
     _capacity = capacity;
 }
+
+void printRoomsTable(const std::vector<Room>& rooms) {
+    std::cout << std::left
+              << std::setw(10) << "Room ID"
+              << std::setw(12) << "Theater ID"
+              << std::setw(25) << "Room Name"
+              << std::setw(10) << "Capacity" << "\n";
+
+    std::cout << std::string(10 + 12 + 25 + 10, '-') << "\n";
+
+    for (const auto& room : rooms) {
+        std::cout << std::left
+                  << std::setw(10) << room.getRoomId()
+                  << std::setw(12) << room.getTheaterId()
+                  << std::setw(25) << room.getRoomName()
+                  << std::setw(10) << room.getRoomCapacity()
+                  << "\n";
+    }
+}

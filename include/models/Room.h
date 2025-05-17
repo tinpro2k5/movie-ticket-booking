@@ -23,4 +23,5 @@ class Room {
     void setRoomName(string room_name);
     void setRoomCapacity(int capacity);
 };
+void printRoomsTable(const std::vector<Room>& rooms);
 #endif

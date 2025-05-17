@@ -46,5 +46,7 @@ class Movie{
     void setMovieRating(float rating);
     void setMoviePosterPath(string poster_path);
     void setPrice(int price);
+    //
 };
+void printMoviesTable(const std::vector<Movie>& movies);
 #endif

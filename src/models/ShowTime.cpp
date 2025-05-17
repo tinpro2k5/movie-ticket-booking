@@ -40,3 +40,23 @@ void ShowTime::setShowTime(string show_time) {
 void ShowTime::setMovieId(int id_movie) {
     _id_movie = id_movie;
 }
+
+void printShowtimeTable(const std::vector<ShowTime>& showtimes) {
+    std::cout << std::left
+              << std::setw(12) << "Room ID"
+              << std::setw(12) << "Theater ID"
+              << std::setw(25) << "Show Time"
+              << std::setw(10) << "Movie ID"
+              << "\n";
+
+    std::cout << std::string(12 + 12 + 25 + 10, '-') << "\n";
+
+    for (const auto& showtime : showtimes) {
+        std::cout << std::left
+                  << std::setw(12) << showtime.getRoomId()
+                  << std::setw(12) << showtime.getTheaterId()
+                  << std::setw(25) << showtime.getShowTime()
+                  << std::setw(10) << showtime.getMovieId()
+                  << "\n";
+    }
+}

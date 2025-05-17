@@ -21,5 +21,6 @@ class MovieRepository: public IRepository<Movie> {
         Result<bool> update(const Movie& movie) override;
         //Delete movie
         Result<bool> remove(int id_movie) override;
+
 };
 #endif

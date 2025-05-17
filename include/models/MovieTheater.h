@@ -19,6 +19,9 @@ class MovieTheater {
     void setTheaterId(int id_theater);
     void setTheaterName(string name);
     void setTheaterLocation(string location);
+    //
+
 };
+void printTheaterTable(const vector<MovieTheater>& theaters);
 
 #endif

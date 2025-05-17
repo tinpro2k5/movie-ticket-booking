@@ -611,3 +611,58 @@
 [2025-05-17 12:00:08][INFO] Sending show time cancellation to nne97907@jioso.com
 [2025-05-17 12:00:10][INFO] Executing query: Call DropShowtime(7, 1, '2025-12-09 12:25:21') ;
 [2025-05-17 12:05:12][INFO] Clearing session data.
+[2025-05-17 13:33:29][INFO] App initialized
+[2025-05-17 13:33:29][INFO] Connecting to database: 127.0.0.1
+[2025-05-17 13:33:29][INFO] Connecting to127.0.0.1:3306
+[2025-05-17 13:33:29][INFO] Setting up database...
+[2025-05-17 13:33:29][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-17 13:33:29][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-17 13:33:29][INFO] Executing script: init_db.sql
+[2025-05-17 13:33:34][INFO] User chose to exit the application
+[2025-05-17 13:33:34][INFO] Closing database connection.
+[2025-05-17 13:33:34][INFO] Disconnecting from database.
+[2025-05-17 13:46:52][INFO] App initialized
+[2025-05-17 13:46:52][INFO] Connecting to database: 127.0.0.1
+[2025-05-17 13:46:52][INFO] Connecting to127.0.0.1:3306
+[2025-05-17 13:46:52][INFO] Setting up database...
+[2025-05-17 13:46:52][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-17 13:46:52][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-17 13:46:52][INFO] Executing script: init_db.sql
+[2025-05-17 13:47:09][INFO] Executing query: SELECT * FROM User WHERE username ='nkv' OR email ='khacvuong2707@gmail.com';
+[2025-05-17 13:47:09][INFO] Executing query: SELECT * FROM User WHERE username ='nkv' OR email ='khacvuong2707@gmail.com';
+[2025-05-17 13:47:09][INFO] Parsing query result
+[2025-05-17 13:47:09][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-17 13:47:09][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-17 13:47:09][INFO] Parsing query result
+[2025-05-17 13:47:09][INFO] Creating user: nkv
+[2025-05-17 13:47:09][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('nkv', '13929415971850140782', 'khacvuong2707@gmail.com', '0974139985', 0);
+[2025-05-17 13:47:09][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('nkv', '13929415971850140782', 'khacvuong2707@gmail.com', '0974139985', 0);
+[2025-05-17 13:47:09][INFO] Generated OTP: 500158
+[2025-05-17 13:47:09][INFO] Sending OTP to: khacvuong2707@gmail.com
+[2025-05-17 13:47:09][INFO] Sending OTP to khacvuong2707@gmail.com
+[2025-05-17 13:47:09][ERROR] Failed to send OTP: Failed to send OTP
+[2025-05-17 13:49:06][INFO] User chose to exit the application
+[2025-05-17 13:49:06][INFO] Closing database connection.
+[2025-05-17 13:49:06][INFO] Disconnecting from database.
+[2025-05-17 13:58:17][INFO] App initialized
+[2025-05-17 13:58:17][INFO] Connecting to database: 127.0.0.1
+[2025-05-17 13:58:17][INFO] Connecting to127.0.0.1:3306
+[2025-05-17 13:58:17][INFO] Setting up database...
+[2025-05-17 13:58:17][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-17 13:58:17][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-17 13:58:17][INFO] Executing script: init_db.sql
+[2025-05-17 13:58:34][INFO] Executing query: SELECT * FROM User WHERE username ='nkv' OR email ='khacvuong2707@gmail.com';
+[2025-05-17 13:58:34][INFO] Executing query: SELECT * FROM User WHERE username ='nkv' OR email ='khacvuong2707@gmail.com';
+[2025-05-17 13:58:34][INFO] Parsing query result
+[2025-05-17 13:58:44][INFO] Authenticating user: nkv
+[2025-05-17 13:58:44][INFO] Executing query: SELECT * FROM User WHERE username ='nkv';
+[2025-05-17 13:58:44][INFO] Executing query: SELECT * FROM User WHERE username ='nkv';
+[2025-05-17 13:58:44][INFO] Parsing query result
+[2025-05-17 13:58:44][INFO] Generated OTP: 008700
+[2025-05-17 13:58:44][INFO] Sending OTP to: khacvuong2707@gmail.com
+[2025-05-17 13:58:44][INFO] Sending OTP to khacvuong2707@gmail.com
+[2025-05-17 13:59:22][INFO] Verifying OTP: 0
+[2025-05-17 13:59:24][INFO] Clearing session data.
+[2025-05-17 13:59:27][INFO] User chose to exit the application
+[2025-05-17 13:59:27][INFO] Closing database connection.
+[2025-05-17 13:59:27][INFO] Disconnecting from database.

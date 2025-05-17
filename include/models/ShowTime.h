@@ -26,4 +26,5 @@ class ShowTime{
     void setShowTime(string show_time);
     void setMovieId(int id_movie);
 };
+void printShowtimeTable(const std::vector<ShowTime>& showtimes);
 #endif
