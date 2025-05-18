@@ -25,7 +25,7 @@
     cout << "Nhap stt phim muon dat: \n";
     std::cin >> stt_phim;
     while(stt_phim < 1 || stt_phim > movies.size()){
-        cout << "Stt khong hop le! Nhap lai stt > 1 va < " << movies.size() << "\n";
+        cout << "Stt khong hop le! Nhap lai stt: ";
         std::cin >> stt_phim;
     }
     vector<Movie> find_result;
@@ -44,13 +44,14 @@
         std::cout << "Room ID: " << result_st.data[i].getRoomId() << std::endl;
         std::cout << "Theater ID: " << result_st.data[i].getTheaterId() << std::endl;
         std::cout << "Show Time: " << result_st.data[i].getShowTime() << std::endl;
+        std::cout << "--------------------------------\n";
     }
     int stt_xuat_chieu;
     cout << "--------------------------------\n";
-    cout << "Chon xuat chieu muon dat ve: \n";
+    cout << "Chon xuat chieu muon dat ve: ";
     std::cin >> stt_xuat_chieu;
     while(stt_xuat_chieu < 1 || stt_xuat_chieu > result_st.data.size()){
-        cout << "Stt khong hop le! Nhap lai stt > 1 va < " << result_st.data.size() << "\n";
+        cout << "Stt khong hop le! Nhap lai stt: "; 
         std::cin >> stt_xuat_chieu;
     }
     cout << "--------------------------------\n";
@@ -119,7 +120,7 @@
         ss_result.data[stt_xuat_chieu - 1].getTheaterId(),
         ss_result.data[stt_xuat_chieu - 1].getSeatNumber(),
         ss_result.data[stt_xuat_chieu - 1].getShowTime(),
-        cur_ticket.getTicketId()
+        ticket_id
     );
 
 

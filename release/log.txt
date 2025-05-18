@@ -959,3 +959,190 @@
 [2025-05-18 07:44:10][INFO] User chose to exit the application
 [2025-05-18 07:44:10][INFO] Closing database connection.
 [2025-05-18 07:44:10][INFO] Disconnecting from database.
+[2025-05-18 15:31:23][INFO] App initialized
+[2025-05-18 15:31:23][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 15:31:23][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 15:31:23][INFO] Setting up database...
+[2025-05-18 15:31:23][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 15:31:23][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 15:31:23][INFO] Executing script: init_db.sql
+[2025-05-18 15:31:41][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-18 15:31:41][INFO] Executing query: SELECT * FROM User WHERE username ='tinle' OR email ='letrungtin12052005@gmail.com';
+[2025-05-18 15:31:41][INFO] Parsing query result
+[2025-05-18 15:31:41][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 15:31:41][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 15:31:41][INFO] Parsing query result
+[2025-05-18 15:31:41][INFO] Creating user: tinle
+[2025-05-18 15:31:41][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', 'fgdfhsjj', 1);
+[2025-05-18 15:31:41][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinle', '10676640704186402002', 'letrungtin12052005@gmail.com', 'fgdfhsjj', 1);
+[2025-05-18 15:31:41][INFO] Generated OTP: 767997
+[2025-05-18 15:31:41][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-18 15:31:41][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-18 15:32:12][INFO] Authenticating user: tinle
+[2025-05-18 15:32:12][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-18 15:32:12][INFO] Executing query: SELECT * FROM User WHERE username ='tinle';
+[2025-05-18 15:32:12][INFO] Parsing query result
+[2025-05-18 15:32:12][INFO] Generated OTP: 039137
+[2025-05-18 15:32:12][INFO] Sending OTP to: letrungtin12052005@gmail.com
+[2025-05-18 15:32:12][INFO] Sending OTP to letrungtin12052005@gmail.com
+[2025-05-18 15:32:23][INFO] Verifying OTP: 039137
+[2025-05-18 15:32:55][INFO] Executing query: SELECT * FROM Theater
+[2025-05-18 15:34:01][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =2;
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (7, 1, '2025-12-31 12:20:21', 1);
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A1', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A2', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A3', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A4', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A5', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B1', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B2', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B3', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B4', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B5', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C1', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C2', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C3', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C4', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:35:39][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C5', '2025-12-31 12:20:21', NULL);
+[2025-05-18 15:35:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:37:11][INFO] App initialized
+[2025-05-18 15:37:11][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 15:37:11][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 15:37:11][INFO] Setting up database...
+[2025-05-18 15:37:11][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 15:37:11][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 15:37:11][INFO] Executing script: init_db.sql
+[2025-05-18 15:37:39][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro' OR email ='xgo31095@toaik.com';
+[2025-05-18 15:37:39][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro' OR email ='xgo31095@toaik.com';
+[2025-05-18 15:37:39][INFO] Parsing query result
+[2025-05-18 15:37:39][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 15:37:39][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 15:37:39][INFO] Parsing query result
+[2025-05-18 15:37:39][INFO] Creating user: tinpro
+[2025-05-18 15:37:39][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro', '10676640704186402002', 'xgo31095@toaik.com', 'sẻtghsehtgd', 0);
+[2025-05-18 15:37:39][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('tinpro', '10676640704186402002', 'xgo31095@toaik.com', 'sẻtghsehtgd', 0);
+[2025-05-18 15:37:39][INFO] Generated OTP: 355963
+[2025-05-18 15:37:39][INFO] Sending OTP to: xgo31095@toaik.com
+[2025-05-18 15:37:39][INFO] Sending OTP to xgo31095@toaik.com
+[2025-05-18 15:40:44][INFO] Authenticating user: tinpro
+[2025-05-18 15:40:44][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro';
+[2025-05-18 15:40:44][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro';
+[2025-05-18 15:40:44][INFO] Parsing query result
+[2025-05-18 15:40:44][INFO] Generated OTP: 188143
+[2025-05-18 15:40:44][INFO] Sending OTP to: xgo31095@toaik.com
+[2025-05-18 15:40:44][INFO] Sending OTP to xgo31095@toaik.com
+[2025-05-18 15:40:59][INFO] Verifying OTP: 188143
+[2025-05-18 15:41:02][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 15:42:12][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 15:42:21][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 7 AND theaterID = 1 AND showDateTime = '2025-12-31 12:20:21' AND ticketID IS NULL;
+[2025-05-18 15:45:10][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1 AND seatNumber = '4'
+[2025-05-18 15:45:10][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 15:45:10][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('6', '7', '1', '4', '2025-12-31 12:20:21', '0.000000', FALSE)
+[2025-05-18 15:45:10][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:45:10][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 0 WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'A2' AND showDateTime = '2025-12-31 12:20:21' 
+[2025-05-18 15:48:08][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 15:48:14][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-18 15:49:43][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 21:00:00' AND ticketID IS NULL;
+[2025-05-18 15:50:25][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 15:50:26][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 15:50:35][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 7 AND theaterID = 1 AND showDateTime = '2025-12-31 12:20:21' AND ticketID IS NULL;
+[2025-05-18 15:51:16][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'A1'
+[2025-05-18 15:51:16][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 15:51:16][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('6', '7', '1', 'A1', '2025-12-31 12:20:21', '0.000000', FALSE)
+[2025-05-18 15:51:16][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:51:16][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 0 WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'A2' AND showDateTime = '2025-12-31 12:20:21' 
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (7, 1, '2025-12-31 13:50:12', 1);
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A1', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A2', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A3', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A4', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'A5', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B1', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B2', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B3', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B4', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'B5', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C1', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C2', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C3', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C4', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:54:13][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (7, 1, 'C5', '2025-12-31 13:50:12', NULL);
+[2025-05-18 15:54:13][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 15:59:55][INFO] Clearing session data.
+[2025-05-18 15:59:58][INFO] User chose to exit the application
+[2025-05-18 15:59:58][INFO] Closing database connection.
+[2025-05-18 15:59:58][INFO] Disconnecting from database.
+[2025-05-18 16:00:12][INFO] App initialized
+[2025-05-18 16:00:12][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 16:00:12][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 16:00:12][INFO] Setting up database...
+[2025-05-18 16:00:12][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 16:00:12][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 16:00:12][INFO] Executing script: init_db.sql
+[2025-05-18 16:00:23][INFO] Authenticating user: tinpro
+[2025-05-18 16:00:23][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro';
+[2025-05-18 16:00:23][INFO] Executing query: SELECT * FROM User WHERE username ='tinpro';
+[2025-05-18 16:00:23][INFO] Parsing query result
+[2025-05-18 16:00:23][INFO] Generated OTP: 521560
+[2025-05-18 16:00:23][INFO] Sending OTP to: xgo31095@toaik.com
+[2025-05-18 16:00:23][INFO] Sending OTP to xgo31095@toaik.com
+[2025-05-18 16:00:41][INFO] Verifying OTP: 521560
+[2025-05-18 16:00:44][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 16:00:47][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 16:00:51][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 7 AND theaterID = 1 AND showDateTime = '2025-12-31 13:50:12' AND ticketID IS NULL;
+[2025-05-18 16:00:56][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'B4'
+[2025-05-18 16:00:56][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 16:00:56][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('6', '7', '1', 'B4', '2025-12-31 13:50:12', '0.000000', FALSE)
+[2025-05-18 16:00:56][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 16:00:56][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 6 WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'A3' AND showDateTime = '2025-12-31 13:50:12' 
+[2025-05-18 16:01:38][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 16:01:40][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 16:01:41][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-18 16:01:44][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 16:01:59][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 16:02:04][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 7 AND theaterID = 1 AND showDateTime = '2025-12-31 12:20:21' AND ticketID IS NULL;
+[2025-05-18 16:02:21][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'C4'
+[2025-05-18 16:02:21][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 16:02:21][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('6', '7', '1', 'C4', '2025-12-31 12:20:21', '0.000000', FALSE)
+[2025-05-18 16:02:21][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 16:02:21][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 7 WHERE roomID = 7 AND theaterID = 1 AND seatNumber = 'A2' AND showDateTime = '2025-12-31 12:20:21' 
+[2025-05-18 16:02:42][INFO] Clearing session data.
+[2025-05-18 16:19:47][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES ('Breaking Bad', 'Show', 'fdfs', 2, 2.300000, 'image/brkbad.png', 234000)
+[2025-05-18 16:41:48][INFO] User chose to exit the application
+[2025-05-18 16:41:48][INFO] Closing database connection.
+[2025-05-18 16:41:48][INFO] Disconnecting from database.
+[2025-05-18 16:41:49][INFO] App initialized
+[2025-05-18 16:41:49][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 16:41:49][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 16:41:49][INFO] Setting up database...
+[2025-05-18 16:41:49][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 16:41:49][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 16:41:49][INFO] Executing script: init_db.sql

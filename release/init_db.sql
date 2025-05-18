@@ -95,26 +95,6 @@ CREATE TABLE IF NOT EXISTS SeatSchedule (
 );
 
 
-INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
-('john_doe', 'password123', 'john@example.com', '0987654321', FALSE),
-('jane_doe', 'password456', 'jane@example.com', '0111222333', FALSE);
-
-
-INSERT IGNORE INTO Movie (title, genre, description, duration, rating, posterPath) VALUES
-('Inception', 'Sci-Fi', 'A mind-bending thriller.', 148, 8.8, '/images/inception.jpg'),
-('The Dark Knight', 'Action', 'The Batman faces Joker.', 152, 9.0, '/images/darkknight.jpg');
-
-
-INSERT IGNORE INTO Theater (name, location) VALUES
-('Cinema Center', '123 Main St'),
-('Galaxy Theater', '456 Broadway Ave');
-
-
-INSERT IGNORE INTO Room (roomID, theaterID, name, capacity) VALUES
-(1, 1, 'Room A', 100),
-(2, 1, 'Room B', 80),
-(3, 2, 'Room C', 120);
-
 
 DELIMITER $$
 
@@ -166,7 +146,6 @@ END$$
 
 DELIMITER ;
 
-CALL CreateRoomAndSeats(7, 1, 'Room X', 100);
 
 DELIMITER $$
 
@@ -199,15 +178,63 @@ END$$
 
 DELIMITER ;
 
+CREATE TABLE IF NOT EXISTS PricingRule (
+    ruleID INT PRIMARY KEY AUTO_INCREMENT,
+    ruleName VARCHAR(50) NOT NULL UNIQUE,
+    description TEXT,
+    isActive BOOLEAN DEFAULT TRUE
+);
 
+
+INSERT IGNORE INTO User (username, password, email, phone, isAdmin) VALUES
+('john_doe', '10676640704186402002', 'john@example.com', '0987654321', FALSE),
+('jane_doe', '10676640704186402002', 'jane@example.com', '0111222333', FALSE);
+
+
+INSERT IGNORE INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES
+('Avatar', 'Sci-Fi', 'A journey to Pandora.', 162, 7.8, 'images/avatar.jpg', 100000),
+('Titanic', 'Romance', 'A love story on the Titanic.', 195, 7.8, 'images/titanic.jpg', 120000),
+('The Godfather', 'Crime', 'The story of a mafia family.', 175, 9.2, 'images/godfather.jpg' , 150000),
+('Inception', 'Sci-Fi', 'A mind-bending thriller.', 148, 8.8, 'images/inception.jpg' , 130000),
+('The Dark Knight', 'Action', 'The Batman faces Joker.', 152, 9.0, 'images/darkknight.jpg', 80000),
+('Avengers: Endgame', 'Action', 'Superhero finale.', 180, 8.5, 'images/endgame.jpg', 90000),
+('Inside Out', 'Animation', 'Emotion adventure.', 95, 8.2, 'images/insideout.jpg', 105000);
+
+
+
+INSERT IGNORE INTO Theater (name, location) VALUES
+('Cinema Center', '123 Main St'),
+('Galaxy Theater', '456 Broadway Ave'),
+('IMAX Theater', '789 Elm St'),
+('Cineworld', '101 Oak St'),
+('Regal Cinemas', '202 Pine St');
+
+
+
+
+CALL CreateRoomAndSeats(1, 1, 'Room X', 100);
+CALL CreateRoomAndSeats(2, 1, 'Room Y', 50);
+CALL CreateRoomAndSeats(1, 2, 'Room A', 100);
+CALL CreateRoomAndSeats(2, 2, 'Room B', 50);
+CALL CreateRoomAndSeats(8, 2, 'Room C', 75);
+CALL CreateRoomAndSeats(1, 3, 'Room D', 100);
+CALL CreateRoomAndSeats(2, 3, 'Room E', 50);
+CALL CreateRoomAndSeats(3, 3, 'Room F', 75);
+CALL CreateRoomAndSeats(1, 4, 'Room G', 100);
+CALL CreateRoomAndSeats(2, 4, 'Room H', 50);
+CALL CreateRoomAndSeats(3, 4, 'Room I', 75);
 
 INSERT IGNORE INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES
-(1, 1, '2025-05-01 18:00:00', 1),
-(1, 1, '2025-05-01 21:00:00', 2);
-
+(8, 2, '2025-05-20 14:00:00', 1),
+(8, 2, '2025-05-20 19:00:00', 1),
+(8, 2, '2025-09-02 19:00:00', 2),
+(8, 2, '2025-09-02 10:00:00', 2);
 
 INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES
-(2, 1, 1, 'A1', '2025-05-01 18:00:00', 100.00, TRUE);
+(1, 8, 2, 'B1', '2025-05-20 14:00:00', 100.00, TRUE),
+(1, 8, 2, 'A1', '2025-05-20 19:00:00', 100.00, TRUE),
+(2, 8, 2, 'A2', '2025-09-02 19:00:00', 100.00, TRUE),
+(2, 8, 2, 'C3', '2025-09-02 10:00:00', 100.00, TRUE);
 
 
 
@@ -215,18 +242,30 @@ INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, 
 INSERT IGNORE INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES
 (1, 1, 'A1', '2025-05-01 18:00:00', 1),
 (1, 1, 'B2', '2025-05-01 21:00:00', 2),
+(1, 1, 'C3', '2025-05-01 18:00:00', 3),
+(1, 1, 'D4', '2025-05-01 21:00:00', 4),
+(1, 1, 'E5', '2025-05-01 18:00:00', NULL),
+(1, 1, 'F6', '2025-05-01 21:00:00', NULL),
 (1, 1, 'A2', '2025-05-01 18:00:00', NULL),
 (1, 1, 'A3', '2025-05-01 18:00:00', NULL),
-(1, 1, 'B1', '2025-05-01 18:00:00', NULL);
+(1, 1, 'B1', '2025-05-01 18:00:00', NULL),
+(1, 1, 'B3', '2025-05-01 18:00:00', NULL),
+(1, 1, 'C2', '2025-05-01 18:00:00', NULL),
+(1, 1, 'C4', '2025-05-01 18:00:00', NULL),
+(1, 1, 'D1', '2025-05-01 18:00:00', NULL),
+(1, 1, 'D2', '2025-05-01 18:00:00', NULL),
+(1, 1, 'E2', '2025-05-01 18:00:00', NULL),
+(1, 1, 'E3', '2025-05-01 18:00:00', NULL),
+(1, 1, 'F2', '2025-05-01 18:00:00', NULL),
+(1, 1, 'F3', '2025-05-01 18:00:00', NULL),
+(1, 1, 'A4', '2025-05-01 18:00:00', NULL),
+(1, 1, 'B4', '2025-05-01 18:00:00', NULL),
+(1, 1, 'C5', '2025-05-01 18:00:00', NULL),
+(1, 1, 'D3', '2025-05-01 18:00:00', NULL),
+(1, 1, 'E4', '2025-05-01 18:00:00', NULL),
+(1, 1, 'F4', '2025-05-01 18:00:00', NULL);
 
 
-
-CREATE TABLE IF NOT EXISTS PricingRule (
-    ruleID INT PRIMARY KEY AUTO_INCREMENT,
-    ruleName VARCHAR(50) NOT NULL UNIQUE,
-    description TEXT,
-    isActive BOOLEAN DEFAULT TRUE
-);
 
 
 INSERT IGNORE INTO PricingRule (ruleName, description) VALUES
