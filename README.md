@@ -58,7 +58,7 @@ chmod 600 ~/.msmtprc
 ## 4. Biên dịch chương trình
 
 ```bash
-g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking $(wx-config --libs) -lmysqlclient
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking `wx-config --cxxflags --libs` -lmysqlclient
 ```
 
 ## 5. Cấu hình Docker (Tùy chọn)
