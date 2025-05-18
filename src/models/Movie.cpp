@@ -80,7 +80,6 @@ void printMoviesTable(const std::vector<Movie>& movies) {
          << setw(40) << "Description" << " | "
          << setw(10) << "Duration" << " | "
          << setw(10) << "Rating" << " | "
-         << setw(30) << "Poster Path" << " | "
          << setw(10) << "Price" << " |"
          << endl;
 
@@ -91,7 +90,6 @@ void printMoviesTable(const std::vector<Movie>& movies) {
          << string(42, '-') << "|"
          << string(12, '-') << "|"
          << string(12, '-') << "|"
-         << string(32, '-') << "|"
          << string(12, '-') << "|" << endl;
 
     // In từng dòng phim
@@ -103,7 +101,6 @@ void printMoviesTable(const std::vector<Movie>& movies) {
              << setw(40) << movie.getMovieDescription() << " | "
              << setw(10) << movie.getMovieDuration() << " | "
              << setw(10) << movie.getMovieRating() << " | "
-             << setw(30) << movie.getMoviePosterPath() << " | "
              << std::fixed << std::setprecision(2)
              << setw(10) << movie.getPrice() << " |"
              << endl;
