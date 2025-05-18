@@ -221,7 +221,7 @@ INSERT IGNORE INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ti
 
 
 
-CREATE TABLE PricingRule (
+CREATE TABLE IF NOT EXISTS PricingRule (
     ruleID INT PRIMARY KEY AUTO_INCREMENT,
     ruleName VARCHAR(50) NOT NULL UNIQUE,
     description TEXT,
@@ -229,7 +229,7 @@ CREATE TABLE PricingRule (
 );
 
 
-INSERT INTO PricingRule (ruleName, description) VALUES
+INSERT IGNORE INTO PricingRule (ruleName, description) VALUES
 ('VIP_SEAT', 'Tăng giá cho ghế VIP'),
 ('EVENING_SHOWTIME', 'Tăng giá cho suất chiếu sau 18:00'),
 ('HOLIDAY', 'Tăng giá vào các ngày lễ'),
