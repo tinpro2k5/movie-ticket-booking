@@ -61,6 +61,11 @@ chmod 600 ~/.msmtprc
 g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking `wx-config --cxxflags --libs` -lmysqlclient
 ```
 
+hoặc lệnh này nếu bị lỗi:
+```bash
+g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking $(wx-config --libs) -lmysqlclient
+```
+
 ## 5. Cấu hình Docker (Tùy chọn)
 
 ```bash
