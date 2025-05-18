@@ -45,4 +45,5 @@ class Ticket{
     void setBookingTime(string booking_time);
     void setPaid(bool is_paid);
 };
+void printTicketTable(const vector<Ticket>& tickets);
 #endif

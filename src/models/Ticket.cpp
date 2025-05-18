@@ -94,3 +94,46 @@ Ticket::Ticket (int id_ticket,
     _booking_time = booking_time;
     _is_paid = is_paid;
 }
+
+void printTicketTable(const vector<Ticket>& tickets) {
+    // In tiêu đề bảng
+    cout << "| " << left
+         << setw(10) << "Ticket ID" << " | "
+         << setw(8) << "User ID" << " | "
+         << setw(8) << "Room ID" << " | "
+         << setw(10) << "Theater ID" << " | "
+         << setw(12) << "Seat Number" << " | "
+         << setw(20) << "Show Time" << " | "
+         << setw(10) << "Price" << " | "
+         << setw(20) << "Booking Time" << " | "
+         << setw(8) << "Paid" << " |"
+         << "\n";
+
+    // In dòng kẻ phân cách
+    cout << "|" << std::string(12, '-') << "|"
+         << std::string(10, '-') << "|"
+         << std::string(10, '-') << "|"
+         << std::string(12, '-') << "|"
+         << std::string(14, '-') << "|"
+         << std::string(22, '-') << "|"
+         << std::string(12, '-') << "|"
+         << std::string(22, '-') << "|"
+         << std::string(10, '-') << "|"
+         << "\n";
+
+    // In từng dòng vé
+    for (const auto& ticket : tickets) {
+        cout << "| " << left
+             << setw(10) << ticket.getTicketId() << " | "
+             << setw(8) << ticket.getUserId() << " | "
+             << setw(8) << ticket.getRoomId() << " | "
+             << setw(10) << ticket.getTheaterId() << " | "
+             << setw(12) << ticket.getSeatNumber() << " | "
+             << setw(20) << ticket.getShowTime() << " | "
+             << std::fixed << std::setprecision(2)
+             << setw(10) << ticket.getPrice() << " | "
+             << setw(20) << ticket.getBookingTime() << " | "
+             << setw(8) << (ticket.isPaid() ? "Yes" : "No") << " |"
+             << "\n";
+    }
+}

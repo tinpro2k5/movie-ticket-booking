@@ -694,3 +694,268 @@
 [2025-05-18 03:46:45][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
 [2025-05-18 03:46:45][INFO] Executing query: USE MOVIE_BOOKING
 [2025-05-18 03:46:45][INFO] Executing script: init_db.sql
+[2025-05-18 07:09:40][INFO] App initialized
+[2025-05-18 07:09:40][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:09:40][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:09:40][INFO] Setting up database...
+[2025-05-18 07:09:40][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:09:40][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:09:40][INFO] Executing script: init_db.sql
+[2025-05-18 07:09:56][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='rjp28303@toaik.com';
+[2025-05-18 07:09:56][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='rjp28303@toaik.com';
+[2025-05-18 07:09:56][INFO] Parsing query result
+[2025-05-18 07:09:56][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:09:56][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:09:56][INFO] Parsing query result
+[2025-05-18 07:09:56][INFO] Creating user: v
+[2025-05-18 07:09:56][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'rjp28303@toaik.com', '1', 1);
+[2025-05-18 07:09:56][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'rjp28303@toaik.com', '1', 1);
+[2025-05-18 07:09:56][INFO] Generated OTP: 313370
+[2025-05-18 07:09:56][INFO] Sending OTP to: rjp28303@toaik.com
+[2025-05-18 07:09:56][INFO] Sending OTP to rjp28303@toaik.com
+[2025-05-18 07:10:14][INFO] Authenticating user: v
+[2025-05-18 07:10:14][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:10:14][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:10:14][INFO] Parsing query result
+[2025-05-18 07:10:14][INFO] Generated OTP: 093243
+[2025-05-18 07:10:14][INFO] Sending OTP to: rjp28303@toaik.com
+[2025-05-18 07:10:14][INFO] Sending OTP to rjp28303@toaik.com
+[2025-05-18 07:10:27][INFO] Verifying OTP: 093243
+[2025-05-18 07:10:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:11:10][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES ('DiaDao', 'LichSu', 'Tai hien lich su Dia Dao Cu Chi', 120, 9.000000, 'null', 120)
+[2025-05-18 07:11:17][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:11:23][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:11:28][INFO] Executing query: DELETE FROM Movie WHERE movieID = 3
+[2025-05-18 07:11:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 07:11:53][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:11:55][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-18 07:12:14][INFO] Executing query: UPDATE Movie SET title = 'Inception', genre = 'Sci-Fi', description = 'A mind-bending thriller.', duration = 148, rating = 8.800000, posterPath = '/images/inception.jpg', basePrice = 120 WHERE MovieID = 1
+[2025-05-18 07:12:17][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:14:00][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:14:02][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:14:13][INFO] Executing query: SELECT * FROM Theater
+[2025-05-18 07:14:23][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-18 07:14:30][INFO] Executing query: SELECT * FROM Theater
+[2025-05-18 07:14:44][INFO] Executing query: INSERT INTO Theater (name, location) VALUES ('Galaxy', 'BinhDuong, VietNam')
+[2025-05-18 07:14:44][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 07:14:47][INFO] Executing query: SELECT * FROM Theater
+[2025-05-18 07:15:19][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:15:25][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:15:55][INFO] App initialized
+[2025-05-18 07:15:55][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:15:55][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:15:55][INFO] Setting up database...
+[2025-05-18 07:15:55][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:15:55][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:15:55][INFO] Executing script: init_db.sql
+[2025-05-18 07:15:58][INFO] Authenticating user: v
+[2025-05-18 07:15:58][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:15:58][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:15:58][INFO] Parsing query result
+[2025-05-18 07:15:58][INFO] Generated OTP: 602294
+[2025-05-18 07:15:58][INFO] Sending OTP to: rjp28303@toaik.com
+[2025-05-18 07:15:58][INFO] Sending OTP to rjp28303@toaik.com
+[2025-05-18 07:16:10][INFO] Verifying OTP: 093243
+[2025-05-18 07:16:41][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:18:07][INFO] App initialized
+[2025-05-18 07:18:07][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:18:07][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:18:07][INFO] Setting up database...
+[2025-05-18 07:18:07][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:18:07][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:18:07][INFO] Executing script: init_db.sql
+[2025-05-18 07:18:15][INFO] Authenticating user: v
+[2025-05-18 07:18:15][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:18:15][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:18:15][INFO] Parsing query result
+[2025-05-18 07:18:15][INFO] Generated OTP: 596914
+[2025-05-18 07:18:15][INFO] Sending OTP to: rjp28303@toaik.com
+[2025-05-18 07:18:15][INFO] Sending OTP to rjp28303@toaik.com
+[2025-05-18 07:18:58][INFO] Verifying OTP: 596914
+[2025-05-18 07:19:09][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:19:21][INFO] Executing query: CALL CreateRoomAndSeats(1, 1, 'Room D', 1200);
+[2025-05-18 07:19:33][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:19:48][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:20:07][INFO] Executing query: CALL CreateRoomAndSeats(10, 1, 'Room K', 1200);
+[2025-05-18 07:20:10][INFO] Executing query: SELECT * FROM Room
+[2025-05-18 07:20:13][INFO] Clearing session data.
+[2025-05-18 07:21:33][INFO] User chose to exit the application
+[2025-05-18 07:21:33][INFO] Closing database connection.
+[2025-05-18 07:21:33][INFO] Disconnecting from database.
+[2025-05-18 07:31:04][INFO] App initialized
+[2025-05-18 07:31:04][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:31:04][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:31:04][INFO] Setting up database...
+[2025-05-18 07:31:04][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:31:04][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:31:04][INFO] Executing script: init_db.sql
+[2025-05-18 07:31:09][INFO] Authenticating user: v
+[2025-05-18 07:31:09][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:31:09][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:31:09][INFO] Parsing query result
+[2025-05-18 07:31:09][INFO] Generated OTP: 599868
+[2025-05-18 07:31:09][INFO] Sending OTP to: rjp28303@toaik.com
+[2025-05-18 07:31:09][INFO] Sending OTP to rjp28303@toaik.com
+[2025-05-18 07:31:23][INFO] Verifying OTP: 0
+[2025-05-18 07:31:24][INFO] Clearing session data.
+[2025-05-18 07:31:36][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='ais32515@jioso.com';
+[2025-05-18 07:31:36][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='ais32515@jioso.com';
+[2025-05-18 07:31:36][INFO] Parsing query result
+[2025-05-18 07:31:36][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:31:36][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:31:36][INFO] Parsing query result
+[2025-05-18 07:31:36][INFO] Creating user: k
+[2025-05-18 07:31:36][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'ais32515@jioso.com', '9', 0);
+[2025-05-18 07:31:36][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'ais32515@jioso.com', '9', 0);
+[2025-05-18 07:31:36][INFO] Generated OTP: 499242
+[2025-05-18 07:31:36][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:31:36][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:31:52][INFO] Authenticating user: k
+[2025-05-18 07:31:52][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:31:52][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:31:52][INFO] Parsing query result
+[2025-05-18 07:31:52][INFO] Generated OTP: 151720
+[2025-05-18 07:31:52][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:31:52][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:32:08][INFO] Verifying OTP: 151720
+[2025-05-18 07:32:15][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 10
+[2025-05-18 07:32:18][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:32:24][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'act%' COLLATE utf8mb4_general_ci
+[2025-05-18 07:32:28][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:32:45][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:33:12][INFO] App initialized
+[2025-05-18 07:33:12][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:33:12][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:33:12][INFO] Setting up database...
+[2025-05-18 07:33:12][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:33:12][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:33:12][INFO] Executing script: init_db.sql
+[2025-05-18 07:33:15][INFO] Authenticating user: k
+[2025-05-18 07:33:15][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:33:15][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:33:15][INFO] Parsing query result
+[2025-05-18 07:33:15][INFO] Generated OTP: 705005
+[2025-05-18 07:33:15][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:33:15][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:33:27][INFO] Verifying OTP: 705005
+[2025-05-18 07:33:32][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:33:34][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:33:39][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-18 07:33:39][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 1 AND theaterID = 1 AND seatNumber = ''
+[2025-05-18 07:33:39][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 07:33:39][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('10', '1', '1', '', '2025-05-01 18:00:00', '120.000000', FALSE)
+[2025-05-18 07:33:39][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 07:33:39][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 0 WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A2' AND showDateTime = '2025-05-01 18:00:00' 
+[2025-05-18 07:34:40][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 10
+[2025-05-18 07:35:58][INFO] Clearing session data.
+[2025-05-18 07:36:01][INFO] User chose to exit the application
+[2025-05-18 07:36:01][INFO] Closing database connection.
+[2025-05-18 07:36:01][INFO] Disconnecting from database.
+[2025-05-18 07:36:54][INFO] App initialized
+[2025-05-18 07:36:54][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:36:54][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:36:54][INFO] Setting up database...
+[2025-05-18 07:36:54][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:36:54][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:36:54][INFO] Executing script: init_db.sql
+[2025-05-18 07:36:57][INFO] Authenticating user: k
+[2025-05-18 07:36:57][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:36:57][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:36:57][INFO] Parsing query result
+[2025-05-18 07:36:57][INFO] Generated OTP: 745028
+[2025-05-18 07:36:57][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:36:57][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:37:08][INFO] Verifying OTP: 745028
+[2025-05-18 07:37:11][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:37:13][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:37:15][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-18 07:37:18][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A3'
+[2025-05-18 07:37:18][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-18 07:37:18][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('10', '1', '1', 'A3', '2025-05-01 18:00:00', '120.000000', FALSE)
+[2025-05-18 07:37:18][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-18 07:37:18][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 0 WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A2' AND showDateTime = '2025-05-01 18:00:00' 
+[2025-05-18 07:37:37][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 10
+[2025-05-18 07:38:43][INFO] Clearing session data.
+[2025-05-18 07:39:16][INFO] Authenticating user: k
+[2025-05-18 07:39:16][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:39:16][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:39:41][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='ais32515@jioso.com';
+[2025-05-18 07:39:41][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='ais32515@jioso.com';
+[2025-05-18 07:39:41][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:39:41][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:39:41][INFO] Creating user: v
+[2025-05-18 07:39:41][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'ais32515@jioso.com', '1', 0);
+[2025-05-18 07:39:41][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'ais32515@jioso.com', '1', 0);
+[2025-05-18 07:40:35][INFO] App initialized
+[2025-05-18 07:40:35][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:40:35][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:40:35][INFO] Setting up database...
+[2025-05-18 07:40:35][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:40:35][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:40:35][INFO] Executing script: init_db.sql
+[2025-05-18 07:40:47][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='ais32515@jioso.com';
+[2025-05-18 07:40:47][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='ais32515@jioso.com';
+[2025-05-18 07:40:47][INFO] Parsing query result
+[2025-05-18 07:40:47][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:40:47][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:40:47][INFO] Parsing query result
+[2025-05-18 07:40:47][INFO] Creating user: v
+[2025-05-18 07:40:47][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'ais32515@jioso.com', '09', 1);
+[2025-05-18 07:40:47][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'ais32515@jioso.com', '09', 1);
+[2025-05-18 07:40:47][INFO] Generated OTP: 243211
+[2025-05-18 07:40:47][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:40:47][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:41:01][INFO] Authenticating user: v
+[2025-05-18 07:41:01][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:41:01][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-18 07:41:01][INFO] Parsing query result
+[2025-05-18 07:41:01][INFO] Generated OTP: 728844
+[2025-05-18 07:41:01][INFO] Sending OTP to: ais32515@jioso.com
+[2025-05-18 07:41:01][INFO] Sending OTP to ais32515@jioso.com
+[2025-05-18 07:41:12][INFO] Verifying OTP: 728844
+[2025-05-18 07:41:18][INFO] Clearing session data.
+[2025-05-18 07:41:20][INFO] User chose to exit the application
+[2025-05-18 07:41:20][INFO] Closing database connection.
+[2025-05-18 07:41:20][INFO] Disconnecting from database.
+[2025-05-18 07:41:23][INFO] App initialized
+[2025-05-18 07:41:23][INFO] Connecting to database: 127.0.0.1
+[2025-05-18 07:41:23][INFO] Connecting to127.0.0.1:3306
+[2025-05-18 07:41:23][INFO] Setting up database...
+[2025-05-18 07:41:23][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-18 07:41:23][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-18 07:41:23][INFO] Executing script: init_db.sql
+[2025-05-18 07:41:35][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='bem72718@toaik.com';
+[2025-05-18 07:41:35][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='bem72718@toaik.com';
+[2025-05-18 07:41:35][INFO] Parsing query result
+[2025-05-18 07:41:35][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:41:35][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-18 07:41:35][INFO] Parsing query result
+[2025-05-18 07:41:35][INFO] Creating user: k
+[2025-05-18 07:41:35][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'bem72718@toaik.com', '6', 0);
+[2025-05-18 07:41:35][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'bem72718@toaik.com', '6', 0);
+[2025-05-18 07:41:35][INFO] Generated OTP: 389014
+[2025-05-18 07:41:35][INFO] Sending OTP to: bem72718@toaik.com
+[2025-05-18 07:41:35][INFO] Sending OTP to bem72718@toaik.com
+[2025-05-18 07:41:54][INFO] Authenticating user: k
+[2025-05-18 07:41:54][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:41:54][INFO] Executing query: SELECT * FROM User WHERE username ='k';
+[2025-05-18 07:41:54][INFO] Parsing query result
+[2025-05-18 07:41:54][INFO] Generated OTP: 978602
+[2025-05-18 07:41:54][INFO] Sending OTP to: bem72718@toaik.com
+[2025-05-18 07:41:54][INFO] Sending OTP to bem72718@toaik.com
+[2025-05-18 07:42:06][INFO] Verifying OTP: 978602
+[2025-05-18 07:42:09][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:42:11][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:42:14][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-18 07:42:30][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:42:32][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-18 07:42:34][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 21:00:00' AND ticketID IS NULL;
+[2025-05-18 07:43:10][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:43:17][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 6
+[2025-05-18 07:43:18][INFO] Executing query: SELECT * FROM Movie
+[2025-05-18 07:43:26][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-18 07:43:29][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-18 07:43:59][INFO] Clearing session data.
+[2025-05-18 07:44:10][INFO] User chose to exit the application
+[2025-05-18 07:44:10][INFO] Closing database connection.
+[2025-05-18 07:44:10][INFO] Disconnecting from database.

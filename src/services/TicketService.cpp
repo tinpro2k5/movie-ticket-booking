@@ -20,36 +20,17 @@
         cout << "Khong co phim trong CSDL \n";
         return;
     }
-
-    cout << "Danh sach phim: \n";
-    for (int i = 0; i < movies.size(); i++) {
-        std::cout  << "Stt: " << i + 1 << std::endl;      
-        std::cout << "Movie Title: " << movies[i].getMovieTitle() << std::endl;
-        std::cout << "Movie Genre: " << movies[i].getMovieGenre() << std::endl;
-        std::cout << "Movie Duration: " << movies[i].getMovieDuration() << std::endl;
-
-    }
-
+    printMoviesTable(movies);
     int stt_phim;
-    //Nhap phim muon dat
     cout << "Nhap stt phim muon dat: \n";
     std::cin >> stt_phim;
     while(stt_phim < 1 || stt_phim > movies.size()){
         cout << "Stt khong hop le! Nhap lai stt > 1 va < " << movies.size() << "\n";
         std::cin >> stt_phim;
     }
-
-    cout << "--------------------------------\n";
-    cout << "Movie Title: " << movies[stt_phim - 1].getMovieTitle() << std::endl;
-    cout << "Movie Genre: " << movies[stt_phim - 1].getMovieGenre() << std::endl;
-    cout << "Movie Duration: " << movies[stt_phim - 1].getMovieDuration() << std::endl;
-    cout << "Movie Description: " << movies[stt_phim - 1].getMovieDescription() << std::endl;
-    cout << "Movie Rating: " << movies[stt_phim - 1].getMovieRating() << std::endl;
-    cout << "Movie Price: " << movies[stt_phim - 1].getPrice() << std::endl;
-    cout << "--------------------------------\n";
-
-
-    
+    vector<Movie> find_result;
+    find_result.push_back(movies[stt_phim - 1]);
+    printMoviesTable(find_result);
     Result<vector<ShowTime>> result_st = showtime_repos->findShowTimeByMovieId(movies[stt_phim - 1].getMovieId());
     
     if (!result_st.success || result_st.data.empty()) {
@@ -92,7 +73,7 @@
         cout << ss.getSeatNumber() << " ";
     }
 
-    
+    std::cin.ignore();
     string seat_number;
     cout << "\nChon so ghe theo list tren: ";
     getline(std::cin, seat_number);
@@ -163,16 +144,5 @@ void TicketService::viewUserTicket(User user){
         cout << "Khong co ve cua ban trong CSDL \n";
         return;
     }
-    cout << "All tickets you have bought.\n";
-    for (int i = 0; i < tickets.size(); i++) {
-        cout << "Ticket ID: " << result.data[i].getTicketId() << endl;
-        cout << "User ID: " << result.data[i].getUserId() << endl;
-        cout << "Room ID: " << result.data[i].getRoomId() << endl;
-        cout << "Theater ID: " << result.data[i].getTheaterId() << endl;
-        cout << "Seat Number: " << result.data[i].getSeatNumber() << endl;
-        cout << "Show Time: " << result.data[i].getShowTime() << endl;
-        cout << "Price: " << result.data[i].getPrice() << endl;
-        cout << "Booking Time: " << result.data[i].getBookingTime() << endl;
-        cout << "Is Paid: " << (result.data[i].isPaid() ? "Yes" : "No") << endl;
-    }
+    printTicketTable(tickets);
 }

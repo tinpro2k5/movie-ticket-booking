@@ -37,20 +37,20 @@ void MovieTheater::setTheaterLocation(string location){
 void printTheaterTable(const std::vector<MovieTheater>& theaters) {
     std::cout << "| " << std::left
               << std::setw(12) << "ID" << " | "
-              << std::setw(35) << "Tên rạp" << " | "
-              << std::setw(50) << "Địa chỉ" << " |"
+              << std::setw(50) << "Tên rạp" << " | "
+              << std::setw(70) << "Địa chỉ" << " |"
               << "\n";
 
     // In dòng kẻ ngăn cách
     std::cout << "|" << std::string(14, '-') << "|"
-              << std::string(37, '-') << "|"
-              << std::string(52, '-') << "|" << "\n";
+              << std::string(52, '-') << "|"
+              << std::string(72, '-') << "|" << "\n";
 
     for (const auto& theater : theaters) {
         std::cout << "| " << std::left
                   << std::setw(12) << theater.getTheaterId() << " | "
-                  << std::setw(35) << theater.getTheaterName() << " | "
-                  << std::setw(50) << theater.getTheaterLocation() << " |"
+                  << std::setw(50) << theater.getTheaterName() << " | "
+                  << std::setw(70) << theater.getTheaterLocation() << " |"
                   << "\n";
     }
 }
