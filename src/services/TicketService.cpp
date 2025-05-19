@@ -20,6 +20,7 @@
         cout << "Khong co phim trong CSDL \n";
         return;
     }
+
     printMoviesTable(movies);
     int stt_phim;
     cout << "Nhap stt phim muon dat: \n";
@@ -131,6 +132,10 @@
     }
 
     cout << "Dat ve thanh cong! Ma ve: " << ticket_id << "\n";
+
+
+
+    
 }
 
 

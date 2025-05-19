@@ -11,6 +11,7 @@
 #include "../utils/DatabaseManager.h"
 #include "../utils/SessionManager.h"
 #include "../utils/Logger.h"
+#include "../utils/PDFGenerator.h"
 
 #include "../../include/services/ICommand.h"
 #include "../../include/services/MovieService.h"
@@ -27,13 +28,14 @@
 #include "../../include/services/RoomManageCommand.h"
 #include "../../include/services/TheaterService.h"
 #include "../../include/services/TheaterManageCommand.h"
-
-
-
 #include "../utils/RollbackContainer.h"
+
+
+
 class App {
 private:
     const std::string INIT_DB_SCRIPT = "init_db.sql";
+    const std::string PDF_OUTPUT_DIR = "pdf";
     RepositoryRegistry repository_registry;
     UserService user_service;
     MovieService movie_service;

@@ -15,7 +15,9 @@
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/**",
                 "/usr/include/wx-3.0",
-                "/usr/include/wx-3.0/wx"
+                "/usr/include/wx-3.0/wx",
+                "/usr/include/libpng16",               // libharu phụ thuộc vào libpng
+                "/usr/include/haru"
             ],
             "defines": [
                 "__WXGTK__",

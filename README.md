@@ -30,6 +30,13 @@ sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_passwo
 sudo apt update
 sudo apt install libwxgtk3.0-gtk3-dev
 ```
+
+### 2.4 Cài đặt libharu 
+```bash
+sudo apt update
+sudo apt install libhpdf-dev
+```
+
 ## 3. Cấu hình môi trường
 
 ### 3.1. Cấu hình SMTP (Gửi email)
@@ -58,12 +65,12 @@ chmod 600 ~/.msmtprc
 ## 4. Biên dịch chương trình
 
 ```bash
-g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking `wx-config --cxxflags --libs` -lmysqlclient
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking `wx-config --cxxflags --libs` -lhpdf -lmysqlclient
 ```
 
 hoặc lệnh này nếu bị lỗi:
 ```bash
-g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking $(wx-config --libs) -lmysqlclient
+g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking $(wx-config --libs) -lhpdf -lmysqlclient
 ```
 
 ## 5. Cấu hình Docker (Tùy chọn)

@@ -47,3 +47,7 @@ bool EmailService::sendShowTimeCancelation(const std::string& recipient, const s
     }
     return success;
 }
+
+bool EmailServic::sendTicketBookingNotification(const std::string& recipient, const Info & info) {
+ 
+}
