@@ -61,6 +61,7 @@ public:
     void handleExit();
     void handleUserMenu();
     void handleAdminMenu();
+    void handleAdminMenuUI(wxWindow* parent);
     
 
     int run();

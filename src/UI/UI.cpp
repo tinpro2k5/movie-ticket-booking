@@ -95,6 +95,7 @@ void MainFrame::OnLogin(wxCommandEvent&) {
     if (dlg.ShowModal() == wxID_OK) {
         std::string username = usernameCtrl->GetValue().ToStdString();
         std::string password = passwordCtrl->GetValue().ToStdString();
+        
         app.handleLoginUI(username, password, this);
     }
 }

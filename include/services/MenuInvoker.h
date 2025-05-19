@@ -38,5 +38,8 @@ public:
             std::cout << "Lựa chọn không hợp lệ.\n";
         }
     }
+    void executeCommandUI(int idx, User user, wxWindow* parent) {
+    if (commands[idx]) commands[idx]->executeUI(user, parent);
+    }
 };
 #endif

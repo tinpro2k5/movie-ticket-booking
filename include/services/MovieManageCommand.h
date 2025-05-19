@@ -8,8 +8,11 @@ class MovieManageCommand : public ICommand {
 public:
     MovieManageCommand(MovieService* movie_service) : movie_service(movie_service) {}
 
-    void execute(User user) override {
+    void execute(User user) override {     
         movie_service->manageMovies(user);
+    }
+    void executeUI(User user, wxWindow* parent) override {
+        movie_service->manageMoviesUI(parent, user);
     }
 };
 #endif

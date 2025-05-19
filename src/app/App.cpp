@@ -84,7 +84,57 @@ void App::handleAdminMenu() {
     std::cout << "Đăng xuất thành công!\n";
     SessionManager::clear();
 }
+void App:: handleAdminMenuUI(wxWindow* parent){
+    User user = SessionManager::getCurrentUser();
 
+    // Tạo dialog mới cho menu admin
+    wxDialog dlg(parent, wxID_ANY, "Admin Menu", wxDefaultPosition, wxSize(300, 350));
+    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+
+    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Logged in as Admin"), 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 15);
+
+    // Tạo các nút chức năng
+    wxButton* btnMovies    = new wxButton(&dlg, wxID_ANY, "Manage Movies");
+    wxButton* btnShowtimes = new wxButton(&dlg, wxID_ANY, "Manage Showtimes");
+    wxButton* btnTheaters  = new wxButton(&dlg, wxID_ANY, "Manage Theaters");
+    wxButton* btnRooms     = new wxButton(&dlg, wxID_ANY, "Manage Rooms");
+    wxButton* btnLogout    = new wxButton(&dlg, wxID_EXIT, "Logout");
+
+    vbox->Add(btnMovies,    0, wxEXPAND | wxALL, 8);
+    vbox->Add(btnShowtimes, 0, wxEXPAND | wxALL, 8);
+    vbox->Add(btnTheaters,  0, wxEXPAND | wxALL, 8);
+    vbox->Add(btnRooms,     0, wxEXPAND | wxALL, 8);
+    vbox->Add(btnLogout,    0, wxEXPAND | wxALL, 8);
+
+    dlg.SetSizerAndFit(vbox);
+
+    // Gán command tương ứng với từng chức năng
+    menu_invoker.setCommand(1, &movie_manage_command);
+    menu_invoker.setCommand(2, &show_time_manage_command);
+    menu_invoker.setCommand(3, &theater_manage_commnand);
+    menu_invoker.setCommand(4, &room_manage_commnand);
+
+    // Sử dụng lambda để xử lý sự kiện cho từng nút
+    btnMovies->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommandUI(1,user, parent);
+    });
+    btnShowtimes->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommand(2, user);
+    });
+    btnTheaters->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommand(3, user);
+    });
+    btnRooms->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommand(4, user);
+    });
+    btnLogout->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        wxMessageBox("Logged out successfully!", "Notification", wxOK | wxICON_INFORMATION, &dlg);
+        SessionManager::clear();
+        dlg.EndModal(wxID_EXIT);
+    });
+
+    dlg.ShowModal();
+}
 
 void App::handleUserMenu() {
     User user = SessionManager::getCurrentUser();
@@ -247,6 +297,13 @@ void App::handleLoginUI(const std::string& username, const std::string& password
             if (user_service.verifyOTP(otp).status_code == StatusCode::OTP_VERIFICATION_SUCCESS) {
                 wxMessageBox("Login successful!", "Notification", wxOK | wxICON_INFORMATION, parent);
                 SessionManager::setLoggedIn(true);
+
+                // Kiểm tra quyền và mở menu phù hợp
+                if (SessionManager::isAdminUser()) {
+                    handleAdminMenuUI(parent);
+                } else {
+                    // handleUserMenuUI(parent); // Nếu có giao diện user
+                }
             } else {
                 wxMessageBox("OTP verification failed!", "Error", wxOK | wxICON_ERROR, parent);
                 SessionManager::clear();
