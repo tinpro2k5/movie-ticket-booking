@@ -1327,3 +1327,24 @@
 [2025-05-19 17:10:04][INFO] User chose to exit the application
 [2025-05-19 17:10:04][INFO] Closing database connection.
 [2025-05-19 17:10:04][INFO] Disconnecting from database.
+[2025-05-19 17:39:46][INFO] App initialized
+[2025-05-19 17:39:46][INFO] Connecting to database: 127.0.0.1
+[2025-05-19 17:39:46][INFO] Connecting to127.0.0.1:3306
+[2025-05-19 17:39:46][INFO] Setting up database...
+[2025-05-19 17:39:46][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-19 17:39:46][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-19 17:39:46][INFO] Executing script: init_db.sql
+[2025-05-19 17:39:51][INFO] Authenticating user: admin
+[2025-05-19 17:39:51][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-19 17:39:51][INFO] Executing query: SELECT * FROM User WHERE username ='admin';
+[2025-05-19 17:39:51][INFO] Parsing query result
+[2025-05-19 17:39:51][INFO] Generated OTP: 539334
+[2025-05-19 17:39:51][INFO] Sending OTP to: kud69628@jioso.com
+[2025-05-19 17:39:51][INFO] Sending OTP to kud69628@jioso.com
+[2025-05-19 17:41:12][INFO] Verifying OTP: 0
+[2025-05-19 17:42:52][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES ('Du bao thoi tiet va tinh yeu', 'lang man', 'Phim cuc hay', 240, 10.000000, '/images/jjj', 98000)
+[2025-05-19 17:42:58][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 17:45:22][INFO] Clearing session data.
+[2025-05-19 17:45:24][INFO] User chose to exit the application
+[2025-05-19 17:45:24][INFO] Closing database connection.
+[2025-05-19 17:45:24][INFO] Disconnecting from database.

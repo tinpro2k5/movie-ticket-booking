@@ -263,42 +263,95 @@ void MovieService::manageMoviesUI(wxWindow* parent, User user) {
 
     // Add Movie
     btnAdd->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        Movie movie;
-        movie.setMovieId(0);
+        wxDialog addDlg(&dlg, wxID_ANY, "Add Movie", wxDefaultPosition, wxSize(400, 450));
+        wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
-        wxTextEntryDialog nameDlg(&dlg, "Enter movie name:", "Add Movie");
-        if (nameDlg.ShowModal() != wxID_OK) return;
-        movie.setMovieTitle(nameDlg.GetValue().ToStdString());
+        wxFlexGridSizer* grid = new wxFlexGridSizer(2, 10, 10);
+        grid->AddGrowableCol(1, 1);
 
-        wxTextEntryDialog genreDlg(&dlg, "Enter genre:", "Add Movie");
-        if (genreDlg.ShowModal() != wxID_OK) return;
-        movie.setMovieGenre(genreDlg.GetValue().ToStdString());
+        wxStaticText* lblName = new wxStaticText(&addDlg, wxID_ANY, "Name:");
+        wxTextCtrl* txtName = new wxTextCtrl(&addDlg, wxID_ANY);
 
-        wxTextEntryDialog descDlg(&dlg, "Enter description:", "Add Movie");
-        if (descDlg.ShowModal() != wxID_OK) return;
-        movie.setMovieDescription(descDlg.GetValue().ToStdString());
+        wxStaticText* lblGenre = new wxStaticText(&addDlg, wxID_ANY, "Genre:");
+        wxTextCtrl* txtGenre = new wxTextCtrl(&addDlg, wxID_ANY);
 
-        wxTextEntryDialog durationDlg(&dlg, "Enter duration (minutes):", "Add Movie");
-        if (durationDlg.ShowModal() != wxID_OK) return;
-        movie.setMovieDuration(std::stoi(durationDlg.GetValue().ToStdString()));
+        wxStaticText* lblDesc = new wxStaticText(&addDlg, wxID_ANY, "Description:");
+        wxTextCtrl* txtDesc = new wxTextCtrl(&addDlg, wxID_ANY, "", wxDefaultPosition, wxSize(200, 60), wxTE_MULTILINE);
 
-        wxTextEntryDialog ratingDlg(&dlg, "Enter rating:", "Add Movie");
-        if (ratingDlg.ShowModal() != wxID_OK) return;
-        movie.setMovieRating(std::stod(ratingDlg.GetValue().ToStdString()));
+        wxStaticText* lblDuration = new wxStaticText(&addDlg, wxID_ANY, "Duration (min):");
+        wxTextCtrl* txtDuration = new wxTextCtrl(&addDlg, wxID_ANY);
 
-        wxTextEntryDialog posterDlg(&dlg, "Enter poster path:", "Add Movie");
-        if (posterDlg.ShowModal() != wxID_OK) return;
-        movie.setMoviePosterPath(posterDlg.GetValue().ToStdString());
+        wxStaticText* lblRating = new wxStaticText(&addDlg, wxID_ANY, "Rating:");
+        wxTextCtrl* txtRating = new wxTextCtrl(&addDlg, wxID_ANY);
 
-        wxTextEntryDialog priceDlg(&dlg, "Enter ticket price:", "Add Movie");
-        if (priceDlg.ShowModal() != wxID_OK) return;
-        movie.setPrice(std::stoi(priceDlg.GetValue().ToStdString()));
+        wxStaticText* lblPoster = new wxStaticText(&addDlg, wxID_ANY, "Poster Path:");
+        wxTextCtrl* txtPoster = new wxTextCtrl(&addDlg, wxID_ANY);
 
-        Result<int> result = movie_repos->create(movie);
-        if (!result.success) {
-            wxMessageBox(wxString::FromUTF8(result.error_message.c_str()), "Error", wxOK | wxICON_ERROR, &dlg);
-        } else {
-            wxMessageBox("Movie added successfully!", "Success", wxOK | wxICON_INFORMATION, &dlg);
+        wxStaticText* lblPrice = new wxStaticText(&addDlg, wxID_ANY, "Ticket Price:");
+        wxTextCtrl* txtPrice = new wxTextCtrl(&addDlg, wxID_ANY);
+
+        grid->Add(lblName, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtName, 1, wxEXPAND);
+        grid->Add(lblGenre, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtGenre, 1, wxEXPAND);
+        grid->Add(lblDesc, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtDesc, 1, wxEXPAND);
+        grid->Add(lblDuration, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtDuration, 1, wxEXPAND);
+        grid->Add(lblRating, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtRating, 1, wxEXPAND);
+        grid->Add(lblPoster, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtPoster, 1, wxEXPAND);
+        grid->Add(lblPrice, 0, wxALIGN_CENTER_VERTICAL);
+        grid->Add(txtPrice, 1, wxEXPAND);
+
+        mainSizer->Add(grid, 1, wxALL | wxEXPAND, 15);
+
+        wxBoxSizer* btnSizer = new wxBoxSizer(wxHORIZONTAL);
+        wxButton* btnOK = new wxButton(&addDlg, wxID_OK, "Add");
+        wxButton* btnCancel = new wxButton(&addDlg, wxID_CANCEL, "Cancel");
+        btnSizer->Add(btnOK, 0, wxRIGHT, 10);
+        btnSizer->Add(btnCancel, 0);
+
+        mainSizer->Add(btnSizer, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+
+        addDlg.SetSizerAndFit(mainSizer);
+
+        if (addDlg.ShowModal() == wxID_OK) {
+            Movie movie;
+            movie.setMovieId(0);
+            movie.setMovieTitle(txtName->GetValue().ToStdString());
+            movie.setMovieGenre(txtGenre->GetValue().ToStdString());
+            movie.setMovieDescription(txtDesc->GetValue().ToStdString());
+            movie.setMoviePosterPath(txtPoster->GetValue().ToStdString());
+
+            // Validate and convert duration, rating, price
+            long duration = 0;
+            double rating = 0.0;
+            long price = 0;
+            bool ok1 = txtDuration->GetValue().ToLong(&duration);
+            bool ok2 = txtRating->GetValue().ToDouble(&rating);
+            bool ok3 = txtPrice->GetValue().ToLong(&price);
+
+            // Simple validation
+            if (movie.getMovieTitle().empty() || movie.getMovieGenre().empty() ||
+                !ok1 || duration <= 0 ||
+                !ok2 || rating < 0.0 ||
+                !ok3 || price <= 0) {
+                wxMessageBox("Please enter valid information for all required fields!", "Input Error", wxOK | wxICON_ERROR, &addDlg);
+                return;
+            }
+
+            movie.setMovieDuration(duration);
+            movie.setMovieRating(rating);
+            movie.setPrice(price);
+
+            Result<int> result = movie_repos->create(movie);
+            if (!result.success) {
+                wxMessageBox(wxString::FromUTF8(result.error_message.c_str()), "Error", wxOK | wxICON_ERROR, &addDlg);
+            } else {
+                wxMessageBox("Movie added successfully!", "Success", wxOK | wxICON_INFORMATION, &addDlg);
+            }
         }
     });
 
@@ -333,50 +386,169 @@ void MovieService::manageMoviesUI(wxWindow* parent, User user) {
             wxMessageBox("No movies found!", "Error", wxOK | wxICON_ERROR, &dlg);
             return;
         }
-        wxArrayString choices;
+
+        wxDialog editDlg(&dlg, wxID_ANY, "Edit Movies", wxDefaultPosition, wxSize(1000, 400));
+        wxBoxSizer* sizer = new wxBoxSizer(wxVERTICAL);
+
+        wxListCtrl* listCtrl = new wxListCtrl(&editDlg, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT | wxLC_SINGLE_SEL | wxLC_EDIT_LABELS);
+
+        // Add columns
+        listCtrl->InsertColumn(0, "ID", wxLIST_FORMAT_LEFT, 40);
+        listCtrl->InsertColumn(1, "Name", wxLIST_FORMAT_LEFT, 150);
+        listCtrl->InsertColumn(2, "Genre", wxLIST_FORMAT_LEFT, 80);
+        listCtrl->InsertColumn(3, "Description", wxLIST_FORMAT_LEFT, 400);
+        listCtrl->InsertColumn(4, "Duration", wxLIST_FORMAT_LEFT, 70);
+        listCtrl->InsertColumn(5, "Rating", wxLIST_FORMAT_LEFT, 60);
+        listCtrl->InsertColumn(6, "Poster Path", wxLIST_FORMAT_LEFT, 120);
+        listCtrl->InsertColumn(7, "Price", wxLIST_FORMAT_LEFT, 80);
+
+        // Add data
+        long idx = 0;
         for (const auto& m : list_movie.data) {
-            choices.Add(wxString::Format("%d - %s", m.getMovieId(), m.getMovieTitle()));
+            long item = listCtrl->InsertItem(idx, wxString::Format("%d", m.getMovieId()));
+            listCtrl->SetItem(item, 1, m.getMovieTitle());
+            listCtrl->SetItem(item, 2, m.getMovieGenre());
+            listCtrl->SetItem(item, 3, m.getMovieDescription());
+            listCtrl->SetItem(item, 4, wxString::Format("%d", m.getMovieDuration()));
+            listCtrl->SetItem(item, 5, wxString::Format("%.1f", m.getMovieRating()));
+            listCtrl->SetItem(item, 6, m.getMoviePosterPath());
+            listCtrl->SetItem(item, 7, wxString::Format("%d", m.getPrice()));
+            listCtrl->SetItemData(item, idx);
+            ++idx;
         }
-        wxSingleChoiceDialog updDlg(&dlg, "Select movie to update:", "Update Movie", choices);
-        if (updDlg.ShowModal() == wxID_OK) {
-            int idx = updDlg.GetSelection();
-            Movie movie = list_movie.data[idx];
 
-            wxTextEntryDialog nameDlg(&dlg, "Enter movie name (leave blank to keep current):", "Update Movie", movie.getMovieTitle());
-            if (nameDlg.ShowModal() == wxID_OK && !nameDlg.GetValue().IsEmpty())
-                movie.setMovieTitle(nameDlg.GetValue().ToStdString());
+        sizer->Add(listCtrl, 1, wxEXPAND | wxALL, 10);
 
-            wxTextEntryDialog genreDlg(&dlg, "Enter genre (leave blank to keep current):", "Update Movie", movie.getMovieGenre());
-            if (genreDlg.ShowModal() == wxID_OK && !genreDlg.GetValue().IsEmpty())
-                movie.setMovieGenre(genreDlg.GetValue().ToStdString());
+        wxBoxSizer* btnSizer = new wxBoxSizer(wxHORIZONTAL);
+        wxButton* btnSave = new wxButton(&editDlg, wxID_OK, "Save Changes");
+        wxButton* btnCancel = new wxButton(&editDlg, wxID_CANCEL, "Cancel");
+        btnSizer->Add(btnSave, 0, wxRIGHT, 10);
+        btnSizer->Add(btnCancel, 0);
 
-            wxTextEntryDialog descDlg(&dlg, "Enter description (leave blank to keep current):", "Update Movie", movie.getMovieDescription());
-            if (descDlg.ShowModal() == wxID_OK && !descDlg.GetValue().IsEmpty())
-                movie.setMovieDescription(descDlg.GetValue().ToStdString());
+        sizer->Add(btnSizer, 0, wxALIGN_CENTER | wxBOTTOM, 10);
 
-            wxTextEntryDialog durationDlg(&dlg, "Enter duration (leave blank to keep current):", "Update Movie", wxString::Format("%d", movie.getMovieDuration()));
-            if (durationDlg.ShowModal() == wxID_OK && !durationDlg.GetValue().IsEmpty())
-                movie.setMovieDuration(std::stoi(durationDlg.GetValue().ToStdString()));
+        editDlg.SetSizerAndFit(sizer);
 
-            wxTextEntryDialog ratingDlg(&dlg, "Enter rating (leave blank to keep current):", "Update Movie", wxString::Format("%.1f", movie.getMovieRating()));
-            if (ratingDlg.ShowModal() == wxID_OK && !ratingDlg.GetValue().IsEmpty())
-                movie.setMovieRating(std::stod(ratingDlg.GetValue().ToStdString()));
+        // Cho phép sửa các trường (trừ ID)
+        // Cho phép sửa khi double-click vào dòng
+        listCtrl->Bind(wxEVT_LIST_ITEM_ACTIVATED, [&](wxListEvent& event) {
+            long item = event.GetIndex();
+            int id = wxAtoi(listCtrl->GetItemText(item, 0));
+            wxString name = listCtrl->GetItemText(item, 1);
+            wxString genre = listCtrl->GetItemText(item, 2);
+            wxString desc = listCtrl->GetItemText(item, 3);
+            wxString duration = listCtrl->GetItemText(item, 4);
+            wxString rating = listCtrl->GetItemText(item, 5);
+            wxString poster = listCtrl->GetItemText(item, 6);
+            wxString price = listCtrl->GetItemText(item, 7);
 
-            wxTextEntryDialog posterDlg(&dlg, "Enter poster path (leave blank to keep current):", "Update Movie", movie.getMoviePosterPath());
-            if (posterDlg.ShowModal() == wxID_OK && !posterDlg.GetValue().IsEmpty())
-                movie.setMoviePosterPath(posterDlg.GetValue().ToStdString());
+            wxDialog editRowDlg(&editDlg, wxID_ANY, "Edit Movie", wxDefaultPosition, wxSize(400, 450));
+            wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+            wxFlexGridSizer* grid = new wxFlexGridSizer(2, 10, 10);
+            grid->AddGrowableCol(1, 1);
 
-            wxTextEntryDialog priceDlg(&dlg, "Enter ticket price (leave blank to keep current):", "Update Movie", wxString::Format("%d", movie.getPrice()));
-            if (priceDlg.ShowModal() == wxID_OK && !priceDlg.GetValue().IsEmpty())
-                movie.setPrice(std::stoi(priceDlg.GetValue().ToStdString()));
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Name:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtName = new wxTextCtrl(&editRowDlg, wxID_ANY, name);
+            grid->Add(txtName, 1, wxEXPAND);
 
-            Result<bool> result1 = movie_repos->update(movie);
-            if (!result1.success) {
-                wxMessageBox(wxString::FromUTF8(result1.error_message.c_str()), "Error", wxOK | wxICON_ERROR, &dlg);
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Genre:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtGenre = new wxTextCtrl(&editRowDlg, wxID_ANY, genre);
+            grid->Add(txtGenre, 1, wxEXPAND);
+
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Description:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtDesc = new wxTextCtrl(&editRowDlg, wxID_ANY, desc, wxDefaultPosition, wxSize(200, 60), wxTE_MULTILINE);
+            grid->Add(txtDesc, 1, wxEXPAND);
+
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Duration (min):"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtDuration = new wxTextCtrl(&editRowDlg, wxID_ANY, duration);
+            grid->Add(txtDuration, 1, wxEXPAND);
+
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Rating:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtRating = new wxTextCtrl(&editRowDlg, wxID_ANY, rating);
+            grid->Add(txtRating, 1, wxEXPAND);
+
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Poster Path:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtPoster = new wxTextCtrl(&editRowDlg, wxID_ANY, poster);
+            grid->Add(txtPoster, 1, wxEXPAND);
+
+            grid->Add(new wxStaticText(&editRowDlg, wxID_ANY, "Ticket Price:"), 0, wxALIGN_CENTER_VERTICAL);
+            wxTextCtrl* txtPrice = new wxTextCtrl(&editRowDlg, wxID_ANY, price);
+            grid->Add(txtPrice, 1, wxEXPAND);
+
+            mainSizer->Add(grid, 1, wxALL | wxEXPAND, 15);
+
+            wxBoxSizer* btnSizer = new wxBoxSizer(wxHORIZONTAL);
+            wxButton* btnOK = new wxButton(&editRowDlg, wxID_OK, "Save");
+            wxButton* btnCancel = new wxButton(&editRowDlg, wxID_CANCEL, "Cancel");
+            btnSizer->Add(btnOK, 0, wxRIGHT, 10);
+            btnSizer->Add(btnCancel, 0);
+            mainSizer->Add(btnSizer, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+
+            editRowDlg.SetSizerAndFit(mainSizer);
+
+            if (editRowDlg.ShowModal() == wxID_OK) {
+                listCtrl->SetItem(item, 1, txtName->GetValue());
+                listCtrl->SetItem(item, 2, txtGenre->GetValue());
+                listCtrl->SetItem(item, 3, txtDesc->GetValue());
+                listCtrl->SetItem(item, 4, txtDuration->GetValue());
+                listCtrl->SetItem(item, 5, txtRating->GetValue());
+                listCtrl->SetItem(item, 6, txtPoster->GetValue());
+                listCtrl->SetItem(item, 7, txtPrice->GetValue());
+            }
+        });
+
+    btnSave->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        int updatedCount = 0;
+        wxString errorMsg;
+        for (long i = 0; i < listCtrl->GetItemCount(); ++i) {
+            int id = wxAtoi(listCtrl->GetItemText(i, 0));
+            std::string name = listCtrl->GetItemText(i, 1).ToStdString();
+            std::string genre = listCtrl->GetItemText(i, 2).ToStdString();
+            std::string desc = listCtrl->GetItemText(i, 3).ToStdString();
+            long duration = 0;
+            double rating = 0.0;
+            std::string poster = listCtrl->GetItemText(i, 6).ToStdString();
+            long price = 0;
+
+            bool ok1 = listCtrl->GetItemText(i, 4).ToLong(&duration);
+            bool ok2 = listCtrl->GetItemText(i, 5).ToDouble(&rating);
+            bool ok3 = listCtrl->GetItemText(i, 7).ToLong(&price);
+
+            if (name.empty() || genre.empty() || !ok1 || duration <= 0 || !ok2 || rating < 0.0 || !ok3 || price <= 0) {
+                errorMsg += wxString::Format("Row %ld: Invalid data\n", i+1);
+                continue;
+            }
+
+            Movie movie;
+            movie.setMovieId(id);
+            movie.setMovieTitle(name);
+            movie.setMovieGenre(genre);
+            movie.setMovieDescription(desc);
+            movie.setMovieDuration(duration);
+            movie.setMovieRating(rating);
+            movie.setMoviePosterPath(poster);
+            movie.setPrice(price);
+
+            Result<bool> result = movie_repos->update(movie);
+            if (!result.success) {
+                errorMsg += wxString::Format("Row %ld: %s\n", i+1, result.error_message);
             } else {
-                wxMessageBox("Movie updated successfully!", "Success", wxOK | wxICON_INFORMATION, &dlg);
+                updatedCount++;
             }
         }
+        if (updatedCount > 0)
+            wxMessageBox("Movies updated successfully!", "Success", wxOK | wxICON_INFORMATION, &editDlg);
+        else
+            wxMessageBox("No movies were updated:\n" + errorMsg, "Warning", wxOK | wxICON_WARNING, &editDlg);
+
+        editDlg.EndModal(wxID_OK);
+    });
+
+        btnCancel->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+            editDlg.EndModal(wxID_CANCEL);
+        });
+
+        editDlg.ShowModal();
     });
 
     // List Movies
@@ -415,7 +587,7 @@ void MovieService::manageMoviesUI(wxWindow* parent, User user) {
             ++idx;
         }
 
-        // Hiện chi tiết khi double-click
+        // Hiện chi tiết khi double-click (đề phòng trường hợp description dài)
         listCtrl->Bind(wxEVT_LIST_ITEM_ACTIVATED, [&](wxListEvent& event) {
             long item = event.GetIndex();
             wxString desc = listCtrl->GetItemText(item, 3);
