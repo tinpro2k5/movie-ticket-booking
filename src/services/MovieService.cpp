@@ -362,21 +362,87 @@ void MovieService::manageMoviesUI(wxWindow* parent, User user) {
             wxMessageBox("No movies found!", "Error", wxOK | wxICON_ERROR, &dlg);
             return;
         }
-        wxArrayString choices;
+
+        wxDialog delDlg(&dlg, wxID_ANY, "Delete Movies", wxDefaultPosition, wxSize(900, 400));
+        wxBoxSizer* sizer = new wxBoxSizer(wxVERTICAL);
+
+        // Cho phép chọn nhiều dòng
+        wxListCtrl* listCtrl = new wxListCtrl(&delDlg, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT);
+        
+        // Add columns
+        listCtrl->InsertColumn(0, "ID", wxLIST_FORMAT_LEFT, 40);
+        listCtrl->InsertColumn(1, "Name", wxLIST_FORMAT_LEFT, 150);
+        listCtrl->InsertColumn(2, "Genre", wxLIST_FORMAT_LEFT, 80);
+        listCtrl->InsertColumn(3, "Description", wxLIST_FORMAT_LEFT, 300);
+        listCtrl->InsertColumn(4, "Duration", wxLIST_FORMAT_LEFT, 70);
+        listCtrl->InsertColumn(5, "Rating", wxLIST_FORMAT_LEFT, 60);
+        listCtrl->InsertColumn(6, "Poster Path", wxLIST_FORMAT_LEFT, 120);
+        listCtrl->InsertColumn(7, "Price", wxLIST_FORMAT_LEFT, 80);
+
+        // Add data
+        long idx = 0;
         for (const auto& m : list_movie.data) {
-            choices.Add(wxString::Format("%d - %s", m.getMovieId(), m.getMovieTitle()));
+            long item = listCtrl->InsertItem(idx, wxString::Format("%d", m.getMovieId()));
+            listCtrl->SetItem(item, 1, m.getMovieTitle());
+            listCtrl->SetItem(item, 2, m.getMovieGenre());
+            listCtrl->SetItem(item, 3, m.getMovieDescription());
+            listCtrl->SetItem(item, 4, wxString::Format("%d", m.getMovieDuration()));
+            listCtrl->SetItem(item, 5, wxString::Format("%.1f", m.getMovieRating()));
+            listCtrl->SetItem(item, 6, m.getMoviePosterPath());
+            listCtrl->SetItem(item, 7, wxString::Format("%d", m.getPrice()));
+            listCtrl->SetItemData(item, idx);
+            ++idx;
         }
-        wxSingleChoiceDialog delDlg(&dlg, "Select movie to delete:", "Delete Movie", choices);
-        if (delDlg.ShowModal() == wxID_OK) {
-            int idx = delDlg.GetSelection();
-            int id = list_movie.data[idx].getMovieId();
-            Result<bool> result = movie_repos->remove(id);
-            if (!result.success) {
-                wxMessageBox(wxString::FromUTF8(result.error_message.c_str()), "Error", wxOK | wxICON_ERROR, &dlg);
-            } else {
-                wxMessageBox("Movie deleted successfully!", "Success", wxOK | wxICON_INFORMATION, &dlg);
+
+        sizer->Add(listCtrl, 1, wxEXPAND | wxALL, 10);
+
+        wxBoxSizer* btnSizer = new wxBoxSizer(wxHORIZONTAL);
+        wxButton* btnDeleteSelected = new wxButton(&delDlg, wxID_OK, "Delete Selected");
+        wxButton* btnCancel = new wxButton(&delDlg, wxID_CANCEL, "Cancel");
+        btnSizer->Add(btnDeleteSelected, 0, wxRIGHT, 10);
+        btnSizer->Add(btnCancel, 0);
+
+        sizer->Add(btnSizer, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+
+        delDlg.SetSizerAndFit(sizer);
+
+        btnDeleteSelected->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+            // Lấy các dòng được chọn
+            long item = -1;
+            std::vector<int> idsToDelete;
+            for (;;) {
+                item = listCtrl->GetNextItem(item, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+                if (item == -1) break;
+                int id = wxAtoi(listCtrl->GetItemText(item, 0));
+                idsToDelete.push_back(id);
             }
-        }
+            if (idsToDelete.empty()) {
+                wxMessageBox("Please select at least one movie to delete.", "Warning", wxOK | wxICON_WARNING, &delDlg);
+                return;
+            }
+            int deletedCount = 0;
+            wxString errorMsg;
+            for (int id : idsToDelete) {
+                Result<bool> result = movie_repos->remove(id);
+                if (!result.success) {
+                    errorMsg += wxString::Format("ID %d: %s\n", id, result.error_message);
+                } else {
+                    deletedCount++;
+                }
+            }
+            if (deletedCount > 0)
+                wxMessageBox(wxString::Format("%d movie(s) deleted successfully!", deletedCount), "Success", wxOK | wxICON_INFORMATION, &delDlg);
+            if (!errorMsg.IsEmpty())
+                wxMessageBox("Some movies could not be deleted:\n" + errorMsg, "Warning", wxOK | wxICON_WARNING, &delDlg);
+
+            delDlg.EndModal(wxID_OK);
+        });
+
+        btnCancel->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+            delDlg.EndModal(wxID_CANCEL);
+        });
+
+        delDlg.ShowModal();
     });
 
     // Update Movie

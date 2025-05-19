@@ -596,3 +596,44 @@
 [2025-05-19 18:55:56][INFO] App destroyed
 [2025-05-19 18:55:56][INFO] Closing database connection.
 [2025-05-19 18:55:56][INFO] Disconnecting from database.
+[2025-05-19 19:02:56][INFO] App initialized
+[2025-05-19 19:02:56][INFO] Connecting to database: 127.0.0.1
+[2025-05-19 19:02:56][INFO] Connecting to127.0.0.1:3306
+[2025-05-19 19:02:56][INFO] Setting up database...
+[2025-05-19 19:02:56][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-19 19:02:56][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-19 19:02:56][INFO] Executing script: release/init_db.sql
+[2025-05-19 19:03:04][INFO] Authenticating user: ad
+[2025-05-19 19:03:04][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-19 19:03:04][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-19 19:03:04][INFO] Parsing query result
+[2025-05-19 19:03:04][INFO] Generated OTP: 386661
+[2025-05-19 19:03:04][INFO] Sending OTP to: eep54085@jioso.com
+[2025-05-19 19:03:04][INFO] Sending OTP to eep54085@jioso.com
+[2025-05-19 19:03:19][INFO] Verifying OTP: 386661
+[2025-05-19 19:03:35][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:03:45][INFO] Executing query: DELETE FROM Movie WHERE movieID = 7
+[2025-05-19 19:03:45][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 19:03:47][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:03:52][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:03:58][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:16][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:22][INFO] Executing query: DELETE FROM Movie WHERE movieID = 4
+[2025-05-19 19:04:41][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:43][INFO] Executing query: DELETE FROM Movie WHERE movieID = 5
+[2025-05-19 19:04:43][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 19:04:44][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:49][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:50][INFO] Executing query: DELETE FROM Movie WHERE movieID = 2
+[2025-05-19 19:04:52][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:04:55][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:05:06][INFO] Executing query: UPDATE Movie SET title = 'Avatar', genre = 'Sci-Fi', description = 'Phim bom tan dinh dam sieu hay so 1 ', duration = 162, rating = 7.800000, posterPath = 'images/avatar.jpg', basePrice = 100000 WHERE MovieID = 1
+[2025-05-19 19:05:06][INFO] Executing query: UPDATE Movie SET title = 'Titanic', genre = 'Romance', description = 'A love story on the Titanic.', duration = 195, rating = 7.800000, posterPath = 'images/titanic.jpg', basePrice = 120000 WHERE MovieID = 2
+[2025-05-19 19:05:06][INFO] Executing query: UPDATE Movie SET title = 'The Godfather', genre = 'Crime', description = 'The story of a mafia family.', duration = 175, rating = 9.200000, posterPath = 'images/godfather.jpg', basePrice = 150000 WHERE MovieID = 3
+[2025-05-19 19:05:06][INFO] Executing query: UPDATE Movie SET title = 'Inception', genre = 'Sci-Fi', description = 'A mind-bending thriller.', duration = 148, rating = 8.800000, posterPath = 'images/inception.jpg', basePrice = 130000 WHERE MovieID = 4
+[2025-05-19 19:05:06][INFO] Executing query: UPDATE Movie SET title = 'Avengers: Endgame', genre = 'Action', description = 'kkkkkkkkkk', duration = 180, rating = 8.500000, posterPath = 'images/endgame.jpg', basePrice = 90000 WHERE MovieID = 6
+[2025-05-19 19:05:08][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 19:05:26][INFO] Clearing session data.
+[2025-05-19 19:05:26][INFO] App destroyed
+[2025-05-19 19:05:26][INFO] Closing database connection.
+[2025-05-19 19:05:26][INFO] Disconnecting from database.
