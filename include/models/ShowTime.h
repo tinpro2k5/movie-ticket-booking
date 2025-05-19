@@ -21,10 +21,10 @@ class ShowTime{
     string getShowTime() const;
     int getMovieId() const;
     //setter
-    void setRoomId(int id_room);
-    void setTheaterId(int id_theater);
-    void setShowTime(string show_time);
-    void setMovieId(int id_movie);
+    void setRoomId(const int& id_room);
+    void setTheaterId(const int& id_theater);
+    void setShowTime(const string& show_time);
+    void setMovieId(const int& id_movie);
 };
 void printShowtimeTable(const std::vector<ShowTime>& showtimes);
 #endif

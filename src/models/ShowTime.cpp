@@ -28,16 +28,16 @@ int ShowTime::getMovieId() const {
     return _id_movie;
 }
 //setter
-void ShowTime::setRoomId(int id_room) {
+void ShowTime::setRoomId(const int& id_room) {
     _id_room = id_room;
 }
-void ShowTime::setTheaterId(int id_theater) {
+void ShowTime::setTheaterId(const int& id_theater) {
     _id_theater = id_theater;
 }
-void ShowTime::setShowTime(string show_time) {
+void ShowTime::setShowTime(const string& show_time) {
     _show_time = show_time;
 }
-void ShowTime::setMovieId(int id_movie) {
+void ShowTime::setMovieId(const int& id_movie) {
     _id_movie = id_movie;
 }
 

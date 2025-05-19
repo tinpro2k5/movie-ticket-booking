@@ -18,10 +18,10 @@ class Room {
     string getRoomName() const;
     int getRoomCapacity() const;
     //setter
-    void setRoomId(int id_room);
-    void setTheaterId(int id_theater);
-    void setRoomName(string room_name);
-    void setRoomCapacity(int capacity);
+    void setRoomId(const int& id_room);
+    void setTheaterId(const int& id_theater);
+    void setRoomName(const string& room_name);
+    void setRoomCapacity(const int& capacity);
 };
 void printRoomsTable(const std::vector<Room>& rooms);
 #endif

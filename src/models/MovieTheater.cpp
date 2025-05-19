@@ -24,13 +24,13 @@ string MovieTheater::getTheaterLocation() const{
     return _location;
 }
 //setter
-void MovieTheater::setTheaterId(int id_theater){
+void MovieTheater::setTheaterId(const int& id_theater){
     _id_theater = id_theater;
 }
-void MovieTheater::setTheaterName(string name){
+void MovieTheater::setTheaterName(const string& name){
     _name = name;
 }
-void MovieTheater::setTheaterLocation(string location){
+void MovieTheater::setTheaterLocation(const string& location){
     _location = location;
 }
 

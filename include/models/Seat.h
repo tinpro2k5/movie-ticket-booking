@@ -23,9 +23,9 @@ class Seat{
     string getSeatNumber() const;
     bool isVip() const;
     //setter
-    void setRoomId(int id_room);
-    void setTheaterId(int id_theater);
-    void setSeatNumber(string seat_number);
-    void setVip(bool is_vip);
+    void setRoomId(const int& id_room);
+    void setTheaterId(const int& id_theater);
+    void setSeatNumber(const string& seat_number);
+    void setVip(const bool& is_vip);
 };
 #endif

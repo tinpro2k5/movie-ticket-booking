@@ -27,7 +27,7 @@ class Movie{
     public:
     Movie();
     ~Movie();
-    Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path, int price);
+    Movie(const int& id_movie, const string& title, const string& genre, const string& description, const int& duration, const float& rating, const string& poster_path, const int& price);
     //getter
     int getMovieId() const;
     string getMovieTitle() const;
@@ -38,14 +38,14 @@ class Movie{
     string getMoviePosterPath() const;
     int getPrice() const;
     //setter
-    void setMovieId(int id_movie);
-    void setMovieTitle(string title);
-    void setMovieGenre(string genre);
-    void setMovieDescription(string description);
-    void setMovieDuration(int duration);
-    void setMovieRating(float rating);
-    void setMoviePosterPath(string poster_path);
-    void setPrice(int price);
+    void setMovieId(const int& id_movie);
+    void setMovieTitle(const string& title);
+    void setMovieGenre(const string& genre);
+    void setMovieDescription(const string& description);
+    void setMovieDuration(const int& duration);
+    void setMovieRating(const float& rating);
+    void setMoviePosterPath(const string& poster_path);
+    void setPrice(const int& price);
     //
 };
 void printMoviesTable(const std::vector<Movie>& movies);

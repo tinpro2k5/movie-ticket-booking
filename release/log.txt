@@ -1146,3 +1146,164 @@
 [2025-05-18 16:41:49][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
 [2025-05-18 16:41:49][INFO] Executing query: USE MOVIE_BOOKING
 [2025-05-18 16:41:49][INFO] Executing script: init_db.sql
+[2025-05-19 15:48:18][INFO] App initialized
+[2025-05-19 15:48:18][INFO] Connecting to database: 127.0.0.1
+[2025-05-19 15:48:18][INFO] Connecting to127.0.0.1:3306
+[2025-05-19 15:48:18][INFO] Setting up database...
+[2025-05-19 15:48:18][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-19 15:48:18][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-19 15:48:18][INFO] Executing script: init_db.sql
+[2025-05-19 15:48:30][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='mku41937@toaik.com';
+[2025-05-19 15:48:30][INFO] Executing query: SELECT * FROM User WHERE username ='v' OR email ='mku41937@toaik.com';
+[2025-05-19 15:48:30][INFO] Parsing query result
+[2025-05-19 15:48:30][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:48:30][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:48:30][INFO] Parsing query result
+[2025-05-19 15:48:30][INFO] Creating user: v
+[2025-05-19 15:48:30][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'mku41937@toaik.com', '1', 1);
+[2025-05-19 15:48:30][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('v', '15829382004823834217', 'mku41937@toaik.com', '1', 1);
+[2025-05-19 15:48:30][INFO] Generated OTP: 220804
+[2025-05-19 15:48:30][INFO] Sending OTP to: mku41937@toaik.com
+[2025-05-19 15:48:30][INFO] Sending OTP to mku41937@toaik.com
+[2025-05-19 15:50:15][INFO] Authenticating user: v
+[2025-05-19 15:50:15][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-19 15:50:15][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-19 15:50:15][INFO] Parsing query result
+[2025-05-19 15:50:15][INFO] Generated OTP: 952302
+[2025-05-19 15:50:15][INFO] Sending OTP to: mku41937@toaik.com
+[2025-05-19 15:50:15][INFO] Sending OTP to mku41937@toaik.com
+[2025-05-19 15:51:27][INFO] Verifying OTP: 952302
+[2025-05-19 15:51:44][INFO] Executing query: INSERT INTO Movie (title, genre, description, duration, rating, posterPath, basePrice) VALUES ('Dia dao', 'acct', 'mota', 120, 0.000000, 'null', 120)
+[2025-05-19 15:51:50][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:00][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:02][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 8
+[2025-05-19 15:52:18][INFO] Executing query: UPDATE Movie SET title = 'Dia dao', genre = 'acct', description = 'mota', duration = 120, rating = 9.000000, posterPath = 'null', basePrice = 150000 WHERE MovieID = 8
+[2025-05-19 15:52:22][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:29][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:30][INFO] Executing query: DELETE FROM Movie WHERE movieID = 8
+[2025-05-19 15:52:30][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:52:35][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:43][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:52:47][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO Showtime (roomID, theaterID, showDateTime, movieID) VALUES (8, 2, '2025-05-20 22:00:00', 1);
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'A1', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'A2', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'A3', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'A4', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'A5', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'B1', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'B2', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'B3', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'B4', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'B5', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'C1', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'C2', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'C3', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'C4', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:28][INFO] Executing query: INSERT INTO SeatSchedule (roomID, theaterID, seatNumber, showDateTime, ticketID) VALUES (8, 2, 'C5', '2025-05-20 22:00:00', NULL);
+[2025-05-19 15:53:28][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 15:53:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 15:53:33][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-19 15:54:51][INFO] Clearing session data.
+[2025-05-19 15:55:39][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='khacvuong2707@gmail.com';
+[2025-05-19 15:55:39][INFO] Executing query: SELECT * FROM User WHERE username ='k' OR email ='khacvuong2707@gmail.com';
+[2025-05-19 15:55:39][INFO] Parsing query result
+[2025-05-19 15:55:39][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:55:39][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:55:39][INFO] Parsing query result
+[2025-05-19 15:55:39][INFO] Creating user: k
+[2025-05-19 15:55:39][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'khacvuong2707@gmail.com', '2', 0);
+[2025-05-19 15:55:39][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('k', '515652794354703053', 'khacvuong2707@gmail.com', '2', 0);
+[2025-05-19 15:55:39][INFO] Generated OTP: 569237
+[2025-05-19 15:55:39][INFO] Sending OTP to: khacvuong2707@gmail.com
+[2025-05-19 15:55:39][INFO] Sending OTP to khacvuong2707@gmail.com
+[2025-05-19 15:58:20][INFO] Clearing session data.
+[2025-05-19 15:58:20][INFO] Executing query: DELETE FROM User WHERE username ='k';
+[2025-05-19 15:58:20][INFO] Executing query: DELETE FROM User WHERE username ='k';
+[2025-05-19 15:58:48][INFO] Executing query: SELECT * FROM User WHERE username ='n' OR email ='sdm15645@jioso.com';
+[2025-05-19 15:58:48][INFO] Executing query: SELECT * FROM User WHERE username ='n' OR email ='sdm15645@jioso.com';
+[2025-05-19 15:58:48][INFO] Parsing query result
+[2025-05-19 15:58:48][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:58:48][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 15:58:48][INFO] Parsing query result
+[2025-05-19 15:58:48][INFO] Creating user: n
+[2025-05-19 15:58:48][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('n', '9826907452181669771', 'sdm15645@jioso.com', '3', 0);
+[2025-05-19 15:58:48][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('n', '9826907452181669771', 'sdm15645@jioso.com', '3', 0);
+[2025-05-19 15:58:48][INFO] Generated OTP: 262389
+[2025-05-19 15:58:48][INFO] Sending OTP to: sdm15645@jioso.com
+[2025-05-19 15:58:48][INFO] Sending OTP to sdm15645@jioso.com
+[2025-05-19 15:59:37][INFO] Clearing session data.
+[2025-05-19 15:59:37][INFO] Executing query: DELETE FROM User WHERE username ='n';
+[2025-05-19 15:59:37][INFO] Executing query: DELETE FROM User WHERE username ='n';
+[2025-05-19 16:00:34][INFO] User chose to exit the application
+[2025-05-19 16:00:34][INFO] Closing database connection.
+[2025-05-19 16:00:34][INFO] Disconnecting from database.
+[2025-05-19 16:00:38][INFO] App initialized
+[2025-05-19 16:00:38][INFO] Connecting to database: 127.0.0.1
+[2025-05-19 16:00:38][INFO] Connecting to127.0.0.1:3306
+[2025-05-19 16:00:38][INFO] Setting up database...
+[2025-05-19 16:00:38][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-19 16:00:38][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-19 16:00:38][INFO] Executing script: init_db.sql
+[2025-05-19 16:00:44][INFO] Executing query: SELECT * FROM User WHERE username ='f' OR email ='ladox31120@magpit.com';
+[2025-05-19 16:00:44][INFO] Executing query: SELECT * FROM User WHERE username ='f' OR email ='ladox31120@magpit.com';
+[2025-05-19 16:00:44][INFO] Parsing query result
+[2025-05-19 16:00:44][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 16:00:44][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-19 16:00:44][INFO] Parsing query result
+[2025-05-19 16:00:44][INFO] Creating user: f
+[2025-05-19 16:00:44][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('f', '8968846175329310707', 'ladox31120@magpit.com', '5', 0);
+[2025-05-19 16:00:44][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('f', '8968846175329310707', 'ladox31120@magpit.com', '5', 0);
+[2025-05-19 16:00:44][INFO] Generated OTP: 411872
+[2025-05-19 16:00:44][INFO] Sending OTP to: ladox31120@magpit.com
+[2025-05-19 16:00:44][INFO] Sending OTP to ladox31120@magpit.com
+[2025-05-19 16:01:39][INFO] Authenticating user: f
+[2025-05-19 16:01:39][INFO] Executing query: SELECT * FROM User WHERE username ='f';
+[2025-05-19 16:01:39][INFO] Executing query: SELECT * FROM User WHERE username ='f';
+[2025-05-19 16:01:39][INFO] Parsing query result
+[2025-05-19 16:01:39][INFO] Generated OTP: 929491
+[2025-05-19 16:01:39][INFO] Sending OTP to: ladox31120@magpit.com
+[2025-05-19 16:01:39][INFO] Sending OTP to ladox31120@magpit.com
+[2025-05-19 16:01:57][INFO] Verifying OTP: 929491
+[2025-05-19 16:02:03][INFO] Executing query: SELECT * FROM Movie
+[2025-05-19 16:02:06][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-19 16:02:09][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 22:00:00' AND ticketID IS NULL;
+[2025-05-19 16:02:12][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 8 AND theaterID = 2 AND seatNumber = 'A1'
+[2025-05-19 16:02:12][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-19 16:02:12][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('8', '8', '2', 'A1', '2025-05-20 22:00:00', '100000.000000', FALSE)
+[2025-05-19 16:02:12][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-19 16:02:12][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 9 WHERE roomID = 8 AND theaterID = 2 AND seatNumber = 'A3' AND showDateTime = '2025-05-20 22:00:00' 
+[2025-05-19 16:02:17][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 8
+[2025-05-19 16:02:20][INFO] Clearing session data.
+[2025-05-19 16:02:23][INFO] Authenticating user: v
+[2025-05-19 16:02:23][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-19 16:02:23][INFO] Executing query: SELECT * FROM User WHERE username ='v';
+[2025-05-19 16:02:23][INFO] Parsing query result
+[2025-05-19 16:02:23][INFO] Generated OTP: 606782
+[2025-05-19 16:02:23][INFO] Sending OTP to: mku41937@toaik.com
+[2025-05-19 16:02:23][INFO] Sending OTP to mku41937@toaik.com
+[2025-05-19 16:02:34][INFO] Verifying OTP: 606782
+[2025-05-19 16:03:03][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 22:00:00'
+[2025-05-19 16:03:03][INFO] Executing query: SELECT * FROM User WHERE userID =8;
+[2025-05-19 16:03:03][INFO] Executing query: SELECT * FROM User WHERE userID =8;
+[2025-05-19 16:03:03][INFO] Parsing query result
+[2025-05-19 16:03:03][INFO] Sending show time cancellation to ladox31120@magpit.com
+[2025-05-19 16:03:05][INFO] Executing query: Call DropShowtime(8, 2, '2025-05-20 22:00:00') ;
+[2025-05-19 16:03:29][INFO] Clearing session data.
+[2025-05-19 16:03:32][INFO] User chose to exit the application
+[2025-05-19 16:03:32][INFO] Closing database connection.
+[2025-05-19 16:03:32][INFO] Disconnecting from database.

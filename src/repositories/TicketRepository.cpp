@@ -62,7 +62,6 @@ Result<vector<Ticket>> TicketRepository::findByUserId(int user_id){
     return result;
 }
 Result<int> TicketRepository::create(const Ticket& ticket){
-        //Thuc hien truy van
         Result<int> result;
         string paid = (ticket.isPaid()) ? "TRUE" : "FALSE";
         std::string query = "INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('" +
@@ -75,16 +74,11 @@ Result<int> TicketRepository::create(const Ticket& ticket){
         paid + ")";
 
         QueryResult query_result = DatabaseManager::getInstance()->executeQuery(query);
-        /*Kiem tra ket qua truy van
-        Neu khong thanh cong, tra ve ket qua that bai*/
         if (!query_result.success) {
             result.success = false;
             result.error_message = query_result.error_message;
             return result;
         }
-        /*Neu thanh cong, kiem tra so dong bi anh huong
-        Neu so dong bi anh huong > 0, tra ve ket qua thanh cong
-        Neu so dong bi anh huong = 0, tra ve ket qua that bai*/
         if (query_result.affected_rows > 0) {
             result.success = true;
             QueryResult id_result = DatabaseManager::getInstance()->executeQuery("SELECT LAST_INSERT_ID() AS id");

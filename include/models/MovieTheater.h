@@ -16,9 +16,9 @@ class MovieTheater {
     string getTheaterName() const;
     string getTheaterLocation() const;
     //setter
-    void setTheaterId(int id_theater);
-    void setTheaterName(string name);
-    void setTheaterLocation(string location);
+    void setTheaterId(const int& id_theater);
+    void setTheaterName(const string& name);
+    void setTheaterLocation(const string& location);
     //
 
 };

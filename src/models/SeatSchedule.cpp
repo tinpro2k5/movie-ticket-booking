@@ -37,18 +37,18 @@ int SeatSchedule::getTicketId() const {
     return _id_ticket;
 }
 // Setter methods
-void SeatSchedule::setRoomId(int id_room) {
+void SeatSchedule::setRoomId(const int& id_room) {
     _id_room = id_room;
 }
-void SeatSchedule::setTheaterId(int id_theater) {
+void SeatSchedule::setTheaterId(const int& id_theater) {
     _id_theater = id_theater;
 }
-void SeatSchedule::setSeatNumber(string seat_number) {
+void SeatSchedule::setSeatNumber(const string& seat_number){
     _seat_number = seat_number;
 }
-void SeatSchedule::setShowTime(string show_time) {
+void SeatSchedule::setShowTime(const string& show_time) {
     _show_time = show_time;
 }
-void SeatSchedule::setTicketId(int id_ticket) {
+void SeatSchedule::setTicketId(const int& id_ticket){
     _id_ticket = id_ticket;
 }

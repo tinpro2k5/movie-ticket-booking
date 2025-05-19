@@ -26,11 +26,11 @@ class SeatSchedule{
     string getShowTime() const;
     int getTicketId() const;
     //setter
-    void setRoomId(int id_room);
-    void setTheaterId(int id_theater);
-    void setSeatNumber(string seat_number);
-    void setShowTime(string show_time);
-    void setTicketId(int id_ticket);
+    void setRoomId(const int& id_room);
+    void setTheaterId(const int& id_theater);
+    void setSeatNumber(const string& seat_number);
+    void setShowTime(const string& show_time);
+    void setTicketId(const int& id_ticket);
 };
 
 

@@ -29,16 +29,16 @@ int Room::getRoomCapacity() const{
     return _capacity;
 }
 //setter
-void Room::setRoomId(int id_room){
+void Room::setRoomId(const int& id_room){
     _id_room = id_room;
 }
-void Room::setTheaterId(int id_theater){
+void Room::setTheaterId(const int& id_theater){
     _id_theater = id_theater;
 }
-void Room::setRoomName(string room_name){
+void Room::setRoomName(const string& room_name){
     _room_name = room_name;
 }
-void Room::setRoomCapacity(int capacity){ 
+void Room::setRoomCapacity(const int& capacity){ 
     _capacity = capacity;
 }
 

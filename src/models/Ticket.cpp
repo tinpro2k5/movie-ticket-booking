@@ -45,31 +45,31 @@ bool Ticket::isPaid() const{
     return _is_paid;
 }
 //setter
-void Ticket::setTicketId(int id_ticket){
+void Ticket::setTicketId(const int& id_ticket){
     _id_ticket = id_ticket;
 }
-void Ticket::setUserId(int id_user){
+void Ticket::setUserId(const int& id_user){
     _id_user = id_user;
 }
-void Ticket::setRoomId(int id_room){
+void Ticket::setRoomId(const int& id_room){
     _id_room = id_room;
 }
-void Ticket::setTheaterId(int id_theater){
+void Ticket::setTheaterId(const int& id_theater){
     _id_theater = id_theater;
 }
-void Ticket::setSeatNumber(string seat_number){
+void Ticket::setSeatNumber(const string& seat_number){
     _seat_number = seat_number;
 }
-void Ticket::setShowTime(string show_time){
+void Ticket::setShowTime(const string& show_time){
     _show_time = show_time;
 }
-void Ticket::setPrice(double price){
+void Ticket::setPrice(const double& price){
     _price = price;
 }
-void Ticket::setBookingTime(string booking_time){
+void Ticket::setBookingTime(const string& booking_time){
     _booking_time = booking_time;
 }
-void Ticket::setPaid(bool is_paid){
+void Ticket::setPaid(const bool& is_paid){
     _is_paid = is_paid;
 }
 

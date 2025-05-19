@@ -35,15 +35,15 @@ class Ticket{
     string getBookingTime() const;
     bool isPaid() const;
     //setter
-    void setTicketId(int id_ticket);
-    void setUserId(int id_user);
-    void setRoomId(int id_room);
-    void setTheaterId(int id_theater);
-    void setSeatNumber(string seat_number);
-    void setShowTime(string show_time);
-    void setPrice(double price);
-    void setBookingTime(string booking_time);
-    void setPaid(bool is_paid);
+    void setTicketId(const int& id_ticket);
+    void setUserId(const int& id_user);
+    void setRoomId(const int& id_room);
+    void setTheaterId(const int& id_theater);
+    void setSeatNumber(const string& seat_number);
+    void setShowTime(const string& show_time);
+    void setPrice(const double& price);
+    void setBookingTime(const string& booking_time);
+    void setPaid(const bool& is_paid);
 };
 void printTicketTable(const vector<Ticket>& tickets);
 #endif

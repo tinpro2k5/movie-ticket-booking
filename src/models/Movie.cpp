@@ -11,7 +11,7 @@ Movie::Movie(){ //Constructor
 Movie::~Movie(){
     //Destructor
 }
-Movie::Movie(int id_movie, string title, string genre, string description, int duration, float rating, string poster_path, int price){ //Constructor with parameters
+Movie::Movie(const int& id_movie, const string& title, const string& genre, const string& description, const int& duration, const float& rating, const string& poster_path, const int& price){ //Constructor with parameters
     _id_movie = id_movie;
     _title = title;
     _genre = genre;
@@ -47,28 +47,28 @@ int Movie::getPrice() const{
     return _price;
 }
 //setter
-void Movie::setMovieId(int id_movie){
+void Movie::setMovieId(const int& id_movie){
     _id_movie = id_movie;
 }
-void Movie::setMovieTitle(string title){
+void Movie::setMovieTitle(const string& title){
     _title = title;
 }
-void Movie::setMovieGenre(string genre){
+void Movie::setMovieGenre(const string& genre){
     _genre = genre;
 }
-void Movie::setMovieDescription(string description){
+void Movie::setMovieDescription(const string& description){
     _description = description;
 }
-void Movie::setMovieDuration(int duration){
+void Movie::setMovieDuration(const int& duration){
     _duration = duration;
 }
-void Movie::setMovieRating(float rating){
+void Movie::setMovieRating(const float& rating){
     _rating = rating;
 }
-void Movie::setMoviePosterPath(string poster_path){
+void Movie::setMoviePosterPath(const string& poster_path){
     _poster_path = poster_path;
 }
-void Movie::setPrice(int price){
+void Movie::setPrice(const int& price){
     _price = price;
 }
 

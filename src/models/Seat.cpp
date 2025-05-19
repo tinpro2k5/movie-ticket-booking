@@ -33,18 +33,18 @@ bool Seat::isVip() const {
     return _is_vip;
 }
 
-void Seat::setRoomId(int id_room) {
+void Seat::setRoomId(const int& id_room){
     _id_room = id_room;
 }
 
-void Seat::setTheaterId(int id_theater) {
+void Seat::setTheaterId(const int& id_theater) {
     _id_theater = id_theater;
 }
 
-void Seat::setSeatNumber(string seat_number) {
+void Seat::setSeatNumber(const string& seat_number) {
     _seat_number = seat_number;
 }
 
-void Seat::setVip(bool is_vip) {
+void Seat::setVip(const bool& is_vip) {
     _is_vip = is_vip;
 }
