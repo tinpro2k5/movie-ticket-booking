@@ -27,10 +27,12 @@
 #include "../../include/services/RoomManageCommand.h"
 #include "../../include/services/TheaterService.h"
 #include "../../include/services/TheaterManageCommand.h"
+#include "../utils/CultureFormatter.h"
 
 
 
 #include "../utils/RollbackContainer.h"
+
 class App {
 private:
     const std::string INIT_DB_SCRIPT = "init_db.sql";

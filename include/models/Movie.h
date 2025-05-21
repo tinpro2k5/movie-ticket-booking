@@ -13,6 +13,7 @@
 #include <vector>
 #include <algorithm>
 #include <iomanip>
+#include "../utils/CultureFormatter.h"
 using std::string, std::ostream,std::cout, std::endl, std::setw, std::left, std::vector;
 class Movie{
     private:
@@ -49,4 +50,5 @@ class Movie{
     //
 };
 void printMoviesTable(const std::vector<Movie>& movies);
+void printMovieVector(const std::vector<Movie>& movies);
 #endif

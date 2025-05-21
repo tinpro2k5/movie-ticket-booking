@@ -17,8 +17,9 @@ App::App():
         show_ticket_command(&ticket_service),
         movie_manage_command(&movie_service),
         show_time_manage_command(&show_time_service)
-
+        
 {
+    CultureInfo::setCulture("vi-VN"); // Set default culture
     Logger::getInstance()->setLogFile(Logger::getInstance()->DEFAULT_LOG_FILE);
     Logger::getInstance()->log("App initialized", Logger::Level::INFO);
 }

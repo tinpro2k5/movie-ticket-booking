@@ -102,7 +102,44 @@ void printMoviesTable(const std::vector<Movie>& movies) {
              << setw(10) << movie.getMovieDuration() << " | "
              << setw(10) << movie.getMovieRating() << " | "
              << std::fixed << std::setprecision(2)
-             << setw(10) << movie.getPrice() << " |"
+             << setw(10) << NumberFormatter::formatNumber(movie.getPrice(), CultureInfo::get() )<< " |"
              << endl;
+    }
+}
+
+void printMovieVector(const std::vector<Movie>& movies) {
+    cout << "| " << left
+         << setw(12) << "Stt" << " | "
+         << setw(30) << "Title" << " | "
+         << setw(15) << "Genre" << " | "
+         << setw(40) << "Description" << " | "
+         << setw(10) << "Duration" << " | "
+         << setw(10) << "Rating" << " | "
+         << setw(10) << "Price" << " |"
+         << endl;
+
+    // In dòng kẻ ngăn cách
+    cout << "|" << string(14, '-') << "|"
+         << string(32, '-') << "|"
+         << string(17, '-') << "|"
+         << string(42, '-') << "|"
+         << string(12, '-') << "|"
+         << string(12, '-') << "|"
+         << string(12, '-') << "|" << endl;
+
+    // In từng dòng phim
+    int stt = 1;
+    for (const Movie& movie : movies) {
+        cout << "| " << left
+             << setw(12) << stt << " | "
+             << setw(30) << movie.getMovieTitle() << " | "
+             << setw(15) << movie.getMovieGenre() << " | "
+             << setw(40) << movie.getMovieDescription() << " | "
+             << setw(10) << movie.getMovieDuration() << " | "
+             << setw(10) << movie.getMovieRating() << " | "
+             << std::fixed << std::setprecision(2)
+             << setw(10) << NumberFormatter::formatNumber(movie.getPrice(), CultureInfo::get() )<< " |"
+             << endl;
+        stt++;
     }
 }

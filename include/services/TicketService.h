@@ -10,6 +10,7 @@
 #include "../../include/repositories/SeatScheduleRepository.h"
 #include "../../include/app/RepositoryRegistry.h"
 #include "../utils/PricingRule.h"
+#include "../utils/CultureFormatter.h"
 
 class TicketService{
     std::shared_ptr<TicketRepository> ticket_repos;
