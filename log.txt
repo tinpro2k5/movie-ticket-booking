@@ -1011,3 +1011,116 @@
 [2025-05-22 18:03:00][INFO] App destroyed
 [2025-05-22 18:03:00][INFO] Closing database connection.
 [2025-05-22 18:03:00][INFO] Disconnecting from database.
+[2025-05-22 18:04:04][INFO] App initialized
+[2025-05-22 18:04:04][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:04:04][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:04:04][INFO] Setting up database...
+[2025-05-22 18:04:04][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:04:04][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:04:04][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:04:11][INFO] Authenticating user: ad
+[2025-05-22 18:04:11][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:04:11][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:04:11][INFO] Parsing query result
+[2025-05-22 18:04:11][INFO] Generated OTP: 977477
+[2025-05-22 18:04:11][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 18:04:11][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 18:04:23][INFO] Verifying OTP: 977477
+[2025-05-22 18:04:30][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:04:30][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:04:31][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:04:41][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:04:41][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:04:42][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:04:47][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:04:47][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:04:48][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-22 18:04:51][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:01][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:05:01][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:01][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:05:03][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00'
+[2025-05-22 18:05:04][INFO] Executing query: Call DropShowtime(1, 1, '2025-05-01 18:00:00') ;
+[2025-05-22 18:05:07][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:09][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:10][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:05:10][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:10][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:05:14][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:16][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =17;
+[2025-05-22 18:05:16][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:16][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:05:18][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:20][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =2;
+[2025-05-22 18:05:20][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:20][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:05:23][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 14:00:00'
+[2025-05-22 18:05:23][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:05:23][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:05:23][INFO] Parsing query result
+[2025-05-22 18:05:23][INFO] Sending show time cancellation to john@example.com
+[2025-05-22 18:05:29][INFO] Executing query: Call DropShowtime(8, 2, '2025-05-20 14:00:00') ;
+[2025-05-22 18:05:32][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:34][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =2;
+[2025-05-22 18:05:34][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:34][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:05:35][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 19:00:00'
+[2025-05-22 18:05:35][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:05:35][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:05:35][INFO] Parsing query result
+[2025-05-22 18:05:35][INFO] Sending show time cancellation to john@example.com
+[2025-05-22 18:05:42][INFO] Executing query: Call DropShowtime(8, 2, '2025-05-20 19:00:00') ;
+[2025-05-22 18:05:50][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:50][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:51][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:05:52][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:05:52][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:05:53][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =2;
+[2025-05-22 18:06:01][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:06:01][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:06:01][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:06:15][INFO] Clearing session data.
+[2025-05-22 18:06:15][INFO] App destroyed
+[2025-05-22 18:06:15][INFO] Closing database connection.
+[2025-05-22 18:06:15][INFO] Disconnecting from database.
+[2025-05-22 18:08:25][INFO] App initialized
+[2025-05-22 18:08:25][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:08:25][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:08:25][INFO] Setting up database...
+[2025-05-22 18:08:25][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:08:25][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:08:25][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:08:31][INFO] Authenticating user: ad
+[2025-05-22 18:08:31][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:08:31][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:08:31][INFO] Parsing query result
+[2025-05-22 18:08:31][INFO] Generated OTP: 947057
+[2025-05-22 18:08:31][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 18:08:31][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 18:08:46][INFO] Verifying OTP: 947057
+[2025-05-22 18:08:50][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:08:50][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:08:51][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:09:01][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:09:16][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:09:16][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:09:16][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:09:18][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00'
+[2025-05-22 18:09:19][INFO] Executing query: Call DropShowtime(1, 1, '2025-05-01 18:00:00') ;
+[2025-05-22 18:09:24][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:09:24][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:09:26][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:09:31][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:09:33][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =2;
+[2025-05-22 18:09:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:09:33][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:09:35][INFO] Executing query: SELECT * FROM Ticket WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 14:00:00'
+[2025-05-22 18:09:35][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:09:35][INFO] Executing query: SELECT * FROM User WHERE userID =1;
+[2025-05-22 18:09:35][INFO] Parsing query result
+[2025-05-22 18:09:35][INFO] Sending show time cancellation to john@example.com
+[2025-05-22 18:09:43][INFO] Executing query: Call DropShowtime(8, 2, '2025-05-20 14:00:00') ;
+[2025-05-22 18:09:53][INFO] Clearing session data.
+[2025-05-22 18:09:54][INFO] App destroyed
+[2025-05-22 18:09:54][INFO] Closing database connection.
+[2025-05-22 18:09:54][INFO] Disconnecting from database.
