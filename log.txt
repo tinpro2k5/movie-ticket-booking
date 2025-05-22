@@ -1124,3 +1124,195 @@
 [2025-05-22 18:09:54][INFO] App destroyed
 [2025-05-22 18:09:54][INFO] Closing database connection.
 [2025-05-22 18:09:54][INFO] Disconnecting from database.
+[2025-05-22 18:11:54][INFO] App initialized
+[2025-05-22 18:11:54][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:11:54][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:11:54][INFO] Setting up database...
+[2025-05-22 18:11:54][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:11:54][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:11:54][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:11:58][INFO] Authenticating user: ad
+[2025-05-22 18:11:58][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:11:58][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 18:11:58][INFO] Parsing query result
+[2025-05-22 18:11:58][INFO] Generated OTP: 565196
+[2025-05-22 18:11:58][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 18:11:58][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 18:12:13][INFO] Verifying OTP: 565196
+[2025-05-22 18:12:17][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:12:19][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:12:35][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:12:37][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:12:39][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:12:44][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:12:45][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 18:12:45][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:12:45][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:12:47][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:12:49][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 18:12:49][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:12:49][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:13:00][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:13:04][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 18:13:06][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 18:13:11][INFO] Clearing session data.
+[2025-05-22 18:13:19][INFO] App destroyed
+[2025-05-22 18:13:19][INFO] Closing database connection.
+[2025-05-22 18:13:19][INFO] Disconnecting from database.
+[2025-05-22 18:22:15][INFO] App initialized
+[2025-05-22 18:22:15][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:22:15][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:22:15][INFO] Setting up database...
+[2025-05-22 18:22:15][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:22:15][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:22:15][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:22:35][INFO] App destroyed
+[2025-05-22 18:22:35][INFO] Closing database connection.
+[2025-05-22 18:22:35][INFO] Disconnecting from database.
+[2025-05-22 18:22:44][INFO] App initialized
+[2025-05-22 18:22:44][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:22:44][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:22:44][INFO] Setting up database...
+[2025-05-22 18:22:44][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:22:44][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:22:44][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:22:57][INFO] App destroyed
+[2025-05-22 18:22:57][INFO] Closing database connection.
+[2025-05-22 18:22:57][INFO] Disconnecting from database.
+[2025-05-22 18:24:05][INFO] App initialized
+[2025-05-22 18:24:05][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:24:05][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:24:05][INFO] Setting up database...
+[2025-05-22 18:24:05][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:24:05][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:24:05][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:24:17][INFO] App destroyed
+[2025-05-22 18:24:17][INFO] Closing database connection.
+[2025-05-22 18:24:17][INFO] Disconnecting from database.
+[2025-05-22 18:26:24][INFO] App initialized
+[2025-05-22 18:26:24][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:26:24][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:26:24][INFO] Setting up database...
+[2025-05-22 18:26:24][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:26:24][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:26:24][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:26:42][INFO] App destroyed
+[2025-05-22 18:26:42][INFO] Closing database connection.
+[2025-05-22 18:26:42][INFO] Disconnecting from database.
+[2025-05-22 18:28:55][INFO] App initialized
+[2025-05-22 18:28:55][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:28:55][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:28:55][INFO] Setting up database...
+[2025-05-22 18:28:55][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:28:55][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:28:55][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:29:14][INFO] App destroyed
+[2025-05-22 18:29:14][INFO] Closing database connection.
+[2025-05-22 18:29:14][INFO] Disconnecting from database.
+[2025-05-22 18:36:39][INFO] App initialized
+[2025-05-22 18:36:39][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:36:39][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:36:39][INFO] Setting up database...
+[2025-05-22 18:36:39][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:36:39][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:36:39][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:36:46][INFO] App destroyed
+[2025-05-22 18:36:46][INFO] Closing database connection.
+[2025-05-22 18:36:46][INFO] Disconnecting from database.
+[2025-05-22 18:39:06][INFO] App initialized
+[2025-05-22 18:39:06][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:39:06][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:39:06][INFO] Setting up database...
+[2025-05-22 18:39:06][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:39:06][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:39:06][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:39:11][INFO] App destroyed
+[2025-05-22 18:39:11][INFO] Closing database connection.
+[2025-05-22 18:39:11][INFO] Disconnecting from database.
+[2025-05-22 18:39:15][INFO] App initialized
+[2025-05-22 18:39:15][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:39:15][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:39:15][INFO] Setting up database...
+[2025-05-22 18:39:15][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:39:15][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:39:15][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:39:29][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:39:29][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:39:29][INFO] Parsing query result
+[2025-05-22 18:39:32][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:39:32][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:39:32][INFO] Parsing query result
+[2025-05-22 18:39:34][INFO] App destroyed
+[2025-05-22 18:39:34][INFO] Closing database connection.
+[2025-05-22 18:39:34][INFO] Disconnecting from database.
+[2025-05-22 18:40:53][INFO] App initialized
+[2025-05-22 18:40:53][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:40:53][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:40:53][INFO] Setting up database...
+[2025-05-22 18:40:53][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:40:53][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:40:53][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:41:08][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:41:08][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:41:08][INFO] Parsing query result
+[2025-05-22 18:41:12][INFO] App destroyed
+[2025-05-22 18:41:12][INFO] Closing database connection.
+[2025-05-22 18:41:12][INFO] Disconnecting from database.
+[2025-05-22 18:44:02][INFO] App initialized
+[2025-05-22 18:44:02][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:44:02][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:44:02][INFO] Setting up database...
+[2025-05-22 18:44:02][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:44:02][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:44:02][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:44:25][INFO] App destroyed
+[2025-05-22 18:44:25][INFO] Closing database connection.
+[2025-05-22 18:44:25][INFO] Disconnecting from database.
+[2025-05-22 18:46:30][INFO] App initialized
+[2025-05-22 18:46:30][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:46:30][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:46:30][INFO] Setting up database...
+[2025-05-22 18:46:30][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:46:30][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:46:30][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:46:52][INFO] Authenticating user: 
+[2025-05-22 18:46:52][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:46:52][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:46:52][INFO] Parsing query result
+[2025-05-22 18:46:58][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:46:58][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:46:58][INFO] Parsing query result
+[2025-05-22 18:47:00][INFO] Authenticating user: 
+[2025-05-22 18:47:00][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:47:00][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:47:00][INFO] Parsing query result
+[2025-05-22 18:47:03][INFO] Authenticating user: 
+[2025-05-22 18:47:03][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:47:03][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 18:47:03][INFO] Parsing query result
+[2025-05-22 18:47:06][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:47:06][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:47:07][INFO] Parsing query result
+[2025-05-22 18:47:08][INFO] App destroyed
+[2025-05-22 18:47:08][INFO] Closing database connection.
+[2025-05-22 18:47:08][INFO] Disconnecting from database.
+[2025-05-22 18:47:10][INFO] App initialized
+[2025-05-22 18:47:10][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:47:10][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:47:10][INFO] Setting up database...
+[2025-05-22 18:47:10][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:47:10][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:47:10][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:47:28][INFO] App destroyed
+[2025-05-22 18:47:28][INFO] Closing database connection.
+[2025-05-22 18:47:28][INFO] Disconnecting from database.
+[2025-05-22 18:49:38][INFO] App initialized
+[2025-05-22 18:49:38][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:49:38][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:49:38][INFO] Setting up database...
+[2025-05-22 18:49:38][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:49:38][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:49:38][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:49:44][INFO] App destroyed
+[2025-05-22 18:49:44][INFO] Closing database connection.
+[2025-05-22 18:49:44][INFO] Disconnecting from database.
