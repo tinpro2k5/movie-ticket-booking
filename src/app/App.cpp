@@ -120,7 +120,7 @@ void App:: handleAdminMenuUI(wxWindow* parent){
         menu_invoker.executeCommandUI(1,user, parent);
     });
     btnShowtimes->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommand(2, user);
+        menu_invoker.executeCommandUI(2, user, parent);
     });
     btnTheaters->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
         menu_invoker.executeCommandUI(3, user,parent);

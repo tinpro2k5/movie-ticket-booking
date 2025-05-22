@@ -6,6 +6,8 @@
 #include "../../include/repositories/TicketRepository.h"
 #include "../../include/services/EmailService.h"
 
+#include <wx/wx.h>
+#include <wx/listctrl.h>
 class ShowTimeService {
     std::shared_ptr<ShowTimeRepository> show_time_repos;
     std::shared_ptr<SeatScheduleRepository> seat_schedule_repos;
@@ -17,5 +19,6 @@ class ShowTimeService {
 public:
     ShowTimeService(RepositoryRegistry& repoRegistry);
     void manageShowTime(User user);
+    void manageShowTimeUI(wxWindow* parent, User user);
 };
 #endif

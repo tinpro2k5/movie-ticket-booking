@@ -12,5 +12,8 @@ public:
     void execute(User user) override {
         show_time_service->manageShowTime(user);
     }
+    void executeUI(User user, wxWindow* parent) override {
+        show_time_service->manageShowTimeUI(parent, user);
+    }
 };
 #endif
