@@ -1587,3 +1587,74 @@
 [2025-05-21 15:58:45][INFO] Verifying OTP: 419853
 [2025-05-21 15:58:49][INFO] Executing query: SELECT * FROM Movie
 [2025-05-21 15:59:06][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 22
+[2025-05-22 16:39:28][INFO] App initialized
+[2025-05-22 16:39:28][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:39:28][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:39:28][INFO] Setting up database...
+[2025-05-22 16:39:28][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 16:39:28][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 16:39:28][INFO] Executing script: init_db.sql
+[2025-05-22 16:39:34][INFO] Authenticating user: ad
+[2025-05-22 16:39:34][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:39:34][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:39:34][INFO] Parsing query result
+[2025-05-22 16:39:34][INFO] Generated OTP: 993544
+[2025-05-22 16:39:34][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:39:34][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:39:48][INFO] Verifying OTP: 993544
+[2025-05-22 16:40:01][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 16:40:03][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-22 16:40:16][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 16:40:21][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-22 16:40:28][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 16:40:29][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =3;
+[2025-05-22 16:40:44][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:40:48][INFO] Executing query: SELECT * FROM Showtime WHERE theaterID =1;
+[2025-05-22 16:41:19][INFO] Clearing session data.
+[2025-05-22 16:41:24][INFO] Authenticating user: ad
+[2025-05-22 16:41:24][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:41:24][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:41:24][INFO] Parsing query result
+[2025-05-22 16:41:24][INFO] Generated OTP: 326171
+[2025-05-22 16:41:24][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:41:24][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:41:37][INFO] Verifying OTP: 326171
+[2025-05-22 16:41:43][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:42:00][INFO] Executing query: INSERT INTO Theater (name, location) VALUES ('19/4', 'Phan Thiet')
+[2025-05-22 16:42:00][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-22 16:42:05][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:42:09][INFO] Clearing session data.
+[2025-05-22 16:42:11][INFO] User chose to exit the application
+[2025-05-22 16:42:11][INFO] Closing database connection.
+[2025-05-22 16:42:11][INFO] Disconnecting from database.
+[2025-05-22 16:56:05][INFO] App initialized
+[2025-05-22 16:56:05][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:56:05][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:56:05][INFO] Setting up database...
+[2025-05-22 16:56:05][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 16:56:05][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 16:56:05][INFO] Executing script: init_db.sql
+[2025-05-22 16:56:09][INFO] Authenticating user: ad
+[2025-05-22 16:56:09][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:56:09][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:56:09][INFO] Parsing query result
+[2025-05-22 16:56:09][INFO] Generated OTP: 135350
+[2025-05-22 16:56:09][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:56:09][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:56:31][INFO] Verifying OTP: 135350
+[2025-05-22 16:56:44][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:56:54][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 16:58:03][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 16:58:25][INFO] Executing query: CALL CreateRoomAndSeats(10, 10, 'New room', 20);
+[2025-05-22 16:58:52][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 16:59:03][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 16:59:12][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 16:59:59][INFO] Executing query: CALL CreateRoomAndSeats(8, 2, 'new', 150);
+[2025-05-22 17:00:04][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:02:19][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:02:33][INFO] Executing query: CALL CreateRoomAndSeats(10, 2, 'new room', 150);
+[2025-05-22 17:02:38][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:03:10][INFO] Clearing session data.
+[2025-05-22 17:03:13][INFO] User chose to exit the application
+[2025-05-22 17:03:13][INFO] Closing database connection.
+[2025-05-22 17:03:13][INFO] Disconnecting from database.

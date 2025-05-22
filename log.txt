@@ -637,3 +637,211 @@
 [2025-05-19 19:05:26][INFO] App destroyed
 [2025-05-19 19:05:26][INFO] Closing database connection.
 [2025-05-19 19:05:26][INFO] Disconnecting from database.
+[2025-05-21 09:06:33][INFO] App initialized
+[2025-05-21 09:06:33][INFO] Connecting to database: 127.0.0.1
+[2025-05-21 09:06:33][INFO] Connecting to127.0.0.1:3306
+[2025-05-21 09:06:33][INFO] Setting up database...
+[2025-05-21 09:06:33][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-21 09:06:33][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-21 09:06:33][INFO] Executing script: release/init_db.sql
+[2025-05-21 09:07:47][INFO] App destroyed
+[2025-05-21 09:07:47][INFO] Closing database connection.
+[2025-05-21 09:07:47][INFO] Disconnecting from database.
+[2025-05-21 17:08:28][INFO] App initialized
+[2025-05-21 17:08:28][INFO] Connecting to database: 127.0.0.1
+[2025-05-21 17:08:28][INFO] Connecting to127.0.0.1:3306
+[2025-05-21 17:08:28][ERROR] mysql_real_connect() failed: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2025-05-21 17:08:28][INFO] App destroyed
+[2025-05-21 17:08:56][INFO] App initialized
+[2025-05-21 17:08:56][INFO] Connecting to database: 127.0.0.1
+[2025-05-21 17:08:57][INFO] Connecting to127.0.0.1:3306
+[2025-05-21 17:08:57][INFO] Setting up database...
+[2025-05-21 17:08:57][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-21 17:08:57][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-21 17:08:57][INFO] Executing script: release/init_db.sql
+[2025-05-21 17:09:02][INFO] App destroyed
+[2025-05-21 17:09:02][INFO] Closing database connection.
+[2025-05-21 17:09:02][INFO] Disconnecting from database.
+[2025-05-22 16:30:23][INFO] App initialized
+[2025-05-22 16:30:23][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:30:23][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:30:23][ERROR] mysql_real_connect() failed: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2025-05-22 16:30:23][INFO] App destroyed
+[2025-05-22 16:33:35][INFO] App initialized
+[2025-05-22 16:33:35][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:33:35][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:33:35][INFO] Setting up database...
+[2025-05-22 16:33:35][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 16:33:35][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 16:33:35][INFO] Executing script: release/init_db.sql
+[2025-05-22 16:33:56][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='roz50817@toaik.com';
+[2025-05-22 16:33:56][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='roz50817@toaik.com';
+[2025-05-22 16:33:56][INFO] Parsing query result
+[2025-05-22 16:34:08][INFO] App destroyed
+[2025-05-22 16:34:08][INFO] Closing database connection.
+[2025-05-22 16:34:08][INFO] Disconnecting from database.
+[2025-05-22 16:35:17][INFO] App initialized
+[2025-05-22 16:35:17][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:35:17][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:35:17][INFO] Setting up database...
+[2025-05-22 16:35:17][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 16:35:17][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 16:35:17][INFO] Executing script: release/init_db.sql
+[2025-05-22 16:35:37][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='roz50817@toaik.com';
+[2025-05-22 16:35:37][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='roz50817@toaik.com';
+[2025-05-22 16:35:37][INFO] Parsing query result
+[2025-05-22 16:35:37][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-22 16:35:37][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-22 16:35:37][INFO] Parsing query result
+[2025-05-22 16:35:37][INFO] Creating user: ad
+[2025-05-22 16:35:37][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('ad', '10159970873491820195', 'roz50817@toaik.com', '1', 1);
+[2025-05-22 16:35:37][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('ad', '10159970873491820195', 'roz50817@toaik.com', '1', 1);
+[2025-05-22 16:35:37][INFO] Generated OTP: 928662
+[2025-05-22 16:35:37][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:35:37][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:35:54][INFO] Authenticating user: ad
+[2025-05-22 16:35:54][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:35:54][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:35:54][INFO] Parsing query result
+[2025-05-22 16:35:54][INFO] Generated OTP: 873485
+[2025-05-22 16:35:54][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:35:54][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:36:11][INFO] Verifying OTP: 873485
+[2025-05-22 16:36:16][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 16:38:14][INFO] Executing query: SELECT * FROM Movie
+[2025-05-22 16:38:34][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =3;
+[2025-05-22 16:38:54][INFO] Clearing session data.
+[2025-05-22 16:38:55][INFO] App destroyed
+[2025-05-22 16:38:55][INFO] Closing database connection.
+[2025-05-22 16:38:55][INFO] Disconnecting from database.
+[2025-05-22 16:54:27][INFO] App initialized
+[2025-05-22 16:54:27][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 16:54:27][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 16:54:27][INFO] Setting up database...
+[2025-05-22 16:54:27][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 16:54:27][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 16:54:27][INFO] Executing script: release/init_db.sql
+[2025-05-22 16:54:39][INFO] Authenticating user: ad
+[2025-05-22 16:54:39][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:54:39][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 16:54:39][INFO] Parsing query result
+[2025-05-22 16:54:39][INFO] Generated OTP: 368762
+[2025-05-22 16:54:39][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 16:54:39][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 16:54:51][INFO] Verifying OTP: 368762
+[2025-05-22 16:55:08][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:55:14][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:55:35][INFO] Executing query: INSERT INTO Theater (name, location) VALUES ('CGV Binh Duong', 'Nha van hoa sinh vien')
+[2025-05-22 16:55:35][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-22 16:55:42][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 16:55:54][INFO] App destroyed
+[2025-05-22 16:55:54][INFO] Closing database connection.
+[2025-05-22 16:55:54][INFO] Disconnecting from database.
+[2025-05-22 17:10:28][INFO] App initialized
+[2025-05-22 17:10:28][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 17:10:28][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 17:10:28][INFO] Setting up database...
+[2025-05-22 17:10:28][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 17:10:28][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 17:10:28][INFO] Executing script: release/init_db.sql
+[2025-05-22 17:10:43][INFO] Authenticating user: ad
+[2025-05-22 17:10:43][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:10:43][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:10:43][INFO] Parsing query result
+[2025-05-22 17:10:43][INFO] Generated OTP: 183661
+[2025-05-22 17:10:43][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 17:10:43][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 17:10:54][INFO] Verifying OTP: 183661
+[2025-05-22 17:11:00][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:11:23][INFO] Executing query: CALL CreateRoomAndSeats(11, 1, 'New rooom for 1', 99);
+[2025-05-22 17:11:26][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:11:38][INFO] Clearing session data.
+[2025-05-22 17:11:39][INFO] App destroyed
+[2025-05-22 17:11:39][INFO] Closing database connection.
+[2025-05-22 17:11:39][INFO] Disconnecting from database.
+[2025-05-22 17:17:05][INFO] App initialized
+[2025-05-22 17:17:05][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 17:17:05][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 17:17:05][INFO] Setting up database...
+[2025-05-22 17:17:05][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 17:17:05][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 17:17:05][INFO] Executing script: release/init_db.sql
+[2025-05-22 17:17:14][INFO] Authenticating user: ad
+[2025-05-22 17:17:14][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:17:14][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:17:14][INFO] Parsing query result
+[2025-05-22 17:17:14][INFO] Generated OTP: 160058
+[2025-05-22 17:17:14][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 17:17:14][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 17:17:27][INFO] Verifying OTP: 160058
+[2025-05-22 17:17:43][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:17:49][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 17:19:01][INFO] Executing query: CALL CreateRoomAndSeats(1, 1, 'hi', 200);
+[2025-05-22 17:19:06][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:19:24][INFO] Clearing session data.
+[2025-05-22 17:19:25][INFO] App destroyed
+[2025-05-22 17:19:25][INFO] Closing database connection.
+[2025-05-22 17:19:25][INFO] Disconnecting from database.
+[2025-05-22 17:24:05][INFO] App initialized
+[2025-05-22 17:24:05][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 17:24:05][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 17:24:05][INFO] Setting up database...
+[2025-05-22 17:24:05][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 17:24:05][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 17:24:05][INFO] Executing script: release/init_db.sql
+[2025-05-22 17:24:11][INFO] Authenticating user: ad
+[2025-05-22 17:24:11][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:24:11][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:24:11][INFO] Parsing query result
+[2025-05-22 17:24:11][INFO] Generated OTP: 216513
+[2025-05-22 17:24:11][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 17:24:11][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 17:24:20][INFO] Verifying OTP: 216513
+[2025-05-22 17:24:24][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:24:28][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 17:25:10][INFO] Clearing session data.
+[2025-05-22 17:25:11][INFO] App destroyed
+[2025-05-22 17:25:11][INFO] Closing database connection.
+[2025-05-22 17:25:11][INFO] Disconnecting from database.
+[2025-05-22 17:25:13][INFO] App initialized
+[2025-05-22 17:25:13][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 17:25:13][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 17:25:13][INFO] Setting up database...
+[2025-05-22 17:25:13][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 17:25:13][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 17:25:13][INFO] Executing script: release/init_db.sql
+[2025-05-22 17:25:17][INFO] Authenticating user: ad
+[2025-05-22 17:25:17][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:25:17][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:25:17][INFO] Parsing query result
+[2025-05-22 17:25:17][INFO] Generated OTP: 553657
+[2025-05-22 17:25:17][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 17:25:17][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 17:25:33][INFO] Verifying OTP: 553657
+[2025-05-22 17:25:40][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 17:25:50][INFO] Clearing session data.
+[2025-05-22 17:25:50][INFO] App destroyed
+[2025-05-22 17:25:50][INFO] Closing database connection.
+[2025-05-22 17:25:50][INFO] Disconnecting from database.
+[2025-05-22 17:26:27][INFO] App initialized
+[2025-05-22 17:26:27][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 17:26:27][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 17:26:27][INFO] Setting up database...
+[2025-05-22 17:26:27][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 17:26:27][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 17:26:27][INFO] Executing script: release/init_db.sql
+[2025-05-22 17:26:31][INFO] Authenticating user: ad
+[2025-05-22 17:26:31][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:26:31][INFO] Executing query: SELECT * FROM User WHERE username ='ad';
+[2025-05-22 17:26:31][INFO] Parsing query result
+[2025-05-22 17:26:31][INFO] Generated OTP: 264272
+[2025-05-22 17:26:31][INFO] Sending OTP to: roz50817@toaik.com
+[2025-05-22 17:26:31][INFO] Sending OTP to roz50817@toaik.com
+[2025-05-22 17:26:50][INFO] Verifying OTP: 264272
+[2025-05-22 17:26:53][INFO] Executing query: SELECT * FROM Theater
+[2025-05-22 17:27:29][INFO] Executing query: CALL CreateRoomAndSeats(0, 17, 'Hi BInh DUong', 80);
+[2025-05-22 17:27:31][INFO] Executing query: SELECT * FROM Room
+[2025-05-22 17:27:56][INFO] Clearing session data.
+[2025-05-22 17:27:56][INFO] App destroyed
+[2025-05-22 17:27:56][INFO] Closing database connection.
+[2025-05-22 17:27:56][INFO] Disconnecting from database.

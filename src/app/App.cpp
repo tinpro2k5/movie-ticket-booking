@@ -123,10 +123,10 @@ void App:: handleAdminMenuUI(wxWindow* parent){
         menu_invoker.executeCommand(2, user);
     });
     btnTheaters->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommand(3, user);
+        menu_invoker.executeCommandUI(3, user,parent);
     });
     btnRooms->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommand(4, user);
+        menu_invoker.executeCommandUI(4, user,parent);
     });
     btnLogout->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
         wxMessageBox("Logged out successfully!", "Notification", wxOK | wxICON_INFORMATION, &dlg);

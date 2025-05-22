@@ -12,5 +12,8 @@ public:
     void execute(User user) override {
         theater_service->manageTheater(user);
     }
+    void executeUI(User user, wxWindow* parent) override {
+        theater_service->manageTheaterUI(parent,user);
+    }
 };
 #endif
