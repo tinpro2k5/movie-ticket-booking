@@ -12,6 +12,9 @@ public:
     void execute(User user) override {
         service->filterMovies();
     }
+    void executeUI(User user, wxWindow* parent) override {
+        service->filterMoviesUI(user, parent);
+    }
 };
 
 #endif

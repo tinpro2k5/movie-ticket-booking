@@ -1316,3 +1316,640 @@
 [2025-05-22 18:49:44][INFO] App destroyed
 [2025-05-22 18:49:44][INFO] Closing database connection.
 [2025-05-22 18:49:44][INFO] Disconnecting from database.
+[2025-05-22 18:50:38][INFO] App initialized
+[2025-05-22 18:50:38][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:50:38][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:50:38][INFO] Setting up database...
+[2025-05-22 18:50:38][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:50:38][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:50:38][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:50:49][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:50:49][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:50:49][INFO] Parsing query result
+[2025-05-22 18:50:51][INFO] App destroyed
+[2025-05-22 18:50:51][INFO] Closing database connection.
+[2025-05-22 18:50:51][INFO] Disconnecting from database.
+[2025-05-22 18:53:28][INFO] App initialized
+[2025-05-22 18:53:28][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:53:28][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:53:28][INFO] Setting up database...
+[2025-05-22 18:53:28][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:53:28][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:53:28][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:53:48][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:53:48][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:53:48][INFO] Parsing query result
+[2025-05-22 18:53:53][INFO] App destroyed
+[2025-05-22 18:53:53][INFO] Closing database connection.
+[2025-05-22 18:53:53][INFO] Disconnecting from database.
+[2025-05-22 18:55:18][INFO] App initialized
+[2025-05-22 18:55:18][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 18:55:18][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 18:55:18][INFO] Setting up database...
+[2025-05-22 18:55:18][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 18:55:18][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 18:55:18][INFO] Executing script: release/init_db.sql
+[2025-05-22 18:55:23][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:55:23][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 18:55:23][INFO] Parsing query result
+[2025-05-22 18:55:26][INFO] App destroyed
+[2025-05-22 18:55:26][INFO] Closing database connection.
+[2025-05-22 18:55:26][INFO] Disconnecting from database.
+[2025-05-22 19:01:43][INFO] App initialized
+[2025-05-22 19:01:43][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 19:01:43][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 19:01:43][INFO] Setting up database...
+[2025-05-22 19:01:43][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 19:01:43][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 19:01:43][INFO] Executing script: release/init_db.sql
+[2025-05-22 19:01:51][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:01:51][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:01:51][INFO] Parsing query result
+[2025-05-22 19:01:56][INFO] Authenticating user: 
+[2025-05-22 19:01:56][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 19:01:56][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 19:01:56][INFO] Parsing query result
+[2025-05-22 19:02:36][INFO] App destroyed
+[2025-05-22 19:02:36][INFO] Closing database connection.
+[2025-05-22 19:02:36][INFO] Disconnecting from database.
+[2025-05-22 19:03:54][INFO] App initialized
+[2025-05-22 19:03:54][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 19:03:54][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 19:03:54][INFO] Setting up database...
+[2025-05-22 19:03:54][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 19:03:54][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 19:03:54][INFO] Executing script: release/init_db.sql
+[2025-05-22 19:04:11][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:04:11][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:04:11][INFO] Parsing query result
+[2025-05-22 19:04:14][INFO] App destroyed
+[2025-05-22 19:04:14][INFO] Closing database connection.
+[2025-05-22 19:04:14][INFO] Disconnecting from database.
+[2025-05-22 19:05:45][INFO] App initialized
+[2025-05-22 19:05:45][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 19:05:45][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 19:05:45][INFO] Setting up database...
+[2025-05-22 19:05:45][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 19:05:45][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 19:05:45][INFO] Executing script: release/init_db.sql
+[2025-05-22 19:06:28][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:06:28][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:06:28][INFO] Parsing query result
+[2025-05-22 19:06:32][INFO] Authenticating user: 
+[2025-05-22 19:06:32][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 19:06:32][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-22 19:06:32][INFO] Parsing query result
+[2025-05-22 19:06:36][INFO] App destroyed
+[2025-05-22 19:06:36][INFO] Closing database connection.
+[2025-05-22 19:06:36][INFO] Disconnecting from database.
+[2025-05-22 19:09:20][INFO] App initialized
+[2025-05-22 19:09:20][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 19:09:20][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 19:09:20][INFO] Setting up database...
+[2025-05-22 19:09:20][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 19:09:20][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 19:09:20][INFO] Executing script: release/init_db.sql
+[2025-05-22 19:09:23][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:09:23][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:09:23][INFO] Parsing query result
+[2025-05-22 19:09:26][INFO] App destroyed
+[2025-05-22 19:09:26][INFO] Closing database connection.
+[2025-05-22 19:09:26][INFO] Disconnecting from database.
+[2025-05-22 19:10:41][INFO] App initialized
+[2025-05-22 19:10:41][INFO] Connecting to database: 127.0.0.1
+[2025-05-22 19:10:41][INFO] Connecting to127.0.0.1:3306
+[2025-05-22 19:10:41][INFO] Setting up database...
+[2025-05-22 19:10:41][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-22 19:10:41][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-22 19:10:41][INFO] Executing script: release/init_db.sql
+[2025-05-22 19:10:57][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:10:57][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-22 19:10:57][INFO] Parsing query result
+[2025-05-22 19:11:05][INFO] App destroyed
+[2025-05-22 19:11:05][INFO] Closing database connection.
+[2025-05-22 19:11:05][INFO] Disconnecting from database.
+[2025-05-23 13:39:23][INFO] App initialized
+[2025-05-23 13:39:23][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 13:39:23][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 13:39:23][ERROR] mysql_real_connect() failed: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[2025-05-23 13:39:23][INFO] App destroyed
+[2025-05-23 17:10:24][INFO] App initialized
+[2025-05-23 17:10:24][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:10:24][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:10:24][INFO] Setting up database...
+[2025-05-23 17:10:24][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:10:24][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:10:24][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:10:52][INFO] Executing query: SELECT * FROM User WHERE username ='usr' OR email ='muf48192@jioso.com';
+[2025-05-23 17:10:52][INFO] Executing query: SELECT * FROM User WHERE username ='usr' OR email ='muf48192@jioso.com';
+[2025-05-23 17:10:52][INFO] Parsing query result
+[2025-05-23 17:10:52][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:10:52][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:10:52][INFO] Parsing query result
+[2025-05-23 17:10:52][INFO] Creating user: usr
+[2025-05-23 17:10:52][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('usr', '10159970873491820195', 'muf48192@jioso.com', '1', 1);
+[2025-05-23 17:10:52][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('usr', '10159970873491820195', 'muf48192@jioso.com', '1', 1);
+[2025-05-23 17:10:52][INFO] Generated OTP: 957673
+[2025-05-23 17:10:52][INFO] Sending OTP to: muf48192@jioso.com
+[2025-05-23 17:10:52][INFO] Sending OTP to muf48192@jioso.com
+[2025-05-23 17:11:22][INFO] Authenticating user: usr
+[2025-05-23 17:11:22][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:11:22][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:11:22][INFO] Parsing query result
+[2025-05-23 17:11:22][INFO] Generated OTP: 508744
+[2025-05-23 17:11:22][INFO] Sending OTP to: muf48192@jioso.com
+[2025-05-23 17:11:22][INFO] Sending OTP to muf48192@jioso.com
+[2025-05-23 17:11:35][INFO] Verifying OTP: 508744
+[2025-05-23 17:11:48][INFO] Clearing session data.
+[2025-05-23 17:11:50][INFO] App destroyed
+[2025-05-23 17:11:50][INFO] Closing database connection.
+[2025-05-23 17:11:50][INFO] Disconnecting from database.
+[2025-05-23 17:12:16][INFO] App initialized
+[2025-05-23 17:12:16][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:12:16][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:12:16][INFO] Setting up database...
+[2025-05-23 17:12:16][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:12:16][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:12:16][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:12:30][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='muf48192@jioso.com';
+[2025-05-23 17:12:30][INFO] Executing query: SELECT * FROM User WHERE username ='ad' OR email ='muf48192@jioso.com';
+[2025-05-23 17:12:30][INFO] Parsing query result
+[2025-05-23 17:12:30][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:12:30][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:12:30][INFO] Parsing query result
+[2025-05-23 17:12:30][INFO] Creating user: ad
+[2025-05-23 17:12:30][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('ad', '10159970873491820195', 'muf48192@jioso.com', '1', 1);
+[2025-05-23 17:12:30][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('ad', '10159970873491820195', 'muf48192@jioso.com', '1', 1);
+[2025-05-23 17:12:30][INFO] Generated OTP: 194124
+[2025-05-23 17:12:30][INFO] Sending OTP to: muf48192@jioso.com
+[2025-05-23 17:12:30][INFO] Sending OTP to muf48192@jioso.com
+[2025-05-23 17:12:58][INFO] Executing query: SELECT * FROM User WHERE username ='usr' OR email ='vdo32013@jioso.com';
+[2025-05-23 17:12:58][INFO] Executing query: SELECT * FROM User WHERE username ='usr' OR email ='vdo32013@jioso.com';
+[2025-05-23 17:12:58][INFO] Parsing query result
+[2025-05-23 17:12:58][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:12:58][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:12:58][INFO] Parsing query result
+[2025-05-23 17:12:58][INFO] Creating user: usr
+[2025-05-23 17:12:58][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('usr', '10159970873491820195', 'vdo32013@jioso.com', '1', 0);
+[2025-05-23 17:12:58][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('usr', '10159970873491820195', 'vdo32013@jioso.com', '1', 0);
+[2025-05-23 17:12:58][INFO] Generated OTP: 366537
+[2025-05-23 17:12:58][INFO] Sending OTP to: vdo32013@jioso.com
+[2025-05-23 17:12:58][INFO] Sending OTP to vdo32013@jioso.com
+[2025-05-23 17:13:14][INFO] Authenticating user: usr
+[2025-05-23 17:13:14][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:13:14][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:13:14][INFO] Parsing query result
+[2025-05-23 17:13:14][INFO] Generated OTP: 974123
+[2025-05-23 17:13:14][INFO] Sending OTP to: vdo32013@jioso.com
+[2025-05-23 17:13:14][INFO] Sending OTP to vdo32013@jioso.com
+[2025-05-23 17:13:33][INFO] Verifying OTP: 974123
+[2025-05-23 17:13:43][INFO] App destroyed
+[2025-05-23 17:13:43][INFO] Closing database connection.
+[2025-05-23 17:13:43][INFO] Disconnecting from database.
+[2025-05-23 17:26:57][INFO] App initialized
+[2025-05-23 17:26:57][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:26:57][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:26:57][INFO] Setting up database...
+[2025-05-23 17:26:57][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:26:57][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:26:57][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:27:10][INFO] Authenticating user: 
+[2025-05-23 17:27:10][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-23 17:27:10][INFO] Executing query: SELECT * FROM User WHERE username ='';
+[2025-05-23 17:27:10][INFO] Parsing query result
+[2025-05-23 17:27:22][INFO] Executing query: SELECT * FROM User WHERE username ='u' OR email ='rbg95082@jioso.com';
+[2025-05-23 17:27:22][INFO] Executing query: SELECT * FROM User WHERE username ='u' OR email ='rbg95082@jioso.com';
+[2025-05-23 17:27:22][INFO] Parsing query result
+[2025-05-23 17:27:22][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:27:22][INFO] Executing query: SELECT * FROM User WHERE isAdmin = 1;
+[2025-05-23 17:27:22][INFO] Parsing query result
+[2025-05-23 17:27:22][INFO] Creating user: u
+[2025-05-23 17:27:22][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('u', '10159970873491820195', 'rbg95082@jioso.com', '1', 0);
+[2025-05-23 17:27:22][INFO] Executing query: INSERT INTO User (username, password, email, phone, isAdmin) VALUES ('u', '10159970873491820195', 'rbg95082@jioso.com', '1', 0);
+[2025-05-23 17:27:22][INFO] Generated OTP: 189680
+[2025-05-23 17:27:22][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:27:22][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:28:22][INFO] Authenticating user: u
+[2025-05-23 17:28:22][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:28:22][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:28:22][INFO] Parsing query result
+[2025-05-23 17:28:22][INFO] Generated OTP: 262360
+[2025-05-23 17:28:22][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:28:22][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:28:33][INFO] Verifying OTP: 262360
+[2025-05-23 17:30:06][INFO] App destroyed
+[2025-05-23 17:30:06][INFO] Closing database connection.
+[2025-05-23 17:30:06][INFO] Disconnecting from database.
+[2025-05-23 17:30:41][INFO] App initialized
+[2025-05-23 17:30:41][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:30:41][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:30:41][INFO] Setting up database...
+[2025-05-23 17:30:41][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:30:41][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:30:41][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:30:45][INFO] Authenticating user: u
+[2025-05-23 17:30:45][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:30:45][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:30:45][INFO] Parsing query result
+[2025-05-23 17:30:45][INFO] Generated OTP: 993410
+[2025-05-23 17:30:45][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:30:45][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:30:56][INFO] Verifying OTP: 993410
+[2025-05-23 17:31:49][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:32:06][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:32:07][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-23 17:32:07][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:32:08][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-23 17:32:08][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 19:00:00' AND ticketID IS NULL;
+[2025-05-23 17:32:08][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 9
+[2025-05-23 17:32:11][INFO] Clearing session data.
+[2025-05-23 17:32:18][INFO] Authenticating user: u
+[2025-05-23 17:32:18][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:32:18][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:32:18][INFO] Parsing query result
+[2025-05-23 17:32:18][INFO] Generated OTP: 419972
+[2025-05-23 17:32:18][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:32:18][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:32:32][INFO] Verifying OTP: 419972
+[2025-05-23 17:32:39][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 9
+[2025-05-23 17:32:43][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:33:06][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:33:13][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 4
+[2025-05-23 17:33:21][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:33:25][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-23 17:33:27][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 14:00:00' AND ticketID IS NULL;
+[2025-05-23 17:33:35][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 9
+[2025-05-23 17:33:38][INFO] Clearing session data.
+[2025-05-23 17:33:40][INFO] App destroyed
+[2025-05-23 17:33:40][INFO] Closing database connection.
+[2025-05-23 17:33:40][INFO] Disconnecting from database.
+[2025-05-23 17:41:20][INFO] App initialized
+[2025-05-23 17:41:20][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:41:20][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:41:20][INFO] Setting up database...
+[2025-05-23 17:41:20][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:41:20][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:41:20][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:41:24][INFO] Authenticating user: u
+[2025-05-23 17:41:24][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:41:24][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:41:24][INFO] Parsing query result
+[2025-05-23 17:41:24][INFO] Generated OTP: 869411
+[2025-05-23 17:41:24][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:41:24][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:41:34][INFO] Verifying OTP: 869411
+[2025-05-23 17:41:36][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:43:07][INFO] Clearing session data.
+[2025-05-23 17:43:08][INFO] App destroyed
+[2025-05-23 17:43:08][INFO] Closing database connection.
+[2025-05-23 17:43:08][INFO] Disconnecting from database.
+[2025-05-23 17:45:55][INFO] App initialized
+[2025-05-23 17:45:55][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:45:55][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:45:55][INFO] Setting up database...
+[2025-05-23 17:45:55][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:45:55][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:45:55][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:45:59][INFO] Authenticating user: u
+[2025-05-23 17:45:59][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:45:59][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:45:59][INFO] Parsing query result
+[2025-05-23 17:45:59][INFO] Generated OTP: 982073
+[2025-05-23 17:45:59][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:45:59][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:46:09][INFO] Verifying OTP: 982073
+[2025-05-23 17:46:13][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:46:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:50:33][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:50:35][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-23 17:50:37][INFO] Clearing session data.
+[2025-05-23 17:50:39][INFO] App destroyed
+[2025-05-23 17:50:39][INFO] Closing database connection.
+[2025-05-23 17:50:39][INFO] Disconnecting from database.
+[2025-05-23 17:51:50][INFO] App initialized
+[2025-05-23 17:51:50][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:51:50][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:51:50][INFO] Setting up database...
+[2025-05-23 17:51:50][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:51:50][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:51:50][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:52:09][INFO] Authenticating user: u
+[2025-05-23 17:52:09][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:52:09][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:52:09][INFO] Parsing query result
+[2025-05-23 17:52:09][INFO] Generated OTP: 342532
+[2025-05-23 17:52:09][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:52:09][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:52:20][INFO] Verifying OTP: 342532
+[2025-05-23 17:54:15][INFO] Clearing session data.
+[2025-05-23 17:54:16][INFO] App destroyed
+[2025-05-23 17:54:16][INFO] Closing database connection.
+[2025-05-23 17:54:16][INFO] Disconnecting from database.
+[2025-05-23 17:55:10][INFO] App initialized
+[2025-05-23 17:55:10][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:55:10][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:55:10][INFO] Setting up database...
+[2025-05-23 17:55:10][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:55:10][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:55:10][INFO] Executing script: release/init_db.sql
+[2025-05-23 17:55:15][INFO] Authenticating user: u
+[2025-05-23 17:55:15][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:55:15][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:55:15][INFO] Parsing query result
+[2025-05-23 17:55:15][INFO] Generated OTP: 637664
+[2025-05-23 17:55:15][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:55:15][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:55:27][INFO] Verifying OTP: 637664
+[2025-05-23 17:55:55][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-23 17:56:02][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 2
+[2025-05-23 17:56:48][INFO] Clearing session data.
+[2025-05-23 17:56:49][INFO] App destroyed
+[2025-05-23 17:56:49][INFO] Closing database connection.
+[2025-05-23 17:56:49][INFO] Disconnecting from database.
+[2025-05-23 18:09:13][INFO] App initialized
+[2025-05-23 18:09:13][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:09:13][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:09:13][INFO] Setting up database...
+[2025-05-23 18:09:13][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:09:13][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:09:13][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:09:24][INFO] Authenticating user: u
+[2025-05-23 18:09:24][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:09:24][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:09:24][INFO] Parsing query result
+[2025-05-23 18:09:24][INFO] Generated OTP: 430504
+[2025-05-23 18:09:24][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:09:24][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:09:36][INFO] Verifying OTP: 430504
+[2025-05-23 18:09:39][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:09:45][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:10:20][INFO] Clearing session data.
+[2025-05-23 18:10:21][INFO] App destroyed
+[2025-05-23 18:10:21][INFO] Closing database connection.
+[2025-05-23 18:10:21][INFO] Disconnecting from database.
+[2025-05-23 18:10:43][INFO] App initialized
+[2025-05-23 18:10:43][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:10:43][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:10:43][INFO] Setting up database...
+[2025-05-23 18:10:43][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:10:43][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:10:43][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:10:48][INFO] Authenticating user: u
+[2025-05-23 18:10:48][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:10:48][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:10:48][INFO] Parsing query result
+[2025-05-23 18:10:48][INFO] Generated OTP: 162656
+[2025-05-23 18:10:48][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:10:48][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:11:02][INFO] Verifying OTP: 162656
+[2025-05-23 18:11:05][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:11:15][INFO] Clearing session data.
+[2025-05-23 18:11:16][INFO] App destroyed
+[2025-05-23 18:11:16][INFO] Closing database connection.
+[2025-05-23 18:11:16][INFO] Disconnecting from database.
+[2025-05-23 18:16:30][INFO] App initialized
+[2025-05-23 18:16:30][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:16:30][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:16:30][INFO] Setting up database...
+[2025-05-23 18:16:30][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:16:30][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:16:30][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:16:33][INFO] Authenticating user: u
+[2025-05-23 18:16:33][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:16:33][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:16:33][INFO] Parsing query result
+[2025-05-23 18:16:33][INFO] Generated OTP: 151161
+[2025-05-23 18:16:33][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:16:33][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:16:47][INFO] Verifying OTP: 151161
+[2025-05-23 18:16:49][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:17:19][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'I%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:17:28][INFO] Clearing session data.
+[2025-05-23 18:17:29][INFO] App destroyed
+[2025-05-23 18:17:29][INFO] Closing database connection.
+[2025-05-23 18:17:29][INFO] Disconnecting from database.
+[2025-05-23 18:18:08][INFO] App initialized
+[2025-05-23 18:18:08][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:18:08][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:18:08][INFO] Setting up database...
+[2025-05-23 18:18:08][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:18:08][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:18:08][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:18:13][INFO] Authenticating user: u
+[2025-05-23 18:18:13][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:18:13][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:18:13][INFO] Parsing query result
+[2025-05-23 18:18:13][INFO] Generated OTP: 325963
+[2025-05-23 18:18:13][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:18:13][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:18:26][INFO] Verifying OTP: 325963
+[2025-05-23 18:18:43][INFO] Clearing session data.
+[2025-05-23 18:18:44][INFO] App destroyed
+[2025-05-23 18:18:44][INFO] Closing database connection.
+[2025-05-23 18:18:44][INFO] Disconnecting from database.
+[2025-05-23 18:21:34][INFO] App initialized
+[2025-05-23 18:21:34][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:21:34][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:21:34][INFO] Setting up database...
+[2025-05-23 18:21:34][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:21:34][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:21:34][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:21:40][INFO] Authenticating user: u
+[2025-05-23 18:21:40][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:21:40][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:21:40][INFO] Parsing query result
+[2025-05-23 18:21:40][INFO] Generated OTP: 820686
+[2025-05-23 18:21:40][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:21:40][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:21:51][INFO] Verifying OTP: 820686
+[2025-05-23 18:21:53][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:22:01][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Animation%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:22:03][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Action%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:22:06][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Romance%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:22:09][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Sci-Fi%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:22:19][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'I%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:22:29][INFO] App destroyed
+[2025-05-23 18:22:29][INFO] Closing database connection.
+[2025-05-23 18:22:29][INFO] Disconnecting from database.
+[2025-05-23 18:30:25][INFO] App initialized
+[2025-05-23 18:30:25][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:30:25][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:30:25][INFO] Setting up database...
+[2025-05-23 18:30:25][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:30:25][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:30:25][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:30:38][INFO] Authenticating user: u
+[2025-05-23 18:30:38][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:30:38][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:30:38][INFO] Parsing query result
+[2025-05-23 18:30:38][INFO] Generated OTP: 841099
+[2025-05-23 18:30:38][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:30:38][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:30:50][INFO] Verifying OTP: 841099
+[2025-05-23 18:30:54][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:30:59][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Action%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:31:04][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Animation%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:31:08][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Romance%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:31:10][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Sci-Fi%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:31:20][INFO] Clearing session data.
+[2025-05-23 18:31:21][INFO] App destroyed
+[2025-05-23 18:31:21][INFO] Closing database connection.
+[2025-05-23 18:31:21][INFO] Disconnecting from database.
+[2025-05-23 18:34:06][INFO] App initialized
+[2025-05-23 18:34:06][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:34:06][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:34:06][INFO] Setting up database...
+[2025-05-23 18:34:06][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:34:06][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:34:06][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:34:10][INFO] Authenticating user: u
+[2025-05-23 18:34:10][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:34:10][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:34:10][INFO] Parsing query result
+[2025-05-23 18:34:10][INFO] Generated OTP: 557067
+[2025-05-23 18:34:10][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:34:10][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:34:24][INFO] Verifying OTP: 557067
+[2025-05-23 18:34:26][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:34:44][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:41:02][INFO] Clearing session data.
+[2025-05-23 18:41:03][INFO] App destroyed
+[2025-05-23 18:41:03][INFO] Closing database connection.
+[2025-05-23 18:41:03][INFO] Disconnecting from database.
+[2025-05-23 18:41:42][INFO] App initialized
+[2025-05-23 18:41:42][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:41:42][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:41:42][INFO] Setting up database...
+[2025-05-23 18:41:42][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:41:42][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:41:42][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:41:48][INFO] Authenticating user: u
+[2025-05-23 18:41:48][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:41:48][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:41:48][INFO] Parsing query result
+[2025-05-23 18:41:48][INFO] Generated OTP: 659003
+[2025-05-23 18:41:48][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:41:48][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:42:02][INFO] Verifying OTP: 659003
+[2025-05-23 18:42:04][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:42:25][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'Inception%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:42:26][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'Titanic%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:42:37][INFO] Clearing session data.
+[2025-05-23 18:42:38][INFO] App destroyed
+[2025-05-23 18:42:38][INFO] Closing database connection.
+[2025-05-23 18:42:38][INFO] Disconnecting from database.
+[2025-05-23 18:45:23][INFO] App initialized
+[2025-05-23 18:45:23][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:45:23][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:45:23][INFO] Setting up database...
+[2025-05-23 18:45:23][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:45:23][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:45:23][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:45:27][INFO] Authenticating user: u
+[2025-05-23 18:45:27][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:45:27][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:45:27][INFO] Parsing query result
+[2025-05-23 18:45:27][INFO] Generated OTP: 275182
+[2025-05-23 18:45:27][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:45:27][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:45:39][INFO] Verifying OTP: 275182
+[2025-05-23 18:45:41][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 18:46:28][INFO] Clearing session data.
+[2025-05-23 18:46:29][INFO] App destroyed
+[2025-05-23 18:46:29][INFO] Closing database connection.
+[2025-05-23 18:46:29][INFO] Disconnecting from database.
+[2025-05-23 18:47:52][INFO] App initialized
+[2025-05-23 18:47:52][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:47:52][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:47:52][INFO] Setting up database...
+[2025-05-23 18:47:52][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:47:52][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:47:52][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:47:54][INFO] App destroyed
+[2025-05-23 18:47:54][INFO] Closing database connection.
+[2025-05-23 18:47:54][INFO] Disconnecting from database.
+[2025-05-23 18:48:26][INFO] App initialized
+[2025-05-23 18:48:26][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:48:26][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:48:26][INFO] Setting up database...
+[2025-05-23 18:48:26][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:48:26][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:48:26][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:48:34][INFO] Authenticating user: u
+[2025-05-23 18:48:34][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:48:34][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:48:34][INFO] Parsing query result
+[2025-05-23 18:48:34][INFO] Generated OTP: 709648
+[2025-05-23 18:48:34][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:48:34][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:48:49][INFO] Verifying OTP: 709648
+[2025-05-23 18:49:02][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-23 18:49:13][INFO] Clearing session data.
+[2025-05-23 18:49:16][INFO] App destroyed
+[2025-05-23 18:49:16][INFO] Closing database connection.
+[2025-05-23 18:49:16][INFO] Disconnecting from database.
+[2025-05-23 18:52:25][INFO] App initialized
+[2025-05-23 18:52:25][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:52:25][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:52:25][INFO] Setting up database...
+[2025-05-23 18:52:25][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:52:25][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:52:25][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:52:34][INFO] Authenticating user: u
+[2025-05-23 18:52:34][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:52:34][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:52:34][INFO] Parsing query result
+[2025-05-23 18:52:34][INFO] Generated OTP: 401596
+[2025-05-23 18:52:34][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:52:34][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:52:42][INFO] Verifying OTP: 401596
+[2025-05-23 18:52:54][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'Sc%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:53:05][INFO] Clearing session data.
+[2025-05-23 18:53:04][INFO] App destroyed
+[2025-05-23 18:53:04][INFO] Closing database connection.
+[2025-05-23 18:53:04][INFO] Disconnecting from database.
+[2025-05-23 18:55:12][INFO] App initialized
+[2025-05-23 18:55:12][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:55:12][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:55:12][INFO] Setting up database...
+[2025-05-23 18:55:12][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:55:12][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:55:12][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:55:18][INFO] Authenticating user: u
+[2025-05-23 18:55:18][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:55:18][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:55:18][INFO] Parsing query result
+[2025-05-23 18:55:18][INFO] Generated OTP: 756070
+[2025-05-23 18:55:18][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:55:18][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:55:28][INFO] Verifying OTP: 756070
+[2025-05-23 18:55:41][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'i%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:57:07][INFO] Clearing session data.
+[2025-05-23 18:57:08][INFO] App destroyed
+[2025-05-23 18:57:08][INFO] Closing database connection.
+[2025-05-23 18:57:08][INFO] Disconnecting from database.
+[2025-05-23 18:57:41][INFO] App initialized
+[2025-05-23 18:57:41][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 18:57:41][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 18:57:41][INFO] Setting up database...
+[2025-05-23 18:57:41][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 18:57:41][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 18:57:41][INFO] Executing script: release/init_db.sql
+[2025-05-23 18:57:45][INFO] Authenticating user: u
+[2025-05-23 18:57:45][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:57:45][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 18:57:45][INFO] Parsing query result
+[2025-05-23 18:57:45][INFO] Generated OTP: 860877
+[2025-05-23 18:57:45][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 18:57:45][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 18:57:54][INFO] Verifying OTP: 860877
+[2025-05-23 18:58:02][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'i%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:58:10][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE 'sc%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:58:12][INFO] Executing query: SELECT * FROM Movie WHERE genre LIKE '1%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:58:15][INFO] Executing query: SELECT * FROM Movie WHERE movieID = 1
+[2025-05-23 18:58:19][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE '1%' COLLATE utf8mb4_general_ci
+[2025-05-23 18:58:26][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 9
+[2025-05-23 18:58:33][INFO] Clearing session data.
+[2025-05-23 18:58:34][INFO] App destroyed
+[2025-05-23 18:58:34][INFO] Closing database connection.
+[2025-05-23 18:58:34][INFO] Disconnecting from database.

@@ -11,6 +11,9 @@ public:
     void execute(User user) override {
         service->getListMovie();
     }
+    void executeUI(User user, wxWindow* parent) override {
+        service->getListMovieUI(user, parent);
+    }
 };
 
 #endif

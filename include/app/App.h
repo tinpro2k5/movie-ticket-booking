@@ -64,7 +64,7 @@ public:
     void handleUserMenu();
     void handleAdminMenu();
     void handleAdminMenuUI(wxWindow* parent);
-    
+    void handleUserMenuUI(wxWindow* parent);
 
     int run();
     

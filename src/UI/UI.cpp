@@ -100,24 +100,53 @@ public:
 };
 
 void MainFrame::OnRegister(wxCommandEvent&) {
-    wxDialog dlg(this, wxID_ANY, "Register");
+    this->Hide();
+    wxDialog dlg(this, wxID_ANY, "Register", wxDefaultPosition, wxSize(420, 420));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
 
+    // Title
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "Create Your Account");
+    wxFont titleFont(wxFontInfo(18).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(44, 62, 80));
+    vbox->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
+
+    // Username
+    wxStaticText* lblUser = new wxStaticText(&dlg, wxID_ANY, "Username:");
     wxTextCtrl* usernameCtrl = new wxTextCtrl(&dlg, wxID_ANY);
+    vbox->Add(lblUser, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(usernameCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Password
+    wxStaticText* lblPass = new wxStaticText(&dlg, wxID_ANY, "Password:");
     wxTextCtrl* passwordCtrl = new wxTextCtrl(&dlg, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxTE_PASSWORD);
+    vbox->Add(lblPass, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(passwordCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Phone
+    wxStaticText* lblPhone = new wxStaticText(&dlg, wxID_ANY, "Phone:");
     wxTextCtrl* phoneCtrl = new wxTextCtrl(&dlg, wxID_ANY);
+    vbox->Add(lblPhone, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(phoneCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Email
+    wxStaticText* lblEmail = new wxStaticText(&dlg, wxID_ANY, "Email:");
     wxTextCtrl* emailCtrl = new wxTextCtrl(&dlg, wxID_ANY);
+    vbox->Add(lblEmail, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(emailCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
 
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Username:"), 0, wxALL, 5);
-    vbox->Add(usernameCtrl, 0, wxEXPAND | wxALL, 5);
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Password:"), 0, wxALL, 5);
-    vbox->Add(passwordCtrl, 0, wxEXPAND | wxALL, 5);
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Phone:"), 0, wxALL, 5);
-    vbox->Add(phoneCtrl, 0, wxEXPAND | wxALL, 5);
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Email:"), 0, wxALL, 5);
-    vbox->Add(emailCtrl, 0, wxEXPAND | wxALL, 5);
+    // Register button
+    wxButton* btnRegister = new wxButton(&dlg, wxID_OK, "Register");
+    wxFont btnFont(wxFontInfo(14).Bold().FaceName("Arial"));
+    btnRegister->SetFont(btnFont);
+    btnRegister->SetBackgroundColour(wxColour(46, 204, 113));
+    btnRegister->SetForegroundColour(*wxWHITE);
+    btnRegister->SetMinSize(wxSize(-1, 44));
+    btnRegister->SetWindowStyleFlag(wxBORDER_NONE);
 
-    vbox->Add(new wxButton(&dlg, wxID_OK, "Register"), 0, wxALIGN_CENTER | wxALL, 10);
+    vbox->Add(btnRegister, 0, wxALIGN_CENTER | wxALL, 18);
 
     dlg.SetSizerAndFit(vbox);
 
@@ -130,29 +159,55 @@ void MainFrame::OnRegister(wxCommandEvent&) {
 
         app.handleRegisterUI(user, this);
     }
+    this->Show();
 }
+
 void MainFrame::OnLogin(wxCommandEvent&) {
-    wxDialog dlg(this, wxID_ANY, "Login");
-    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+    this->Hide();
+    wxDialog dlg(this, wxID_ANY, "Login", wxDefaultPosition, wxSize(420, 320));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+    
+    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);  
 
+    // Title
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "Sign In");
+    wxFont titleFont(wxFontInfo(18).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(44, 62, 80));
+    vbox->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 24);
+
+    // Username
+    wxStaticText* lblUser = new wxStaticText(&dlg, wxID_ANY, "Username:");
     wxTextCtrl* usernameCtrl = new wxTextCtrl(&dlg, wxID_ANY);
+    vbox->Add(lblUser, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(usernameCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Password
+    wxStaticText* lblPass = new wxStaticText(&dlg, wxID_ANY, "Password:");
     wxTextCtrl* passwordCtrl = new wxTextCtrl(&dlg, wxID_ANY, "", wxDefaultPosition, wxDefaultSize, wxTE_PASSWORD);
+    vbox->Add(lblPass, 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    vbox->Add(passwordCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
 
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Username:"), 0, wxALL, 5);
-    vbox->Add(usernameCtrl, 0, wxEXPAND | wxALL, 5);
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Password:"), 0, wxALL, 5);
-    vbox->Add(passwordCtrl, 0, wxEXPAND | wxALL, 5);
+    // Login button
+    wxButton* btnLogin = new wxButton(&dlg, wxID_OK, "Login");
+    wxFont btnFont(wxFontInfo(14).Bold().FaceName("Arial"));
+    btnLogin->SetFont(btnFont);
+    btnLogin->SetBackgroundColour(wxColour(52, 152, 219));
+    btnLogin->SetForegroundColour(*wxWHITE);
+    btnLogin->SetMinSize(wxSize(-1, 44));
+    btnLogin->SetWindowStyleFlag(wxBORDER_NONE);
 
-    vbox->Add(new wxButton(&dlg, wxID_OK, "Login"), 0, wxALIGN_CENTER | wxALL, 10);
+    vbox->Add(btnLogin, 0, wxALIGN_CENTER | wxALL, 18);
 
     dlg.SetSizerAndFit(vbox);
 
     if (dlg.ShowModal() == wxID_OK) {
         std::string username = usernameCtrl->GetValue().ToStdString();
         std::string password = passwordCtrl->GetValue().ToStdString();
-        
         app.handleLoginUI(username, password, this);
     }
+    this->Show();
 }
 class MyApp : public wxApp {
 public:

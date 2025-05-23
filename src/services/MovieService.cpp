@@ -20,6 +20,104 @@ void MovieService::getListMovie(){
     }
     printMoviesTable(movies);
 }
+
+void MovieService::getListMovieUI(User user, wxWindow* parent) {
+    Result<vector<Movie>> result = movie_repos->findAll();
+    if (!result.success || result.data.empty()) {
+        wxMessageBox("No movies found!", "Info", wxOK | wxICON_INFORMATION, parent);
+        return;
+    }
+
+    wxDialog dlg(parent, wxID_ANY, "🎬 Movie List", wxDefaultPosition, wxSize(1100, 500));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+
+    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+
+    // Title
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "🎬 Movie List");
+    wxFont titleFont(wxFontInfo(22).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(44, 62, 80));
+    mainSizer->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
+
+    // Subtitle
+    wxStaticText* subtitle = new wxStaticText(&dlg, wxID_ANY, "Double-click a movie to view its description");
+    wxFont subFont(wxFontInfo(13).Italic().FaceName("Arial"));
+    subtitle->SetFont(subFont);
+    subtitle->SetForegroundColour(wxColour(52, 152, 219));
+    mainSizer->Add(subtitle, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+
+    // Movie List
+    wxListCtrl* listCtrl = new wxListCtrl(&dlg, wxID_ANY, wxDefaultPosition, wxSize(1000, 320), wxLC_REPORT | wxLC_SINGLE_SEL | wxBORDER_SIMPLE);
+    listCtrl->SetBackgroundColour(wxColour(255, 255, 255));
+    listCtrl->SetTextColour(wxColour(44, 62, 80));
+    listCtrl->SetFont(wxFont(wxFontInfo(12).FaceName("Arial")));
+
+    // Add columns
+    listCtrl->InsertColumn(0, "ID", wxLIST_FORMAT_LEFT, 50);
+    listCtrl->InsertColumn(1, "Name", wxLIST_FORMAT_LEFT, 180);
+    listCtrl->InsertColumn(2, "Genre", wxLIST_FORMAT_LEFT, 100);
+    listCtrl->InsertColumn(3, "Duration", wxLIST_FORMAT_LEFT, 80);
+    listCtrl->InsertColumn(4, "Rating", wxLIST_FORMAT_LEFT, 70);
+    listCtrl->InsertColumn(5, "Price", wxLIST_FORMAT_LEFT, 80);
+    listCtrl->InsertColumn(6, "Description", wxLIST_FORMAT_LEFT, 400);
+
+    // Add data
+    long idx = 0;
+    for (const auto& m : result.data) {
+        long item = listCtrl->InsertItem(idx, wxString::Format("%d", m.getMovieId()));
+        listCtrl->SetItem(item, 1, m.getMovieTitle());
+        listCtrl->SetItem(item, 2, m.getMovieGenre());
+        listCtrl->SetItem(item, 3, wxString::Format("%d min", m.getMovieDuration()));
+        listCtrl->SetItem(item, 4, wxString::Format("%.1f", m.getMovieRating()));
+        listCtrl->SetItem(item, 5, wxString::Format("%d", m.getPrice()));
+        listCtrl->SetItem(item, 6, m.getMovieDescription());
+        listCtrl->SetItemData(item, idx);
+        ++idx;
+    }
+
+    // Alternate row color for better readability
+    for (long i = 0; i < listCtrl->GetItemCount(); ++i) {
+        if (i % 2 == 1) {
+            listCtrl->SetItemBackgroundColour(i, wxColour(240, 244, 255));
+        }
+    }
+
+    // Show description in a popup when double-click
+    listCtrl->Bind(wxEVT_LIST_ITEM_ACTIVATED, [&](wxListEvent& event) {
+        long item = event.GetIndex();
+        wxString name = listCtrl->GetItemText(item, 1);
+        wxString desc = listCtrl->GetItemText(item, 6);
+        wxMessageBox(desc, "Description: " + name, wxOK | wxICON_INFORMATION, &dlg);
+    });
+
+    mainSizer->Add(listCtrl, 1, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 18);
+
+    // Close button
+    wxButton* btnClose = new wxButton(&dlg, wxID_OK, "Close");
+    btnClose->SetFont(wxFontInfo(14).Bold().FaceName("Arial"));
+    btnClose->SetBackgroundColour(wxColour(231, 76, 60));
+    btnClose->SetForegroundColour(*wxWHITE);
+    btnClose->SetMinSize(wxSize(120, 40));
+    btnClose->SetWindowStyleFlag(wxBORDER_NONE);
+
+    mainSizer->Add(btnClose, 0, wxALIGN_CENTER | wxBOTTOM, 18);
+
+    btnClose->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        dlg.EndModal(wxID_OK);
+    });
+
+    // Footer
+    wxStaticText* footer = new wxStaticText(&dlg, wxID_ANY, "© 2025 Movie Ticket Booking | Designed by You");
+    footer->SetForegroundColour(wxColour(160, 160, 160));
+    wxFont footerFont(wxFontInfo(10).FaceName("Arial"));
+    footer->SetFont(footerFont);
+    mainSizer->Add(footer, 0, wxALIGN_CENTER | wxBOTTOM, 8);
+
+    dlg.SetSizerAndFit(mainSizer);
+    dlg.ShowModal();
+}
 void MovieService::filterMovies(){
     cout << "==========Lọc Phim==========\n";
     cout << "1. ID \n";
@@ -82,6 +180,129 @@ void MovieService::filterMovies(){
             break;
         }
     }
+}
+void MovieService::filterMoviesUI(User user, wxWindow* parent) {
+    wxDialog dlg(parent, wxID_ANY, "Filter Movies", wxDefaultPosition, wxSize(500, 320));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+
+    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+
+    // Title
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "Filter Movies");
+    wxFont titleFont(wxFontInfo(18).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(44, 62, 80));
+    mainSizer->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
+
+    // Filter options
+    wxArrayString choices;
+    choices.Add("By ID");
+    choices.Add("By Genre");
+    choices.Add("By Name");
+    wxChoice* choiceCtrl = new wxChoice(&dlg, wxID_ANY, wxDefaultPosition, wxDefaultSize, choices);
+    choiceCtrl->SetSelection(0);
+
+    mainSizer->Add(new wxStaticText(&dlg, wxID_ANY, "Choose filter type:"), 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    mainSizer->Add(choiceCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Input field
+    wxTextCtrl* inputCtrl = new wxTextCtrl(&dlg, wxID_ANY);
+    mainSizer->Add(new wxStaticText(&dlg, wxID_ANY, "Enter value:"), 0, wxLEFT | wxRIGHT | wxTOP, 18);
+    mainSizer->Add(inputCtrl, 0, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 10);
+
+    // Result list
+    wxListCtrl* listCtrl = new wxListCtrl(&dlg, wxID_ANY, wxDefaultPosition, wxSize(450, 120), wxLC_REPORT | wxLC_SINGLE_SEL);
+        listCtrl->InsertColumn(0, "ID", wxLIST_FORMAT_LEFT, 40);
+        listCtrl->InsertColumn(1, "Name", wxLIST_FORMAT_LEFT, 150);
+        listCtrl->InsertColumn(2, "Genre", wxLIST_FORMAT_LEFT, 80);
+        listCtrl->InsertColumn(3, "Description", wxLIST_FORMAT_LEFT, 200);
+        listCtrl->InsertColumn(4, "Duration", wxLIST_FORMAT_LEFT, 70);
+        listCtrl->InsertColumn(5, "Rating", wxLIST_FORMAT_LEFT, 60);
+        listCtrl->InsertColumn(6, "Price", wxLIST_FORMAT_LEFT, 80);
+
+    mainSizer->Add(listCtrl, 1, wxEXPAND | wxALL, 10);
+
+    // Buttons
+    wxBoxSizer* btnSizer = new wxBoxSizer(wxHORIZONTAL);
+    wxButton* btnFilter = new wxButton(&dlg, wxID_OK, "Filter");
+    wxButton* btnClose = new wxButton(&dlg, wxID_CANCEL, "Close");
+    btnSizer->Add(btnFilter, 0, wxRIGHT, 10);
+    btnSizer->Add(btnClose, 0);
+    mainSizer->Add(btnSizer, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+
+    dlg.SetSizerAndFit(mainSizer);
+
+    // Filter logic
+    btnFilter->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        listCtrl->DeleteAllItems();
+        int sel = choiceCtrl->GetSelection();
+        wxString input = inputCtrl->GetValue();
+        if (input.IsEmpty()) {
+            wxMessageBox("Please enter a value to filter.", "Warning", wxOK | wxICON_WARNING, &dlg);
+            return;
+        }
+        if (sel == 0) { // By ID
+            long id;
+            if (!input.ToLong(&id) || id < 1) {
+                wxMessageBox("Invalid ID.", "Error", wxOK | wxICON_ERROR, &dlg);
+                return;
+            }
+            Result<Movie> result = movie_repos->findById(id);
+            if (!result.success) {
+                wxMessageBox(wxString::FromUTF8(result.error_message.c_str()), "Not found", wxOK | wxICON_INFORMATION, &dlg);
+                return;
+            }
+            const Movie& m = result.data;
+            long item = listCtrl->InsertItem(0, wxString::Format("%d", m.getMovieId()));
+            listCtrl->SetItem(item, 1, m.getMovieTitle());
+            listCtrl->SetItem(item, 2, m.getMovieGenre());
+            listCtrl->SetItem(item, 3, m.getMovieDescription());
+            listCtrl->SetItem(item, 4, wxString::Format("%d", m.getMovieDuration()));
+            listCtrl->SetItem(item, 5, wxString::Format("%.1f", m.getMovieRating()));
+            listCtrl->SetItem(item, 6, wxString::Format("%d", m.getPrice()));
+        } else if (sel == 1) { // By Genre
+            Result<std::vector<Movie>> result = movie_repos->findByGenre(input.ToStdString());
+            if (!result.success || result.data.empty()) {
+                wxMessageBox("No movies found for this genre.", "Not found", wxOK | wxICON_INFORMATION, &dlg);
+                return;
+            }
+            long idx = 0;
+            for (const auto& m : result.data) {
+                long item = listCtrl->InsertItem(idx, wxString::Format("%d", m.getMovieId()));
+                listCtrl->SetItem(item, 1, m.getMovieTitle());
+                listCtrl->SetItem(item, 2, m.getMovieGenre());
+                listCtrl->SetItem(item, 3, m.getMovieDescription());
+                listCtrl->SetItem(item, 4, wxString::Format("%d", m.getMovieDuration()));
+                listCtrl->SetItem(item, 5, wxString::Format("%.1f", m.getMovieRating()));
+                listCtrl->SetItem(item, 6, wxString::Format("%d", m.getPrice()));
+                ++idx;
+            }
+        } else if (sel == 2) { // By Name
+            Result<std::vector<Movie>> result = movie_repos->findByName(input.ToStdString());
+            if (!result.success || result.data.empty()) {
+                wxMessageBox("No movies found with this name.", "Not found", wxOK | wxICON_INFORMATION, &dlg);
+                return;
+            }
+            long idx = 0;
+            for (const auto& m : result.data) {
+                long item = listCtrl->InsertItem(idx, wxString::Format("%d", m.getMovieId()));
+                listCtrl->SetItem(item, 1, m.getMovieTitle());
+                listCtrl->SetItem(item, 2, m.getMovieGenre());
+                listCtrl->SetItem(item, 3, m.getMovieDescription());
+                listCtrl->SetItem(item, 4, wxString::Format("%d", m.getMovieDuration()));
+                listCtrl->SetItem(item, 5, wxString::Format("%.1f", m.getMovieRating()));
+                listCtrl->SetItem(item, 6, wxString::Format("%d", m.getPrice()));
+                ++idx;
+            }
+        }
+    });
+
+    btnClose->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        dlg.EndModal(wxID_CANCEL);
+    });
+
+    dlg.ShowModal();
 }
 void MovieService::manageMovies(User user){
     std::cout << "===== QUẢN LÝ PHIM =====\n";

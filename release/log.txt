@@ -1732,3 +1732,44 @@
 [2025-05-22 18:18:47][INFO] User chose to exit the application
 [2025-05-22 18:18:47][INFO] Closing database connection.
 [2025-05-22 18:18:47][INFO] Disconnecting from database.
+[2025-05-23 17:13:53][INFO] App initialized
+[2025-05-23 17:13:53][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:13:53][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:13:53][INFO] Setting up database...
+[2025-05-23 17:13:53][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:13:53][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:13:53][INFO] Executing script: init_db.sql
+[2025-05-23 17:13:56][INFO] Authenticating user: usr
+[2025-05-23 17:13:56][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:13:56][INFO] Executing query: SELECT * FROM User WHERE username ='usr';
+[2025-05-23 17:13:56][INFO] Parsing query result
+[2025-05-23 17:13:56][INFO] Generated OTP: 531722
+[2025-05-23 17:13:56][INFO] Sending OTP to: vdo32013@jioso.com
+[2025-05-23 17:13:56][INFO] Sending OTP to vdo32013@jioso.com
+[2025-05-23 17:14:09][INFO] Verifying OTP: 531722
+[2025-05-23 17:19:06][INFO] Clearing session data.
+[2025-05-23 17:19:08][INFO] User chose to exit the application
+[2025-05-23 17:19:08][INFO] Closing database connection.
+[2025-05-23 17:19:08][INFO] Disconnecting from database.
+[2025-05-23 17:57:00][INFO] App initialized
+[2025-05-23 17:57:00][INFO] Connecting to database: 127.0.0.1
+[2025-05-23 17:57:00][INFO] Connecting to127.0.0.1:3306
+[2025-05-23 17:57:00][INFO] Setting up database...
+[2025-05-23 17:57:00][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-23 17:57:00][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-23 17:57:00][INFO] Executing script: init_db.sql
+[2025-05-23 17:57:09][INFO] Authenticating user: u
+[2025-05-23 17:57:09][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:57:09][INFO] Executing query: SELECT * FROM User WHERE username ='u';
+[2025-05-23 17:57:09][INFO] Parsing query result
+[2025-05-23 17:57:09][INFO] Generated OTP: 591383
+[2025-05-23 17:57:09][INFO] Sending OTP to: rbg95082@jioso.com
+[2025-05-23 17:57:09][INFO] Sending OTP to rbg95082@jioso.com
+[2025-05-23 17:57:44][INFO] Verifying OTP: 591383
+[2025-05-23 17:57:56][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:58:13][INFO] Executing query: SELECT * FROM Movie
+[2025-05-23 17:58:36][INFO] Executing query: SELECT * FROM Movie WHERE title LIKE 'in%' COLLATE utf8mb4_general_ci
+[2025-05-23 17:58:53][INFO] Clearing session data.
+[2025-05-23 17:58:55][INFO] User chose to exit the application
+[2025-05-23 17:58:55][INFO] Closing database connection.
+[2025-05-23 17:58:55][INFO] Disconnecting from database.

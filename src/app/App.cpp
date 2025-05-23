@@ -159,6 +159,109 @@ void App::handleUserMenu() {
 }
 
 
+void App::handleUserMenuUI(wxWindow* parent) {
+    User user = SessionManager::getCurrentUser();
+
+    // Dialog cho menu user
+    wxDialog dlg(parent, wxID_ANY, "User Menu", wxDefaultPosition, wxSize(420, 420));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+
+    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+
+    // Title
+    wxString welcomeMsg = wxString::Format("Welcome, %s", wxString::FromUTF8(user.getUsername().c_str()));
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, welcomeMsg);
+    wxFont titleFont(wxFontInfo(20).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(44, 62, 80));
+    vbox->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
+
+    wxStaticText* subtitle = new wxStaticText(&dlg, wxID_ANY, "Please choose an action:");
+    wxFont subFont(wxFontInfo(13).Italic().FaceName("Arial"));
+    subtitle->SetFont(subFont);
+    subtitle->SetForegroundColour(wxColour(52, 152, 219));
+    vbox->Add(subtitle, 0, wxALIGN_CENTER | wxBOTTOM, 18);
+
+    // Các nút chức năng
+    wxButton* btnViewMovies   = new wxButton(&dlg, wxID_ANY, "View Movies");
+    wxButton* btnFilterMovies = new wxButton(&dlg, wxID_ANY, "Filter Movies");
+    wxButton* btnBookTicket   = new wxButton(&dlg, wxID_ANY, "Book Ticket");
+    wxButton* btnShowTickets  = new wxButton(&dlg, wxID_ANY, "Show My Tickets");
+    wxButton* btnLogout       = new wxButton(&dlg, wxID_EXIT, "Logout");
+
+    wxFont btnFont(wxFontInfo(16).Bold().FaceName("Arial"));
+    btnViewMovies->SetFont(btnFont);
+    btnFilterMovies->SetFont(btnFont);
+    btnBookTicket->SetFont(btnFont);
+    btnShowTickets->SetFont(btnFont);
+    btnLogout->SetFont(btnFont);
+
+    btnViewMovies->SetBackgroundColour(wxColour(52, 152, 219));
+    btnViewMovies->SetForegroundColour(*wxWHITE);
+    btnFilterMovies->SetBackgroundColour(wxColour(46, 204, 113));
+    btnFilterMovies->SetForegroundColour(*wxWHITE);
+    btnBookTicket->SetBackgroundColour(wxColour(241, 196, 15));
+    btnBookTicket->SetForegroundColour(*wxWHITE);
+    btnShowTickets->SetBackgroundColour(wxColour(155, 89, 182));
+    btnShowTickets->SetForegroundColour(*wxWHITE);
+    btnLogout->SetBackgroundColour(wxColour(231, 76, 60));
+    btnLogout->SetForegroundColour(*wxWHITE);
+
+    btnViewMovies->SetMinSize(wxSize(320, 44));
+    btnFilterMovies->SetMinSize(wxSize(320, 44));
+    btnBookTicket->SetMinSize(wxSize(320, 44));
+    btnShowTickets->SetMinSize(wxSize(320, 44));
+    btnLogout->SetMinSize(wxSize(320, 44));
+
+    btnViewMovies->SetWindowStyleFlag(wxBORDER_NONE);
+    btnFilterMovies->SetWindowStyleFlag(wxBORDER_NONE);
+    btnBookTicket->SetWindowStyleFlag(wxBORDER_NONE);
+    btnShowTickets->SetWindowStyleFlag(wxBORDER_NONE);
+    btnLogout->SetWindowStyleFlag(wxBORDER_NONE);
+
+    vbox->Add(btnViewMovies,   0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+    vbox->Add(btnFilterMovies, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnBookTicket,   0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnShowTickets,  0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnLogout,       0, wxALIGN_CENTER | wxTOP, 18);
+
+    // Footer
+    wxStaticText* footer = new wxStaticText(&dlg, wxID_ANY, "© 2025 Movie Ticket Booking | Designed by You");
+    footer->SetForegroundColour(wxColour(160, 160, 160));
+    wxFont footerFont(wxFontInfo(10).FaceName("Arial"));
+    footer->SetFont(footerFont);
+    vbox->Add(footer, 0, wxALIGN_CENTER | wxTOP, 18);
+
+    dlg.SetSizerAndFit(vbox);
+
+    // Gán command tương ứng với từng chức năng
+    menu_invoker.setCommand(1, &view_movie_command);
+    menu_invoker.setCommand(2, &filter_movie_command);
+    menu_invoker.setCommand(3, &book_ticket_command);
+    menu_invoker.setCommand(4, &show_ticket_command);
+
+    // Sự kiện cho từng nút
+    btnViewMovies->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommandUI(1, user, parent);
+    });
+    btnFilterMovies->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommandUI(2, user, parent);
+    });
+    btnBookTicket->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommand(3, user);
+    });
+    btnShowTickets->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        menu_invoker.executeCommand(4, user);
+    });
+    btnLogout->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
+        wxMessageBox("Logged out successfully!", "Notification", wxOK | wxICON_INFORMATION, &dlg);
+        SessionManager::clear();
+        dlg.EndModal(wxID_EXIT);
+    });
+
+    dlg.ShowModal();
+}
 
 
 void App::handleRegister() {
@@ -303,7 +406,7 @@ void App::handleLoginUI(const std::string& username, const std::string& password
                 if (SessionManager::isAdminUser()) {
                     handleAdminMenuUI(parent);
                 } else {
-                    // handleUserMenuUI(parent); // Nếu có giao diện user
+                    handleUserMenuUI(parent);
                 }
             } else {
                 wxMessageBox("OTP verification failed!", "Error", wxOK | wxICON_ERROR, parent);

@@ -12,5 +12,8 @@ public:
     void execute(User user) override {
         ticket->bookTicket(user);
     }
+    void executeUI(User user, wxWindow* parent) override {
+        ticket->bookTicket(user);
+    }
 };
 #endif
