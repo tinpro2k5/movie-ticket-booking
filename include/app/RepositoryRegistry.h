@@ -71,6 +71,7 @@ public:
      */
     std::shared_ptr<IRepository<Ticket>> ticket_repos;
 
+
     /**
      * @brief Constructor for the RepositoryRegistry struct.
      * 

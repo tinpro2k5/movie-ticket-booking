@@ -1773,3 +1773,112 @@
 [2025-05-23 17:58:55][INFO] User chose to exit the application
 [2025-05-23 17:58:55][INFO] Closing database connection.
 [2025-05-23 17:58:55][INFO] Disconnecting from database.
+[2025-05-24 15:33:38][INFO] App initialized
+[2025-05-24 15:33:38][INFO] Connecting to database: 127.0.0.1
+[2025-05-24 15:33:38][INFO] Connecting to127.0.0.1:3306
+[2025-05-24 15:33:38][INFO] Setting up database...
+[2025-05-24 15:33:38][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-24 15:33:38][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-24 15:33:38][INFO] Executing script: init_db.sql
+[2025-05-24 15:33:44][INFO] Authenticating user: a
+[2025-05-24 15:33:44][INFO] Executing query: SELECT * FROM User WHERE username ='a';
+[2025-05-24 15:33:44][INFO] Executing query: SELECT * FROM User WHERE username ='a';
+[2025-05-24 15:33:44][INFO] Parsing query result
+[2025-05-24 15:33:44][INFO] Generated OTP: 076418
+[2025-05-24 15:33:44][INFO] Sending OTP to: dqt34017@toaik.com
+[2025-05-24 15:33:44][INFO] Sending OTP to dqt34017@toaik.com
+[2025-05-24 15:33:53][INFO] Verifying OTP: 076418
+[2025-05-24 15:33:58][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 4
+[2025-05-24 15:34:01][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 15:34:02][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =1;
+[2025-05-24 15:34:04][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-05-20 14:00:00' AND ticketID IS NULL;
+[2025-05-24 15:34:15][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 15:34:18][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-24 15:34:20][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-09-02 10:00:00' AND ticketID IS NULL;
+[2025-05-24 15:34:23][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 15:34:26][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-24 15:34:32][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-09-02 19:00:00' AND ticketID IS NULL;
+[2025-05-24 15:34:39][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 15:34:42][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =3;
+[2025-05-24 15:34:45][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-24 15:34:53][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A1'
+[2025-05-24 15:34:53][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-24 15:34:53][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('4', '1', '1', 'A1', '2025-05-01 18:00:00', '150000.000000', FALSE)
+[2025-05-24 15:34:53][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-24 15:34:53][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 13 WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A1' AND showDateTime = '2025-05-01 18:00:00' 
+[2025-05-24 15:34:58][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 4
+[2025-05-24 15:35:02][INFO] Clearing session data.
+[2025-05-24 15:35:07][INFO] User chose to exit the application
+[2025-05-24 15:35:07][INFO] Closing database connection.
+[2025-05-24 15:35:07][INFO] Disconnecting from database.
+[2025-05-24 15:36:18][INFO] App initialized
+[2025-05-24 15:36:18][INFO] Connecting to database: 127.0.0.1
+[2025-05-24 15:36:18][INFO] Connecting to127.0.0.1:3306
+[2025-05-24 15:36:18][INFO] Setting up database...
+[2025-05-24 15:36:18][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-24 15:36:18][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-24 15:36:18][INFO] Executing script: init_db.sql
+[2025-05-24 15:36:19][INFO] Authenticating user: a
+[2025-05-24 15:36:19][INFO] Executing query: SELECT * FROM User WHERE username ='a';
+[2025-05-24 15:36:19][INFO] Executing query: SELECT * FROM User WHERE username ='a';
+[2025-05-24 15:36:19][INFO] Parsing query result
+[2025-05-24 15:36:19][INFO] Generated OTP: 108466
+[2025-05-24 15:36:19][INFO] Sending OTP to: dqt34017@toaik.com
+[2025-05-24 15:36:19][INFO] Sending OTP to dqt34017@toaik.com
+[2025-05-24 15:36:34][INFO] Verifying OTP: 108466
+[2025-05-24 15:36:38][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 4
+[2025-05-24 15:37:05][INFO] Clearing session data.
+[2025-05-24 15:37:15][INFO] User chose to exit the application
+[2025-05-24 15:37:15][INFO] Closing database connection.
+[2025-05-24 15:37:15][INFO] Disconnecting from database.
+[2025-05-24 16:19:42][INFO] App initialized
+[2025-05-24 16:19:42][INFO] Connecting to database: 127.0.0.1
+[2025-05-24 16:19:42][INFO] Connecting to127.0.0.1:3306
+[2025-05-24 16:19:42][INFO] Setting up database...
+[2025-05-24 16:19:42][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-24 16:19:42][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-24 16:19:42][INFO] Executing script: init_db.sql
+[2025-05-24 16:19:52][INFO] Authenticating user: q
+[2025-05-24 16:19:52][INFO] Executing query: SELECT * FROM User WHERE username ='q';
+[2025-05-24 16:19:52][INFO] Executing query: SELECT * FROM User WHERE username ='q';
+[2025-05-24 16:19:52][INFO] Parsing query result
+[2025-05-24 16:19:52][INFO] Generated OTP: 642091
+[2025-05-24 16:19:52][INFO] Sending OTP to: hbc52163@jioso.com
+[2025-05-24 16:19:52][INFO] Sending OTP to hbc52163@jioso.com
+[2025-05-24 16:20:01][INFO] Verifying OTP: 642091
+[2025-05-24 16:20:04][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 21
+[2025-05-24 16:20:10][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 16:20:11][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =2;
+[2025-05-24 16:20:24][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 8 AND theaterID = 2 AND showDateTime = '2025-09-02 10:00:00' AND ticketID IS NULL;
+[2025-05-24 16:20:26][INFO] Clearing session data.
+[2025-05-24 16:20:28][INFO] User chose to exit the application
+[2025-05-24 16:20:28][INFO] Closing database connection.
+[2025-05-24 16:20:28][INFO] Disconnecting from database.
+[2025-05-24 18:09:54][INFO] App initialized
+[2025-05-24 18:09:54][INFO] Connecting to database: 127.0.0.1
+[2025-05-24 18:09:54][INFO] Connecting to127.0.0.1:3306
+[2025-05-24 18:09:54][INFO] Setting up database...
+[2025-05-24 18:09:54][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-24 18:09:54][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-24 18:09:54][INFO] Executing script: init_db.sql
+[2025-05-24 18:09:56][INFO] Authenticating user: q
+[2025-05-24 18:09:56][INFO] Executing query: SELECT * FROM User WHERE username ='q';
+[2025-05-24 18:09:56][INFO] Executing query: SELECT * FROM User WHERE username ='q';
+[2025-05-24 18:09:56][INFO] Parsing query result
+[2025-05-24 18:09:56][INFO] Generated OTP: 844386
+[2025-05-24 18:09:56][INFO] Sending OTP to: imn73150@toaik.com
+[2025-05-24 18:09:56][INFO] Sending OTP to imn73150@toaik.com
+[2025-05-24 18:10:08][INFO] Verifying OTP: 844386
+[2025-05-24 18:10:11][INFO] Executing query: SELECT * FROM Ticket WHERE userID = 9
+[2025-05-24 18:10:21][INFO] Executing query: SELECT * FROM Movie
+[2025-05-24 18:10:25][INFO] Executing query: SELECT * FROM Showtime WHERE movieID =3;
+[2025-05-24 18:10:27][INFO] Executing query: SELECT * FROM SeatSchedule WHERE roomID = 1 AND theaterID = 1 AND showDateTime = '2025-05-01 18:00:00' AND ticketID IS NULL;
+[2025-05-24 18:10:34][INFO] Executing query: SELECT * FROM Seat WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'C2'
+[2025-05-24 18:10:34][INFO] Executing query: SELECT ruleName FROM PricingRule where isActive = true
+[2025-05-24 18:10:34][INFO] Executing query: INSERT IGNORE INTO Ticket (userID, roomID, theaterID, seatNumber, showDateTime, basePrice, isPaid) VALUES ('9', '1', '1', 'C2', '2025-05-01 18:00:00', '150000.000000', FALSE)
+[2025-05-24 18:10:34][INFO] Executing query: SELECT LAST_INSERT_ID() AS id
+[2025-05-24 18:10:34][INFO] Executing query: UPDATE SeatSchedule SET ticketID = 21 WHERE roomID = 1 AND theaterID = 1 AND seatNumber = 'A1' AND showDateTime = '2025-05-01 18:00:00' 
+[2025-05-24 18:11:14][INFO] Clearing session data.
+[2025-05-24 18:11:16][INFO] User chose to exit the application
+[2025-05-24 18:11:16][INFO] Closing database connection.
+[2025-05-24 18:11:16][INFO] Disconnecting from database.

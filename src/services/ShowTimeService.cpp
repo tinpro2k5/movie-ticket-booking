@@ -174,18 +174,60 @@ void ShowTimeService::manageShowTime(User user) {
 }
 
 void ShowTimeService::manageShowTimeUI(wxWindow* parent, User user) {
-    wxDialog dlg(parent, wxID_ANY, "Showtime Management", wxDefaultPosition, wxSize(500, 350));
+    wxDialog dlg(parent, wxID_ANY, "Showtime Management", wxDefaultPosition, wxSize(500, 400));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
 
-    wxButton* btnAdd = new wxButton(&dlg, wxID_ANY, "Add Showtime");
-    wxButton* btnDelete = new wxButton(&dlg, wxID_ANY, "Delete Showtime");
-    wxButton* btnView = new wxButton(&dlg, wxID_ANY, "View Showtimes");
-    wxButton* btnExit = new wxButton(&dlg, wxID_EXIT, "Exit");
+    // Title
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "🎬 Showtime Management");
+    wxFont titleFont(wxFontInfo(22).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(41, 128, 185));
+    vbox->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 22);
 
-    vbox->Add(btnAdd, 0, wxEXPAND | wxALL, 10);
-    vbox->Add(btnDelete, 0, wxEXPAND | wxALL, 10);
-    vbox->Add(btnView, 0, wxEXPAND | wxALL, 10);
-    vbox->Add(btnExit, 0, wxEXPAND | wxALL, 10);
+    // Subtitle
+    wxStaticText* subtitle = new wxStaticText(&dlg, wxID_ANY, "Choose an action below:");
+    wxFont subFont(wxFontInfo(13).Italic().FaceName("Arial"));
+    subtitle->SetFont(subFont);
+    subtitle->SetForegroundColour(wxColour(52, 152, 219));
+    vbox->Add(subtitle, 0, wxALIGN_CENTER | wxBOTTOM, 18);
+
+    // Buttons
+    wxButton* btnAdd    = new wxButton(&dlg, wxID_ANY, "Add Showtime");
+    wxButton* btnDelete = new wxButton(&dlg, wxID_ANY, "Delete Showtime");
+    wxButton* btnView   = new wxButton(&dlg, wxID_ANY, "View Showtimes");
+    wxButton* btnExit   = new wxButton(&dlg, wxID_EXIT, "Exit");
+
+    wxFont btnFont(wxFontInfo(15).Bold().FaceName("Arial"));
+    const int BTN_HEIGHT = 48;
+    const int BTN_WIDTH = 320;
+
+    auto styleBtn = [&](wxButton* btn, wxColour bg, wxColour fg) {
+        btn->SetFont(btnFont);
+        btn->SetBackgroundColour(bg);
+        btn->SetForegroundColour(fg);
+        btn->SetMinSize(wxSize(BTN_WIDTH, BTN_HEIGHT));
+        btn->SetWindowStyleFlag(wxBORDER_NONE);
+    };
+
+    styleBtn(btnAdd,    wxColour(52, 152, 219),  *wxWHITE); // Blue
+    styleBtn(btnDelete, wxColour(231, 76, 60),   *wxWHITE); // Red
+    styleBtn(btnView,   wxColour(46, 204, 113),  *wxWHITE); // Green
+    styleBtn(btnExit,   wxColour(149, 165, 166), *wxWHITE); // Gray
+
+    vbox->Add(btnAdd,    0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+    vbox->Add(btnDelete, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnView,   0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnExit,   0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
+
+    // Footer
+    wxStaticText* footer = new wxStaticText(&dlg, wxID_ANY, "© 2025 Movie Ticket Booking");
+    footer->SetForegroundColour(wxColour(160, 160, 160));
+    wxFont footerFont(wxFontInfo(10).FaceName("Arial"));
+    footer->SetFont(footerFont);
+    vbox->Add(footer, 0, wxALIGN_CENTER | wxBOTTOM, 8);
 
     dlg.SetSizerAndFit(vbox);
 

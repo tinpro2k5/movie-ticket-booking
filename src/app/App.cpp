@@ -85,27 +85,78 @@ void App::handleAdminMenu() {
     std::cout << "Đăng xuất thành công!\n";
     SessionManager::clear();
 }
-void App:: handleAdminMenuUI(wxWindow* parent){
+void App::handleAdminMenuUI(wxWindow* parent){
     User user = SessionManager::getCurrentUser();
 
-    // Tạo dialog mới cho menu admin
-    wxDialog dlg(parent, wxID_ANY, "Admin Menu", wxDefaultPosition, wxSize(300, 350));
+    wxDialog dlg(parent, wxID_ANY, "Admin Menu", wxDefaultPosition, wxSize(350, 400));
+    dlg.SetBackgroundColour(wxColour(245, 247, 250));
+    dlg.Centre();
+
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
 
-    vbox->Add(new wxStaticText(&dlg, wxID_ANY, "Logged in as Admin"), 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 15);
+    // Title
+    wxString adminMsg = wxString::Format("Welcome, %s (Admin)", wxString::FromUTF8(user.getUsername().c_str()));
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, adminMsg);
+    wxFont titleFont(wxFontInfo(18).Bold().FaceName("Arial"));
+    title->SetFont(titleFont);
+    title->SetForegroundColour(wxColour(41, 128, 185));
+    vbox->Add(title, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 18);
 
-    // Tạo các nút chức năng
+    wxStaticText* subtitle = new wxStaticText(&dlg, wxID_ANY, "Please choose an action:");
+    wxFont subFont(wxFontInfo(12).Italic().FaceName("Arial"));
+    subtitle->SetFont(subFont);
+    subtitle->SetForegroundColour(wxColour(52, 152, 219));
+    vbox->Add(subtitle, 0, wxALIGN_CENTER | wxBOTTOM, 12);
+
+    // Các nút chức năng
     wxButton* btnMovies    = new wxButton(&dlg, wxID_ANY, "Manage Movies");
     wxButton* btnShowtimes = new wxButton(&dlg, wxID_ANY, "Manage Showtimes");
     wxButton* btnTheaters  = new wxButton(&dlg, wxID_ANY, "Manage Theaters");
     wxButton* btnRooms     = new wxButton(&dlg, wxID_ANY, "Manage Rooms");
     wxButton* btnLogout    = new wxButton(&dlg, wxID_EXIT, "Logout");
 
-    vbox->Add(btnMovies,    0, wxEXPAND | wxALL, 8);
-    vbox->Add(btnShowtimes, 0, wxEXPAND | wxALL, 8);
-    vbox->Add(btnTheaters,  0, wxEXPAND | wxALL, 8);
-    vbox->Add(btnRooms,     0, wxEXPAND | wxALL, 8);
-    vbox->Add(btnLogout,    0, wxEXPAND | wxALL, 8);
+    wxFont btnFont(wxFontInfo(15).Bold().FaceName("Arial"));
+    btnMovies->SetFont(btnFont);
+    btnShowtimes->SetFont(btnFont);
+    btnTheaters->SetFont(btnFont);
+    btnRooms->SetFont(btnFont);
+    btnLogout->SetFont(btnFont);
+
+    btnMovies->SetBackgroundColour(wxColour(52, 152, 219));
+    btnMovies->SetForegroundColour(*wxWHITE);
+    btnShowtimes->SetBackgroundColour(wxColour(46, 204, 113));
+    btnShowtimes->SetForegroundColour(*wxWHITE);
+    btnTheaters->SetBackgroundColour(wxColour(241, 196, 15));
+    btnTheaters->SetForegroundColour(*wxWHITE);
+    btnRooms->SetBackgroundColour(wxColour(155, 89, 182));
+    btnRooms->SetForegroundColour(*wxWHITE);
+    btnLogout->SetBackgroundColour(wxColour(231, 76, 60));
+    btnLogout->SetForegroundColour(*wxWHITE);
+
+    btnMovies->SetMinSize(wxSize(260, 40));
+    btnShowtimes->SetMinSize(wxSize(260, 40));
+    btnTheaters->SetMinSize(wxSize(260, 40));
+    btnRooms->SetMinSize(wxSize(260, 40));
+    btnLogout->SetMinSize(wxSize(260, 40));
+
+    btnMovies->SetWindowStyleFlag(wxBORDER_NONE);
+    btnShowtimes->SetWindowStyleFlag(wxBORDER_NONE);
+    btnTheaters->SetWindowStyleFlag(wxBORDER_NONE);
+    btnRooms->SetWindowStyleFlag(wxBORDER_NONE);
+    btnLogout->SetWindowStyleFlag(wxBORDER_NONE);
+
+    vbox->Add(btnMovies,    0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+    vbox->Add(btnShowtimes, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnTheaters,  0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnRooms,     0, wxALIGN_CENTER | wxBOTTOM, 10);
+    vbox->Add(btnLogout,    0, wxALIGN_CENTER | wxTOP, 18);
+
+    // Footer
+    wxStaticText* footer = new wxStaticText(&dlg, wxID_ANY, "© 2025 Movie Ticket Booking | Admin Panel");
+    footer->SetForegroundColour(wxColour(160, 160, 160));
+    wxFont footerFont(wxFontInfo(10).FaceName("Arial"));
+    footer->SetFont(footerFont);
+    vbox->Add(footer, 0, wxALIGN_CENTER | wxTOP, 12);
 
     dlg.SetSizerAndFit(vbox);
 
@@ -115,18 +166,18 @@ void App:: handleAdminMenuUI(wxWindow* parent){
     menu_invoker.setCommand(3, &theater_manage_commnand);
     menu_invoker.setCommand(4, &room_manage_commnand);
 
-    // Sử dụng lambda để xử lý sự kiện cho từng nút
+    // Sự kiện cho từng nút
     btnMovies->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommandUI(1,user, parent);
+        menu_invoker.executeCommandUI(1, user, parent);
     });
     btnShowtimes->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
         menu_invoker.executeCommandUI(2, user, parent);
     });
     btnTheaters->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommandUI(3, user,parent);
+        menu_invoker.executeCommandUI(3, user, parent);
     });
     btnRooms->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommandUI(4, user,parent);
+        menu_invoker.executeCommandUI(4, user, parent);
     });
     btnLogout->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
         wxMessageBox("Logged out successfully!", "Notification", wxOK | wxICON_INFORMATION, &dlg);
@@ -249,10 +300,10 @@ void App::handleUserMenuUI(wxWindow* parent) {
         menu_invoker.executeCommandUI(2, user, parent);
     });
     btnBookTicket->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommand(3, user);
+        menu_invoker.executeCommandUI(3, user, parent);
     });
     btnShowTickets->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
-        menu_invoker.executeCommand(4, user);
+        menu_invoker.executeCommandUI(4, user,parent);
     });
     btnLogout->Bind(wxEVT_BUTTON, [&](wxCommandEvent&) {
         wxMessageBox("Logged out successfully!", "Notification", wxOK | wxICON_INFORMATION, &dlg);

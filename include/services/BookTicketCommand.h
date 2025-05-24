@@ -13,7 +13,7 @@ public:
         ticket->bookTicket(user);
     }
     void executeUI(User user, wxWindow* parent) override {
-        ticket->bookTicket(user);
+        ticket->bookTicketUI(user, parent);
     }
 };
 #endif
