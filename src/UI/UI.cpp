@@ -101,7 +101,7 @@ public:
 
 void MainFrame::OnRegister(wxCommandEvent&) {
     this->Hide();
-    wxDialog dlg(this, wxID_ANY, "Register", wxDefaultPosition, wxSize(420, 420));
+    wxDialog dlg(this, wxID_ANY, "Register", wxDefaultPosition, wxSize(600, 420));
     dlg.SetBackgroundColour(wxColour(245, 247, 250));
     dlg.Centre();
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
@@ -148,7 +148,9 @@ void MainFrame::OnRegister(wxCommandEvent&) {
 
     vbox->Add(btnRegister, 0, wxALIGN_CENTER | wxALL, 18);
 
-    dlg.SetSizerAndFit(vbox);
+    dlg.SetSizer(vbox); // Chỉ đặt sizer, không tự động fit
+    dlg.SetSize(wxSize(600, 600)); // Đặt kích thước cố định
+    dlg.Centre(); // Căn giữa cửa sổ
 
     if (dlg.ShowModal() == wxID_OK) {
         User user;
@@ -164,7 +166,7 @@ void MainFrame::OnRegister(wxCommandEvent&) {
 
 void MainFrame::OnLogin(wxCommandEvent&) {
     this->Hide();
-    wxDialog dlg(this, wxID_ANY, "Login", wxDefaultPosition, wxSize(420, 320));
+    wxDialog dlg(this, wxID_ANY, "Login", wxDefaultPosition, wxSize(600, 320));
     dlg.SetBackgroundColour(wxColour(245, 247, 250));
     dlg.Centre();
     
@@ -200,7 +202,9 @@ void MainFrame::OnLogin(wxCommandEvent&) {
 
     vbox->Add(btnLogin, 0, wxALIGN_CENTER | wxALL, 18);
 
-    dlg.SetSizerAndFit(vbox);
+    dlg.SetSizer(vbox); // Chỉ đặt sizer, không tự động fit
+    dlg.SetSize(wxSize(600, 420)); // Đặt kích thước cố định
+    dlg.Centre(); // Căn giữa cửa sổ
 
     if (dlg.ShowModal() == wxID_OK) {
         std::string username = usernameCtrl->GetValue().ToStdString();

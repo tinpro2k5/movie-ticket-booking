@@ -181,7 +181,7 @@ void ShowTimeService::manageShowTimeUI(wxWindow* parent, User user) {
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
 
     // Title
-    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "🎬 Showtime Management");
+    wxStaticText* title = new wxStaticText(&dlg, wxID_ANY, "Showtime Management");
     wxFont titleFont(wxFontInfo(22).Bold().FaceName("Arial"));
     title->SetFont(titleFont);
     title->SetForegroundColour(wxColour(41, 128, 185));
