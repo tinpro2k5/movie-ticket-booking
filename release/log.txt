@@ -1882,3 +1882,16 @@
 [2025-05-24 18:11:16][INFO] User chose to exit the application
 [2025-05-24 18:11:16][INFO] Closing database connection.
 [2025-05-24 18:11:16][INFO] Disconnecting from database.
+[2025-05-27 17:51:52][INFO] App initialized
+[2025-05-27 17:51:52][INFO] Connecting to database: 127.0.0.1
+[2025-05-27 17:51:52][INFO] Connecting to127.0.0.1:3306
+[2025-05-27 17:51:52][INFO] Setting up database...
+[2025-05-27 17:51:52][INFO] Executing query: CREATE DATABASE IF NOT EXISTS MOVIE_BOOKING
+[2025-05-27 17:51:52][INFO] Executing query: USE MOVIE_BOOKING
+[2025-05-27 17:51:52][INFO] Executing script: init_db.sql
+[2025-05-27 17:51:57][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-27 17:51:57][INFO] Executing query: SELECT * FROM User WHERE username ='' OR email ='';
+[2025-05-27 17:51:57][INFO] Parsing query result
+[2025-05-27 17:52:00][INFO] App destroyed
+[2025-05-27 17:52:00][INFO] Closing database connection.
+[2025-05-27 17:52:00][INFO] Disconnecting from database.

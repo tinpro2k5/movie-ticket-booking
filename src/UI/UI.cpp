@@ -10,14 +10,14 @@ public:
     MainFrame(const wxString& title)
         : wxFrame(nullptr, wxID_ANY, title, wxDefaultPosition, wxSize(1000, 700),
                   wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)), app() {
-        SetBackgroundColour(wxColour(240, 244, 255)); // Nhẹ nhàng, hiện đại
+        SetBackgroundColour(wxColour(240, 244, 255)); 
 
         Centre();
         SetMinSize(wxSize(1200, 700));
         SetMaxSize(wxSize(1200, 700));
         SetSize(wxSize(1200, 700));
 
-        const std::string INIT_DB_SCRIPT = "release/init_db.sql";
+        const std::string INIT_DB_SCRIPT = "init_db.sql";
         ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
         Logger::getInstance()->log("Connecting to database: " + serverInfo.getHost(), Logger::Level::INFO);
         DatabaseManager::getInstance()->connect(serverInfo);

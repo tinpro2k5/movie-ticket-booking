@@ -78,5 +78,40 @@ docker run -it -p 3306:3306 movie-ticket-booking
 * Đảm bảo MySQL đang chạy trước khi chạy ứng dụng.
 
 ```
+Để chạy được UI ở máy local thì cần cài đặt và cấu hình XLaunch (VcXsrv) để hiển thị giao diện:
+
+1. Tải và cài đặt VcXsrv (XLaunch) từ: https://sourceforge.net/projects/vcxsrv/
+
+2. Khởi động XLaunch và cấu hình như sau:
+   - Chọn "Multiple windows" ở màn hình đầu tiên
+   - Ở màn hình "Display settings", chọn "Start no client"
+   - Ở màn hình "Extra settings":
+     + Chọn "Clipboard"
+     + Chọn "Primary Selection"
+     + Chọn "Native opengl"
+     + Bỏ chọn "Disable access control"
+   - Nhấn "Finish" để lưu cấu hình và khởi động XLaunch
+
+3. Thêm biến môi trường DISPLAY trong terminal Linux:
+```bash
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+```
+
+4. Kiểm tra kết nối X11:
+```bash
+xeyes  # Nếu hiện cửa sổ con mắt là đã thành công
+```
+
+5. Sau đó có thể chạy ứng dụng UI:
+```bash
+./release/movie_ticket_booking_ui
+```
+
+Lưu ý:
+- Cần khởi động lại XLaunch mỗi khi khởi động lại máy tính
+- Nếu gặp lỗi kết nối, hãy kiểm tra:
+  + XLaunch đang chạy
+  + Biến DISPLAY đã được set đúng
+  + Firewall Windows cho phép kết nối VcXsrv
 
 
