@@ -5,10 +5,12 @@
 
 - Hệ điều hành: Linux (Ubuntu 22.04 hoặc tương đương)  
 - Compiler: GCC hỗ trợ chuẩn C++17  
-- CMake: Phiên bản 3.10 trở lên  
 - MySQL Server: Đã cài đặt và chạy  
 - Thư viện: libmysqlclient-dev để kết nối MySQL  
 - Công cụ khác: build-essential, msmtp, msmtp-mta  
+- Giao diện đồ họa: wxWidgets (libwxgtk3.0-gtk3-dev)
+- Trình hiển thị X11: VcXsrv (nếu chạy trên Windows thông qua container) để hiển thị giao diện đồ họa
+- Docker (tùy chọn): Để chạy ứng dụng trong môi trường container
 
 ## 2. Cài đặt các dependencies
 
@@ -34,7 +36,11 @@ sudo apt install libwxgtk3.0-gtk3-dev
 
 ### 3.1. Cấu hình SMTP (Gửi email)
 
-Tạo file `.msmtprc` trong thư mục `~` với nội dung sau:
+Tạo file `.msmtprc` trong thư mục home (thường là `/home/tên_user` hoặc `~`)  ví dụ:  
+- Đường dẫn tuyệt đối: `/home/tên_user/.msmtprc`  
+- Hoặc dùng lệnh: `nano ~/.msmtprc`  
+
+Nội dung file `.msmtprc` như sau:
 
 ```
 account gmail
@@ -56,7 +62,7 @@ chmod 600 ~/.msmtprc
 ```
 
 ## 4. Biên dịch chương trình
-
+### Console version
 ```bash
 g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking `wx-config --cxxflags --libs` -lmysqlclient
 ```
@@ -66,19 +72,31 @@ hoặc lệnh này nếu bị lỗi:
 g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/main.cpp -o release/movie_ticket_booking $(wx-config --libs) -lmysqlclient
 ```
 
+### GUI version
+```bash
+g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/UI/UI.cpp -o release/movie_ticket_booking_ui `wx-config --cxxflags --libs` -lmysqlclient
+```
+
 ## 5. Cấu hình Docker (Tùy chọn)
 
-```bash
-docker build -t movie-ticket-booking -f .devcontainer/deploy/Dockerfile.deploy .
-docker run -it -p 3306:3306 movie-ticket-booking
-```
+Mở movie_ticket_booking bằng VSCode
+Ctrl + Shift + P -> Reopen in Container -> Chọn Deployment
 
 ## 6. Ghi chú
-
 * Đảm bảo MySQL đang chạy trước khi chạy ứng dụng.
-
+```bash
+sudo service mysql start
 ```
-Để chạy được UI ở máy local thì cần cài đặt và cấu hình XLaunch (VcXsrv) để hiển thị giao diện:
+
+## 7. Chạy ứng dụng
+### 7.1. Chạy ứng dụng Console
+
+```bash
+movie-ticket-booking-main/release$ ./movie_ticket_booking
+```
+### 7.2. Chạy ứng dụng GUI
+
+Để chạy được UI ở máy local qua container thì cần cài đặt và cấu hình XLaunch (VcXsrv) để hiển thị giao diện (máy local chạy hệ điều hành là Linux thì không cần vì Linux đã hỗ trợ X11):
 
 1. Tải và cài đặt VcXsrv (XLaunch) từ: https://sourceforge.net/projects/vcxsrv/
 

@@ -10,9 +10,9 @@ RUN apt-get update && \
     npm \
     mysql-server \
     libmysqlclient-dev \
+    libwxgtk3.0-gtk3-dev \
     msmtp msmtp-mta && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Tạo user devuser
 RUN useradd -m devuser && echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
