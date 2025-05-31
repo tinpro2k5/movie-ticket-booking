@@ -1,5 +1,27 @@
+/**
+ * @file App.cpp
+ * @brief Implements the App class, the main coordinator for the movie ticket booking application.
+ *
+ * This file contains the implementation of the App class methods, including application initialization,
+ * user/admin menu handling, registration, login, and UI flows.
+ *
+ * Architecture overview:
+ * - App acts as the entry point and orchestrator for all business logic and user interface flows.
+ * - It manages the lifecycle of services, repositories, and command objects.
+ * - Handles both console and GUI interactions for users and administrators.
+ * - Integrates with utility classes such as Logger, DatabaseManager, and SessionManager.
+ *
+ * @see App.h
+ */
+
 #include "../../include/app/App.h"
 
+/**
+ * @brief App constructor. Initializes all core services, repositories, and command objects.
+ * Sets up logging and culture information for the application.
+ *
+ * Architectural role: Entry point for dependency injection and system bootstrapping.
+ */
 App::App():
         repository_registry(),
         user_service(repository_registry),
@@ -23,11 +45,25 @@ App::App():
     Logger::getInstance()->setLogFile(Logger::getInstance()->DEFAULT_LOG_FILE);
     Logger::getInstance()->log("App initialized", Logger::Level::INFO);
 }
+
+/**
+ * @brief App destructor. Handles cleanup and resource release.
+ *
+ * Architectural role: Ensures proper shutdown and logging.
+ */
 App::~App() {
     Logger::getInstance()->log("App destroyed", Logger::Level::INFO);
     // Destructor
     // Clean up resources if needed
 }
+
+/**
+ * @brief Main application loop. Handles authentication, menu routing, and session management.
+ *
+ * Architectural role: Central event loop, orchestrates user/admin flows and system state.
+ * - Connects to the database and sets up schema.
+ * - Handles login, registration, and menu navigation.
+ */
 int App::run() {
     ServerInfo serverInfo("127.0.0.1", "root", "rootpassword", 3306);
     cout << "------------------------------------------\n";
@@ -64,6 +100,13 @@ int App::run() {
 }
 
 
+/**
+ * @brief Handles the admin menu in console mode.
+ *
+ * Architectural role: Provides admin with access to management commands via MenuInvoker.
+ * - Sets up command pattern for admin actions.
+ * - Handles session and logout.
+ */
 void App::handleAdminMenu() {
     User user = SessionManager::getCurrentUser();
     std::cout << "Xin chào " << user.getUsername() << "!\n";
@@ -85,6 +128,14 @@ void App::handleAdminMenu() {
     std::cout << "Đăng xuất thành công!\n";
     SessionManager::clear();
 }
+
+/**
+ * @brief Handles the admin menu in GUI mode.
+ *
+ * Architectural role: Provides admin with access to management commands via MenuInvoker in a wxWidgets dialog.
+ * - Binds UI buttons to command pattern actions.
+ * - Handles session and logout.
+ */
 void App::handleAdminMenuUI(wxWindow* parent){
     User user = SessionManager::getCurrentUser();
 
@@ -188,6 +239,13 @@ void App::handleAdminMenuUI(wxWindow* parent){
     dlg.ShowModal();
 }
 
+/**
+ * @brief Handles the user menu in console mode.
+ *
+ * Architectural role: Provides user with access to movie viewing, filtering, booking, and ticket management.
+ * - Uses MenuInvoker to execute user commands.
+ * - Handles session and logout.
+ */
 void App::handleUserMenu() {
     User user = SessionManager::getCurrentUser();
     std::cout << "Xin chào " << user.getUsername() << "!\n";
@@ -209,7 +267,13 @@ void App::handleUserMenu() {
     SessionManager::clear();
 }
 
-
+/**
+ * @brief Handles the user menu in GUI mode.
+ *
+ * Architectural role: Provides user with access to movie viewing, filtering, booking, and ticket management in a wxWidgets dialog.
+ * - Binds UI buttons to command pattern actions.
+ * - Handles session and logout.
+ */
 void App::handleUserMenuUI(wxWindow* parent) {
     User user = SessionManager::getCurrentUser();
 
@@ -314,7 +378,11 @@ void App::handleUserMenuUI(wxWindow* parent) {
     dlg.ShowModal();
 }
 
-
+/**
+ * @brief Handles user registration in console mode, including OTP verification and rollback on failure.
+ *
+ * Architectural role: Orchestrates user creation, verification, and rollback using RollbackContainer.
+ */
 void App::handleRegister() {
     User user;
     std::string temp;
@@ -366,6 +434,12 @@ void App::handleRegister() {
         std::cout << "Đăng ký thất bại: " << res.message << "\n";
     }
 }
+
+/**
+ * @brief Handles user registration in GUI mode, including OTP verification and rollback on failure.
+ *
+ * Architectural role: Orchestrates user creation, verification, and rollback using RollbackContainer in a wxWidgets dialog.
+ */
 void App::handleRegisterUI(const User& user, wxWindow* parent) {
     RollbackContainer rollback;
     auto res = user_service.createUser(user);
@@ -390,6 +464,11 @@ void App::handleRegisterUI(const User& user, wxWindow* parent) {
     }
 }
 
+/**
+ * @brief Handles user login in console mode, including OTP verification.
+ *
+ * Architectural role: Authenticates user, manages session state, and routes to appropriate menu.
+ */
 void App::handleLogin() {
     User user;
     std::string temp;
@@ -439,6 +518,12 @@ void App::handleLogin() {
         std::cout << "Đăng nhập thất bại: " << res.message << "\n";
     }
 }
+
+/**
+ * @brief Handles user login in GUI mode, including OTP verification.
+ *
+ * Architectural role: Authenticates user, manages session state, and routes to appropriate menu in a wxWidgets dialog.
+ */
 void App::handleLoginUI(const std::string& username, const std::string& password, wxWindow* parent) {
     Logger::getInstance()->log("Authenticating user: " + username, Logger::Level::INFO);
     auto res = user_service.authenticateUser(username, password);
@@ -473,13 +558,22 @@ void App::handleLoginUI(const std::string& username, const std::string& password
     }
 }
 
+/**
+ * @brief Handles application exit and cleanup.
+ *
+ * Architectural role: Ensures graceful shutdown and logs exit event.
+ */
 void App::handleExit() {
     Logger::getInstance()->log("User chose to exit the application", Logger::Level::INFO);
     std::cout << "Tạm biệt!\n";
     exit(0);
 }
 
-
+/**
+ * @brief Displays the start menu and handles initial user choices.
+ *
+ * Architectural role: Entry point for user interaction, routes to registration, login, or exit.
+ */
 void App::displayStartMenu() {
     std::cout << "===== CINEMA BOOKING SYSTEM =====\n";
     std::cout << "1. Đăng ký\n";

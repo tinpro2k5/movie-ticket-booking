@@ -1,12 +1,43 @@
+/**
+ * @file UI.cpp
+ * @brief Implements the wxWidgets-based graphical user interface for the movie ticket booking application.
+ *
+ * This file defines the MainFrame and MyApp classes, providing the main window and event-driven UI logic.
+ *
+ * Architecture overview:
+ * - MainFrame is the main application window, presenting registration, login, and exit options.
+ * - UI dialogs are used for user registration and login, collecting user input and delegating to App logic.
+ * - The App instance is integrated to bridge UI actions with business logic and service layers.
+ * - MyApp is the wxApp entry point, launching the MainFrame.
+ *
+ * The UI layer is decoupled from business logic, following the MVC/MVVM pattern, and interacts with the core application via the App class.
+ */
+
 #include <wx/wx.h>
 #include <wx/statbmp.h>
 #include <wx/artprov.h>
 #include <wx/gbsizer.h>
 #include "../../include/app/App.h"
 
+/**
+ * @class MainFrame
+ * @brief Main application window for the GUI.
+ *
+ * Architectural role:
+ * - Serves as the root window for the wxWidgets UI.
+ * - Presents main actions (register, login, exit) and delegates business logic to the App class.
+ * - Demonstrates separation of concerns between UI and application logic.
+ */
 class MainFrame : public wxFrame {
-    App app;
+    App app; ///< Core application logic handler, bridges UI and business logic.
 public:
+    /**
+     * @brief Constructs the main frame and initializes UI components.
+     *
+     * Architectural role:
+     * - Initializes the database and application context.
+     * - Sets up the main menu and binds UI events to handlers.
+     */
     MainFrame(const wxString& title)
         : wxFrame(nullptr, wxID_ANY, title, wxDefaultPosition, wxSize(1000, 700),
                   wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)), app() {
@@ -92,8 +123,28 @@ public:
         btnExit->Bind(wxEVT_BUTTON, &MainFrame::OnExit, this);
     }
 
+    /**
+     * @brief Handles the Register button click event.
+     *
+     * Architectural role:
+     * - Collects user input for registration.
+     * - Delegates registration logic to App, maintaining UI/business separation.
+     */
     void OnRegister(wxCommandEvent&);
+    /**
+     * @brief Handles the Login button click event.
+     *
+     * Architectural role:
+     * - Collects user input for login.
+     * - Delegates authentication logic to App, maintaining UI/business separation.
+     */
     void OnLogin(wxCommandEvent&);
+    /**
+     * @brief Handles the Exit button click event.
+     *
+     * Architectural role:
+     * - Closes the application window.
+     */
     void OnExit(wxCommandEvent&) {
         Close(true);
     }
@@ -213,6 +264,14 @@ void MainFrame::OnLogin(wxCommandEvent&) {
     }
     this->Show();
 }
+
+/**
+ * @class MyApp
+ * @brief wxWidgets application entry point.
+ *
+ * Architectural role:
+ * - Bootstraps the GUI application and launches the main window.
+ */
 class MyApp : public wxApp {
 public:
     virtual bool OnInit() {
