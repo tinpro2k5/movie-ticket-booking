@@ -77,10 +77,10 @@ g++ $(wx-config --cxxflags) src/models/*.cpp src/repositories/*.cpp src/services
 g++ src/models/*.cpp src/repositories/*.cpp src/services/*.cpp src/utils/*.cpp src/app/*.cpp src/UI/UI.cpp -o release/movie_ticket_booking_ui `wx-config --cxxflags --libs` -lmysqlclient
 ```
 
-## 5. Cấu hình Docker (Tùy chọn)
+## 5. Chạy bằng Docker container
 
-Mở movie_ticket_booking bằng VSCode
-Ctrl + Shift + P -> Reopen in Container -> Chọn Deployment
+Mở thư mục `movie-ticket-booking` bằng VSCode
+Ctrl + Shift + P -> Reopen in Container -> Chọn cấu hình Deployment
 
 ## 6. Ghi chú
 * Đảm bảo MySQL đang chạy trước khi chạy ứng dụng.
@@ -122,7 +122,7 @@ xeyes  # Nếu hiện cửa sổ con mắt là đã thành công
 
 5. Sau đó có thể chạy ứng dụng UI:
 ```bash
-./release/movie_ticket_booking_ui
+movie-ticket-booking-main/release$ ./movie_ticket_booking_ui
 ```
 
 Lưu ý:
@@ -131,5 +131,4 @@ Lưu ý:
   + XLaunch đang chạy
   + Biến DISPLAY đã được set đúng
   + Firewall Windows cho phép kết nối VcXsrv
-
 
