@@ -87,6 +87,16 @@ private:
      * @return A `ServiceResult<void>` indicating the success or failure of the operation.
      */
     ServiceResult<void> setAndSendOTP();
+
+    /**
+     * @brief Set and send an OTP to a specific user.
+     * 
+     * This method generates a one-time password (OTP) for the specified user,
+     * sets it in the session, and sends it to the user's email address.
+     * 
+     * @param user The `User` object containing the user's details.
+     * @return A `ServiceResult<void>` indicating the success or failure of the operation.
+     */
     ServiceResult<void> setAndSendOTP(const User& user);
   
 
@@ -151,6 +161,15 @@ public:
      */
     ServiceResult<User> getUserByUsername(const std::string& username);
 
+
+    /**
+     * @brief Get a user by their ID.
+     * 
+     * This method retrieves a user's details from the database using their user ID.
+     * 
+     * @param userId The ID of the user.
+     * @return A `ServiceResult<User>` containing the user's details if found, or an error message if not.
+     */
 
     ServiceResult<void> removeUser(const User& user);
 };

@@ -1,3 +1,22 @@
+/**
+ * @file App.h
+ * @brief Defines the App class - the central coordinator for the movie ticket booking application.
+ *
+ * The App class is responsible for initializing and managing the core components of the system, including:
+ * - Managing repositories via RepositoryRegistry.
+ * - Managing business services such as UserService, MovieService, TicketService, ShowTimeService, RoomService, and TheaterService.
+ * - Managing commands for user and admin actions (viewing movies, filtering, booking tickets, managing movies, showtimes, rooms, theaters, etc.).
+ * - Coordinating user interface flows for both users and administrators.
+ * - Integrating utilities such as DatabaseManager, Logger, SessionManager, and CultureFormatter.
+ *
+ * Architecture overview:
+ * - App is the entry point, holding business and UI components.
+ * - Services handle business logic and interact with repositories.
+ * - Commands encapsulate specific actions, invoked by MenuInvoker.
+ * - RepositoryRegistry provides repositories to services.
+ * - Utilities support logging, session management, rollback, and data formatting.
+ */
+
 #ifndef _APP_H_
 #define _APP_H_
 
@@ -33,6 +52,14 @@
 
 #include "../utils/RollbackContainer.h"
 
+/**
+ * @class App
+ * @brief Main application class that coordinates all services, repositories, commands, and UI flows.
+ *
+ * This class acts as the entry point and central controller for the movie ticket booking system.
+ * It initializes and manages all core modules, handles user/admin interactions, and orchestrates
+ * the application's business logic and user interface.
+ */
 class App {
 private:
     const std::string INIT_DB_SCRIPT = "init_db.sql";
@@ -53,19 +80,77 @@ private:
     RoomManageCommand room_manage_commnand;
     TheaterManageCommand theater_manage_commnand;
 public:
+    /**
+     * @brief Constructs the App object and initializes all core components.
+     */
     App();
+
+    /**
+     * @brief Destructor for App, cleans up resources.
+     */
     ~App();
+
+    /**
+     * @brief Displays the start menu and handles initial user choices.
+     */
     void displayStartMenu();
+
+    /**
+     * @brief Handles user registration via console interface.
+     */
     void handleRegister();
+
+    /**
+     * @brief Handles user registration via GUI.
+     * @param user The user information to register.
+     * @param parent The parent wxWindow for the dialog.
+     */
     void handleRegisterUI(const User& user, wxWindow* parent);
+
+    /**
+     * @brief Handles user login via console interface.
+     */
     void handleLogin();
+
+    /**
+     * @brief Handles user login via GUI.
+     * @param username The username entered.
+     * @param password The password entered.
+     * @param parent The parent wxWindow for the dialog.
+     */
     void handleLoginUI(const std::string& username, const std::string& password, wxWindow* parent);
+
+    /**
+     * @brief Handles application exit and cleanup.
+     */
     void handleExit();
+
+    /**
+     * @brief Displays and manages the user menu (console).
+     */
     void handleUserMenu();
+
+    /**
+     * @brief Displays and manages the admin menu (console).
+     */
     void handleAdminMenu();
+
+    /**
+     * @brief Displays and manages the admin menu (GUI).
+     * @param parent The parent wxWindow for the dialog.
+     */
     void handleAdminMenuUI(wxWindow* parent);
+
+    /**
+     * @brief Displays and manages the user menu (GUI).
+     * @param parent The parent wxWindow for the dialog.
+     */
     void handleUserMenuUI(wxWindow* parent);
 
+    /**
+     * @brief Runs the main application loop.
+     * @return Exit code.
+     */
     int run();
     
 };
